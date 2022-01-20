@@ -1,0 +1,47 @@
+# baseURI: http://purl.org/ub/examples/dulmapping
+# imports: http://purl.org/ub/upper/
+# imports: http://purl.org/ub/upper/3d/
+# imports: http://www.ontologydesignpatterns.org/ont/dul/DUL.owl
+
+@prefix : <http://purl.org/ub/examples/dulmapping#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/ub/upper/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/ub/examples/dulmapping>
+  rdf:type owl:Ontology ;
+  rdfs:comment "Only owl:Classes are mapped."^^xsd:string ;
+  rdfs:comment "Proof of Concept Ontology to Show Mappings Between UoB Cross-domain Ontology and DOLCE Ultra Lite"^^xsd:string ;
+  owl:imports <http://purl.org/ub/upper/> ;
+  owl:imports p3d: ;
+  owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+<http://purl.org/ub/upper/Agent>
+  owl:sameAs dul:Agent ;
+.
+<http://purl.org/ub/upper/DependentThing>
+  rdfs:subClassOf dul:Entity ;
+  owl:sameAs dul:Quality ;
+.
+<http://purl.org/ub/upper/Event>
+  owl:sameAs dul:Event ;
+.
+<http://purl.org/ub/upper/IndependentThing>
+  rdfs:subClassOf dul:Entity ;
+.
+<http://purl.org/ub/upper/InformationThing>
+  owl:sameAs dul:InformationObject ;
+.
+<http://purl.org/ub/upper/NonSpatialThing>
+  owl:sameAs dul:SocialObject ;
+.
+<http://purl.org/ub/upper/Place>
+  owl:sameAs dul:PhysicalPlace ;
+.
+<http://purl.org/ub/upper/SpatialThing>
+  owl:sameAs dul:PhysicalObject ;
+.

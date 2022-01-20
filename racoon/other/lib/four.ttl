@@ -1,0 +1,29 @@
+# baseURI: http://purl.org/ub/fourd/
+# imports: http://www.w3.org/2006/time
+
+@prefix :        <http://purl.org/ub/fourd/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+:     rdf:type owl:Ontology ;
+      owl:imports <http://www.w3.org/2006/time> .
+
+:SpacioTemporalThing
+      rdf:type owl:Class ;
+      rdfs:comment "Follows 4D Fluents Philosophy, a simplified version of the ISO 15926 approach"@en , "a.k.a. TimeSlice (Following Welty/Fikes)"@en ;
+      rdfs:label "Spacio Temporal Thing"@en ;
+      rdfs:subClassOf owl:Thing .
+
+:time
+      rdf:type owl:ObjectProperty .
+
+:timeslice
+      rdf:type owl:ObjectProperty .
+
+:timesliceOf
+      rdf:type owl:ObjectProperty ;
+      owl:inverseOf :timeslice .

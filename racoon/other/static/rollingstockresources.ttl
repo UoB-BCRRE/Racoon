@@ -1,0 +1,58 @@
+# baseURI: http://purl.org/rail/resource/
+# imports: http://amaas-siemens.com/ontology/
+# imports: http://amaas-siemens.com/resource/
+
+@prefix : <http://purl.org/rail/resource/> .
+@prefix ontology: <http://amaas-siemens.com/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rs: <http://purl.org/rail/rs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports ontology: ;
+  owl:imports <http://amaas-siemens.com/resource/> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:LM286600
+  rdf:type rs:Class350Set ;
+  rdf:type rs:EMU ;
+  rdfs:label "LM286600"^^xsd:string ;
+.
+:VT518000
+  rdf:type rs:Class390Set ;
+  rdf:type rs:EMU ;
+  rs:comprisesVehicle :Vehicle39065301 ;
+  rs:comprisesVehicle :Vehicle39068801 ;
+  rs:comprisesVehicle :Vehicle39068901 ;
+  rs:comprisesVehicle :Vehicle39069101 ;
+  rs:comprisesVehicle :Vehicle39069201 ;
+  rs:comprisesVehicle :Vehicle39069401 ;
+  rs:comprisesVehicle :Vehicle39069501 ;
+  rs:comprisesVehicle :Vehicle39069601 ;
+  rs:comprisesVehicle :Vehicle39069701 ;
+  rs:comprisesVehicle :Vehicle39069801 ;
+  rs:comprisesVehicle :Vehicle39069901 ;
+  rdfs:label "VT518000"^^xsd:string ;
+.
+:VT572000
+  rdf:type rs:Class390Set ;
+  rdf:type rs:EMU ;
+  rdfs:label "VT572000"^^xsd:string ;
+.
+rs:Class350Set
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue 16 ;
+      owl:onProperty rs:axles ;
+    ] ;
+.
+rs:Class390Set
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue 44 ;
+      owl:onProperty rs:axles ;
+    ] ;
+.

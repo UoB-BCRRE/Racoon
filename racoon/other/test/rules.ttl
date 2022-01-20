@@ -1,0 +1,16 @@
+@prefix rule: <tag:stardog:api:rule:> .
+[] a rule:SPARQLRule ;
+  rule:content """
+    PREFIX :<http://example.org/statetoy/> 
+    PREFIX fn:<http://www.w3.org/2005/xpath-functions#> 
+      IF {
+              ?r a :Asset . 
+              ?r :measurement ?m .
+              ?m :startTime ?t .
+              ?m a :Measurement .
+              BIND(max(?t) AS ?max)
+          }
+      THEN {
+              ?r :startTime ?t .
+              ?r :maxTime ?max
+          }""" .

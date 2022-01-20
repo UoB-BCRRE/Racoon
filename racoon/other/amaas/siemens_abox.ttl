@@ -1,0 +1,48 @@
+# baseURI: file:/Users/Jon/Dropbox/PhD/Ontologies/rail/amaas/siemens_abox.ttl
+
+@prefix amaas: <http://amaas-siemens.com/ontology/> .
+@prefix amres: <http://amaas-siemens.com/resource/> .
+@prefix core: <http://purl.org/rail/core/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tzont: <http://www.w3.org/2006/timezone#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix wgspos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:/Users/Jon/Dropbox/PhD/Ontologies/rail/amaas/siemens_abox.ttl>
+  rdfs:comment "Siemens-specific Triples for AMaaS"@en ;
+.
+amaas:profile
+  amaas:HasViewModel "AmaasProfileViewModel" ;
+.
+<http://amaas-siemens.com/resource/6ca4acb87b5f4f28a63f5c871a17f4a9>
+  amaas:HasViewModel "AmaasEntityListViewModel" ;
+  rdfs:label "Amaas" ;
+.
+amres:COVPoint1
+  rdf:type vocab:Points ;
+.
+amres:COVPoint2
+  rdf:type vocab:Points ;
+.
+amres:COVPoint3
+  rdf:type vocab:Points ;
+.
+amres:COVPoint4
+  rdf:type vocab:Points ;
+.

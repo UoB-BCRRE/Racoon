@@ -1,0 +1,325 @@
+# baseURI: http://purl.org/rail/rs/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+# imports: http://purl.org/ub/upper/
+# prefix: rs
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rcn: <http://purl.org/rail/core/vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rs: <http://purl.org/rail/rs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rs:
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/ub/upper/> ;
+  rdfs:label "Rolling Stock"@en ; 
+.
+
+<http://purl.org/rail/resource/Class390653Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate trailer: standard class open"^^xsd:string ;
+  rdfs:label "TS"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "U"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390688Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate trailer: standard class open"^^xsd:string ;
+  rdfs:label "TS"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "E"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390689Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate motor: standard class open"^^xsd:string ;
+  rdfs:label "MS"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "F"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390691Type>
+  rdf:type owl:Class ;
+  dc:description "Driving motor: first class open with kitchen"^^xsd:string ;
+  rdfs:label "DMRF"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:FirstClassFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "K"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390692Type>
+  rdf:type owl:Class ;
+  dc:description "Driving motor: Quiet Zone standard class open (with cycle storage)"^^xsd:string ;
+  rdfs:label "DMSO"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "A"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390694Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate motor: first class open (with disabled seating)"^^xsd:string ;
+  rdfs:label "MF"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:DisabledToiletFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:FirstClassFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "J"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390695Type>
+  rdf:type owl:Class ;
+  dc:description "Quiet Zone Intermediate trailer with pantograph: first class open"^^xsd:string ;
+  rdfs:label "PTF"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:FirstClassFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "H"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390696Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate motor: first class open"^^xsd:string ;
+  rdfs:label "MF"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:FirstClassFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "G"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390697Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate motor: standard class open (with disabled seating)"^^xsd:string ;
+  rdfs:label "MS"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:DisabledToiletFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "D"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390698Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate trailer with pantograph: standard class with shop/buffet"^^xsd:string ;
+  rdfs:label "PTSRMB"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "C"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+<http://purl.org/rail/resource/Class390699Type>
+  rdf:type owl:Class ;
+  dc:description "Intermediate motor: standard class open (with disabled seating)"^^xsd:string ;
+  rdfs:label "MS"^^xsd:string ;
+  rdfs:subClassOf rs:Class390 ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue rs:DisabledToiletFacility ;
+      owl:onProperty <http://purl.org/ub/upper/capability> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "B"^^xsd:string ;
+      owl:onProperty rs:vehicleLetter ;
+    ] ;
+.
+rs:
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports rcn: ;
+  owl:imports <http://purl.org/ub/upper/> ;
+.
+rs:Class221
+  rdf:type owl:Class ;
+  rdfs:label "Class221"^^xsd:string ;
+  rdfs:subClassOf rs:ClassedVehicle ;
+.
+rs:Class321
+  rdf:type owl:Class ;
+  rdfs:label "Class321"^^xsd:string ;
+  rdfs:subClassOf rs:ClassedVehicle ;
+.
+rs:Class3501
+  rdf:type owl:Class ;
+  rdfs:label "Class3501"^^xsd:string ;
+  rdfs:subClassOf rs:ClassedVehicle ;
+.
+rs:Class3502
+  rdf:type owl:Class ;
+  rdfs:label "Class3502"^^xsd:string ;
+  rdfs:subClassOf rs:ClassedVehicle ;
+.
+rs:Class350Set
+  rdf:type owl:Class ;
+  rdfs:label "Class350Set"^^xsd:string ;
+  rdfs:subClassOf rs:TrainSet ;
+.
+rs:Class390
+  rdf:type owl:Class ;
+  rdfs:label "Class390"^^xsd:string ;
+  rdfs:subClassOf rs:ClassedVehicle ;
+.
+rs:Class390Set
+  rdf:type owl:Class ;
+  rdfs:label "Class390Set"^^xsd:string ;
+  rdfs:subClassOf rs:TrainSet ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom rs:Class390 ;
+      owl:onProperty rs:comprisesVehicle ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty rs:comprisesVehicle ;
+      owl:someValuesFrom rs:Class390 ;
+    ] ;
+.
+rs:ClassedVehicle
+  rdf:type owl:Class ;
+  rdfs:label "Vehicle class"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/RailwayVehicle> ;
+.
+rs:DMU
+  rdf:type owl:Class ;
+  rdfs:label "DMU"^^xsd:string ;
+  rdfs:subClassOf rs:TractionVehicle ;
+.
+rs:DisabledToiletFacility
+  rdf:type rcn:RSCapability ;
+  rdfs:label "Disabled toilet capability"^^xsd:string ;
+.
+rs:EMU
+  rdf:type owl:Class ;
+  rdfs:label "EMU"^^xsd:string ;
+  rdfs:subClassOf rs:TractionVehicle ;
+.
+rs:FirstClassFacility
+  rdf:type rcn:RSCapability ;
+  rdfs:label "First class seating capability"^^xsd:string ;
+.
+rs:Locomotive
+  rdf:type owl:Class ;
+  rdfs:label "Locomotive"^^xsd:string ;
+  rdfs:subClassOf rs:TractionVehicle ;
+.
+rs:PowerType
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Power type"^^xsd:string ;
+.
+rs:ToiletFacility
+  rdf:type rcn:RSCapability ;
+  rdfs:label "Toilet facility"^^xsd:string ;
+.
+rs:TractionVehicle
+  rdf:type owl:Class ;
+  rdfs:label "Traction vehicle"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/RailwayVehicle> ;
+.
+rs:TrainSet
+  rdf:type owl:Class ;
+  rdfs:comment "A train set made from several vehicles"^^xsd:string ;
+  rdfs:comment "u:comprises other things"^^xsd:string ;
+  rdfs:label "Train consist"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/RailwayVehicle> ;
+.
+rs:TypedVehicle
+  rdf:type owl:Class ;
+  rdfs:label "Typed vehicle"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/RailwayVehicle> ;
+.
+rs:UnpoweredVehicle
+  rdf:type owl:Class ;
+  rdfs:label "Unpowered vehicle"^^xsd:string ;
+  rdfs:subClassOf rs:TractionVehicle ;
+  owl:disjointWith rs:DMU ;
+  owl:disjointWith rs:EMU ;
+  owl:disjointWith rs:Locomotive ;
+.
+rs:carriages
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "carriages"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+rs:comprisesVehicle
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "comprises vehicle"^^xsd:string ;
+  rdfs:subPropertyOf <http://purl.org/ub/upper/comprises> ;
+.
+rs:headCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain rcn:TrainFormation ;
+  rdfs:range xsd:string ;
+.
+rs:lastMaintained
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "last maintained"^^xsd:string ;
+  rdfs:range xsd:dateTime ;
+.
+rs:speed
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "speed"^^xsd:string ;
+.
+[
+  rdf:type owl:AllDifferent ;
+  owl:members (
+      rs:Class3501
+      rs:Class3502
+      rs:Class321
+      rs:Class221
+      rs:Class390
+    ) ;
+].

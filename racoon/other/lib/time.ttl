@@ -1,0 +1,207 @@
+# baseURI: http://www.w3.org/2006/time
+
+@prefix : <http://www.w3.org/2006/time#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tzont: <http://www.w3.org/2006/timezone#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.w3.org/2006/time>
+  rdf:type owl:Ontology ;
+  rdfs:comment """
+      An OWL Ontology of Time (OWL-Time).
+    """ ;
+  rdfs:seeAlso <http://www.w3.org/TR/owl-time> ;
+.
+time:after
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:before ;
+.
+time:before
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:day
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:int ;
+.
+time:dayOfWeek
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:dayOfYear
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:nonNegativeInteger ;
+.
+time:days
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:hasBeginning
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:hasDateTimeDescription
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:hasDurationDescription
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:hasEnd
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:hour
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:nonNegativeInteger ;
+.
+time:hours
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:inDateTime
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:inXSDDateTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:dateTime ;
+.
+time:inside
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:intervalAfter
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:intervalBefore ;
+.
+time:intervalBefore
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:subPropertyOf time:before ;
+.
+time:intervalContains
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:intervalDuring ;
+.
+time:intervalDuring
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:intervalEquals
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:intervalFinishedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:intervalFinishes ;
+.
+time:intervalFinishes
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:intervalMeets
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:intervalMetBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:intervalMeets ;
+.
+time:intervalOverlappedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:intervalOverlaps ;
+.
+time:intervalOverlaps
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:intervalStartedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  owl:inverseOf time:intervalStarts ;
+.
+time:intervalStarts
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:minute
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:nonNegativeInteger ;
+.
+time:minutes
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:month
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:int ;
+.
+time:months
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:second
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:seconds
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:timeZone
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:unitType
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+.
+time:week
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:nonNegativeInteger ;
+.
+time:weeks
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.
+time:xsdDateTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:dateTime ;
+.
+time:year
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:int ;
+.
+time:years
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://ww.w3.org/2006/time> ;
+  rdfs:range xsd:decimal ;
+.

@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://thalesgroup.com/RTTI/PushPortStatus/root_1/"
+     xml:base="http://thalesgroup.com/RTTI/PushPortStatus/root_1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorCodeType -->
+
+    <rdfs:Datatype rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorCodeType">
+        <rdfs:comment>Error Code Type</rdfs:comment>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minLength>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</xsd:maxLength>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorMsgType -->
+
+    <rdfs:Datatype rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorMsgType">
+        <rdfs:comment>Error Message Type</rdfs:comment>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:maxLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</xsd:maxLength>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/code -->
+
+    <owl:DatatypeProperty rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/code">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/StatusType"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorCodeType"/>
+                    <rdf:Description rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorMsgType"/>
+                </owl:intersectionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>Status Code Type</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/ttrefversion -->
+
+    <owl:DatatypeProperty rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ttrefversion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPReqVersion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:maxLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:maxLength>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>The namespace of the Push Port Timetable Reference data schema supported by the client.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/ttversion -->
+
+    <owl:DatatypeProperty rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ttversion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPReqVersion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:maxLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:maxLength>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>The namespace of the Push Port Timetable schema supported by the client.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/version -->
+
+    <owl:DatatypeProperty rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/version">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPReqVersion"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:maxLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:maxLength>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>The namespace of the Push Port data schema supported by the client.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+        <rdfs:comment>The namespace of the Push Port data schema supported by the client.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPConnect -->
+
+    <owl:Class rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPConnect">
+        <rdfs:comment>Signal end of the setup phase and switch to use the requested PP data schema</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPReqVersion -->
+
+    <owl:Class rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPReqVersion">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ttrefversion"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minLength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</xsd:minLength>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ttversion"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minLength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</xsd:minLength>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/version"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minLength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</xsd:minLength>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Request the schema versions required by the client</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPStatus -->
+
+    <owl:Class rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/PPStatus">
+        <rdfs:subClassOf rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/StatusType"/>
+        <rdfs:comment>Setup phase status/heartbeat response</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://thalesgroup.com/RTTI/PushPortStatus/root_1/StatusType -->
+
+    <owl:Class rdf:about="http://thalesgroup.com/RTTI/PushPortStatus/root_1/StatusType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/code"/>
+                <owl:someValuesFrom rdf:resource="http://thalesgroup.com/RTTI/PushPortStatus/root_1/ErrorCodeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Status Code Type</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

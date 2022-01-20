@@ -1,0 +1,908 @@
+# baseURI: http://purl.org/ub/demo/bags/
+# A set of track circuits on the BAG1 line
+
+@prefix :      <http://purl.org/rail/resource/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1:   <http://purl.org/rail/resource/> .
+@prefix is:    <http://purl.org/rail/is/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ns1:TC83  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBNWDJN2 ;
+        is:minLocation  ns1:TCLocationBNWDJN1 .
+
+ns1:TC62  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCHRC2 ;
+        is:minLocation  ns1:TCLocationASHCHRC1 .
+
+ns1:TC41  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBLACKWL2 ;
+        is:minLocation  ns1:TCLocationBLACKWL1 .
+
+ns1:TC20  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNOROTP2 ;
+        is:minLocation  ns1:TCLocationKNOROTP1 .
+
+ns1:TCLocationBHAMNHS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "42.95"^^xsd:double ;
+        wgs84:lat   "52.47"^^xsd:double ;
+        wgs84:long  "-1.906666667"^^xsd:double .
+
+ns1:TiplocCHLTNHM
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationCOFTONS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "50.87666667"^^xsd:double ;
+        wgs84:lat   "52.36666667"^^xsd:double ;
+        wgs84:long  "-1.983333333"^^xsd:double .
+
+ns1:TC70  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTALC1 ;
+        is:minLocation  ns1:TCLocationCHLTALC .
+
+ns1:TC49  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL1 ;
+        is:minLocation  ns1:TCLocationSPTCHLL .
+
+ns1:TCLocationLONB2  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "49.31"^^xsd:double ;
+        wgs84:lat   "52.39"^^xsd:double ;
+        wgs84:long  "-1.976666667"^^xsd:double .
+
+ns1:TCLocationECKNGTL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "77.83666667"^^xsd:double ;
+        wgs84:lat   "52.02"^^xsd:double ;
+        wgs84:long  "-2.103333333"^^xsd:double .
+
+ns1:TC28  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONB1 ;
+        is:minLocation  ns1:TCLocationLONB .
+
+ns1:TC3  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationFIVEWYS ;
+        is:minLocation  ns1:TCLocationBHAMNHS2 .
+
+ns1:TCLocationSELYOAK2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "46.34"^^xsd:double ;
+        wgs84:lat   "52.42666667"^^xsd:double ;
+        wgs84:long  "-1.923333333"^^xsd:double .
+
+ns1:TiplocASHCHRC
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationLONBRS  a  is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationUNVRSYB2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "45.38333333"^^xsd:double ;
+        wgs84:lat   "52.44333333"^^xsd:double ;
+        wgs84:long  "-1.93"^^xsd:double .
+
+ns1:TC78  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTLDL ;
+        is:minLocation  ns1:TCLocationCHLTNHM2 .
+
+ns1:TC57  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCMOD ;
+        is:minLocation  ns1:TCLocationECKNGTL2 .
+
+ns1:TC36  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBGRN ;
+        is:minLocation  ns1:TCLocationCOFTONS2 .
+
+ns1:TCLocationLONBRS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "49.72"^^xsd:double ;
+        wgs84:lat   "52.38333333"^^xsd:double ;
+        wgs84:long  "-1.98"^^xsd:double .
+
+ns1:TCLocationBGRN1  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "52.17"^^xsd:double ;
+        wgs84:lat   "52.35333333"^^xsd:double ;
+        wgs84:long  "-1.993333333"^^xsd:double .
+
+ns1:TCLocationKNOROTP2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.24333333"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.926666667"^^xsd:double .
+
+ns1:TC15  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNORCT ;
+        is:minLocation  ns1:TCLocationBOURNVL2 .
+
+ns1:TiplocASHCMOD
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationCHLTLDL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "88.93"^^xsd:double ;
+        wgs84:lat   "51.88"^^xsd:double ;
+        wgs84:long  "-2.136666667"^^xsd:double .
+
+ns1:TC65  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCWGF2 ;
+        is:minLocation  ns1:TCLocationASHCWGF1 .
+
+ns1:TC44  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBRMSGRV2 ;
+        is:minLocation  ns1:TCLocationBRMSGRV1 .
+
+ns1:TC23  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLIFODWJ2 ;
+        is:minLocation  ns1:TCLocationLIFODWJ1 .
+
+ns1:TCLocationKNORCT  a  is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationBRMSGRV1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "56.08"^^xsd:double ;
+        wgs84:lat   "52.31"^^xsd:double ;
+        wgs84:long  "-2.05"^^xsd:double .
+
+ns1:TCLocationLONB  a  is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TiplocBHAMNHS  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "42.45"^^xsd:double ;
+        wgs84:lat   "52.47"^^xsd:double ;
+        wgs84:long  "-1.9"^^xsd:double .
+
+ns1:TCLocationCHLTNHS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.09666667"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TC73  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationALSTONS1 ;
+        is:minLocation  ns1:TCLocationALSTONS .
+
+ns1:TiplocCHLTALC
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationASHCHRC2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.65666667"^^xsd:double ;
+        wgs84:lat   "51.99"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TC52  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL1 ;
+        is:minLocation  ns1:TCLocationSPTCHLL .
+
+ns1:TC31  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONBRS1 ;
+        is:minLocation  ns1:TCLocationLONBRS .
+
+ns1:TCLocationBLACKWL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "53.69"^^xsd:double ;
+        wgs84:lat   "52.33333333"^^xsd:double ;
+        wgs84:long  "-2.013333333"^^xsd:double .
+
+ns1:TC10  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSELYOAK1 ;
+        is:minLocation  ns1:TCLocationSELYOAK .
+
+ns1:TC6  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationUNVRSYB ;
+        is:minLocation  ns1:TCLocationFIVEWYS2 .
+
+ns1:TCLocationFIVEWYS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "43.77"^^xsd:double ;
+        wgs84:lat   "52.46333333"^^xsd:double ;
+        wgs84:long  "-1.916666667"^^xsd:double .
+
+ns1:TC81  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBNWDJN ;
+        is:minLocation  ns1:TCLocationCHLTLDL2 .
+
+ns1:TCLocationSTKWKSJ2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "63.34"^^xsd:double ;
+        wgs84:lat   "52.21"^^xsd:double ;
+        wgs84:long  "-2.116666667"^^xsd:double .
+
+ns1:TiplocCOFTONS
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC60  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCHRC ;
+        is:minLocation  ns1:TCLocationASHCMOD2 .
+
+ns1:TC39  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBLACKWL ;
+        is:minLocation  ns1:TCLocationBGRN2 .
+
+ns1:TCLocationASHCWGF1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "81.84"^^xsd:double ;
+        wgs84:lat   "51.96"^^xsd:double ;
+        wgs84:long  "-2.096666667"^^xsd:double .
+
+ns1:TC18  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNOROTP ;
+        is:minLocation  ns1:TCLocationKNORCT2 .
+
+ns1:TCLocationALSTONS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.61333333"^^xsd:double ;
+        wgs84:lat   "51.89333333"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationSPTCHLL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "66.26"^^xsd:double , "69.13666667"^^xsd:double ;
+        wgs84:lat   "52.17333333"^^xsd:double , "52.14"^^xsd:double ;
+        wgs84:long  "-2.14"^^xsd:double , "-2.13"^^xsd:double .
+
+ns1:TCLocationASHCMOD1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.36333333"^^xsd:double ;
+        wgs84:lat   "51.99666667"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TCLocationNRTF1  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "48.49"^^xsd:double ;
+        wgs84:lat   "52.39666667"^^xsd:double ;
+        wgs84:long  "-1.963333333"^^xsd:double .
+
+ns1:TC68  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHS2 ;
+        is:minLocation  ns1:TCLocationCHLTNHS1 .
+
+ns1:TC47  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSTKWKSJ2 ;
+        is:minLocation  ns1:TCLocationSTKWKSJ1 .
+
+ns1:TC26  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationNRTF2 ;
+        is:minLocation  ns1:TCLocationNRTF1 .
+
+ns1:TCLocationBNWDJN1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "92.32333333"^^xsd:double ;
+        wgs84:lat   "51.86"^^xsd:double ;
+        wgs84:long  "-2.213333333"^^xsd:double .
+
+ns1:TC1  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBHAMNHS1 ;
+        is:minLocation  ns1:TiplocBHAMNHS .
+
+ns1:TiplocCHLTNHS
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC76  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHM1 ;
+        is:minLocation  ns1:TCLocationCHLTNHM .
+
+ns1:TiplocSTKWKSJ
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC55  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationECKNGTL1 ;
+        is:minLocation  ns1:TCLocationECKNGTL .
+
+ns1:TCLocationCHLTNHM1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.91"^^xsd:double ;
+        wgs84:lat   "51.89"^^xsd:double ;
+        wgs84:long  "-2.093333333"^^xsd:double .
+
+ns1:TC34  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCOFTONS1 ;
+        is:minLocation  ns1:TCLocationCOFTONS .
+
+ns1:TC13  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBOURNVL1 ;
+        is:minLocation  ns1:TCLocationBOURNVL .
+
+ns1:TC9  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSELYOAK ;
+        is:minLocation  ns1:TCLocationUNVRSYB2 .
+
+ns1:TCLocationLIFODWJ1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.55"^^xsd:double ;
+        wgs84:lat   "52.40666667"^^xsd:double ;
+        wgs84:long  "-1.933333333"^^xsd:double .
+
+ns1:TCLocationBNWDJN  a  is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC84  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:0 ;
+        is:minLocation  ns1:TCLocationBNWDJN2 .
+
+ns1:TC63  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCWGF ;
+        is:minLocation  ns1:TCLocationASHCHRC2 .
+
+ns1:TC42  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBRMSGRV ;
+        is:minLocation  ns1:TCLocationBLACKWL2 .
+
+ns1:TiplocCHLTLDL
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC21  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLIFODWJ ;
+        is:minLocation  ns1:TCLocationKNOROTP2 .
+
+ns1:TCLocationCHLTALC1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.3"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationKNORCT1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.14333333"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.94"^^xsd:double .
+
+ns1:TCLocationCOFTONS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "51.35333333"^^xsd:double ;
+        wgs84:lat   "52.36333333"^^xsd:double ;
+        wgs84:long  "-1.986666667"^^xsd:double .
+
+ns1:TC71  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTALC2 ;
+        is:minLocation  ns1:TCLocationCHLTALC1 .
+
+ns1:TC50  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL2 ;
+        is:minLocation  ns1:TCLocationSPTCHLL1 .
+
+ns1:TCLocationBOURNVL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "46.83333333"^^xsd:double ;
+        wgs84:lat   "52.41666667"^^xsd:double ;
+        wgs84:long  "-1.926666667"^^xsd:double .
+
+ns1:TC29  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONB2 ;
+        is:minLocation  ns1:TCLocationLONB1 .
+
+ns1:TC4  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationFIVEWYS1 ;
+        is:minLocation  ns1:TCLocationFIVEWYS .
+
+ns1:TC79  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTLDL1 ;
+        is:minLocation  ns1:TCLocationCHLTLDL .
+
+ns1:TiplocKNOROTP
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC58  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCMOD1 ;
+        is:minLocation  ns1:TCLocationASHCMOD .
+
+ns1:TCLocationLONBRS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "50.06"^^xsd:double ;
+        wgs84:lat   "52.37666667"^^xsd:double ;
+        wgs84:long  "-1.98"^^xsd:double .
+
+ns1:TC37  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBGRN1 ;
+        is:minLocation  ns1:TCLocationBGRN .
+
+ns1:TCLocationBGRN2  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "52.51"^^xsd:double ;
+        wgs84:lat   "52.34666667"^^xsd:double ;
+        wgs84:long  "-1.996666667"^^xsd:double .
+
+ns1:TC16  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNORCT1 ;
+        is:minLocation  ns1:TCLocationKNORCT .
+
+ns1:TCLocationCHLTLDL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "90.57"^^xsd:double ;
+        wgs84:lat   "51.87"^^xsd:double ;
+        wgs84:long  "-2.173333333"^^xsd:double .
+
+ns1:TC66  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHS ;
+        is:minLocation  ns1:TCLocationASHCWGF2 .
+
+ns1:TC45  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSTKWKSJ ;
+        is:minLocation  ns1:TCLocationBRMSGRV2 .
+
+ns1:TC24  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationNRTF ;
+        is:minLocation  ns1:TCLocationLIFODWJ2 .
+
+ns1:TCLocationBRMSGRV2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "56.79"^^xsd:double ;
+        wgs84:lat   "52.3"^^xsd:double ;
+        wgs84:long  "-2.06"^^xsd:double .
+
+ns1:TiplocECKNGTL
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationCHLTNHS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.17333333"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TC74  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationALSTONS2 ;
+        is:minLocation  ns1:TCLocationALSTONS1 .
+
+ns1:TC53  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL2 ;
+        is:minLocation  ns1:TCLocationSPTCHLL1 .
+
+ns1:TC32  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONBRS2 ;
+        is:minLocation  ns1:TCLocationLONBRS1 .
+
+ns1:TCLocationBLACKWL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "54.53"^^xsd:double ;
+        wgs84:lat   "52.32666667"^^xsd:double ;
+        wgs84:long  "-2.026666667"^^xsd:double .
+
+ns1:TC11  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSELYOAK2 ;
+        is:minLocation  ns1:TCLocationSELYOAK1 .
+
+ns1:TC7  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationUNVRSYB1 ;
+        is:minLocation  ns1:TCLocationUNVRSYB .
+
+ns1:TCLocationFIVEWYS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "44.34"^^xsd:double ;
+        wgs84:lat   "52.45666667"^^xsd:double ;
+        wgs84:long  "-1.923333333"^^xsd:double .
+
+ns1:TC82  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBNWDJN1 ;
+        is:minLocation  ns1:TCLocationBNWDJN .
+
+ns1:TC61  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCHRC1 ;
+        is:minLocation  ns1:TCLocationASHCHRC .
+
+ns1:TC40  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBLACKWL1 ;
+        is:minLocation  ns1:TCLocationBLACKWL .
+
+ns1:TCLocationASHCWGF2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "83.93"^^xsd:double ;
+        wgs84:lat   "51.93"^^xsd:double ;
+        wgs84:long  "-2.093333333"^^xsd:double .
+
+ns1:TC19  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNOROTP1 ;
+        is:minLocation  ns1:TCLocationKNOROTP .
+
+ns1:TiplocBLACKWL
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationASHCMOD2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.41666667"^^xsd:double ;
+        wgs84:lat   "51.99333333"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TiplocASHCWGF
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TiplocSELYOAK
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationBHAMNHS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "42.7"^^xsd:double ;
+        wgs84:lat   "52.47"^^xsd:double ;
+        wgs84:long  "-1.903333333"^^xsd:double .
+
+ns1:TCLocationSPTCHLL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "66.26"^^xsd:double , "72.01333333"^^xsd:double ;
+        wgs84:lat   "52.17666667"^^xsd:double , "52.1"^^xsd:double ;
+        wgs84:long  "-2.14"^^xsd:double , "-2.12"^^xsd:double .
+
+ns1:TCLocationNRTF2  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "48.83"^^xsd:double ;
+        wgs84:lat   "52.39333333"^^xsd:double ;
+        wgs84:long  "-1.966666667"^^xsd:double .
+
+ns1:TC69  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTALC ;
+        is:minLocation  ns1:TCLocationCHLTNHS2 .
+
+ns1:TCLocationLONB1  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "49.24"^^xsd:double ;
+        wgs84:lat   "52.39"^^xsd:double ;
+        wgs84:long  "-1.973333333"^^xsd:double .
+
+ns1:TC48  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL ;
+        is:minLocation  ns1:TCLocationSTKWKSJ2 .
+
+ns1:TCLocationECKNGTL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "76.36333333"^^xsd:double ;
+        wgs84:lat   "52.04"^^xsd:double ;
+        wgs84:long  "-2.106666667"^^xsd:double .
+
+ns1:TC27  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONB ;
+        is:minLocation  ns1:TCLocationNRTF2 .
+
+ns1:TCLocationBNWDJN2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "92.43666667"^^xsd:double ;
+        wgs84:lat   "51.86"^^xsd:double ;
+        wgs84:long  "-2.216666667"^^xsd:double .
+
+ns1:TC2  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBHAMNHS2 ;
+        is:minLocation  ns1:TCLocationBHAMNHS1 .
+
+ns1:TCLocationSELYOAK1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "45.98"^^xsd:double ;
+        wgs84:lat   "52.43333333"^^xsd:double ;
+        wgs84:long  "-1.926666667"^^xsd:double .
+
+ns1:TiplocLIFODWJ
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationUNVRSYB1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "45.14666667"^^xsd:double ;
+        wgs84:lat   "52.44666667"^^xsd:double ;
+        wgs84:long  "-1.93"^^xsd:double .
+
+ns1:TC77  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHM2 ;
+        is:minLocation  ns1:TCLocationCHLTNHM1 .
+
+ns1:TiplocBRMSGRV
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC56  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationECKNGTL2 ;
+        is:minLocation  ns1:TCLocationECKNGTL1 .
+
+ns1:TCLocationCHLTNHM2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "87.1"^^xsd:double ;
+        wgs84:lat   "51.89"^^xsd:double ;
+        wgs84:long  "-2.096666667"^^xsd:double .
+
+ns1:TC35  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCOFTONS2 ;
+        is:minLocation  ns1:TCLocationCOFTONS1 .
+
+ns1:TCLocationKNOROTP1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.23666667"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.933333333"^^xsd:double .
+
+ns1:TC14  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBOURNVL2 ;
+        is:minLocation  ns1:TCLocationBOURNVL1 .
+
+ns1:TCLocationLIFODWJ2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.85"^^xsd:double ;
+        wgs84:lat   "52.40333333"^^xsd:double ;
+        wgs84:long  "-1.946666667"^^xsd:double .
+
+ns1:TC64  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCWGF1 ;
+        is:minLocation  ns1:TCLocationASHCWGF .
+
+ns1:TC43  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBRMSGRV1 ;
+        is:minLocation  ns1:TCLocationBRMSGRV .
+
+ns1:TC22  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLIFODWJ1 ;
+        is:minLocation  ns1:TCLocationLIFODWJ .
+
+ns1:TiplocUNVRSYB
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationCHLTALC2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.35"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationKNORCT2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.18666667"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.94"^^xsd:double .
+
+ns1:TiplocFIVEWYS
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC72  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationALSTONS ;
+        is:minLocation  ns1:TCLocationCHLTALC2 .
+
+ns1:TCLocationASHCHRC1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.56333333"^^xsd:double ;
+        wgs84:lat   "51.99"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TiplocSPTCHLL
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TCLocationBGRN  a  is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC51  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL ;
+        is:minLocation  ns1:TCLocationSPTCHLL2 .
+
+ns1:TCLocationBOURNVL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "46.96666667"^^xsd:double ;
+        wgs84:lat   "52.41333333"^^xsd:double ;
+        wgs84:long  "-1.933333333"^^xsd:double .
+
+ns1:TC30  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONBRS ;
+        is:minLocation  ns1:TCLocationLONB2 .
+
+ns1:TC5  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationFIVEWYS2 ;
+        is:minLocation  ns1:TCLocationFIVEWYS1 .
+
+ns1:TC80  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTLDL2 ;
+        is:minLocation  ns1:TCLocationCHLTLDL1 .
+
+ns1:TCLocationSTKWKSJ1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "60.42"^^xsd:double ;
+        wgs84:lat   "52.25"^^xsd:double ;
+        wgs84:long  "-2.093333333"^^xsd:double .
+
+ns1:TC59  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCMOD2 ;
+        is:minLocation  ns1:TCLocationASHCMOD1 .
+
+ns1:TiplocALSTONS
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC38  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBGRN2 ;
+        is:minLocation  ns1:TCLocationBGRN1 .
+
+ns1:TC17  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNORCT2 ;
+        is:minLocation  ns1:TCLocationKNORCT1 .
+
+ns1:TCLocationALSTONS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.50666667"^^xsd:double ;
+        wgs84:lat   "51.89666667"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationNRTF  a  is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC67  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHS1 ;
+        is:minLocation  ns1:TCLocationCHLTNHS .
+
+ns1:TiplocBOURNVL
+        a       is:TrackCircuitLocation ;
+        is:elr  ns1:LineRefBAG1 .
+
+ns1:TC46  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSTKWKSJ1 ;
+        is:minLocation  ns1:TCLocationSTKWKSJ .
+
+ns1:TC25  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationNRTF1 ;
+        is:minLocation  ns1:TCLocationNRTF .
+
+ns1:TC75  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHM ;
+        is:minLocation  ns1:TCLocationALSTONS2 .
+
+ns1:TC54  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationECKNGTL ;
+        is:minLocation  ns1:TCLocationSPTCHLL2 .
+
+ns1:TC33  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCOFTONS ;
+        is:minLocation  ns1:TCLocationLONBRS2 .
+
+ns1:TC12  a             is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBOURNVL ;
+        is:minLocation  ns1:TCLocationSELYOAK2 .
+
+ns1:TC8  a              is:TrackCircuit ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationUNVRSYB2 ;
+        is:minLocation  ns1:TCLocationUNVRSYB1 .

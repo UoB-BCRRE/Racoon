@@ -1,0 +1,14 @@
+[] a rule:SPARQLRule ;
+  rule:content """
+     PREFIX : <http://purl.org/rail/test/minsbetween#>
+IF {
+  ?s :someProperty ?p .
+  ?s :someProperty ?q .
+  :someProperty a owl:ObjectProperty .
+  ?p a ?class1 .
+  ?q a ?class2 .
+  ?class1 :betterThan ?class2 .
+} THEN {
+	?s :bestProp ?p
+}""" ;
+.

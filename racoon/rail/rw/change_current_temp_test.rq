@@ -1,0 +1,7 @@
+with <http://purl.org/rail/xcity/weather>
+
+delete {?b rw:currentTemp ?temp}
+INSERT {?b rw:currentTemp '2.5' }
+where{xcity:TiplocBLACKWL rw:temp ?b.
+?b rw:currentTemp ?temp}
+    

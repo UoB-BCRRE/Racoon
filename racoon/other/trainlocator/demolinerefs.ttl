@@ -1,0 +1,58 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/rail/resource/BlackwellBLACKWLCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/AlstoneLevelCrossingCHLTALCCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/SpetchleyLoopSPTCHLLCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/SellyOakSLYStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/AshchurchWarDeptGFASHCWGFCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/LongbridgeLOBStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/FiveWaysFWYStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/LongbridgeReversingSdgsLONBRSCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/CheltenhamLansdownLoopCHLTLDLCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/AshchurchModArmyASHCMODCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/LiffordWestJnLIFODWJCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/BarntGreenBTGStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/KingsNortonCTKNORCTCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/BromsgroveBMVStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/BirminghamNewStreetHSBHAMNHSCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/AlstoneCSidingsALSTONSStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/UniversityUNIStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/BarnwoodJnBNWDJNCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/AshchurchASCStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/KingsNortonOtPlantDeptKNOROTPCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/BournvilleBRVStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/CheltenhamSpaCNMStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/EckingtonLoopECKNGTLCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/CoftonJnCOFTONSCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/NorthfieldNFDStation> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/CheltenhamHighStretLoopCHLTNHSCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .
+
+<http://purl.org/rail/resource/StokeWorksJnSTKWKSJCallingPoint> <http://purl.org/rail/is/elr> <http://purl.org/rail/resource/LineRefDEMO> , <http://purl.org/rail/resource/LineRefDEMO> .

@@ -1,0 +1,297 @@
+# baseURI: http://purl.org/rail/is/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/ub/upper/
+# prefix: is
+
+@prefix : <http://purl.org/rail/is/> .
+@prefix core: <http://purl.org/rail/core/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+core:NUTS2
+  doc:optionalConstraintAnnotation [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty core:nutsCode ;
+    ] ;
+.
+core:RailwayMileage
+  doc:optionalConstraintAnnotation [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://purl.org/ub/upper/relativeToLocation> ;
+    ] ;
+.
+is:
+  a owl:Ontology ;
+  rdfs:label "Infrastructure module of the ontology"@en ;
+  owl:imports core: ;
+  owl:imports <http://purl.org/ub/upper/> ;
+.
+is:CrsLocation
+  a owl:Class ;
+  rdfs:label "Crs location" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/Location> ;
+.
+is:ListOfStationsSpreadsheet
+  a prov:Entity ;
+  rdfs:label "List of stations spreadsheet" ;
+.
+is:MileageRange
+  a owl:Class ;
+  rdfs:label "Mileage range" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/Location> ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom core:RailwayMileage ;
+      owl:onProperty is:maxLocation ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom core:RailwayMileage ;
+      owl:onProperty is:minLocation ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty is:maxLocation ;
+      owl:someValuesFrom core:RailwayMileage ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty is:minLocation ;
+      owl:someValuesFrom core:RailwayMileage ;
+    ] ;
+.
+is:MilepostLocation
+  a owl:Class ;
+  rdfs:label "Milepost Location" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/Location> ;
+.
+is:ReferenceLine
+  a owl:Class ;
+  rdfs:label "Reference Line" ;
+  rdfs:subClassOf core:RailwayLine ;
+.
+is:StanoxLocation
+  a owl:Class ;
+  rdfs:label "Stanox location" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/Location> ;
+.
+is:TiplocLocation
+  a owl:Class ;
+  rdfs:label "Tiploc location" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/Location> ;
+.
+is:TrackCircuit
+  a owl:Class ;
+  rdfs:label "Track circuit" ;
+  rdfs:subClassOf core:InfrastructureConcept ;
+.
+is:TrackCircuitLocation
+  a owl:Class ;
+  rdfs:comment "The location of a railway track circuit" ;
+  rdfs:label "Track circuit location" ;
+  rdfs:subClassOf is:MileageRange ;
+.
+is:assetID
+  a owl:DatatypeProperty ;
+  rdfs:label "asset ID" ;
+.
+is:axles
+  a owl:DatatypeProperty ;
+  rdfs:label "axles" ;
+  rdfs:range xsd:integer ;
+.
+is:county
+  a owl:DatatypeProperty ;
+  rdfs:comment "County or Unitary Authority" ;
+  rdfs:label "County" ;
+  rdfs:range xsd:string ;
+  prov:wasDerivedFrom is:ListOfStationsSpreadsheet ;
+.
+is:crs
+  a owl:ObjectProperty ;
+  rdfs:label "crs" ;
+  rdfs:range is:CrsLocation ;
+  rdfs:subPropertyOf <http://purl.org/ub/upper/location> ;
+.
+is:district
+  a owl:DatatypeProperty ;
+  rdfs:comment "County or Unitary Authority" ;
+  rdfs:label "District" ;
+  rdfs:range xsd:string ;
+  prov:wasDerivedFrom is:ListOfStationsSpreadsheet ;
+.
+is:district_1
+  a owl:DatatypeProperty ;
+  rdfs:comment "Station Facility Owner	" ;
+  rdfs:label "Station Facility Owner" ;
+  rdfs:range xsd:string ;
+  prov:wasDerivedFrom is:ListOfStationsSpreadsheet ;
+.
+is:elr
+  a owl:ObjectProperty ;
+  rdfs:label "elr" ;
+  rdfs:range core:ELR ;
+.
+is:endYards
+  a owl:DatatypeProperty ;
+  rdfs:label "end yards" ;
+.
+is:end_mileage
+  a owl:DatatypeProperty ;
+  rdfs:label "end mileage" ;
+.
+is:govRegion
+  a owl:DatatypeProperty ;
+  rdfs:comment "Government Office Region (GOR)" ;
+  rdfs:label "location string" ;
+  rdfs:range xsd:string ;
+  prov:wasDerivedFrom is:ListOfStationsSpreadsheet ;
+.
+is:length
+  a owl:DatatypeProperty ;
+  rdfs:label "length" ;
+.
+is:lengthYards
+  a owl:DatatypeProperty ;
+  rdfs:label "length yards" ;
+.
+is:linkID
+  a owl:DatatypeProperty ;
+  rdfs:label "link ID" ;
+.
+is:locationString
+  a owl:DatatypeProperty ;
+  rdfs:label "location string" ;
+  rdfs:range xsd:string ;
+.
+is:maxLocation
+  a owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "max location" ;
+  rdfs:range <http://purl.org/ub/upper/Location> ;
+  rdfs:subPropertyOf is:nonTransitiveLocation ;
+.
+is:maxSpeed
+  a owl:DatatypeProperty ;
+  rdfs:label "max speed" ;
+.
+is:mileage
+  a owl:DatatypeProperty ;
+  rdfs:label "mileage" ;
+  rdfs:range xsd:decimal ;
+.
+is:minLocation
+  a owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "min location" ;
+  rdfs:range <http://purl.org/ub/upper/Location> ;
+  rdfs:subPropertyOf is:nonTransitiveLocation ;
+.
+is:mpID
+  a owl:DatatypeProperty ;
+  rdfs:label "milepost ID" ;
+.
+is:nlcCode
+  a owl:DatatypeProperty ;
+  rdfs:comment "UK Rail \"National Location Code\"" ;
+  rdfs:label "nlc code" ;
+  rdfs:seeAlso <http://dbpedia.org/resource/National_Location_Code> ;
+.
+is:nonTransitiveLocation
+  a owl:ObjectProperty ;
+  rdfs:comment "Properties to use in case locations are referenced but not transitive, for example when defining boundary points of existing locations using other locations - we do not want these being inherited by other entities" ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "non transitive location" ;
+  rdfs:range <http://purl.org/ub/upper/Location> ;
+.
+is:nuts2
+  a owl:DatatypeProperty ;
+  rdfs:comment "Nomenclature of Territorial Units for Statistics Object" ;
+  rdfs:label "NUTS2" ;
+  rdfs:range core:NUTS2 ;
+.
+is:nuts2Code
+  a owl:DatatypeProperty ;
+  rdfs:comment "NUTS2 Spatial_UNIT Code	" ;
+  rdfs:label "Nomenclature of Territorial Units for Statistics Code" ;
+  rdfs:range xsd:string ;
+  prov:wasDerivedFrom is:ListOfStationsSpreadsheet ;
+.
+is:nutsRegion
+  a owl:DatatypeProperty ;
+  rdfs:label "nuts region" ;
+  rdfs:range xsd:string ;
+.
+is:objectID
+  a owl:DatatypeProperty ;
+  rdfs:label "object ID" ;
+.
+is:owner
+  a owl:DatatypeProperty ;
+  rdfs:label "owner" ;
+.
+is:stanox
+  a owl:ObjectProperty ;
+  rdfs:label "stanox" ;
+  rdfs:range is:StanoxLocation ;
+  rdfs:subPropertyOf <http://purl.org/ub/upper/location> ;
+.
+is:startYards
+  a owl:DatatypeProperty ;
+  rdfs:label "start yards" ;
+.
+is:start_mileage
+  a owl:DatatypeProperty ;
+  rdfs:label "start mileage" ;
+.
+is:tcPos
+  a owl:ObjectProperty ;
+  rdfs:comment "the position of a track circuit" ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "tc pos" ;
+  rdfs:range is:TrackCircuitLocation ;
+.
+is:tid
+  a owl:DatatypeProperty ;
+  rdfs:label "TID" ;
+.
+is:tiploc
+  a owl:ObjectProperty ;
+  rdfs:label "tiploc" ;
+  rdfs:range is:TiplocLocation ;
+  rdfs:subPropertyOf <http://purl.org/ub/upper/location> ;
+.
+is:tlcCode
+  a owl:DatatypeProperty ;
+  rdfs:comment "Formally \"CRS\" Code" ;
+  rdfs:comment "UK Rail \"Three Letter Code\"" ;
+  rdfs:label "tlc code" ;
+  rdfs:range xsd:string ;
+.
+is:trackCircuit
+  a owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "track circuit" ;
+  rdfs:range is:TrackCircuit ;
+.
+is:trackPriority
+  a owl:ObjectProperty ;
+  rdfs:label "has track priority" ;
+.
+<http://purl.org/ub/upper/Position>
+  a owl:Class ;
+  rdfs:label "Position" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/DataConcept> ;
+.
+<http://purl.org/ub/upper/WGS84Location>
+  a owl:Class ;
+  rdfs:label "WGS84Location" ;
+  rdfs:subClassOf <http://purl.org/ub/upper/Location> ;
+.

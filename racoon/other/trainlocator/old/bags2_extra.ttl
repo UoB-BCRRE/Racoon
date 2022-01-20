@@ -1,0 +1,260 @@
+@prefix : <http://purl.org/rail/resource/> .
+@prefix demo: <http://purl.org/ub/demo/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+:TC1 rdfs:label "Track Circuit 1" ;
+	demo:timing "0.0"^^xsd:double .
+
+:TC2 rdfs:label "Track Circuit 2" ;
+	demo:timing "1.021596073498508"^^xsd:double .
+
+:TC3 rdfs:label "Track Circuit 3" ;
+	demo:timing "2.3434817268451926"^^xsd:double .
+
+:TC4 rdfs:label "Track Circuit 4" ;
+	demo:timing "3.2657910594866393"^^xsd:double .
+
+:TC5 rdfs:label "Track Circuit 5" ;
+	demo:timing "3.603866438131177"^^xsd:double .
+
+:TC6 rdfs:label "Track Circuit 6" ;
+	demo:timing "4.257402717232864"^^xsd:double .
+
+:TC7 rdfs:label "Track Circuit 7" ;
+	demo:timing "5.137791507452502"^^xsd:double .
+
+:TC8 rdfs:label "Track Circuit 8" ;
+	demo:timing "5.788672552680306"^^xsd:double .
+
+:TC9 rdfs:label "Track Circuit 9" ;
+	demo:timing "6.137650423400311"^^xsd:double .
+
+:TC10 rdfs:label "Track Circuit 10" ;
+	demo:timing "7.090309671407394"^^xsd:double .
+
+:TC11 rdfs:label "Track Circuit 11" ;
+	demo:timing "7.874985220253714"^^xsd:double .
+
+:TC12 rdfs:label "Track Circuit 12" ;
+	demo:timing "8.813191970881775"^^xsd:double .
+
+:TC13 rdfs:label "Track Circuit 13" ;
+	demo:timing "9.312453802581047"^^xsd:double .
+
+:TC14 rdfs:label "Track Circuit 14" ;
+	demo:timing "9.93260565815564"^^xsd:double .
+
+:TC15 rdfs:label "Track Circuit 15" ;
+	demo:timing "11.250651037668497"^^xsd:double .
+
+:TC16 rdfs:label "Track Circuit 16" ;
+	demo:timing "11.99788711369357"^^xsd:double .
+
+:TC17 rdfs:label "Track Circuit 17" ;
+	demo:timing "13.2145550339797"^^xsd:double .
+
+:TC18 rdfs:label "Track Circuit 18" ;
+	demo:timing "14.426606707679841"^^xsd:double .
+
+:TC19 rdfs:label "Track Circuit 19" ;
+	demo:timing "15.131160480110667"^^xsd:double .
+
+:TC20 rdfs:label "Track Circuit 20" ;
+	demo:timing "15.616482388676808"^^xsd:double .
+
+:TC21 rdfs:label "Track Circuit 21" ;
+	demo:timing "16.268317081867842"^^xsd:double .
+
+:TC22 rdfs:label "Track Circuit 22" ;
+	demo:timing "17.594089721425085"^^xsd:double .
+
+:TC23 rdfs:label "Track Circuit 23" ;
+	demo:timing "18.199081545716165"^^xsd:double .
+
+:TC24 rdfs:label "Track Circuit 24" ;
+	demo:timing "19.160645367522758"^^xsd:double .
+
+:TC25 rdfs:label "Track Circuit 25" ;
+	demo:timing "19.773699575162105"^^xsd:double .
+
+:TC26 rdfs:label "Track Circuit 26" ;
+	demo:timing "20.88985313885147"^^xsd:double .
+
+:TC27 rdfs:label "Track Circuit 27" ;
+	demo:timing "21.51427221251743"^^xsd:double .
+
+:TC28 rdfs:label "Track Circuit 28" ;
+	demo:timing "22.433200050964548"^^xsd:double .
+
+:TC29 rdfs:label "Track Circuit 29" ;
+	demo:timing "23.368703973832105"^^xsd:double .
+
+:TC30 rdfs:label "Track Circuit 30" ;
+	demo:timing "24.42262741486877"^^xsd:double .
+
+:TC31 rdfs:label "Track Circuit 31" ;
+	demo:timing "25.7192700613348"^^xsd:double .
+
+:TC32 rdfs:label "Track Circuit 32" ;
+	demo:timing "26.947176272293852"^^xsd:double .
+
+:TC33 rdfs:label "Track Circuit 33" ;
+	demo:timing "27.851129817488136"^^xsd:double .
+
+:TC34 rdfs:label "Track Circuit 34" ;
+	demo:timing "29.02782703760201"^^xsd:double .
+
+:TC35 rdfs:label "Track Circuit 35" ;
+	demo:timing "29.65877259241904"^^xsd:double .
+
+:TC36 rdfs:label "Track Circuit 36" ;
+	demo:timing "30.131161177184225"^^xsd:double .
+
+:TC37 rdfs:label "Track Circuit 37" ;
+	demo:timing "30.578484755614113"^^xsd:double .
+
+:TC38 rdfs:label "Track Circuit 38" ;
+	demo:timing "31.1688961610646"^^xsd:double .
+
+:TC39 rdfs:label "Track Circuit 39" ;
+	demo:timing "31.916855408168043"^^xsd:double .
+
+:TC40 rdfs:label "Track Circuit 40" ;
+	demo:timing "32.48053051272902"^^xsd:double .
+
+:TC41 rdfs:label "Track Circuit 41" ;
+	demo:timing "33.047660104115025"^^xsd:double .
+
+:TC42 rdfs:label "Track Circuit 42" ;
+	demo:timing "33.40616420633913"^^xsd:double .
+
+:TC43 rdfs:label "Track Circuit 43" ;
+	demo:timing "34.53475428451688"^^xsd:double .
+
+:TC44 rdfs:label "Track Circuit 44" ;
+	demo:timing "35.28879936569629"^^xsd:double .
+
+:TC45 rdfs:label "Track Circuit 45" ;
+	demo:timing "36.395103637404155"^^xsd:double .
+
+:TC46 rdfs:label "Track Circuit 46" ;
+	demo:timing "37.315648061627385"^^xsd:double .
+
+:TC47 rdfs:label "Track Circuit 47" ;
+	demo:timing "38.13692410148125"^^xsd:double .
+
+:TC48 rdfs:label "Track Circuit 48" ;
+	demo:timing "39.100813232215685"^^xsd:double .
+
+:TC49 rdfs:label "Track Circuit 49" ;
+	demo:timing "40.27524453907912"^^xsd:double .
+
+:TC50 rdfs:label "Track Circuit 50" ;
+	demo:timing "40.89152206217748"^^xsd:double .
+
+:TC51 rdfs:label "Track Circuit 51" ;
+	demo:timing "41.55263010009776"^^xsd:double .
+
+:TC52 rdfs:label "Track Circuit 52" ;
+	demo:timing "42.869755773007874"^^xsd:double .
+
+:TC53 rdfs:label "Track Circuit 53" ;
+	demo:timing "43.94219321623033"^^xsd:double .
+
+:TC54 rdfs:label "Track Circuit 54" ;
+	demo:timing "44.40141267176216"^^xsd:double .
+
+:TC55 rdfs:label "Track Circuit 55" ;
+	demo:timing "45.56397746782899"^^xsd:double .
+
+:TC56 rdfs:label "Track Circuit 56" ;
+	demo:timing "46.43892258766485"^^xsd:double .
+
+:TC57 rdfs:label "Track Circuit 57" ;
+	demo:timing "47.00258631315727"^^xsd:double .
+
+:TC58 rdfs:label "Track Circuit 58" ;
+	demo:timing "48.17549211475243"^^xsd:double .
+
+:TC59 rdfs:label "Track Circuit 59" ;
+	demo:timing "49.19029621593713"^^xsd:double .
+
+:TC60 rdfs:label "Track Circuit 60" ;
+	demo:timing "49.91907396843115"^^xsd:double .
+
+:TC61 rdfs:label "Track Circuit 61" ;
+	demo:timing "50.27363393669026"^^xsd:double .
+
+:TC62 rdfs:label "Track Circuit 62" ;
+	demo:timing "51.32056425214323"^^xsd:double .
+
+:TC63 rdfs:label "Track Circuit 63" ;
+	demo:timing "52.2203206047159"^^xsd:double .
+
+:TC64 rdfs:label "Track Circuit 64" ;
+	demo:timing "53.28836702387596"^^xsd:double .
+
+:TC65 rdfs:label "Track Circuit 65" ;
+	demo:timing "53.83186730769199"^^xsd:double .
+
+:TC66 rdfs:label "Track Circuit 66" ;
+	demo:timing "54.916738675514395"^^xsd:double .
+
+:TC67 rdfs:label "Track Circuit 67" ;
+	demo:timing "55.96612827408277"^^xsd:double .
+
+:TC68 rdfs:label "Track Circuit 68" ;
+	demo:timing "57.128918965821846"^^xsd:double .
+
+:TC69 rdfs:label "Track Circuit 69" ;
+	demo:timing "58.439884678372366"^^xsd:double .
+
+:TC70 rdfs:label "Track Circuit 70" ;
+	demo:timing "59.09223431585349"^^xsd:double .
+
+:TC71 rdfs:label "Track Circuit 71" ;
+	demo:timing "60.114045045354075"^^xsd:double .
+
+:TC72 rdfs:label "Track Circuit 72" ;
+	demo:timing "60.83366527325037"^^xsd:double .
+
+:TC73 rdfs:label "Track Circuit 73" ;
+	demo:timing "61.54222768722539"^^xsd:double .
+
+:TC74 rdfs:label "Track Circuit 74" ;
+	demo:timing "62.47406358210997"^^xsd:double .
+
+:TC75 rdfs:label "Track Circuit 75" ;
+	demo:timing "62.91690042476304"^^xsd:double .
+
+:TC76 rdfs:label "Track Circuit 76" ;
+	demo:timing "63.79577710840635"^^xsd:double .
+
+:TC77 rdfs:label "Track Circuit 77" ;
+	demo:timing "64.50552254662502"^^xsd:double .
+
+:TC78 rdfs:label "Track Circuit 78" ;
+	demo:timing "65.47641377268428"^^xsd:double .
+
+:TC79 rdfs:label "Track Circuit 79" ;
+	demo:timing "66.01217645181559"^^xsd:double .
+
+:TC80 rdfs:label "Track Circuit 80" ;
+	demo:timing "66.47566201576191"^^xsd:double .
+
+:TC81 rdfs:label "Track Circuit 81" ;
+	demo:timing "67.64912034713312"^^xsd:double .
+
+:TC82 rdfs:label "Track Circuit 82" ;
+	demo:timing "68.36820031799525"^^xsd:double .
+
+:TC83 rdfs:label "Track Circuit 83" ;
+	demo:timing "69.2088517078221"^^xsd:double .
+
+:TC84 rdfs:label "Track Circuit 84" ;
+	demo:timing "69.58636504562381"^^xsd:double .

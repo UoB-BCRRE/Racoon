@@ -1,0 +1,797 @@
+# baseURI: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://purl.org/rail/core/> .
+@prefix cv: <http://purl.org/rail/core/cv/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt#> .
+@prefix rcn: <http://purl.org/rail/core/vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix wgspos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv:
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/rail/core/> ;
+.
+
+<http://purl.org/rail/core/vocab/OCP>
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://purl.org/rail/core/vocab/area> ;
+      owl:someValuesFrom <http://purl.org/ub/upper/Area> ;
+    ] ;
+.
+
+<http://purl.org/ub/co/firstItemOf>
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          <http://purl.org/ub/co/ListItem>
+          [
+            rdf:type owl:Restriction ;
+            owl:cardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://purl.org/ub/co/previousItem> ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue "1"^^xsd:positiveInteger ;
+            owl:onProperty <http://purl.org/ub/co/index> ;
+          ]
+        ) ;
+    ] .
+<http://purl.org/ub/co/itemContentOf>
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:complementOf <http://purl.org/ub/co/Item> ;
+    ] ;
+.
+<http://purl.org/ub/co/lastItemOf>
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          <http://purl.org/ub/co/ListItem>
+          [
+            rdf:type owl:Restriction ;
+            owl:cardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty <http://purl.org/ub/co/nextItem> ;
+          ]
+        ) ;
+    ] ;
+.
+:AbsoluteChainage
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :referenceElement ;
+      owl:someValuesFrom :ChainageZero ;
+    ] ;
+.
+:Bridge
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :meterLoad ;
+    ] ;
+.
+:ChainageMeasurement
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:ContinuousMeasurement
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :DeciChains ;
+            owl:onProperty u:unit ;
+          ]
+        ) ;
+    ] ;
+.
+:CharacteristicChange
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :changedCharacteristic ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :initialCharacteristic ;
+    ] ;
+.
+:CharacteristicChangeSignal
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass [
+          rdf:type owl:Restriction ;
+          owl:onProperty :characteristicChange ;
+          owl:someValuesFrom :CharacteristicChange ;
+        ] ;
+      owl:onProperty :routeConcept ;
+    ] ;
+.
+:Crossing
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :crossingAngle ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrainProtectCapability ;
+      owl:onProperty u:characteristic ;
+    ] ;
+.
+:DMU
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RailwayMultipleUnit
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:characteristic ;
+            owl:someValuesFrom :DieselTractionCharacteristic ;
+          ]
+        ) ;
+    ] ;
+.
+:ELRArc
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RouteArc
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :ELRAbstraction ;
+            owl:onProperty :trackAbstractionLevel ;
+          ]
+        ) ;
+    ] ;
+.
+:ELRNode
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RouteNode
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :ELRAbstraction ;
+            owl:onProperty :trackAbstractionLevel ;
+          ]
+        ) ;
+    ] ;
+.
+:EMU
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RailwayMultipleUnit
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:characteristic ;
+            owl:someValuesFrom :ElectricalTractionCharacteristic ;
+          ]
+        ) ;
+    ] ;
+.
+:ETCSCharacteristicSignal
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass [
+          rdf:type owl:Restriction ;
+          owl:onProperty :characteristicChange ;
+          owl:someValuesFrom :ETCSSignallingChange ;
+        ] ;
+      owl:onProperty :routeConcept ;
+    ] ;
+.
+:ETCSSignallingChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :SignallingChange
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :changedCharacteristic ;
+            owl:someValuesFrom :ETCSStandard ;
+          ]
+        ) ;
+    ] ;
+.
+:ElectrificationChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :CharacteristicChange
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :changedCharacteristic ;
+            owl:someValuesFrom :Electrification ;
+          ]
+        ) ;
+    ] ;
+.
+:FeatureSignal
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :relatedFeature ;
+    ] ;
+.
+:GeodesicLocation
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Location
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass u:ContinuousMeasurement ;
+            owl:onProperty :topographic ;
+          ]
+        ) ;
+    ] ;
+.
+:GradientChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :CharacteristicChange
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :changedCharacteristic ;
+            owl:someValuesFrom :TrackGradient ;
+          ]
+        ) ;
+    ] ;
+.
+:IDOrganisation
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange rdf:PlainLiteral ;
+      owl:onProperty :name ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :memberPerson ;
+      owl:someValuesFrom :IDPerson ;
+    ] ;
+.
+:IDPerson
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange rdf:PlainLiteral ;
+      owl:onProperty :name ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :isMemberOfOrg ;
+      owl:someValuesFrom :IDOrganisation ;
+    ] ;
+.
+:Junction
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :length ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :normalPosition ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :SpeedRange ;
+      owl:onProperty u:characteristic ;
+    ] ;
+.
+:LineDetailArc
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RouteArc
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :LoWAbstraction ;
+            owl:onProperty :trackAbstractionLevel ;
+          ]
+        ) ;
+    ] ;
+.
+:LineDetailNode
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RouteNode
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :LoWAbstraction ;
+            owl:onProperty :trackAbstractionLevel ;
+          ]
+        ) ;
+    ] ;
+.
+:LineLevelArc
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RouteArc
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :TrackAbstraction ;
+            owl:onProperty :trackAbstractionLevel ;
+          ]
+        ) ;
+    ] ;
+.
+:LineLevelNode
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RouteNode
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :TrackAbstraction ;
+            owl:onProperty :trackAbstractionLevel ;
+          ]
+        ) ;
+    ] ;
+.
+:LinearPosition
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:ContinuousMeasurement
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:unit ;
+            owl:someValuesFrom qudt:LengthUnit ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :positionReference ;
+          ]
+        ) ;
+    ] ;
+.
+:LocatedThing
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:location ;
+      owl:someValuesFrom :Location ;
+    ] ;
+.
+:MandatoryBrakingSpeedChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :SpeedChange
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue "true"^^xsd:boolean ;
+            owl:onProperty :mandatoryBraking ;
+          ]
+        ) ;
+    ] ;
+.
+:MandatoryStopSpeedChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :SpeedChange
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue "true"^^xsd:boolean ;
+            owl:onProperty :mandatoryStop ;
+          ]
+        ) ;
+    ] ;
+.
+:MassMeasurement
+  rdfs:subClassOf [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:ContinuousMeasurement
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:unit ;
+            owl:someValuesFrom [
+                rdf:type owl:Class ;
+                owl:intersectionOf (
+                    u:Unit
+                    [
+                      rdf:type owl:Restriction ;
+                      owl:hasValue u:Mass ;
+                      owl:onProperty u:quantityKind ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+.
+:MultipleUnitTrainSet
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RollingStockTrainSet
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :RailwayMultipleUnit ;
+            owl:onProperty :vehicle ;
+          ]
+        ) ;
+    ] ;
+.
+:NetworkArc
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:cardinality "2"^^xsd:nonNegativeInteger ;
+      owl:onProperty :node ;
+    ] ;
+.
+:OrientedElement
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :InfrastructureConcept
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :trackDirection ;
+            owl:someValuesFrom :Direction ;
+          ]
+        ) ;
+    ] ;
+.
+:PhysicalThing
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :id ;
+      owl:someValuesFrom rdf:PlainLiteral ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :modelDataSource ;
+      owl:someValuesFrom :DataSource ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:owner ;
+      owl:someValuesFrom :IdentityConcept ;
+    ] ;
+.
+:Platform
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrackRelatedPosition ;
+      owl:onProperty :position ;
+    ] ;
+.
+:Position
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass u:ContinuousMeasurement ;
+      owl:onProperty :length ;
+    ] ;
+.
+:PushPullTrainSet
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :RollingStockTrainSet
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :RailwayCarriage ;
+            owl:onProperty :vehicle ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :RailwayLocomotive ;
+            owl:onProperty :vehicle ;
+          ]
+        ) ;
+    ] ;
+.
+:RailwayContract
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Contract
+          :RailwayDomainConcept
+        ) ;
+    ] ;
+.
+:RailwaySpecificEvent
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:Event
+          :RailwayDomainConcept
+        ) ;
+    ] ;
+.
+:RelativeTrackPosition
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:ContinuousMeasurement
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:unit ;
+            owl:someValuesFrom qudt:LengthUnit ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :positionReference ;
+          ]
+        ) ;
+    ] ;
+.
+:Route
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :trackAbstractionLevel ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty u:owner ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :DirectionCapability ;
+      owl:onProperty u:characteristic ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :Electrification ;
+      owl:onProperty u:characteristic ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :PowerTransmission ;
+      owl:onProperty u:characteristic ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :Status ;
+      owl:onProperty :status ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrackGaugeCapability ;
+      owl:onProperty u:characteristic ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrackOperationMode ;
+      owl:onProperty u:characteristic ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrainProtectCapability ;
+      owl:onProperty u:characteristic ;
+    ] ;
+.
+:SideOfTrackPosition
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrackSide ;
+      owl:onProperty :position ;
+    ] ;
+.
+:Signal
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :interlocking ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :sightDistance ;
+    ] ;
+.
+:SignallingChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :CharacteristicChange
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :changedCharacteristic ;
+            owl:someValuesFrom :SignallingStandard ;
+          ]
+        ) ;
+    ] ;
+.
+:SpeedCapability
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :LocalRoute ;
+      owl:onProperty :appliesTo ;
+    ] ;
+.
+:SpeedChange
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :CharacteristicChange
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :changedCharacteristic ;
+            owl:someValuesFrom :SpeedCapability ;
+          ]
+        ) ;
+    ] ;
+.
+:SpeedSign
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass [
+          rdf:type owl:Restriction ;
+          owl:onProperty :characteristicChange ;
+          owl:someValuesFrom :SpeedChange ;
+        ] ;
+      owl:onProperty :routeConcept ;
+    ] ;
+.
+:Station
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :codeIdentifier ;
+    ] ;
+.
+:StopPost
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :Signal ;
+      owl:onProperty :relatedFeature ;
+    ] ;
+.
+:TiltCharacteristic
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :maxTiltAngle ;
+    ] ;
+.
+:TrackAssociatedElement
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrackRelatedPosition ;
+      owl:onProperty :position ;
+    ] ;
+.
+:TrackGradient
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :Slope ;
+      owl:onProperty u:measurement ;
+    ] ;
+.
+:TrackPlacedElement
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :endTrackPosition ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :startTrackPosition ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :InfrastructureConcept
+          [
+            rdf:type owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :startTrackPosition ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :trackDirection ;
+          ]
+        ) ;
+    ] ;
+.
+:TrackRadiusChange
+  rdfs:subClassOf [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :CharacteristicChange
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :changedCharacteristic ;
+            owl:someValuesFrom :TrackGradient ;
+          ]
+        ) ;
+    ] ;
+.
+:TrackSection
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :track ;
+      owl:someValuesFrom :LineDetailArc ;
+    ] ;
+.
+:TrackServiceProvider
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty u:provides ;
+    ] ;
+.
+:TrainDetector
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty :trackDirection ;
+    ] ;
+.
+:TrainProtectionInfrastructureElement
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass :TrainProtectStandard ;
+      owl:onProperty u:characteristic ;
+    ] ;
+.
+:WGS84Location
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:Location
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :lat ;
+            owl:someValuesFrom u:ContinuousMeasurement ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :lon ;
+            owl:someValuesFrom u:ContinuousMeasurement ;
+          ]
+        ) ;
+    ] ;
+.

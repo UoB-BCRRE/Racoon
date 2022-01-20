@@ -1,0 +1,955 @@
+# baseURI: http://amaas-siemens.com/resource/
+# imports: http://amaas-siemens.com/ontology/
+# imports: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+# prefix: amres
+
+@prefix amaas: <http://amaas-siemens.com/ontology/> .
+@prefix amres: <http://amaas-siemens.com/resource/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  rdfs:label "Amaas ABox";
+
+.
+
+amaas:Direction
+  rdfs:subClassOf u:DataConcept ;
+.
+amaas:EAssetMonitor
+  rdfs:subClassOf amaas:RailwayAsset ;
+.
+amaas:WILDSide
+  rdfs:subClassOf u:DataConcept ;
+.
+amaas:WheelImpactMeasurement
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom amaas:WILDSide ;
+      owl:onProperty amaas:wildSide ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom <http://qudt.org/schema/qudt#ForceUnit> ;
+      owl:onProperty u:unit ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty amaas:wildSide ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:unit ;
+      owl:someValuesFrom <http://qudt.org/schema/qudt#ForceUnit> ;
+    ] ;
+.
+amaas:compositeMonitors
+  doc:example "Fastflex asset monitor :compositeMonitors :PointsTM14B"^^xsd:string ;
+.
+amaas:dependentObservation
+  rdf:type rdf:Property ;
+  owl:propertyChainAxiom (
+      amaas:dependsOn
+      amaas:monitoredBy
+      amaas:observedEvent
+    ) ;
+.
+amaas:observedCondition
+  rdfs:comment "17/07/14 - Not used by AMaaS at the moment"@en ;
+.
+amaas:observedEvent
+  rdfs:comment "Relation used to link an asset monitor with an observation (i.e. a status and a date/time)"^^xsd:string ;
+.
+amaas:reasonedProperty
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "reasoned property"^^xsd:string ;
+  rdfs:range rdfs:Resource ;
+.
+amaas:sited
+  rdf:type rdf:Property ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "Where an asset is cited"^^xsd:string ;
+  rdfs:range u:Location ;
+  rdfs:subPropertyOf u:location ;
+.
+amres:
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  spin:imports <http://topbraid.org/spin/rdfsplus> ;
+  rdfs:comment "Default A-box for Siemens AMaaS Project"@en ;
+  owl:imports amaas: ;
+  owl:imports <http://purl.org/rail/3d/> ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports vocab: ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+amres:Aggregator
+  rdf:type amaas:EI2MBox ;
+  u:functionallyComprises amaas:VirtualMonitor_1 ;
+  u:functionallyComprises amaas:VirtualMonitor_2 ;
+  rdfs:label "Aggregator"^^xsd:string ;
+.
+amres:CelsiusMeasurement_1
+  rdf:type amaas:CelsiusMeasurement ;
+  amaas:startTime "2014-06-15T15:00:00Z"^^xsd:dateTime ;
+  u:measurementValue "35.0"^^xsd:double ;
+  u:unit <http://qudt.org/vocab/unit#DegreeCelsius> ;
+  rdfs:label "Celsius measurement 1"^^xsd:string ;
+.
+amres:CovWILDWheelImpactSensor
+  rdf:type amaas:WheelImpactSensor ;
+  u:measurementType <http://qudt.org/vocab/unit#KiloNewton> ;
+  rdfs:label "Cov WILD Wheel impact sensor"^^xsd:string ;
+.
+amres:CoventryStation
+  rdf:type vocab:Station ;
+  u:location amres:TiplocCOVNTRY ;
+  rdfs:label "Coventry station"^^xsd:string ;
+.
+amres:CoventryWILD
+  rdf:type amaas:EWILD ;
+  amaas:observedEvent amres:EWILDEventCov1 ;
+  amaas:sited amres:TiplocCOVNTRY ;
+  u:functionallyComprises amres:CovWILDWheelImpactSensor ;
+.
+amres:EWILDEventCov1
+  rdf:type amaas:EWILDEvent ;
+  amaas:startTime "2014-07-10T13:00:30Z"^^xsd:dateTime ;
+  u:measurement amres:WILD1M10L ;
+  u:measurement amres:WILD1M11L ;
+  u:measurement amres:WILD1M12L ;
+  u:measurement amres:WILD1M1L ;
+  u:measurement amres:WILD1M2L ;
+  u:measurement amres:WILD1M3L ;
+  u:measurement amres:WILD1M4L ;
+  u:measurement amres:WILD1M5L ;
+  u:measurement amres:WILD1M6L ;
+  u:measurement amres:WILD1M7L ;
+  u:measurement amres:WILD1M8L ;
+  u:measurement amres:WILD1M9L ;
+  rdfs:label "EWILDEvent cov1"^^xsd:string ;
+.
+amres:FastFlex
+  rdf:type amaas:EI2MBox ;
+  amaas:physicallyAttached amres:TemperatureSensor_1 ;
+  u:functionallyComprises amres:PointEnd1Monitor ;
+  u:functionallyComprises amres:PointEnd2Monitor ;
+  u:functionallyComprises amres:PointEnd3Monitor ;
+  rdfs:label "Fast flex"^^xsd:string ;
+.
+amres:GenericSensingCapability
+  rdf:type amaas:TemperatureSensingCapability ;
+  rdfs:label "Generic sensing capability"^^xsd:string ;
+.
+amres:HealthyWILD
+  rdf:type amaas:HealthyCondition ;
+  rdfs:label "Healthy WILD"^^xsd:string ;
+.
+amres:I2MConfig4PointEnds
+  rdf:type amaas:ConfigType ;
+  rdfs:label "I2MConfig4Point ends"^^xsd:string ;
+.
+amres:Observation_1
+  rdf:type u:Observation ;
+  amaas:observation amres:CelsiusMeasurement_1 ;
+  rdfs:label "Observation 1"^^xsd:string ;
+.
+amres:PointEnd1Monitor
+  rdf:type amaas:EPointEndMonitor ;
+  amaas:observedEvent amres:Observation_1 ;
+  amaas:sensor amres:TemperatureSensor_1 ;
+  rdfs:label "Point end1Monitor"^^xsd:string ;
+.
+amres:PointEnd2Monitor
+  rdf:type amaas:EPointEndMonitor ;
+  rdfs:label "Point end2Monitor"^^xsd:string ;
+.
+amres:PointEnd3Monitor
+  rdf:type amaas:EPointEndMonitor ;
+  amaas:monitors amres:TM14BPoints12 ;
+  rdfs:label "Point end3Monitor"^^xsd:string ;
+.
+amres:PointEnd4Monitor
+  rdf:type amaas:EPointEndMonitor ;
+  rdfs:label "Point end4Monitor"^^xsd:string ;
+.
+amres:Sensor1
+  rdf:type amaas:TemperatureCelsiusSensor ;
+  rdfs:label "Sensor1"^^xsd:string ;
+.
+amres:TM14BCNNCNN_Switches0
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1272,448 1280,448 1312,384 1320,384       "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes14 ;
+  vocab:startNode amres:TM14BLoWNodes14 ;
+.
+amres:TM14BCNNCNN_Switches1
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1480,448 1472,448 1440,384 1432,384       "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes25 ;
+  vocab:startNode amres:TM14BLoWNodes14 ;
+.
+amres:TM14BCNNCNN_Switches2
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1160,448 1152,448 1120,384 1112,384       "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes22 ;
+  vocab:startNode amres:TM14BLoWNodes13 ;
+.
+amres:TM14BCNNCNN_Switches3
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1000,448 992,448 960,384 952,384      "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes20 ;
+  vocab:startNode amres:TM14BLoWNodes12 ;
+.
+amres:TM14BCNNDown_Main0
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes43 ;
+  vocab:startNode amres:TM14BLoWNodes16 ;
+.
+amres:TM14BCNNDown_Main1
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes16 ;
+  vocab:startNode amres:TM14BLoWNodes15 ;
+.
+amres:TM14BCNNDown_Main2
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes15 ;
+  vocab:startNode amres:TM14BLoWNodes14 ;
+.
+amres:TM14BCNNDown_Main3
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes14 ;
+  vocab:startNode amres:TM14BLoWNodes13 ;
+.
+amres:TM14BCNNDown_Main4
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes13 ;
+  vocab:startNode amres:TM14BLoWNodes12 ;
+.
+amres:TM14BCNNDown_Main5
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes12 ;
+  vocab:startNode amres:TM14BLoWNodes11 ;
+.
+amres:TM14BCNNDown_Main6
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes11 ;
+  vocab:startNode amres:TM14BLoWNodes10 ;
+.
+amres:TM14BCNNDown_Main7
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes10 ;
+  vocab:startNode amres:TM14BLoWNodes9 ;
+.
+amres:TM14BCNNDown_Main8
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes9 ;
+  vocab:startNode amres:TM14BLoWNodes3 ;
+.
+amres:TM14BCNNUp_Main0
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes25 ;
+  vocab:startNode amres:TM14BLoWNodes42 ;
+.
+amres:TM14BCNNUp_Main1
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes24 ;
+  vocab:startNode amres:TM14BLoWNodes25 ;
+.
+amres:TM14BCNNUp_Main2
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes23 ;
+  vocab:startNode amres:TM14BLoWNodes24 ;
+.
+amres:TM14BCNNUp_Main3
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes22 ;
+  vocab:startNode amres:TM14BLoWNodes23 ;
+.
+amres:TM14BCNNUp_Main4
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes21 ;
+  vocab:startNode amres:TM14BLoWNodes22 ;
+.
+amres:TM14BCNNUp_Main5
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes20 ;
+  vocab:startNode amres:TM14BLoWNodes21 ;
+.
+amres:TM14BCNNUp_Main6
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes19 ;
+  vocab:startNode amres:TM14BLoWNodes20 ;
+.
+amres:TM14BCNNUp_Main7
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes18 ;
+  vocab:startNode amres:TM14BLoWNodes19 ;
+.
+amres:TM14BCNNUp_Main8
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes17 ;
+  vocab:startNode amres:TM14BLoWNodes18 ;
+.
+amres:TM14BCNNUp_Main9
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes4 ;
+  vocab:startNode amres:TM14BLoWNodes17 ;
+.
+amres:TM14BCNNUp_Slow0
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "840,448 832,448 800,512 352,512 320,448 312,448       "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes17 ;
+  vocab:startNode amres:TM14BLoWNodes19 ;
+.
+amres:TM14BCNNUp__x26__Down_Slow0
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "840,384 832,384 800,320 792,320       "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes11 ;
+  vocab:startNode amres:TM14BLoWNodes8 ;
+.
+amres:TM14BCNNUp__x26__Down_Slow1
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "512,320 256,320 224,384 216,384       "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes7 ;
+  vocab:startNode amres:TM14BLoWNodes9 ;
+.
+amres:TM14BCNNUp__x26__Down_Slow2
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes8 ;
+  vocab:startNode amres:TM14BLoWNodes7 ;
+.
+amres:TM14BCNNUp__x26__Down_Slow3
+  rdf:type vocab:LineDetailArc ;
+  amaas:dependsOn amres:TM14BPoints0 ;
+  vocab:diagramPath "1384,384 1376,384 1344,320 800,320        "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes15 ;
+  vocab:startNode amres:TM14BLoWNodes8 ;
+.
+amres:TM14BLSC2LSC2_NorthCoventry_Sidings0
+  rdf:type vocab:PrivateLineDetailArc ;
+.
+amres:TM14BLSC2LSC2_NorthCoventry_Sidings1
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "520,320 512,320 384,64 256,64             "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes7 ;
+  vocab:startNode amres:TM14BLoWNodes6 ;
+.
+amres:TM14BLSC2LSC2_NorthCoventry_Sidings2
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "264,64 256,64 224,128 216,128             "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes6 ;
+  vocab:startNode amres:TM14BLoWNodes5 ;
+.
+amres:TM14BLSC2LSC2_NorthDown_Kenilworth0
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes0 ;
+  vocab:startNode amres:TM14BLoWNodes1 ;
+.
+amres:TM14BLSC2LSC2_NorthDown_Kenilworth1
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes5 ;
+  vocab:startNode amres:TM14BLoWNodes0 ;
+.
+amres:TM14BLSC2LSC2_NorthDown_Kenilworth2
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "488,384 480,384 352,128 224,128           "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes10 ;
+  vocab:startNode amres:TM14BLoWNodes5 ;
+.
+amres:TM14BLSC2LSC2_NorthUp_Kenilworth0
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "24,128 32,128 64,192 64,192 320,192 448,448 456,448           "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes18 ;
+  vocab:startNode amres:TM14BLoWNodes0 ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard0
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1656,704 1664,704 1696,640 1704,640            "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard1
+  rdf:type vocab:PrivateLineDetailArc ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard10
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1376,768 1408,832 1472,832 1536,704 1544,704           "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard11
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1336,704 1344,704 1376,768             "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard2
+  rdf:type vocab:PrivateLineDetailArc ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard3
+  rdf:type vocab:PrivateLineDetailArc ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard4
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1375.8,896.1 1280.2,704 1272,704           "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard5
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1504,896 1472,960 1407.7,960 1375.8,896.1          "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard6
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1608,704 1600,704 1504,896             "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard7
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1376,768 1440,768 1472,704 1480,704            "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard8
+  rdf:type vocab:PrivateLineDetailArc ;
+  vocab:diagramPath "1208,640 1216,640 1248,704 1256,704            "^^xsd:PlainLiteral ;
+.
+amres:TM14BLSC2LSC2_SouthCoventry_Yard9
+  rdf:type vocab:PrivateLineDetailArc ;
+.
+amres:TM14BLSC2LSC2_SouthDown_Bedworth0
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes44 ;
+  vocab:startNode amres:TM14BLoWNodes26 ;
+.
+amres:TM14BLSC2LSC2_SouthDown_Bedworth1
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1208,448 1216,448 1280,576 1792,576           "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes26 ;
+  vocab:startNode amres:TM14BLoWNodes23 ;
+.
+amres:TM14BLSC2LSC2_SouthLSC2_Switches0
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1800,576 1792,576 1760,640 1752,640           "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes26 ;
+  vocab:startNode amres:TM14BLoWNodes29 ;
+.
+amres:TM14BLSC2LSC2_SouthUp_Bedworth0
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes29 ;
+  vocab:startNode amres:TM14BLoWNodes45 ;
+.
+amres:TM14BLSC2LSC2_SouthUp_Bedworth1
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes28 ;
+  vocab:startNode amres:TM14BLoWNodes29 ;
+.
+amres:TM14BLSC2LSC2_SouthUp_Bedworth2
+  rdf:type vocab:LineDetailArc ;
+  vocab:endNode amres:TM14BLoWNodes27 ;
+  vocab:startNode amres:TM14BLoWNodes28 ;
+.
+amres:TM14BLSC2LSC2_SouthUp_Bedworth3
+  rdf:type vocab:LineDetailArc ;
+  vocab:diagramPath "1048,448 1056,448 1152,640 1216,640           "^^xsd:PlainLiteral ;
+  vocab:endNode amres:TM14BLoWNodes21 ;
+  vocab:startNode amres:TM14BLoWNodes27 ;
+.
+amres:TM14BLoWNodes0
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthDown_Kenilworth0 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthDown_Kenilworth1 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthUp_Kenilworth0 ;
+.
+amres:TM14BLoWNodes1
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthDown_Kenilworth0 ;
+.
+amres:TM14BLoWNodes10
+  rdf:type vocab:LineDetailNode ;
+  amaas:dependsOn amres:TM14BPoints15 ;
+  vocab:arc amres:TM14BCNNDown_Main6 ;
+  vocab:arc amres:TM14BCNNDown_Main7 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthDown_Kenilworth2 ;
+.
+amres:TM14BLoWNodes11
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNDown_Main5 ;
+  vocab:arc amres:TM14BCNNDown_Main6 ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow0 ;
+.
+amres:TM14BLoWNodes12
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNCNN_Switches3 ;
+  vocab:arc amres:TM14BCNNDown_Main4 ;
+  vocab:arc amres:TM14BCNNDown_Main5 ;
+.
+amres:TM14BLoWNodes13
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNCNN_Switches2 ;
+  vocab:arc amres:TM14BCNNDown_Main3 ;
+  vocab:arc amres:TM14BCNNDown_Main4 ;
+.
+amres:TM14BLoWNodes14
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNCNN_Switches0 ;
+  vocab:arc amres:TM14BCNNCNN_Switches1 ;
+  vocab:arc amres:TM14BCNNDown_Main2 ;
+  vocab:arc amres:TM14BCNNDown_Main3 ;
+.
+amres:TM14BLoWNodes15
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNDown_Main1 ;
+  vocab:arc amres:TM14BCNNDown_Main2 ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow3 ;
+.
+amres:TM14BLoWNodes16
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNDown_Main0 ;
+  vocab:arc amres:TM14BCNNDown_Main1 ;
+.
+amres:TM14BLoWNodes17
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main8 ;
+  vocab:arc amres:TM14BCNNUp_Main9 ;
+  vocab:arc amres:TM14BCNNUp_Slow0 ;
+.
+amres:TM14BLoWNodes18
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main7 ;
+  vocab:arc amres:TM14BCNNUp_Main8 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthUp_Kenilworth0 ;
+.
+amres:TM14BLoWNodes19
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main6 ;
+  vocab:arc amres:TM14BCNNUp_Main7 ;
+  vocab:arc amres:TM14BCNNUp_Slow0 ;
+.
+amres:TM14BLoWNodes2
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes20
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNCNN_Switches3 ;
+  vocab:arc amres:TM14BCNNUp_Main5 ;
+  vocab:arc amres:TM14BCNNUp_Main6 ;
+.
+amres:TM14BLoWNodes21
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main4 ;
+  vocab:arc amres:TM14BCNNUp_Main5 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth3 ;
+.
+amres:TM14BLoWNodes22
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNCNN_Switches2 ;
+  vocab:arc amres:TM14BCNNUp_Main3 ;
+  vocab:arc amres:TM14BCNNUp_Main4 ;
+.
+amres:TM14BLoWNodes23
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main2 ;
+  vocab:arc amres:TM14BCNNUp_Main3 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthDown_Bedworth1 ;
+.
+amres:TM14BLoWNodes24
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main1 ;
+  vocab:arc amres:TM14BCNNUp_Main2 ;
+.
+amres:TM14BLoWNodes25
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNCNN_Switches1 ;
+  vocab:arc amres:TM14BCNNUp_Main0 ;
+  vocab:arc amres:TM14BCNNUp_Main1 ;
+.
+amres:TM14BLoWNodes26
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthDown_Bedworth0 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthDown_Bedworth1 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthLSC2_Switches0 ;
+.
+amres:TM14BLoWNodes27
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth2 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth3 ;
+.
+amres:TM14BLoWNodes28
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth1 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth2 ;
+.
+amres:TM14BLoWNodes29
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthLSC2_Switches0 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth0 ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth1 ;
+.
+amres:TM14BLoWNodes3
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNDown_Main8 ;
+.
+amres:TM14BLoWNodes30
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes31
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes32
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes33
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes34
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes35
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes36
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes37
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes38
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes39
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes4
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main9 ;
+.
+amres:TM14BLoWNodes40
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes41
+  rdf:type vocab:LineDetailNode ;
+.
+amres:TM14BLoWNodes42
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp_Main0 ;
+.
+amres:TM14BLoWNodes43
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNDown_Main0 ;
+.
+amres:TM14BLoWNodes44
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthDown_Bedworth0 ;
+.
+amres:TM14BLoWNodes45
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_SouthUp_Bedworth0 ;
+.
+amres:TM14BLoWNodes5
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthCoventry_Sidings2 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthDown_Kenilworth1 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthDown_Kenilworth2 ;
+.
+amres:TM14BLoWNodes6
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthCoventry_Sidings1 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthCoventry_Sidings2 ;
+.
+amres:TM14BLoWNodes7
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow1 ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow2 ;
+  vocab:arc amres:TM14BLSC2LSC2_NorthCoventry_Sidings1 ;
+.
+amres:TM14BLoWNodes8
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow0 ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow2 ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow3 ;
+.
+amres:TM14BLoWNodes9
+  rdf:type vocab:LineDetailNode ;
+  vocab:arc amres:TM14BCNNDown_Main7 ;
+  vocab:arc amres:TM14BCNNDown_Main8 ;
+  vocab:arc amres:TM14BCNNUp__x26__Down_Slow1 ;
+.
+amres:TM14BPoints0
+  rdf:type vocab:Points ;
+  vocab:diagramX "780"^^xsd:PlainLiteral ;
+  vocab:diagramY "304"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints1
+  rdf:type vocab:Points ;
+  vocab:diagramX "812"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints10
+  rdf:type vocab:Points ;
+  vocab:diagramX "1420"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints11
+  rdf:type vocab:Points ;
+  vocab:diagramX "1452"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints12
+  rdf:type vocab:Points ;
+  vocab:diagramX "812"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints13
+  rdf:type vocab:Points ;
+  vocab:diagramX "300"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints14
+  rdf:type vocab:Points ;
+  vocab:diagramX "428"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints15
+  rdf:type vocab:Points ;
+  vocab:diagramX "460"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints16
+  rdf:type vocab:Points ;
+  vocab:diagramX "492"^^xsd:PlainLiteral ;
+  vocab:diagramY "304"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints17
+  rdf:type vocab:Points ;
+  vocab:diagramX "204"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints18
+  rdf:type vocab:Points ;
+  vocab:diagramX "204"^^xsd:PlainLiteral ;
+  vocab:diagramY "112"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints19
+  rdf:type vocab:Points ;
+  vocab:diagramX "1740"^^xsd:PlainLiteral ;
+  vocab:diagramY "624"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints2
+  rdf:type vocab:Points ;
+  vocab:diagramX "940"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints20
+  rdf:type vocab:Points ;
+  vocab:diagramX "1772"^^xsd:PlainLiteral ;
+  vocab:diagramY "560"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints21
+  rdf:type vocab:Points ;
+  vocab:diagramX "236"^^xsd:PlainLiteral ;
+  vocab:diagramY "48"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints22
+  rdf:type vocab:Points ;
+  vocab:diagramX "1196"^^xsd:PlainLiteral ;
+  vocab:diagramY "624"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints23
+  rdf:type vocab:Points ;
+  vocab:diagramX "1676"^^xsd:PlainLiteral ;
+  vocab:diagramY "624"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints24
+  rdf:type vocab:Points ;
+  vocab:diagramX "1100"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints25
+  rdf:type vocab:Points ;
+  vocab:diagramX "12"^^xsd:PlainLiteral ;
+  vocab:diagramY "112"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints3
+  rdf:type vocab:Points ;
+  vocab:diagramX "972"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints4
+  rdf:type vocab:Points ;
+  vocab:diagramX "1036"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints5
+  rdf:type vocab:Points ;
+  vocab:diagramX "1132"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints6
+  rdf:type vocab:Points ;
+  vocab:diagramX "1196"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints7
+  rdf:type vocab:Points ;
+  vocab:diagramX "1260"^^xsd:PlainLiteral ;
+  vocab:diagramY "432"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints8
+  rdf:type vocab:Points ;
+  vocab:diagramX "1292"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BPoints9
+  rdf:type vocab:Points ;
+  vocab:diagramX "1356"^^xsd:PlainLiteral ;
+  vocab:diagramY "368"^^xsd:PlainLiteral ;
+.
+amres:TM14BStations0
+  rdf:type vocab:Station ;
+  vocab:diagramX "576"^^xsd:PlainLiteral ;
+  vocab:diagramY "400"^^xsd:PlainLiteral ;
+.
+amres:TM14BStations1
+  rdf:type vocab:Station ;
+  vocab:diagramX "576"^^xsd:PlainLiteral ;
+  vocab:diagramY "280"^^xsd:PlainLiteral ;
+.
+amres:TM14BStations2
+  rdf:type vocab:Station ;
+  vocab:diagramPath "720,560 576,560 576,544 560,544 560,528 720,528    "^^xsd:PlainLiteral ;
+.
+amres:TM14BStations3
+  rdf:type vocab:Station ;
+  vocab:diagramX "1600"^^xsd:PlainLiteral ;
+  vocab:diagramY "336"^^xsd:PlainLiteral ;
+.
+amres:TM14BStations4
+  rdf:type vocab:Station ;
+  vocab:diagramX "1600"^^xsd:PlainLiteral ;
+  vocab:diagramY "464"^^xsd:PlainLiteral ;
+.
+amres:TM14BStations5
+  rdf:type vocab:Station ;
+  vocab:diagramX "1856"^^xsd:PlainLiteral ;
+  vocab:diagramY "336"^^xsd:PlainLiteral ;
+.
+amres:TM14BStations6
+  rdf:type vocab:Station ;
+  vocab:diagramX "1856"^^xsd:PlainLiteral ;
+  vocab:diagramY "464"^^xsd:PlainLiteral ;
+.
+amres:TemperatureSensor_1
+  rdf:type amaas:TemperatureSensor ;
+  u:measurementType <http://qudt.org/vocab/unit#DegreeCelsius> ;
+  rdfs:label "Temperature sensor 1"^^xsd:string ;
+.
+amres:TiplocCOVNTRY
+  rdf:type vocab:PlacedElement ;
+  rdf:type u:Location ;
+  rdfs:label "Tiploc COVNTRY"^^xsd:string ;
+.
+amres:WILD1M10L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 10 ;
+  u:measurementValue "6"^^xsd:double ;
+  rdfs:label "WILD1M10"^^xsd:string ;
+.
+amres:WILD1M11L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 11 ;
+  u:measurementValue "2"^^xsd:double ;
+  rdfs:label "WILD1M11"^^xsd:string ;
+.
+amres:WILD1M12L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 12 ;
+  u:measurementValue "8"^^xsd:double ;
+  rdfs:label "WILD1M12"^^xsd:string ;
+.
+amres:WILD1M1L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 1 ;
+  u:measurementValue "10"^^xsd:double ;
+  rdfs:label "WILD1M1"^^xsd:string ;
+.
+amres:WILD1M2L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 2 ;
+  u:measurementValue "3.5"^^xsd:double ;
+  rdfs:label "WILD1M2"^^xsd:string ;
+.
+amres:WILD1M3L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 3 ;
+  u:measurementValue "2"^^xsd:double ;
+  rdfs:label "WILD1M3"^^xsd:string ;
+.
+amres:WILD1M4L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 4 ;
+  u:measurementValue "3.5"^^xsd:double ;
+  rdfs:label "WILD1M4"^^xsd:string ;
+.
+amres:WILD1M5L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 5 ;
+  u:measurementValue "9"^^xsd:double ;
+  rdfs:label "WILD1M5"^^xsd:string ;
+.
+amres:WILD1M6L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 6 ;
+  u:measurementValue "12"^^xsd:double ;
+  rdfs:label "WILD1M6"^^xsd:string ;
+.
+amres:WILD1M7L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 7 ;
+  u:measurementValue "2.5"^^xsd:double ;
+  rdfs:label "WILD1M7"^^xsd:string ;
+.
+amres:WILD1M8L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 8 ;
+  u:measurementValue "11"^^xsd:double ;
+  rdfs:label "WILD1M8"^^xsd:string ;
+.
+amres:WILD1M9L
+  rdf:type amaas:WheelImpactMeasurementInKN ;
+  amaas:wildSide amaas:LHS ;
+  u:index 9 ;
+  u:measurementValue "7"^^xsd:double ;
+  rdfs:label "WILD1M9"^^xsd:string ;
+.
+[
+  rdf:type owl:AllDifferent ;
+  owl:members (
+      amres:WILD1M1L
+      amres:WILD1M2L
+      amres:WILD1M3L
+      amres:WILD1M4L
+      amres:WILD1M5L
+      amres:WILD1M6L
+      amres:WILD1M7L
+      amres:WILD1M8L
+      amres:WILD1M9L
+      amres:WILD1M10L
+      amres:WILD1M11L
+      amres:WILD1M12L
+    ) ;
+].

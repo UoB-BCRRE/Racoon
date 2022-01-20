@@ -1,0 +1,46 @@
+# baseURI: http://amaas-siemens.com/ontology/rules
+
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rule: <tag:stardog:api:rule:> .
+@prefix rules: <http://amaas-siemens.com/ontology/rules#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://amaas-siemens.com/ontology/rules>
+  rdf:type owl:Ontology ;
+  rdfs:comment "Wheel Impact Load Detector Diagnosis Rules for AMaaS"@en ;
+  owl:versionInfo "1.0"^^xsd:string ;
+.
+[
+  rdf:type <tag:stardog:api:rule:SPARQLRule> ;
+  <tag:stardog:api:rule:content> """
+    PREFIX :<urn:test:>
+      IF {
+            ?w a amaas:WheelImpactMeasurementInKN .
+            ?w u:measurementValue ?val .
+            FILTER(?val <= 10) .
+          }
+      THEN {
+              ?w amaas:condition amaas:HealthyWILD
+          }""" ;
+].
+[
+  rdf:type <tag:stardog:api:rule:SPARQLRule> ;
+  <tag:stardog:api:rule:content> """
+    PREFIX :<urn:test:>
+      IF {
+            ?w a amaas:WheelImpactMeasurementInKN .
+            ?w u:measurementValue ?val .
+            FILTER(?val > 10) .
+          }
+      THEN {
+              ?w amaas:condition amaas:HighWILD
+          }""" ;
+].

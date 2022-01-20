@@ -1,0 +1,218 @@
+@prefix : <http://purl.org/rail/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+:TrackCircuitLocationWBB281208MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB281208MP ;
+	is:maxLocation :LocationMilepostMWB2880MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB281208MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB281208MP .
+
+:TrackCircuitLocationMWB2880MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB2880MP ;
+	is:maxLocation :LocationMilepostWBB261320MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB2880MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB2880MP .
+
+:TrackCircuitLocationWBB261320MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB261320MP ;
+	is:maxLocation :LocationMilepostMWB11320MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB261320MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB261320MP .
+
+:TrackCircuitLocationMWB11320MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB11320MP ;
+	is:maxLocation :LocationMilepostWBB25880MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB11320MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB11320MP .
+
+:TrackCircuitLocationWBB25880MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB25880MP ;
+	is:maxLocation :LocationMilepostWBB28440MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB25880MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB25880MP .
+
+:TrackCircuitLocationWBB28440MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB28440MP ;
+	is:maxLocation :LocationMilepostMWB1880MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB28440MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB28440MP .
+
+:TrackCircuitLocationMWB1880MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB1880MP ;
+	is:maxLocation :LocationMilepostMWB0109MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB1880MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB1880MP .
+
+:TrackCircuitLocationMWB0109MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB0109MP ;
+	is:maxLocation :LocationMilepostMWB20MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB0109MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB0109MP .
+
+:TrackCircuitLocationMWB20MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB20MP ;
+	is:maxLocation :LocationMilepostWBB24103MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB20MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB20MP .
+
+:TrackCircuitLocationWBB24103MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB24103MP ;
+	is:maxLocation :LocationMilepostWBB251320MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB24103MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB24103MP .
+
+:TrackCircuitLocationWBB251320MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB251320MP ;
+	is:maxLocation :LocationMilepostMWB01320MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB251320MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB251320MP .
+
+:TrackCircuitLocationMWB01320MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB01320MP ;
+	is:maxLocation :LocationMilepostMWB2440MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB01320MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB01320MP .
+
+:TrackCircuitLocationMWB2440MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB2440MP ;
+	is:maxLocation :LocationMilepostMWB0440MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB2440MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB2440MP .
+
+:TrackCircuitLocationMWB0440MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB0440MP ;
+	is:maxLocation :LocationMilepostMWB0880MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB0440MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB0440MP .
+
+:TrackCircuitLocationMWB0880MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB0880MP ;
+	is:maxLocation :LocationMilepostMWB1440MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB0880MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB0880MP .
+
+:TrackCircuitLocationWBB241320MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB241320MP ;
+	is:maxLocation :LocationMilepostWBB26880MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB241320MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB241320MP .
+
+:TrackCircuitLocationWBB26880MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB26880MP ;
+	is:maxLocation :LocationMilepostWBB27440MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB26880MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB26880MP .
+
+:TrackCircuitLocationWBB27440MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB27440MP ;
+	is:maxLocation :LocationMilepostMWB10MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB27440MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB27440MP .
+
+:TrackCircuitLocationMWB10MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostMWB10MP ;
+	is:maxLocation :LocationMilepostWBB25440MP ;
+	is:elr :LineRefMWB .
+
+:TrackCircuitMWB10MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationMWB10MP .
+
+:TrackCircuitLocationWBB25440MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB25440MP ;
+	is:maxLocation :LocationMilepostWBB280MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB25440MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB25440MP .
+
+:TrackCircuitLocationWBB280MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB280MP ;
+	is:maxLocation :LocationMilepostWBB250MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB280MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB280MP .
+
+:TrackCircuitLocationWBB250MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB250MP ;
+	is:maxLocation :LocationMilepostWBB271320MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB250MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB250MP .
+
+:TrackCircuitLocationWBB271320MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB271320MP ;
+	is:maxLocation :LocationMilepostWBB26440MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB271320MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB271320MP .
+
+:TrackCircuitLocationWBB26440MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB26440MP ;
+	is:maxLocation :LocationMilepostWBB270MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB26440MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB26440MP .
+
+:TrackCircuitLocationWBB270MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB270MP ;
+	is:maxLocation :LocationMilepostWBB27880MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB270MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB270MP .
+
+:TrackCircuitLocationWBB27880MP a is:TrackCircuitLocation ;
+	is:minLocation :LocationMilepostWBB27880MP ;
+	is:maxLocation :LocationMilepostWBB28880MP ;
+	is:elr :LineRefWBB .
+
+:TrackCircuitWBB27880MP a is:TrackCircuit ;
+	is:tcPos :TrackCircuitLocationWBB27880MP .

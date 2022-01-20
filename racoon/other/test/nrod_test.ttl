@@ -1,0 +1,30 @@
+# baseURI: http://purl.org/rail/test/res
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+# imports: http://purl.org/rail/rs/
+# imports: http://purl.org/rail/test/all
+# imports: http://purl.org/rail/tt/ont/
+# imports: http://purl.org/ub/fourd/
+# imports: http://purl.org/ub/upper/
+# imports: http://railway.bham.ac.uk/resource/
+
+@prefix : <http://purl.org/rail/test/res#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/rail/test/res>
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  owl:imports <http://purl.org/rail/rs/> ;
+  owl:imports <http://purl.org/rail/test/all> ;
+  owl:imports <http://purl.org/rail/tt/ont/> ;
+  owl:imports <http://purl.org/ub/fourd/> ;
+  owl:imports <http://purl.org/ub/upper/> ;
+  owl:imports <http://railway.bham.ac.uk/resource/> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.

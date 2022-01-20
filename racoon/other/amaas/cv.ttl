@@ -1,0 +1,32 @@
+# baseURI: http://amaas-siemens.com/ontology/cv/
+# imports: http://amaas-siemens.com/ontology/
+# imports: http://purl.org/rail/4d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://amaas-siemens.com/ontology/cv/> .
+@prefix amaas: <http://amaas-siemens.com/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+amaas:I2MBox
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty amaas:iPv4 ;
+    ] ;
+.
+:
+  rdf:type owl:Ontology ;
+  rdfs:comment "Constraints file for AMaaS Ontology"@en ;
+  rdfs:comment "Currently Empty (07/14)"@en ;
+  owl:imports amaas: ;
+  owl:imports <http://purl.org/rail/4d/> ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.

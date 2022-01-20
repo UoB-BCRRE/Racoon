@@ -1,0 +1,62 @@
+# baseURI: http://example.org/rb/resource
+# imports: http://example.org/rb
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rb: <http://example.org/rb#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rb:Directive_2004_49_EC
+  rdf:type rb:AnnexII ;
+  rdfs:label "Directive 2004/49/EC" ;
+.
+rb:Directive_2016_798
+  rdf:type rb:AnnexII ;
+  rdfs:label "Directive 2016/798" ;
+.
+rb:GERT8000_HB11_Iss_6
+  rdf:type rb:GE_RT8000 ;
+  rdfs:label "GERT8000-HB11 Iss 6" ;
+.
+<http://example.org/rb#GERT8000_RBBL_Iss_30.1>
+  rdf:type rb:GE_RT8000 ;
+  rb:hasComplianceDate "2017-12-02"^^xsd:date ;
+  rb:hasInForceDate "2017-12-02"^^xsd:date ;
+  rb:hasIssueDate "2017-12-02"^^xsd:date ;
+  rb:hasPublishDate "2017-11-18"^^xsd:date ;
+  rb:hasURI "https://www.rssb.co.uk/rgs/rulebooks/GERT8000-RBBL%20Iss%2030.1.pdf"^^rdf:HTML ;
+  rb:isLive "true"^^xsd:boolean ;
+  dcterms:publisher rb:RSSB ;
+  rdfs:comment "Each issue of the Rule Book briefing Leaflet contains a summary of the changes being introduced in GERT8000" ;
+  rdfs:label "GERT8000-RBBL Iss 30.1 Rule Book Briefing Leaflet" ;
+.
+rb:NotifiedNationalTechnicalRulesForInfrastructure
+  rdf:type rb:NationalTechnicalRules ;
+  rb:hasURI "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/675020/notified-national-technical-rules-infrastructure.xlsx"^^rdf:HTML ;
+  rdfs:comment "Note: Relevant TSI is Infrastructure (Commission Regulation (EU) No 1299/2014 of 18 November 2014 - which entered into force on 01 January 2015(The combined INF TSI includes in Appendix Q a list of the notified National Technical Rules for the UK-GB Specific Cases)" ;
+  rdfs:label "Notified National Technical Rules for Infrastructure" ;
+.
+rb:NotifiedTechnicalRulesForVehicles
+  rdf:type rb:NationalTechnicalRules ;
+  rb:hasURI "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/675019/notified-national-technical-rules-vehicles.xlsx"^^rdf:HTML ;
+  rdfs:comment """Note: Relevant TSIs are Locomotive and Passenger Rolling Stock (Commission Regulation (EU) No 1302/2014 of 18 November 2014 - which entered into force on 01 January 2015)
+
+Rolling Stock (Freight Wagon) (Commission Regulation (EU) 321/2013 of 13 March 2013 - which entered into force on 01 January 2014)
+
+Relevant Technical Specifications for Interoperability: Conventional Rail Locomotives and Passenger Rolling Stock (LOC&PAS, Rolling Stock (Freight Wagons (WAG) and Noise (NOI)
+
+GMRT2466 Railway Wheelsets, issue 3 has been withdrawn and replaced by issue 4.  Requirements needed for technical compatibility and to address specific cases in the LOC&PAS TSI and the WAG TSI have been retained in issue 4.  Other relevant requirements have been transferred to RIS-2766-RST, Railway Wheelsets, issue 1.""" ;
+  rdfs:label "National Technical Rules for Vehicles" ;
+.
+rb:RSSB
+  rdf:type dcterms:Agent ;
+  rdf:type foaf:Agent ;
+.
+<http://example.org/rb/resource>
+  rdf:type owl:Ontology ;
+  owl:imports <http://example.org/rb> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.

@@ -1,0 +1,23 @@
+var tposQuery = {prefix: 'SELECT ?miles ?lat ?long WHERE {' +
+'	{SELECT * WHERE {' +
+'		BIND(<', suffix: '> as ?node1) .' +
+'    	?node1 is:mileage ?nmiles1 .' +
+'  		?loc1 a u:Location ;' +
+'  			is:mileage ?lmiles1 ;' +
+'   			wgspos:lat ?lat1;' +
+'  			wgspos:long ?long1.' +
+'		FILTER(?lmiles1>?nmiles1)' +
+'	}ORDER BY ASC(?lmiles1) LIMIT 1} .' +
+'	{SELECT * WHERE {' +
+'		BIND(<http://purl.org/rail/resource/9ae20c12-3371-409c-b459-10d56fb1c61b> as ?node1) .' +
+'    	?node1 is:mileage ?nmiles1 .' +
+'  		?loc2 a u:Location ;' +
+'  			is:mileage ?lmiles2 ;' +
+'  			wgspos:lat ?lat2;' +
+'  			wgspos:long ?long2.' +
+'		FILTER(?lmiles2<?nmiles1)' +
+'	}ORDER BY DESC(?lmiles2) LIMIT 1} .' +
+'	BIND((?lmiles1+?lmiles2)/2 AS ?miles) .' +
+'	BIND((xsd:double(?long1)+xsd:double(?long2))/2 AS ?long) .' +
+'	BIND((xsd:double(?lat1)+xsd:double(?lat2))/2 AS ?lat) .' +
+'}'};

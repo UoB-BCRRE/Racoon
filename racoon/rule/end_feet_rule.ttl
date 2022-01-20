@@ -1,0 +1,29 @@
+@prefix u:<http://purl.org/ub/upper/> .
+@prefix is:<http://purl.org/rail/is/> .
+@prefix core:<http://purl.org/rail/core/> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rule: <tag:stardog:api:rule:> .
+
+is:start_feet_conversion_rule a <tag:stardog:api:rule:SPARQLRule> ;
+                    rdfs:label "Convert start yards to feet" ;
+            rule:content """
+PREFIX u:<http://purl.org/ub/upper/>
+PREFIX is:<http://purl.org/rail/is/>
+PREFIX core:<http://purl.org/rail/core/>
+prefix unit: <http://qudt.org/vocab/unit#>
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix geof: <http://www.opengis.net/def/function/geosparql/>
+prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+IF{
+    ?track a core:Track;
+           is:endYards ?end_yards.
+    BIND (?end_yards * 3 AS ?end_feet)
+}
+Then{
+   ?track is:endFeet ?end_feet
+}
+"""
+.

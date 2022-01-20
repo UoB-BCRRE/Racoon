@@ -1,0 +1,415 @@
+@prefix : <http://purl.org/rail/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+:MilepostBAG1421319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation1421319MP is:minLocation :MilepostBAG1421319MP ;
+	is:maxLocation :MilepostBAG143880MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG143880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation143880MP is:minLocation :MilepostBAG143880MP ;
+	is:maxLocation :MilepostBAG144439MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG144439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation144439MP is:minLocation :MilepostBAG144439MP ;
+	is:maxLocation :MilepostBAG1450MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG1450MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation1450MP is:minLocation :MilepostBAG1450MP ;
+	is:maxLocation :MilepostBAG1451319MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG1451319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation1451319MP is:minLocation :MilepostBAG1451319MP ;
+	is:maxLocation :MilepostBAG146880MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG146880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation146880MP is:minLocation :MilepostBAG146880MP ;
+	is:maxLocation :MilepostBAG2470MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG2470MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2470MP is:minLocation :MilepostBAG2470MP ;
+	is:maxLocation :MilepostBAG147439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG147439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation147439MP is:minLocation :MilepostBAG147439MP ;
+	is:maxLocation :MilepostBAG2471319MP ;
+	is:elr :LineRefBAG1 .
+
+:MilepostBAG2471319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2471319MP is:minLocation :MilepostBAG2471319MP ;
+	is:maxLocation :MilepostBAG248880MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG248880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation248880MP is:minLocation :MilepostBAG248880MP ;
+	is:maxLocation :MilepostBAG249439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG249439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation249439MP is:minLocation :MilepostBAG249439MP ;
+	is:maxLocation :MilepostBAG2500MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2500MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2500MP is:minLocation :MilepostBAG2500MP ;
+	is:maxLocation :MilepostBAG2501319MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2501319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2501319MP is:minLocation :MilepostBAG2501319MP ;
+	is:maxLocation :MilepostBAG251880MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG251880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation251880MP is:minLocation :MilepostBAG251880MP ;
+	is:maxLocation :MilepostBAG252439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG252439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation252439MP is:minLocation :MilepostBAG252439MP ;
+	is:maxLocation :MilepostBAG2530MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2530MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2530MP is:minLocation :MilepostBAG2530MP ;
+	is:maxLocation :MilepostBAG2531319MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2531319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2531319MP is:minLocation :MilepostBAG2531319MP ;
+	is:maxLocation :MilepostBAG254880MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG254880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation254880MP is:minLocation :MilepostBAG254880MP ;
+	is:maxLocation :MilepostBAG255439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG255439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation255439MP is:minLocation :MilepostBAG255439MP ;
+	is:maxLocation :MilepostBAG2560MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2560MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2560MP is:minLocation :MilepostBAG2560MP ;
+	is:maxLocation :MilepostBAG2561319MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2561319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2561319MP is:minLocation :MilepostBAG2561319MP ;
+	is:maxLocation :MilepostBAG257880MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG257880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation257880MP is:minLocation :MilepostBAG257880MP ;
+	is:maxLocation :MilepostBAG258439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG258439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation258439MP is:minLocation :MilepostBAG258439MP ;
+	is:maxLocation :MilepostBAG2590MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2590MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2590MP is:minLocation :MilepostBAG2590MP ;
+	is:maxLocation :MilepostBAG2591319MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2591319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2591319MP is:minLocation :MilepostBAG2591319MP ;
+	is:maxLocation :MilepostBAG260880MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG260880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation260880MP is:minLocation :MilepostBAG260880MP ;
+	is:maxLocation :MilepostBAG261439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG261439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation261439MP is:minLocation :MilepostBAG261439MP ;
+	is:maxLocation :MilepostBAG2620MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2620MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2620MP is:minLocation :MilepostBAG2620MP ;
+	is:maxLocation :MilepostBAG2621319MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2621319MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2621319MP is:minLocation :MilepostBAG2621319MP ;
+	is:maxLocation :MilepostBAG263880MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG263880MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation263880MP is:minLocation :MilepostBAG263880MP ;
+	is:maxLocation :MilepostBAG264439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG264439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation264439MP is:minLocation :MilepostBAG264439MP ;
+	is:maxLocation :MilepostBAG2650MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2650MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2650MP is:minLocation :MilepostBAG2650MP ;
+	is:maxLocation :MilepostBAG2651320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2651320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2651320MP is:minLocation :MilepostBAG2651320MP ;
+	is:maxLocation :MilepostBAG266879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG266879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation266879MP is:minLocation :MilepostBAG266879MP ;
+	is:maxLocation :MilepostBAG267439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG267439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation267439MP is:minLocation :MilepostBAG267439MP ;
+	is:maxLocation :MilepostBAG2680MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2680MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2680MP is:minLocation :MilepostBAG2680MP ;
+	is:maxLocation :MilepostBAG2681320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2681320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2681320MP is:minLocation :MilepostBAG2681320MP ;
+	is:maxLocation :MilepostBAG269879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG269879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation269879MP is:minLocation :MilepostBAG269879MP ;
+	is:maxLocation :MilepostBAG270439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG270439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation270439MP is:minLocation :MilepostBAG270439MP ;
+	is:maxLocation :MilepostBAG2710MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2710MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2710MP is:minLocation :MilepostBAG2710MP ;
+	is:maxLocation :MilepostBAG2711320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2711320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2711320MP is:minLocation :MilepostBAG2711320MP ;
+	is:maxLocation :MilepostBAG272879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG272879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation272879MP is:minLocation :MilepostBAG272879MP ;
+	is:maxLocation :MilepostBAG273439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG273439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation273439MP is:minLocation :MilepostBAG273439MP ;
+	is:maxLocation :MilepostBAG2740MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2740MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2740MP is:minLocation :MilepostBAG2740MP ;
+	is:maxLocation :MilepostBAG2741320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2741320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2741320MP is:minLocation :MilepostBAG2741320MP ;
+	is:maxLocation :MilepostBAG275879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG275879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation275879MP is:minLocation :MilepostBAG275879MP ;
+	is:maxLocation :MilepostBAG276439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG276439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation276439MP is:minLocation :MilepostBAG276439MP ;
+	is:maxLocation :MilepostBAG2770MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2770MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2770MP is:minLocation :MilepostBAG2770MP ;
+	is:maxLocation :MilepostBAG2771320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2771320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2771320MP is:minLocation :MilepostBAG2771320MP ;
+	is:maxLocation :MilepostBAG278879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG278879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation278879MP is:minLocation :MilepostBAG278879MP ;
+	is:maxLocation :MilepostBAG279439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG279439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation279439MP is:minLocation :MilepostBAG279439MP ;
+	is:maxLocation :MilepostBAG2800MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2800MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2800MP is:minLocation :MilepostBAG2800MP ;
+	is:maxLocation :MilepostBAG2801320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2801320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2801320MP is:minLocation :MilepostBAG2801320MP ;
+	is:maxLocation :MilepostBAG281879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG281879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation281879MP is:minLocation :MilepostBAG281879MP ;
+	is:maxLocation :MilepostBAG282439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG282439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation282439MP is:minLocation :MilepostBAG282439MP ;
+	is:maxLocation :MilepostBAG2830MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2830MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2830MP is:minLocation :MilepostBAG2830MP ;
+	is:maxLocation :MilepostBAG2831320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2831320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2831320MP is:minLocation :MilepostBAG2831320MP ;
+	is:maxLocation :MilepostBAG284879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG284879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation284879MP is:minLocation :MilepostBAG284879MP ;
+	is:maxLocation :MilepostBAG285439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG285439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation285439MP is:minLocation :MilepostBAG285439MP ;
+	is:maxLocation :MilepostBAG2860MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2860MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2860MP is:minLocation :MilepostBAG2860MP ;
+	is:maxLocation :MilepostBAG2861320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2861320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2861320MP is:minLocation :MilepostBAG2861320MP ;
+	is:maxLocation :MilepostBAG287879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG287879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation287879MP is:minLocation :MilepostBAG287879MP ;
+	is:maxLocation :MilepostBAG288439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG288439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation288439MP is:minLocation :MilepostBAG288439MP ;
+	is:maxLocation :MilepostBAG2890MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2890MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2890MP is:minLocation :MilepostBAG2890MP ;
+	is:maxLocation :MilepostBAG2891320MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2891320MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2891320MP is:minLocation :MilepostBAG2891320MP ;
+	is:maxLocation :MilepostBAG290879MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG290879MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation290879MP is:minLocation :MilepostBAG290879MP ;
+	is:maxLocation :MilepostBAG291439MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG291439MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation291439MP is:minLocation :MilepostBAG291439MP ;
+	is:maxLocation :MilepostBAG2920MP ;
+	is:elr :LineRefBAG2 .
+
+:MilepostBAG2920MP a is:TrackCircuitLocation , is:MilepostLocation .
+
+:TrackCircuitLocation2920MP is:minLocation :MilepostBAG2920MP ;
+	is:elr :LineRefBAG2 .

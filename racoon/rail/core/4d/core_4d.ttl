@@ -1,0 +1,48 @@
+# baseURI: http://purl.org/rail/4d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+# imports: http://purl.org/ub/upper/4d/
+
+@prefix : <http://purl.org/rail/4d/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p4d: <http://purl.org/ub/upper/4d/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports vocab: ;
+  owl:imports p4d: ;
+.
+:ERailwayConcept
+  rdf:type owl:Class ;
+  rdfs:label "ERailway concept"^^xsd:string ;
+  rdfs:subClassOf p4d:EndurantThing ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty p4d:timeSliceOf ;
+      owl:someValuesFrom vocab:RailwayDomainConcept ;
+    ] ;
+.
+vocab:RailwayDomainConcept
+  rdfs:subClassOf <http://purl.org/ub/upper/ContinuantThing> ;
+.
+p4d:MaterialEndurant
+  rdf:type owl:Class ;
+  doc:partofODP <http://purl.org/ub/upper/FourDFluentsODP> ;
+  doc:partofODP <http://purl.org/ub/upper/MaterialFunctionalInstantiation> ;
+  rdfs:comment "Thing you can kick"@en ;
+  rdfs:label "Material Endurant"^^xsd:string ;
+  rdfs:label "Materialized Physical Object"@en ;
+  rdfs:subClassOf p4d:EndurantThing ;
+  prov:wasAttributedTo <http://purl.org/ub/upper/JonTutcher> ;
+  prov:wasDerivedFrom <http://purl.org/ub/upper/ISO15926> ;
+  prov:wasGeneratedBy <http://purl.org/ub/upper/UpperOntologyCreationActivity> ;
+.

@@ -1,0 +1,56 @@
+# baseURI: http://purl.org/ub/example/directivity
+# imports: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://purl.org/ub/example/directivity#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vocab: <http://purl.org/rail/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/ub/example/directivity>
+  rdf:type owl:Ontology ;
+  owl:imports p3d: ;
+  owl:imports vocab: ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:Arc1
+  rdf:type vocab:RouteArc ;
+  vocab:endNode :NodeX ;
+  vocab:startNode :NodeW ;
+  rdfs:label "Arc1"@en ;
+.
+:Arc2
+  rdf:type vocab:RouteArc ;
+  vocab:endNode :NodeY ;
+  vocab:startNode :NodeX ;
+  rdfs:label "Arc2"@en ;
+.
+:Arc3
+  rdf:type vocab:RouteArc ;
+  vocab:endNode :NodeZ ;
+  vocab:startNode :NodeY ;
+  rdfs:label "Arc3"@en ;
+.
+:NodeW
+  rdf:type vocab:RouteNode ;
+  rdfs:label "Node w"@en ;
+.
+:NodeX
+  rdf:type vocab:RouteNode ;
+  rdfs:label "Node x"@en ;
+.
+:NodeY
+  rdf:type vocab:RouteNode ;
+  rdfs:label "Node y"@en ;
+.
+:NodeZ
+  rdf:type vocab:RouteNode ;
+  rdfs:label "Node z"@en ;
+.

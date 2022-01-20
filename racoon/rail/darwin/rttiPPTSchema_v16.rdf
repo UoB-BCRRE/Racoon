@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.thalesgroup.com/rtti/PushPort/v16/"
+     xml:base="http://www.thalesgroup.com/rtti/PushPort/v16/"
+     xmlns:ct="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/"
+     xmlns:for="http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sch2="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/"
+     xmlns:sch3="http://www.thalesgroup.com/rtti/PushPort/Schedules/v3/">
+    <owl:Ontology rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16">
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1"/>
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3"/>
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2"/>
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v3"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/TS -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/TS">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/DataResponse"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3/TS"/>
+        <rdfs:comment>Train Status</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/has_uR -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/has_uR">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/Pport"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/uR"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/schedule -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/schedule">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/DataResponse"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v3/Schedule"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/requestID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/requestID">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/uR"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DCISRequestID"/>
+        <rdfs:comment>The DCISRequestID value provided by the originator of this update. Used in conjunction with the requestSource attribute to ensure uniqueness</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/requestSource -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/requestSource">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/uR"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/SourceTypeInst"/>
+        <rdfs:comment>The source instance that generated this update, usually a CIS instance.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/ts -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/ts">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/Pport"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTIDateTimeType"/>
+        <rdfs:comment>Local Timestamp</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/updateOrigin -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/updateOrigin">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/uR"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>A string describing the type of system that originated this update, e.g. &quot;CIS&quot; or &quot;Darwin&quot;.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/version -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/version">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/Pport"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/DataResponse -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/DataResponse"/>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/Pport -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/Pport">
+        <rdfs:comment>Push Ports Schema</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/v16/uR -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/v16/uR">
+        <rdfs:subClassOf rdf:resource="http://www.thalesgroup.com/rtti/PushPort/v16/Pport"/>
+        <rdfs:comment>Update Response</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

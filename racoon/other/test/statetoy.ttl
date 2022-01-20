@@ -1,0 +1,103 @@
+# baseURI: http://example.org/statetoy/
+
+@prefix : <http://example.org/statetoy/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rule: <tag:stardog:api:rule:> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:Asset
+  rdf:type owl:Class ;
+  rdfs:label "Asset"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Bad
+  rdf:type :Condition ;
+  rdfs:label "Bad"^^xsd:string ;
+.
+:Condition
+  rdf:type owl:Class ;
+  rdfs:label "Condition"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Good
+  rdf:type :Condition ;
+  rdfs:label "Good"^^xsd:string ;
+.
+:Measurement
+  rdf:type owl:Class ;
+  rdfs:label "Measurement"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Measurement1
+  rdf:type :Measurement ;
+  :condition :Bad ;
+  :measurementOf :PointsMachine ;
+  :startTime 1 ;
+  rdfs:label "Measurement1"^^xsd:string ;
+.
+:Measurement2
+  rdf:type :Measurement ;
+  :condition :Good ;
+  :measurementOf :PointsMachine ;
+  :startTime 2 ;
+  rdfs:label "Measurement2"^^xsd:string ;
+.
+:Measurement3
+  rdf:type :Measurement ;
+  :condition :Medium ;
+  :measurementOf :PointsMachine ;
+  :startTime 3 ;
+  rdfs:label "Measurement3"^^xsd:string ;
+.
+:Medium
+  rdf:type :Condition ;
+  rdfs:label "Medium"^^xsd:string ;
+.
+:PointsMachine
+  rdf:type :Asset ;
+  :measurement :Measurement1 ;
+  :measurement :Measurement2 ;
+  :measurement :Measurement3 ;
+  rdfs:label "Points machine"^^xsd:string ;
+.
+:condition
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "condition"^^xsd:string ;
+  owl:propertyChainAxiom (
+      :measurement
+      :condition
+    ) ;
+.
+:measurement
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "measurement"^^xsd:string ;
+  owl:inverseOf :measurementOf ;
+.
+:measurementOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Measurement ;
+  rdfs:label "measurement of"^^xsd:string ;
+  rdfs:range :Asset ;
+.
+:startTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Measurement ;
+  rdfs:label "start time"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+[
+  rdf:type owl:AllDifferent ;
+  owl:members (
+      :Good
+      :Medium
+      :Bad
+    ) ;
+].

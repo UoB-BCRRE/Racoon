@@ -1,0 +1,16 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select *
+from <http://purl.org/rail/xcity/weather>
+where{
+    ?tiploc 
+        rw:temp [ 
+            a rw:Temperature;
+            rw:currentTemp ?current_temp
+        ];
+        rw:dewPoint [
+            a rw:DewPoint;
+            rw:currentDewPoint ?dp
+        ]
+
+    filter (xsd:float(?dp) > xsd:float(?current_temp))
+}

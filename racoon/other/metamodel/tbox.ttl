@@ -1,0 +1,90 @@
+# baseURI: http://purl.org/rail/meta/ont/
+
+@prefix :        <http://purl.org/rail/meta/ont/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+:     rdf:type owl:Ontology ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+:DesignPattern
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+:Mapping
+      rdf:type owl:Class ;
+      rdfs:comment "Defines a mapping between an ontological resource and a non-ontological resource"^^xsd:string ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:allValuesFrom :MappingResource ;
+                owl:onProperty :mappingSource
+              ] ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :mappingSource ;
+                owl:someValuesFrom :MappingResource
+              ] ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:allValuesFrom :MappingResource ;
+                owl:onProperty :mappingTarget
+              ] ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty :mappingTarget ;
+                owl:someValuesFrom :MappingResource
+              ] .
+
+:MappingResource
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+:NonOntologicalResource
+      rdf:type owl:Class ;
+      rdfs:subClassOf :MappingResource ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty rdfs:isDefinedBy ;
+                owl:someValuesFrom rdf:PlainLiteral
+              ] ;
+      owl:disjointWith :OntologicalResource .
+
+:OntologicalResource
+      rdf:type owl:Class ;
+      rdfs:comment "Class of linked ontological resource and associated data"@en ;
+      rdfs:subClassOf :MappingResource ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:allValuesFrom rdfs:Resource ;
+                owl:onProperty rdfs:isDefinedBy
+              ] ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty rdfs:isDefinedBy ;
+                owl:someValuesFrom rdfs:Resource
+              ] ;
+      owl:disjointWith :NonOntologicalResource .
+
+:OtherResource
+      rdf:type owl:Class ;
+      rdfs:subClassOf :MappingResource .
+
+:designPattern
+      rdf:type owl:ObjectProperty .
+
+:mappingSource
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain :Mapping ;
+      rdfs:range :OntologicalResource .
+
+:mappingTarget
+      rdf:type owl:ObjectProperty ;
+      rdfs:comment "the entity which is the target of an ontology mapping"^^xsd:string ;
+      rdfs:domain :Mapping ;
+      rdfs:range :OntologicalResource .
+
+:noResource
+      rdf:type :OtherResource .

@@ -1,0 +1,753 @@
+# baseURI: http://purl.org/ub/upper/
+# imports: http://purl.org/ub/co/
+# imports: http://purl.org/ub/doc/
+# prefix: u
+
+@prefix : <http://purl.org/ub/upper/> .
+@prefix co: <http://purl.org/ub/co/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix ucv: <http://purl.org/ub/upper/cv/> .
+@prefix wgspos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dc:date
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "a date"@en ;
+  rdfs:label "Date"@en ;
+.
+dc:description
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "a description of a term; used for descriptions of *things* rather than comments on the ontological representation of them"@en ;
+  rdfs:label "Description"@en ;
+.
+dc:title
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "The title of something"@en ;
+  rdfs:label "Title"@en ;
+.
+co:element
+  rdfs:range owl:Thing ;
+.
+co:elementOf
+  rdfs:domain owl:Thing ;
+  rdfs:range co:Collection ;
+.
+co:item
+  owl:inverseOf co:itemOf ;
+.
+co:itemContentOf
+  rdfs:range co:Item ;
+.
+co:itemOf
+  rdfs:domain co:Item ;
+  rdfs:range co:Bag ;
+.
+co:lastItemOf
+  rdfs:range co:List ;
+.
+co:nextItem
+  rdfs:domain owl:Thing ;
+  rdfs:range owl:Thing ;
+.
+co:precededBy
+  rdfs:domain co:ListItem ;
+  rdfs:range co:ListItem ;
+.
+co:previousItem
+  rdfs:domain owl:Thing ;
+  rdfs:range owl:Thing ;
+.
+doc:optionalConstraintAnnotation
+  rdfs:domain owl:Thing ;
+  rdfs:range xsd:string ;
+.
+doc:paradigm
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "The paradigm an entity is part of (3D or 4D)"@en ;
+  rdfs:label "paradigm"@en ;
+.
+u:
+  rdf:type owl:Ontology ;
+  rdfs:comment "A simple upper ontology intended for use with pragmatic industrial data models"^^xsd:string ;
+  rdfs:label "University of Birmingham Railway Upper Ontology"@en ;
+  owl:imports co: ;
+  owl:imports doc: ;
+.
+u:AbsoluteLocation
+  rdf:type owl:Class ;
+  rdfs:comment "A location that is defined as semantically 'absolute', with no reference system in the ontology. Absolute locations include things like GPS measurements, which are measured according to an external datum"@en ;
+  rdfs:label "Absolute position"@en ;
+  rdfs:subClassOf u:Location ;
+.
+u:Agent
+  rdf:type owl:Class ;
+  rdfs:comment "Any agent: a thing, person, or organisation that has some responsibility or role"@en ;
+  rdfs:label "Agent"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:ArbitraryKind
+  rdf:type u:PhysicalDimension ;
+  rdfs:comment "Arbitrary Kind"@en ;
+  rdfs:label "Axle load"@en ;
+.
+u:Area
+  rdf:type owl:Class ;
+  doc:turtleExample "zip: ZIP/Postcode (from RailML)"^^xsd:string ;
+  rdfs:comment "A spacial area of any kind"@en ;
+  rdfs:label "Area"@en ;
+  rdfs:subClassOf u:SpatialThing ;
+.
+u:Characteristic
+  rdf:type owl:Class ;
+  rdfs:comment "A capability concept fulfills some role e.g. 750VDCElectricalCapability"@en ;
+  rdfs:label "Capability Concept"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+u:ContinuousMeasurement
+  rdf:type owl:Class ;
+  rdfs:comment "This class represents an actual measurement being used, i.e. a quantity defined in value and units. Scales are ignored here, and are inferred from unit names (this model needs no reasoning based on scales, so it is omitted)"@en ;
+  rdfs:comment "We would like to use owl:real as datatype restriction on value, but TopBraid Composer doesn't support it (even though it is an OWL2 spec) for expressivity reasons. Hence, using xsd:double."@en ;
+  rdfs:label "Continuous Measurement"@en ;
+  rdfs:subClassOf u:Measurement ;
+.
+u:Customer
+  rdf:type owl:Class ;
+  rdfs:comment "Some customer"@en ;
+  rdfs:label "Customer"@en ;
+  rdfs:subClassOf u:Stakeholder ;
+.
+u:DataConcept
+  rdf:type owl:Class ;
+  rdfs:comment "Class of all data construct concepts"@en ;
+  rdfs:label "Data Concept"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+u:DependentThing
+  rdf:type owl:Class ;
+  rdfs:comment "A dependent thing is an entity which depends on something else in order to exist. Many properties of object fall into this category - colour, size, etc"@en ;
+  rdfs:label "Dependent Thing"@en ;
+.
+u:DomainSpecificThing
+  rdf:type owl:Class ;
+  rdfs:comment "A domain (as opposed to upper-level) concept"@en ;
+  rdfs:label "Domain-specific Thing"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:ET1
+  rdfs:label "ET1"@en ;
+.
+u:Event
+  rdf:type owl:Class ;
+  rdfs:comment "A process or event"@en ;
+  rdfs:label "Event"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+u:FourDFluentsODP
+  rdf:type doc:ODP ;
+  rdfs:comment "Welty/Fikes 4D Fluents ODP"@en ;
+  rdfs:label "Four DFluents ODP"@en ;
+.
+u:Function
+  rdf:type owl:Class ;
+  rdfs:comment "Definition of a function that can be carried out by a functional object"@en ;
+  rdfs:label "Function"@en ;
+  rdfs:subClassOf u:Characteristic ;
+  doc:example """:CarFunction a :Function
+:FunctionalCar provides :CarFunction"""^^xsd:string ;
+.
+u:FunctionalCompositionODP
+  rdf:type doc:ODP ;
+  rdfs:comment "Design pattern to represent the functional (not physical) composition of an entity"@en ;
+  rdfs:label "Functional composition ODP"@en ;
+.
+u:ISO15926
+  rdf:type owl:NamedIndividual ;
+  rdf:type prov:Entity ;
+  rdfs:comment "Data Integration Standard"@en ;
+  rdfs:label "ISO 15926"@en ;
+.
+u:IndependentThing
+  rdf:type owl:Class ;
+  rdfs:comment "An entity that does not depend on something else in the ontology to exist. Real world objects are independent things, a location is not"@en ;
+  rdfs:label "Independent thing"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+u:InformationThing
+  rdf:type owl:Class ;
+  rdfs:comment "Any form of information asset, such as a document"@en ;
+  rdfs:label "Information asset"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:JonTutcher
+  rdf:type owl:NamedIndividual ;
+  rdf:type prov:Person ;
+  rdfs:comment "Jon Tutcher"@en ;
+  rdfs:label "Jon Tutcher"@en ;
+.
+u:Length
+  rdf:type u:PhysicalDimension ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Length Property kind"@en ;
+  rdfs:label "Length"@en ;
+.
+u:Location
+  rdf:type owl:Class ;
+  rdfs:comment "The class of locations, characteristics which imply a spacial position"@en ;
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+u:Mass
+  rdf:type u:PhysicalDimension ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Mass property kind"@en ;
+  rdfs:label "Mass"@en ;
+.
+u:MaterialFunctionalInstantiation
+  rdf:type doc:ODP ;
+  rdfs:comment "Material Functional Instance"@en ;
+  rdfs:label "Material functional instantiation"@en ;
+.
+u:Measurement
+  rdf:type owl:Class ;
+  rdfs:comment "The class of all measurements: properties that impart "@en ;
+  rdfs:label "Measurement"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+u:NonSpatialThing
+  rdf:type owl:Class ;
+  rdfs:comment "Any (independent) entity that does not have a spatial extent e.g. a timetable"@en ;
+  rdfs:label "Non spatial thing"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:Observation
+  rdf:type owl:Class ;
+  rdfs:comment "An observation of a measurement (such as in data acquisition)"@en ;
+  rdfs:label "Observation"@en ;
+  rdfs:subClassOf u:Event ;
+.
+u:OptionalPropertyAssertionPatern
+  rdf:type doc:ODP ;
+  dc:description "Any XML schema optional property (implying that the model allows it to be asserted) is represented by doc:optionalPropertyAnnotation"^^xsd:string ;
+  rdfs:comment "A way of asserting optional properties in the OWL ontology"@en ;
+  rdfs:label "Optional property assertion patern"@en ;
+.
+u:Organisation
+  rdf:type owl:Class ;
+  rdfs:comment "An organisation, group, company"@en ;
+  rdfs:label "Organisation"@en ;
+  rdfs:subClassOf u:Agent ;
+.
+u:Person
+  rdf:type owl:Class ;
+  rdfs:comment "A human person"@en ;
+  rdfs:label "Person"@en ;
+  rdfs:subClassOf u:Agent ;
+.
+u:PhysicalAgent
+  rdf:type owl:Class ;
+  rdfs:comment "Any agent who is physically present"@en ;
+  rdfs:label "Physical agent"@en ;
+  rdfs:subClassOf u:Agent ;
+.
+u:PhysicalDimension
+  rdf:type owl:Class ;
+  rdfs:comment "Class for all the physical dimensions used in this model (length, mass, temperature, etc), as per Ellis."@en ;
+  rdfs:label "Physical Dimension"@en ;
+  rdfs:seeAlso <http://qudt.org/1.1/schema/qudt#QuantityKind> ;
+  rdfs:subClassOf u:DataConcept ;
+.
+u:Place
+  rdf:type owl:Class ;
+  rdfs:comment "The physical entity of a place"@en ;
+  rdfs:label "Place"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:ProvenanceConcept
+  rdf:type owl:Class ;
+  rdfs:comment "Class of all data provenance concepts"@en ;
+  rdfs:label "Provenance Concept"@en ;
+  rdfs:label "Provenance Conept"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+u:RailML
+  rdf:type owl:NamedIndividual ;
+  rdf:type prov:Entity ;
+  rdfs:comment "Entity to Represent RalML Schema"^^xsd:string ;
+  rdfs:comment "RailML is an XML railway data exchange standard"@en ;
+  rdfs:label "RailML"@en ;
+.
+u:RailMLMappingActivity
+  rdf:type owl:NamedIndividual ;
+  rdf:type prov:Activity ;
+  rdfs:comment "The PROV activity that created all RailML ontological entities"@en ;
+  rdfs:label "RailML Mapping Activity"@en ;
+.
+u:RelativePosition
+  rdf:type owl:Class ;
+  rdfs:comment "A position that is placed relative to another entity or measurement within the ontology"@en ;
+  rdfs:label "Relative position"@en ;
+  rdfs:subClassOf u:Location ;
+.
+u:Resource
+  rdf:type owl:Class ;
+  rdfs:comment "Any kind of resource that can be used or consumed"@en ;
+  rdfs:label "Resource"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:Role
+  rdf:type owl:Class ;
+  rdfs:comment "Class of things which represent functional elements of a system rather than physical elements"@en ;
+  rdfs:label "Role Concept"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+u:Spacial
+  rdf:type u:PhysicalDimension ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Spacial property kind"@en ;
+  rdfs:label "Spacial"@en ;
+.
+u:SpatialThing
+  rdf:type owl:Class ;
+  rdfs:comment "An entity with a spacial extent"@en ;
+  rdfs:comment """Anything with spatial extent, i.e. size, shape, or position.
+ e.g. people, places, bowling balls, as well as abstract areas like cubes."""@en ;
+  rdfs:label "Spatial Thing"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+u:Stakeholder
+  rdf:type owl:Class ;
+  rdfs:comment "An agent with a stake in some situation"@en ;
+  rdfs:label "Stakeholder"@en ;
+  rdfs:subClassOf u:Agent ;
+.
+u:TopologicalThing
+  rdf:type owl:Class ;
+  rdfs:comment "An entity with some topographic extent, such as elements in a network model"@en ;
+  rdfs:label "Topological thing"@en ;
+  rdfs:subClassOf u:SpatialThing ;
+.
+u:Unit
+  rdf:type owl:Class ;
+  dc:description "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  Q = nU."^^xsd:string ;
+  rdfs:comment "Class of all measurement units"@en ;
+  rdfs:label "Unit"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+u:UniversityOfBirmingham
+  rdf:type owl:NamedIndividual ;
+  rdf:type prov:Organization ;
+  rdfs:comment "The University of Birmingham"@en ;
+  rdfs:label "University of Birmingham"@en ;
+.
+u:UpperOntologyCreationActivity
+  rdf:type owl:NamedIndividual ;
+  rdf:type prov:Activity ;
+  rdfs:comment "The activity that created the Upper Ontology from top level concepts"@en ;
+  rdfs:label "Upper Ontology Creation Activity"@en ;
+.
+u:capability
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Represents the capability of a functional component to perform a task"@en ;
+  rdfs:domain u:DependentThing ;
+  rdfs:label "capability"@en ;
+  rdfs:range u:Characteristic ;
+  owl:inverseOf u:capabilityOf ;
+.
+u:capabilityOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of capability"@en ;
+  rdfs:domain u:Characteristic ;
+  rdfs:label "capability of"@en ;
+  rdfs:range u:DependentThing ;
+.
+u:characteristic
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "represents the relationship between an entity and a particular characteristic which implies some capability"@en ;
+  rdfs:domain u:DependentThing ;
+  rdfs:label "capability"@en ;
+  rdfs:range u:Characteristic ;
+  rdfs:subPropertyOf u:capability ;
+.
+u:compositionInheritedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of u:compositionInheritedProperty"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "composition inherited by"@en ;
+  rdfs:range owl:Thing ;
+.
+u:compositionInheritedProperty
+  rdf:type owl:ObjectProperty ;
+  doc:example """If A comprises B and C,
+C hasFault X,
+if it is appropriate that A hasFault X,
+hasFault is a composition inherited property."""@en ;
+  rdfs:comment "A property which is inherited by nodes that are in a composition hierarchy"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "composition inherited property"@en ;
+  rdfs:range owl:Thing ;
+  owl:inverseOf u:compositionInheritedBy ;
+  owl:propertyChainAxiom (
+      u:functionallyComprises
+      u:compositionInheritedProperty
+    ) ;
+.
+u:comprises
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:comment "Inverse of u:partOf. If something comprises something else, it includes it as a part"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "comprises"@en ;
+  rdfs:range u:IndependentThing ;
+  owl:inverseOf u:partOf ;
+.
+u:endLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Represents the end location of an element with beginning and end"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "End Location"@en ;
+  rdfs:range u:Location ;
+  rdfs:subPropertyOf u:location ;
+  owl:inverseOf u:endLocationOf ;
+.
+u:endLocationOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of end location"@en ;
+  rdfs:domain u:Location ;
+  rdfs:label "end location of"@en ;
+  rdfs:range u:IndependentThing ;
+.
+u:functionallyComprises
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  doc:partofODP u:FunctionalCompositionODP ;
+  rdfs:comment "Indicates composition of one function within another"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "functionally comprises"@en ;
+  rdfs:range u:IndependentThing ;
+  rdfs:subPropertyOf u:comprises ;
+  owl:inverseOf u:logicalPartOf ;
+.
+u:hasFunctionalPart
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:ReflexiveProperty ;
+  rdfs:comment "inverse of functionallyComprises - the object is a functional part of the subject"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "has part"@en ;
+  rdfs:range owl:Thing ;
+.
+u:listProperty
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Umbrella property for properties in an OWL List design pattern"^^xsd:string ;
+  rdfs:comment "superclass of all list properties"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "list property"@en ;
+  rdfs:range co:List ;
+  owl:inverseOf u:listPropertyOf ;
+.
+u:listPropertyOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The property this list defines"@en ;
+  rdfs:domain co:List ;
+  rdfs:label "list property of"@en ;
+  rdfs:range owl:Thing ;
+.
+u:location
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "something can be located either at a location specifically (the dependent concept of), or at a place (a concrete thing). location is transitive"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "Location"@en ;
+  rdfs:range u:Location ;
+  owl:inverseOf u:locationOf ;
+.
+u:locationOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse property of u:location"@en ;
+  rdfs:domain u:Location ;
+  rdfs:label "location of"@en ;
+  rdfs:range u:IndependentThing ;
+  owl:inverseOf u:location ;
+.
+u:logicalPartOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Transitivity not asserted, as functional parts are not necessarily transitive (although they may be)"@en ;
+  rdfs:comment "comprises, but not physically"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "functionally comprised of"@en ;
+  rdfs:range u:IndependentThing ;
+  rdfs:subPropertyOf u:partOf ;
+.
+u:measurement
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Object property to refer to measurements in the ontology" ;
+  rdfs:comment "supercalss of all measurement characteristic properties"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Measurement"@en ;
+  rdfs:range u:Measurement ;
+  owl:inverseOf u:measurementOf ;
+.
+u:measurementOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of u:measurement"@en ;
+  rdfs:domain u:Measurement ;
+  rdfs:label "measurement of"@en ;
+  rdfs:range owl:Thing ;
+.
+u:measurementValue
+  rdf:type owl:DatatypeProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdfs:comment "The value of a particular u:ContinuousMeasurement"@en ;
+  rdfs:domain u:Measurement ;
+  rdfs:label "Measurement Value"@en ;
+.
+u:next
+  rdf:type owl:FunctionalProperty ;
+  rdf:type owl:InverseFunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Represents the next component in a group"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "next"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf u:listProperty ;
+  owl:inverseOf u:previous ;
+.
+u:owner
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The owner of an entity"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "owner"@en ;
+  rdfs:range u:IndependentThing ;
+  owl:inverseOf u:ownerOf ;
+.
+u:ownerOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An entity which belongs to this owner"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "owner of"@en ;
+  rdfs:range owl:Thing ;
+.
+u:partOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Composition propety"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "part of"@en ;
+  rdfs:range u:IndependentThing ;
+.
+u:previous
+  rdf:type owl:FunctionalProperty ;
+  rdf:type owl:InverseFunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The previous object in a list"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "previous"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf u:listProperty ;
+.
+u:providedBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of u:provides"@en ;
+  rdfs:domain u:Function ;
+  rdfs:label "provided by"@en ;
+  rdfs:range owl:Thing ;
+.
+u:provides
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Link between a particular entity and a function it provides"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "provides"@en ;
+  rdfs:range u:Function ;
+  owl:inverseOf u:providedBy ;
+.
+u:quantityKind
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The 'type' of a particular quantity, as defined by QUDT"@en ;
+  rdfs:domain u:Unit ;
+  rdfs:label "Quantity Kind"@en ;
+  rdfs:range u:PhysicalDimension ;
+  owl:inverseOf u:quantityKindOf ;
+.
+u:quantityKindOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Enumerates the units that this quantity kind is of"@en ;
+  rdfs:domain u:PhysicalDimension ;
+  rdfs:label "quantity kind of"@en ;
+  rdfs:range u:Unit ;
+.
+u:relativeToLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The position to which another is relative"^^xsd:string ;
+  rdfs:domain u:Location ;
+  rdfs:label "relative to location"@en ;
+  rdfs:range u:Location ;
+.
+u:startLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The start location of an element that may have a start and end location@en}"^^xsd:string ;
+  rdfs:comment "the location which an entity's spacial extent starts at"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "Start Location"@en ;
+  rdfs:range u:Location ;
+  rdfs:subPropertyOf u:location ;
+  owl:inverseOf u:startLocationOf ;
+.
+u:startLocationOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of start location"@en ;
+  rdfs:domain u:Location ;
+  rdfs:label "start location of"@en ;
+  rdfs:range u:IndependentThing ;
+.
+u:unit
+  rdf:type owl:AsymmetricProperty ;
+  rdf:type owl:FunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The unit component of a measurement"@en ;
+  rdfs:domain u:ContinuousMeasurement ;
+  rdfs:label "Unit"@en ;
+  rdfs:range u:Unit ;
+  owl:inverseOf u:unitOf ;
+.
+u:unitOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of u:unit"@en ;
+  rdfs:domain u:Unit ;
+  rdfs:label "unit of"@en ;
+  rdfs:range u:ContinuousMeasurement ;
+.
+<http://qudt.org/schema/qudt#description>
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "description"@en ;
+  rdfs:range xsd:string ;
+.
+rdfs:
+  rdfs:label "RDF Schema"@en ;
+.
+<http://www.w3.org/2002/07/owl>
+  rdfs:label ""@en ;
+.
+wgspos:
+  dc:date "$Date: 2009/04/20 15:00:30 $" ;
+  rdfs:label "geo" ;
+.
+wgspos:Point
+  rdf:type owl:Class ;
+  rdfs:comment """ 
+Uniquely identified by lat/long/alt. i.e.
+
+spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
+  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
+
+sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+  """ ;
+  rdfs:comment """A poi
+  nt, typically described using a coordinate system relative to Earth, such as WGS84.
+  """ ;
+  rdfs:comment "A spacial point in three dimensions"@en ;
+  rdfs:label "Point"@en ;
+  rdfs:label "point" ;
+  rdfs:subClassOf u:Measurement ;
+.
+wgspos:lat_long
+  rdfs:comment "A comma-separated representation of a latitude, longitude coordinate." ;
+  rdfs:label "lat/long" ;
+.
+<http://www.w3.org/2004/02/skos/core#exactMatch>
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "exact match"@en ;
+  rdfs:range owl:Thing ;
+.
+prov:Activity
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Activity"@en ;
+  rdfs:label "Activity"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Agent
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Agent"@en ;
+  rdfs:label "Agent"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Dictionary
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Dictionary"@en ;
+  rdfs:label "Dictionary"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Entity
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Entit"@en ;
+  rdfs:label "Entity"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Influence
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Influence"@en ;
+  rdfs:label "Influence"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:InstantaneousEvent
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Instantaneous Event"@en ;
+  rdfs:label "Instantaneous Event"@en ;
+  rdfs:label "Instantaneous event"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Location
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Location"@en ;
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Organization
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Organisation"@en ;
+  rdfs:label "Organization"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Person
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Person"@en ;
+  rdfs:label "Person"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+prov:Role
+  rdf:type owl:Class ;
+  rdfs:comment "PROV-O Role"@en ;
+  rdfs:label "Role"@en ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+[
+  rdf:type owl:AllDifferent ;
+].
+[
+  rdf:type owl:AllDifferent ;
+  owl:distinctMembers (
+      u:Length
+      u:Mass
+    ) ;
+].
+[
+  rdf:type owl:AllDifferent ;
+  owl:distinctMembers (
+      u:Length
+      u:Spacial
+    ) ;
+].
+[
+  rdf:type owl:AllDifferent ;
+  owl:distinctMembers (
+      u:Mass
+      u:Spacial
+    ) ;
+].

@@ -1,0 +1,322 @@
+# baseURI: http://purl.org/ub/doc/
+
+@prefix : <http://purl.org/ub/doc/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  rdfs:label "RaCoOn documentation concepts"@en ;
+
+.
+
+dc:date
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "Date"@en ;
+.
+dc:description
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "Description"@en ;
+.
+dc:title
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "Title"@en ;
+.
+
+:AnnotationODP
+  rdf:type owl:Class ;
+  rdfs:comment "An ODP related to the annotation of an ontology"@en ;
+  rdfs:label "Annotation ODP"@en ;
+  rdfs:subClassOf :ODP ;
+.
+:Dialect
+  rdf:type owl:Class ;
+  rdfs:comment "A particular representation of the ontology's vocabulary, such that different organisations may refer to different terms in different ways"@en ;
+  rdfs:label "Dialect"@en ;
+  rdfs:subClassOf :MetaThing ;
+.
+:DocOntology
+  rdf:type owl:Ontology ;
+  rdfs:comment "Meta-ontology to provide ways of documenting ontologies in RDF, including design patterns and constraints"^^xsd:string ;
+  owl:versionInfo "1.1.0"^^xsd:string ;
+.
+:EntityDescription
+  rdf:type owl:Class ;
+  :partofODP <http://purl.org/ub/upper/LocalNamingODP> ;
+  rdfs:comment "A description of a particular entitiy to some organisation"@en ;
+  rdfs:label "Entity description"@en ;
+  rdfs:subClassOf :MetaThing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :dialect ;
+      owl:someValuesFrom :Dialect ;
+    ] ;
+.
+:LocalNamingODP
+  rdf:type :PresentationODP ;
+  rdfs:comment "Design Pattern allowing ontological entities to be known by other natural language names and descriptions"^^xsd:string ;
+  rdfs:comment "Design pattern for presenting organisation-specific names and terminology"@en ;
+  rdfs:label "Local naming ODP"@en ;
+.
+:MetaThing
+  rdf:type owl:Class ;
+  rdfs:comment "Class of concepts that are used to meta model the ontology"@en ;
+  rdfs:label "Meta thing"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+:ODP
+  rdf:type owl:Class ;
+  rdfs:comment "Entities representing a particular ontology design pattern"@en ;
+  rdfs:label "Ontology Design Pattern"@en ;
+  rdfs:subClassOf :MetaThing ;
+.
+:OntologyViewAffiliation
+  rdf:type owl:Class ;
+  rdfs:comment "A particular view on the ontology (for an editor or viewer). Objects linked to an instance of this class through the 'parofView' property represent one view on the ontology"@en ;
+  rdfs:label "Ontology view affiliation"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+:PresentationODP
+  rdf:type owl:Class ;
+  rdfs:comment "An ODP related to the presentation of an ontology"@en ;
+  rdfs:label "Presentation ODP"@en ;
+  rdfs:subClassOf :ODP ;
+.
+:alsoKnownAs
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "An entity that has another representation in some other form (RDF or otherwise); intentionally loose semantics"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "also known as"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+:dialect
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse of dialectOf. Describes entities that are represent dialect terms of other terms"@en ;
+  rdfs:domain :EntityDescription ;
+  rdfs:label "dialect"@en ;
+  rdfs:range :Dialect ;
+  :partofODP :LocalNamingODP ;
+.
+:dialectLabel
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Label to apply to an entity in a particular dialect"@en ;
+  rdfs:domain :EntityDescription ;
+  rdfs:label "Dialect Label"@en ;
+  rdfs:range xsd:string ;
+.
+:dialectOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Property to link an EntityDescription (an alternate description of an asset) with the organisation that uses that description"@en ;
+  rdfs:domain :Dialect ;
+  rdfs:label "Dialect Of"@en ;
+  rdfs:range :EntityDescription ;
+  owl:inverseOf :dialect ;
+.
+:dialectTerm
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Represents an alternative description for a term"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "dialect term"@en ;
+  rdfs:range :EntityDescription ;
+  owl:inverseOf :dialectTermOf ;
+.
+:dialectTermOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The term this dialect dictates"^^xsd:string ;
+  rdfs:domain :EntityDescription ;
+  rdfs:label "dialect term of"@en ;
+  rdfs:range owl:Thing ;
+.
+:domainAnnotation
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "A non-semantic annotation of the suggested domain of a class. Useful to imply a domain under normal circumstances, but when assertion of it in OWL may not be appropriate for reasoning or assumption reasons"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "domain annotation"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+:example
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "Documents an example implmentation of a class"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Example"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+:optionalConstraintAnnotation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Annotation only (non-semantic) description of a constraint on an entity. Useful to imply formal semantics without enforcing them"@en ;
+  rdfs:label "constraint annotation"@en ;
+.
+:partofODP
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "links an entity to one or more design patterns it is part of"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "part of ODP"@en ;
+  rdfs:range :ODP ;
+.
+:partofView
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "Annotates (at a very basic level) whether this entity should be visualised as a particular view on an (OWL) ontology. Useful for when visualising the ontology itself (not its assertion data) in some OWL visualisation tool."@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "partof view"@en ;
+  rdfs:range owl:Thing ;
+.
+:rangeAnnotation
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "A non-semantic annotation of the suggested domain of a class. Useful to imply a domain under normal circumstances, but when assertion of it in OWL may not be appropriate for reasoning or assumption reasons"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "range annotation"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+:turtleExample
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "An example of the design pattern in use, marked up in plain text turtle"@en ;
+  rdfs:comment "{@en}"^^xsd:string ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "TTL/N3 Example"@en ;
+  rdfs:range xsd:string ;
+.
+:version
+  rdf:type owl:AnnotationProperty ;
+  rdfs:comment "The version of an ontology or dataset"@en ;
+  rdfs:label "version"@en ;
+.
+
+rdf:HTML
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+rdf:PlainLiteral
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:ENTITY
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:ID
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:IDREF
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:NCName
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:NMTOKEN
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:NOTATION
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:Name
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:QName
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:anySimpleType
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:anyURI
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:base64Binary
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:boolean
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:byte
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:date
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:dateTime
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:decimal
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:double
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:duration
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:float
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:gDay
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:gMonth
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:gMonthDay
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:gYear
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:gYearMonth
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:hexBinary
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:int
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:integer
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:language
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:long
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:negativeInteger
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:nonNegativeInteger
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:nonPositiveInteger
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:normalizedString
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:positiveInteger
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:short
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:string
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:time
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:token
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:unsignedByte
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:unsignedInt
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:unsignedLong
+  rdfs:comment "{@en}"^^xsd:string ;
+.
+xsd:unsignedShort
+  rdfs:comment "{@en}"^^xsd:string ;
+.

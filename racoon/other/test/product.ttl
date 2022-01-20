@@ -1,0 +1,70 @@
+PREFIX rule: <tag:stardog:api:rule:>
+PREFIX : <urn:test:>
+
+:c a :Circle ;
+   :radius 10 .
+
+:t a :Triangle ;
+   :base 4 ;
+   :height 10 .
+
+:r a :Rectangle ;
+   :width 5 ;
+   :height 8 .
+
+:s a :Rectangle ;
+   :width 10 ;
+   :height 10 .
+
+[] a rule:SPARQLRule ;
+   rule:content """
+     PREFIX :<urn:test:>
+     IF {
+        ?r a :Rectangle ;
+           :width ?w ;
+           :height ?h
+        BIND (?w * ?h AS ?area)
+     }
+     THEN {
+         ?r :area ?area
+     }""" .
+
+[] a rule:SPARQLRule ;
+   rule:content """
+     PREFIX :<urn:test:>
+     IF {
+        ?t a :Triangle ;
+           :base ?b ;
+           :height ?h
+        BIND (?b * ?h / 2 AS ?area)
+     }
+     THEN {
+         ?t :area ?area
+     }""" .
+
+[] a rule:SPARQLRule ;
+   rule:content """
+     PREFIX :<urn:test:>
+     PREFIX math: <http://www.w3.org/2005/xpath-functions/math#>
+     IF {
+          ?c a :Circle ;
+             :radius ?r
+          BIND (math:pi() * math:pow(?r, 2) AS ?area)
+     }
+     THEN {
+         ?c :area ?area
+     }""" .
+
+
+[] a rule:SPARQLRule ;
+   rule:content """
+     PREFIX :<urn:test:>
+     IF {
+          ?r a :Rectangle ;
+             :width ?w ;
+             :height ?h
+          FILTER (?w = ?h)
+     }
+     THEN {
+         ?r a :Square
+     }""" .

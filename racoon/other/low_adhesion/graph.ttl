@@ -1,0 +1,43 @@
+# baseURI: http://purl.org/rail/graph
+# imports: http://purl.org/rail/core/
+
+@prefix core: <http://purl.org/rail/core/> .
+@prefix : <http://purl.org/rail/graph/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/rail/graph>
+  a owl:Ontology ;
+  owl:imports core: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:is
+  a core:Graph ;
+  rdfs:label "Infrastructure" ;
+  core:hasGraph "http://purl.org/rail/is/" ;
+.
+
+:lines
+  a core:Graph ;
+  rdfs:label "Line of routes" ;
+  core:hasGraph "http://purl.org/rail/lines" ;
+.
+
+:locations
+  a core:Graph ;
+  rdfs:label "Locations" ;
+  core:hasGraph "http://purl.org/rail/locations" ;
+.
+:tt
+  a core:Graph ;
+  rdfs:label "Time table" ;
+  core:hasGraph "http://purl.org/rail/tt/" ;
+.
+
+:rs
+  a core:Graph ;
+  rdfs:label "Rolling stocks" ;
+  core:hasGraph "http://purl.org/rail/rs/" ;
+.

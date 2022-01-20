@@ -1,0 +1,154 @@
+# baseURI: http://purl.org/rail/rw
+# imports: http://purl.org/rail/is/
+# imports: http://qudt.org/1.1/vocab/unit
+
+@prefix : <http://purl.org/rail/rw/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/rail/rw>
+  a owl:Ontology ;
+  owl:imports is: ;
+  owl:imports <http://qudt.org/1.1/vocab/unit> ;
+.
+:Cloud
+  a owl:Class ;
+  rdfs:label "Cloud" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:DewPoint
+  a owl:Class ;
+  rdfs:label "Dew Point" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:Humidity
+  a owl:Class ;
+  rdfs:label "Humidity" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:Pressure
+  a owl:Class ;
+  rdfs:label "Pressure" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:Rainfall
+  a owl:Class ;
+  rdfs:label "Rainfall" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:Temperature
+  a owl:Class ;
+  rdfs:label "Temperature" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:Visibility
+  a owl:Class ;
+  rdfs:label "Visibility" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:WeatherCondition
+  a owl:Class ;
+  rdfs:label "Weather Condition" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:WeatherParameter
+  a owl:Class ;
+  rdfs:label "Weather Parameter" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Wind
+  a owl:Class ;
+  rdfs:label "Wind" ;
+  rdfs:subClassOf :WeatherParameter ;
+.
+:WindDegree
+  a owl:Class ;
+  rdfs:subClassOf :Wind ;
+.
+:WindSpeed
+  a owl:Class ;
+  rdfs:subClassOf :Wind ;
+.
+:cloud
+  a owl:ObjectProperty ;
+.
+:cloudness
+  a owl:DatatypeProperty ;
+.
+:currentDewPoint
+  a owl:DatatypeProperty ;
+.
+:currentHumidity
+  a owl:DatatypeProperty ;
+.
+:currentPressure
+  a owl:DatatypeProperty ;
+.
+:currentStatus
+  a owl:DatatypeProperty ;
+.
+:currentTemp
+  a owl:DatatypeProperty ;
+.
+:currentVisibility
+  a owl:DatatypeProperty ;
+.
+:degree
+  a owl:DatatypeProperty ;
+.
+:detailedStatus
+  a owl:DatatypeProperty ;
+.
+:dewPoint
+  a owl:ObjectProperty ;
+.
+:hasPotentialLowAdhesion
+  a owl:DatatypeProperty ;
+.
+:humidity
+  a owl:ObjectProperty ;
+.
+:maxTemp
+  a owl:DatatypeProperty ;
+.
+:minTemp
+  a owl:DatatypeProperty ;
+.
+:observedAt
+  a owl:DatatypeProperty ;
+.
+:pressure
+  a owl:ObjectProperty ;
+.
+:rainfall
+  a owl:ObjectProperty ;
+.
+:rainfall_3h
+  a owl:DatatypeProperty ;
+.
+:speed
+  a owl:DatatypeProperty ;
+.
+:temp
+  a owl:ObjectProperty ;
+  rdfs:domain :Temperature ;
+.
+:visibility
+  a owl:ObjectProperty ;
+.
+:weatherType
+  a owl:ObjectProperty ;
+.
+:wind
+  a owl:ObjectProperty ;
+.
+:windDegree
+  a owl:ObjectProperty ;
+.
+:windSpeed
+  a owl:ObjectProperty ;
+.

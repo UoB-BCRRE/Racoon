@@ -1,0 +1,15 @@
+PREFIX is: <http://purl.org/rail/is/>
+PREFIX vocab: <http://purl.org/rail/core/vocab/>
+PREFIX res: <http://purl.org/rail/resource/>
+
+SELECT ?station ?label WHERE {
+?circuit a is:TrackCircuit .
+?circuit is:minLocation ?station .
+?station a vocab:Station .
+?station rdfs:label ?alllabels .
+?station vocab:tiploc ?tiploc .
+{?tiploc is:elr res:LineRefBAG1}
+  UNION 
+{?tiploc is:elr res:LineRefBAG2} .
+  BIND(COALESCE(?alllabels) AS ?label)
+} group by ?station ?label

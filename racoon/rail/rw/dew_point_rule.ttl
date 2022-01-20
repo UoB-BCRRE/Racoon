@@ -1,0 +1,36 @@
+@prefix rw: <http://purl.org/rail/rw/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rule: <tag:stardog:api:rule:> .
+
+[] a <tag:stardog:api:rule:SPARQLRule>;
+            rule:content """
+prefix rw: <http://purl.org/rail/rw/>
+IF{
+    ?tiploc
+        rw:temp [
+            a rw:Temperature;
+            rw:currentTemp ?current_temp
+        ];
+        rw:dewPoint [
+            a rw:DewPoint;
+            rw:currentDewPoint ?dp
+        ]
+
+    filter (xsd:float(?dp) > xsd:float(?current_temp))
+}
+Then{
+   ?tiploc rw:hasPotentialLowAdhesion true
+}
+""";
+    rdfs:comment """Poor adhesion conditions caused when low levels of moisture are present at the wheel/rail interface. These conditions are associated with dew on the rail-head, very light rain, misty conditions, and the transition between dry and wet rails at the onset of rain. They are not necessarily associated with the additional presence of other (non-water) rail head contaminants.
+These conditions are not associated with continuous rain.""";
+    rdfs:label "Dew point tester";
+    dc:source  "https://www.rssb.co.uk/library/research-development-and-innovation/research-brief-t1042.pdf" ;
+    py:hasPythonCode """from utilities import update_weather_for_line, check_low_adhesion
+graph = 'http://purl.org/rail/xcity'
+update_weather_for_line(graph)
+results = check_low_adhesion()
+"""
+.
+
+

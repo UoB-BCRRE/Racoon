@@ -1,0 +1,1278 @@
+@prefix :      <http://purl.org/rail/resource/> .
+@prefix demo:  <http://purl.org/ub/demo/ontology/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1:   <http://purl.org/rail/resource/> .
+@prefix is:    <http://purl.org/rail/is/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ns1:TC83  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 83" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBNWDJN2 ;
+        is:minLocation  ns1:TCLocationBNWDJN1 ;
+        demo:timing     "69.2088517078221"^^xsd:double .
+
+ns1:TC62  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 62" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCHRC2 ;
+        is:minLocation  ns1:TCLocationASHCHRC1 ;
+        demo:timing     "51.32056425214323"^^xsd:double .
+
+ns1:TC41  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 41" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBLACKWL2 ;
+        is:minLocation  ns1:TCLocationBLACKWL1 ;
+        demo:timing     "33.047660104115025"^^xsd:double .
+
+ns1:TC20  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 20" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNOROTP2 ;
+        is:minLocation  ns1:TCLocationKNOROTP1 ;
+        demo:timing     "15.616482388676808"^^xsd:double .
+
+ns1:TCLocationBHAMNHS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "42.95"^^xsd:double ;
+        wgs84:lat   "52.47"^^xsd:double ;
+        wgs84:long  "-1.906666667"^^xsd:double .
+
+ns1:TCLocationCOFTONS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "50.87666667"^^xsd:double ;
+        wgs84:lat   "52.36666667"^^xsd:double ;
+        wgs84:long  "-1.983333333"^^xsd:double .
+
+ns1:TiplocBLACKWL  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "399676.1"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "272260.48"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "52.85"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Blackwell" ;
+        wgs84:lat                      "52.34"^^xsd:double ;
+        wgs84:long                     "-2" .
+
+ns1:TC70  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 70" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTALC1 ;
+        is:minLocation  ns1:TiplocCHLTALC ;
+        demo:timing     "59.09223431585349"^^xsd:double .
+
+ns1:TC49  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 49" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL1 ;
+        is:minLocation  ns1:TiplocSPTCHLL ;
+        demo:timing     "40.27524453907912"^^xsd:double .
+
+ns1:TiplocSELYOAK  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "404473.33"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "282660.97"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 ;
+        is:mileage                     "45.62"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Selly Oak" ;
+        wgs84:lat                      "52.44"^^xsd:double ;
+        wgs84:long                     "-1.93" .
+
+ns1:TCLocationLONB2  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "49.31"^^xsd:double ;
+        wgs84:lat   "52.39"^^xsd:double ;
+        wgs84:long  "-1.976666667"^^xsd:double .
+
+ns1:TCLocationECKNGTL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "77.83666667"^^xsd:double ;
+        wgs84:lat   "52.02"^^xsd:double ;
+        wgs84:long  "-2.103333333"^^xsd:double .
+
+ns1:TiplocASHCWGF  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "392638.18"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "232931.7"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "79.75"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Ashchurch War Dept G.F." ;
+        wgs84:lat                      "51.99"^^xsd:double ;
+        wgs84:long                     "-2.1" .
+
+ns1:TC28  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 28" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONB1 ;
+        is:minLocation  ns1:TiplocLONB ;
+        demo:timing     "22.433200050964548"^^xsd:double .
+
+ns1:TC3  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 3" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocFIVEWYS ;
+        is:minLocation  ns1:TCLocationBHAMNHS2 ;
+        demo:timing     "2.3434817268451926"^^xsd:double .
+
+ns1:TCLocationSELYOAK2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "46.34"^^xsd:double ;
+        wgs84:lat   "52.42666667"^^xsd:double ;
+        wgs84:long  "-1.923333333"^^xsd:double .
+
+ns1:TCLocationUNVRSYB2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "45.38333333"^^xsd:double ;
+        wgs84:lat   "52.44333333"^^xsd:double ;
+        wgs84:long  "-1.93"^^xsd:double .
+
+ns1:TC78  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 78" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocCHLTLDL ;
+        is:minLocation  ns1:TCLocationCHLTNHM2 ;
+        demo:timing     "65.47641377268428"^^xsd:double .
+
+ns1:TC57  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 57" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocASHCMOD ;
+        is:minLocation  ns1:TCLocationECKNGTL2 ;
+        demo:timing     "47.00258631315727"^^xsd:double .
+
+ns1:TiplocLIFODWJ  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "405098.65"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "280179.94"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 ;
+        is:mileage                     "47.25"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Lifford West Jn" ;
+        wgs84:lat                      "52.41"^^xsd:double ;
+        wgs84:long                     "-1.92" .
+
+ns1:TC36  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 36" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocBGRN ;
+        is:minLocation  ns1:TCLocationCOFTONS2 ;
+        demo:timing     "30.131161177184225"^^xsd:double .
+
+ns1:TCLocationLONBRS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "49.72"^^xsd:double ;
+        wgs84:lat   "52.38333333"^^xsd:double ;
+        wgs84:long  "-1.98"^^xsd:double .
+
+ns1:TCLocationBGRN1  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "52.17"^^xsd:double ;
+        wgs84:lat   "52.35333333"^^xsd:double ;
+        wgs84:long  "-1.993333333"^^xsd:double .
+
+ns1:TCLocationKNOROTP2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.24333333"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.926666667"^^xsd:double .
+
+ns1:TC15  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 15" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocKNORCT ;
+        is:minLocation  ns1:TCLocationBOURNVL2 ;
+        demo:timing     "11.250651037668497"^^xsd:double .
+
+ns1:TiplocBRMSGRV  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "396872.81"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "269354.84"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "55.37"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Bromsgrove" ;
+        wgs84:lat                      "52.32"^^xsd:double ;
+        wgs84:long                     "-2.04" .
+
+ns1:TCLocationCHLTLDL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "88.93"^^xsd:double ;
+        wgs84:lat   "51.88"^^xsd:double ;
+        wgs84:long  "-2.136666667"^^xsd:double .
+
+ns1:TC65  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 65" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCWGF2 ;
+        is:minLocation  ns1:TCLocationASHCWGF1 ;
+        demo:timing     "53.83186730769199"^^xsd:double .
+
+ns1:TC44  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 44" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBRMSGRV2 ;
+        is:minLocation  ns1:TCLocationBRMSGRV1 ;
+        demo:timing     "35.28879936569629"^^xsd:double .
+
+ns1:TC23  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 23" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLIFODWJ2 ;
+        is:minLocation  ns1:TCLocationLIFODWJ1 ;
+        demo:timing     "18.199081545716165"^^xsd:double .
+
+ns1:TCLocationBRMSGRV1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "56.08"^^xsd:double ;
+        wgs84:lat   "52.31"^^xsd:double ;
+        wgs84:long  "-2.05"^^xsd:double .
+
+ns1:TiplocBHAMNHS  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "406732.3"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "286685.63"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 ;
+        is:mileage                     "42.45"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Birmingham New Street H.S." ;
+        wgs84:lat                      "52.47"^^xsd:double ;
+        wgs84:long                     "-1.9"^^xsd:double , "-1.9" .
+
+ns1:TCLocationCHLTNHS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.09666667"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TC73  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 73" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationALSTONS1 ;
+        is:minLocation  ns1:TiplocALSTONS ;
+        demo:timing     "61.54222768722539"^^xsd:double .
+
+ns1:TCLocationASHCHRC2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.65666667"^^xsd:double ;
+        wgs84:lat   "51.99"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TiplocUNVRSYB  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "404435.12"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "283742.07"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 ;
+        is:mileage                     "44.91"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "University" ;
+        wgs84:lat                      "52.45"^^xsd:double ;
+        wgs84:long                     "-1.93" .
+
+ns1:TC52  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 52" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL1 ;
+        is:minLocation  ns1:TiplocSPTCHLL ;
+        demo:timing     "42.869755773007874"^^xsd:double .
+
+ns1:TC31  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 31" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONBRS1 ;
+        is:minLocation  ns1:TiplocLONBRS ;
+        demo:timing     "25.7192700613348"^^xsd:double .
+
+ns1:TCLocationBLACKWL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "53.69"^^xsd:double ;
+        wgs84:lat   "52.33333333"^^xsd:double ;
+        wgs84:long  "-2.013333333"^^xsd:double .
+
+ns1:TC10  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 10" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSELYOAK1 ;
+        is:minLocation  ns1:TiplocSELYOAK ;
+        demo:timing     "7.090309671407394"^^xsd:double .
+
+ns1:TC6  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 6" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocUNVRSYB ;
+        is:minLocation  ns1:TCLocationFIVEWYS2 ;
+        demo:timing     "4.257402717232864"^^xsd:double .
+
+ns1:TiplocBNWDSDG  a                   is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "384775.52"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "218211.05"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 ;
+        is:mileage                     "92.55"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Barnwood Sdgs" ;
+        wgs84:lat                      "51.86"^^xsd:double ;
+        wgs84:long                     "-2.22" .
+
+ns1:TCLocationFIVEWYS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "43.77"^^xsd:double ;
+        wgs84:lat   "52.46333333"^^xsd:double ;
+        wgs84:long  "-1.916666667"^^xsd:double .
+
+ns1:TiplocFIVEWYS  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "405980.16"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "285850.09"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 ;
+        is:mileage                     "43.2"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Five Ways" ;
+        wgs84:lat                      "52.47"^^xsd:double ;
+        wgs84:long                     "-1.91" .
+
+ns1:TiplocSPTCHLL  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "390299.58"^^xsd:double , "390276.83"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "253656.65"^^xsd:double , "253579.75"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "66.26"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Spetchley Loop" ;
+        wgs84:lat                      "52.17"^^xsd:double , "52.18"^^xsd:double ;
+        wgs84:long                     "-2.14" .
+
+ns1:TC81  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 81" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocBNWDJN ;
+        is:minLocation  ns1:TCLocationCHLTLDL2 ;
+        demo:timing     "67.64912034713312"^^xsd:double .
+
+ns1:TCLocationSTKWKSJ2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "63.34"^^xsd:double ;
+        wgs84:lat   "52.21"^^xsd:double ;
+        wgs84:long  "-2.116666667"^^xsd:double .
+
+ns1:TC60  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 60" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocASHCHRC ;
+        is:minLocation  ns1:TCLocationASHCMOD2 ;
+        demo:timing     "49.91907396843115"^^xsd:double .
+
+ns1:TC39  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 39" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocBLACKWL ;
+        is:minLocation  ns1:TCLocationBGRN2 ;
+        demo:timing     "31.916855408168043"^^xsd:double .
+
+ns1:TCLocationASHCWGF1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "81.84"^^xsd:double ;
+        wgs84:lat   "51.96"^^xsd:double ;
+        wgs84:long  "-2.096666667"^^xsd:double .
+
+ns1:TC18  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 18" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocKNOROTP ;
+        is:minLocation  ns1:TCLocationKNORCT2 ;
+        demo:timing     "14.426606707679841"^^xsd:double .
+
+ns1:TCLocationALSTONS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.61333333"^^xsd:double ;
+        wgs84:lat   "51.89333333"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationSPTCHLL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "66.26"^^xsd:double , "69.13666667"^^xsd:double ;
+        wgs84:lat   "52.17333333"^^xsd:double , "52.14"^^xsd:double ;
+        wgs84:long  "-2.14"^^xsd:double , "-2.13"^^xsd:double .
+
+ns1:TCLocationASHCMOD1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.36333333"^^xsd:double ;
+        wgs84:lat   "51.99666667"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TiplocALSTONS  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "393367.52"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "222518.14"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "86.4"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Alstone C.H.S." ;
+        wgs84:lat                      "51.9"^^xsd:double ;
+        wgs84:long                     "-2.09" .
+
+ns1:TCLocationNRTF1  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "48.49"^^xsd:double ;
+        wgs84:lat   "52.39666667"^^xsd:double ;
+        wgs84:long  "-1.963333333"^^xsd:double .
+
+ns1:TC68  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 68" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHS2 ;
+        is:minLocation  ns1:TCLocationCHLTNHS1 ;
+        demo:timing     "57.128918965821846"^^xsd:double .
+
+ns1:TC47  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 47" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSTKWKSJ2 ;
+        is:minLocation  ns1:TCLocationSTKWKSJ1 ;
+        demo:timing     "38.13692410148125"^^xsd:double .
+
+ns1:TC26  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 26" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationNRTF2 ;
+        is:minLocation  ns1:TCLocationNRTF1 ;
+        demo:timing     "20.88985313885147"^^xsd:double .
+
+ns1:TCLocationBNWDJN1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "92.32333333"^^xsd:double ;
+        wgs84:lat   "51.86"^^xsd:double ;
+        wgs84:long  "-2.213333333"^^xsd:double .
+
+ns1:TC1  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 1" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBHAMNHS1 ;
+        is:minLocation  ns1:TiplocBHAMNHS ;
+        demo:timing     "0.0"^^xsd:double .
+
+ns1:TiplocBGRN  a                      is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "400581.76"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "273616.33"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "51.83"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Barnt Green" ;
+        wgs84:lat                      "52.36"^^xsd:double ;
+        wgs84:long                     "-1.99" .
+
+ns1:TiplocBOURNVL  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "405081.66"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "281057.17"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 ;
+        is:mileage                     "46.7"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Bournville" ;
+        wgs84:lat                      "52.42"^^xsd:double ;
+        wgs84:long                     "-1.92" .
+
+ns1:TC76  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 76" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHM1 ;
+        is:minLocation  ns1:TiplocCHLTNHM ;
+        demo:timing     "63.79577710840635"^^xsd:double .
+
+ns1:TC55  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 55" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationECKNGTL1 ;
+        is:minLocation  ns1:TiplocECKNGTL ;
+        demo:timing     "45.56397746782899"^^xsd:double .
+
+ns1:TCLocationCHLTNHM1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.91"^^xsd:double ;
+        wgs84:lat   "51.89"^^xsd:double ;
+        wgs84:long  "-2.093333333"^^xsd:double .
+
+ns1:TC34  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 34" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCOFTONS1 ;
+        is:minLocation  ns1:TiplocCOFTONS ;
+        demo:timing     "29.02782703760201"^^xsd:double .
+
+ns1:TC13  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 13" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBOURNVL1 ;
+        is:minLocation  ns1:TiplocBOURNVL ;
+        demo:timing     "9.312453802581047"^^xsd:double .
+
+ns1:TC9  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 9" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocSELYOAK ;
+        is:minLocation  ns1:TCLocationUNVRSYB2 ;
+        demo:timing     "6.137650423400311"^^xsd:double .
+
+ns1:TCLocationLIFODWJ1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.55"^^xsd:double ;
+        wgs84:lat   "52.40666667"^^xsd:double ;
+        wgs84:long  "-1.933333333"^^xsd:double .
+
+ns1:TC84  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 84" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:0 ;
+        is:minLocation  ns1:TCLocationBNWDJN2 ;
+        demo:timing     "69.58636504562381"^^xsd:double .
+
+ns1:TC63  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 63" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocASHCWGF ;
+        is:minLocation  ns1:TCLocationASHCHRC2 ;
+        demo:timing     "52.2203206047159"^^xsd:double .
+
+ns1:TiplocNRTF  a                      is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "402475.06"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "278923.43"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "48.15"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Northfield" ;
+        wgs84:lat                      "52.4"^^xsd:double ;
+        wgs84:long                     "-1.96" .
+
+ns1:TiplocLONBRS  a                    is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "401261.44"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "277379.66"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "49.38"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Longbridge Reversing Sdgs" ;
+        wgs84:lat                      "52.39"^^xsd:double ;
+        wgs84:long                     "-1.98" .
+
+ns1:TC42  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 42" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocBRMSGRV ;
+        is:minLocation  ns1:TCLocationBLACKWL2 ;
+        demo:timing     "33.40616420633913"^^xsd:double .
+
+ns1:TC21  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 21" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocLIFODWJ ;
+        is:minLocation  ns1:TCLocationKNOROTP2 ;
+        demo:timing     "16.268317081867842"^^xsd:double .
+
+ns1:TCLocationCHLTALC1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.3"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationKNORCT1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.14333333"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.94"^^xsd:double .
+
+ns1:TCLocationCOFTONS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "51.35333333"^^xsd:double ;
+        wgs84:lat   "52.36333333"^^xsd:double ;
+        wgs84:long  "-1.986666667"^^xsd:double .
+
+ns1:TC71  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 71" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTALC2 ;
+        is:minLocation  ns1:TCLocationCHLTALC1 ;
+        demo:timing     "60.114045045354075"^^xsd:double .
+
+ns1:TC50  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 50" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL2 ;
+        is:minLocation  ns1:TCLocationSPTCHLL1 ;
+        demo:timing     "40.89152206217748"^^xsd:double .
+
+ns1:TCLocationBOURNVL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "46.83333333"^^xsd:double ;
+        wgs84:lat   "52.41666667"^^xsd:double ;
+        wgs84:long  "-1.926666667"^^xsd:double .
+
+ns1:TC29  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 29" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONB2 ;
+        is:minLocation  ns1:TCLocationLONB1 ;
+        demo:timing     "23.368703973832105"^^xsd:double .
+
+ns1:TC4  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 4" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationFIVEWYS1 ;
+        is:minLocation  ns1:TiplocFIVEWYS ;
+        demo:timing     "3.2657910594866393"^^xsd:double .
+
+ns1:TiplocCHLTNHM  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "393195.28"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "222032.03"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "86.72"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Cheltenham Spa" ;
+        wgs84:lat                      "51.89"^^xsd:double ;
+        wgs84:long                     "-2.09" .
+
+ns1:TiplocKNORCT  a                    is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "404032.03"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "279464.24"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "47.1"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Kings Norton C.T." ;
+        wgs84:lat                      "52.41"^^xsd:double ;
+        wgs84:long                     "-1.94" .
+
+ns1:TC79  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 79" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTLDL1 ;
+        is:minLocation  ns1:TiplocCHLTLDL ;
+        demo:timing     "66.01217645181559"^^xsd:double .
+
+ns1:TiplocASHCHRC  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "392629.48"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "233381.16"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "79.47"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Ashchurch" ;
+        wgs84:lat                      "51.99"^^xsd:double ;
+        wgs84:long                     "-2.1" .
+
+ns1:TC58  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 58" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCMOD1 ;
+        is:minLocation  ns1:TiplocASHCMOD ;
+        demo:timing     "48.17549211475243"^^xsd:double .
+
+ns1:TCLocationLONBRS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "50.06"^^xsd:double ;
+        wgs84:lat   "52.37666667"^^xsd:double ;
+        wgs84:long  "-1.98"^^xsd:double .
+
+ns1:TC37  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 37" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBGRN1 ;
+        is:minLocation  ns1:TiplocBGRN ;
+        demo:timing     "30.578484755614113"^^xsd:double .
+
+ns1:TCLocationBGRN2  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "52.51"^^xsd:double ;
+        wgs84:lat   "52.34666667"^^xsd:double ;
+        wgs84:long  "-1.996666667"^^xsd:double .
+
+ns1:TC16  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 16" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNORCT1 ;
+        is:minLocation  ns1:TiplocKNORCT ;
+        demo:timing     "11.99788711369357"^^xsd:double .
+
+ns1:TCLocationCHLTLDL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "90.57"^^xsd:double ;
+        wgs84:lat   "51.87"^^xsd:double ;
+        wgs84:long  "-2.173333333"^^xsd:double .
+
+ns1:TC66  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 66" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocCHLTNHS ;
+        is:minLocation  ns1:TCLocationASHCWGF2 ;
+        demo:timing     "54.916738675514395"^^xsd:double .
+
+ns1:TC45  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 45" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocSTKWKSJ ;
+        is:minLocation  ns1:TCLocationBRMSGRV2 ;
+        demo:timing     "36.395103637404155"^^xsd:double .
+
+ns1:TC24  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 24" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocNRTF ;
+        is:minLocation  ns1:TCLocationLIFODWJ2 ;
+        demo:timing     "19.160645367522758"^^xsd:double .
+
+ns1:TCLocationBRMSGRV2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "56.79"^^xsd:double ;
+        wgs84:lat   "52.3"^^xsd:double ;
+        wgs84:long  "-2.06"^^xsd:double .
+
+ns1:TiplocASHCMOD  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "392820.27"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "233630.47"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "79.31"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Ashchurch MOD Sidings" ;
+        wgs84:lat                      "52.0"^^xsd:double ;
+        wgs84:long                     "-2.1" .
+
+ns1:TCLocationCHLTNHS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.17333333"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TC74  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 74" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationALSTONS2 ;
+        is:minLocation  ns1:TCLocationALSTONS1 ;
+        demo:timing     "62.47406358210997"^^xsd:double .
+
+ns1:TC53  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 53" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSPTCHLL2 ;
+        is:minLocation  ns1:TCLocationSPTCHLL1 ;
+        demo:timing     "43.94219321623033"^^xsd:double .
+
+ns1:TC32  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 32" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLONBRS2 ;
+        is:minLocation  ns1:TCLocationLONBRS1 ;
+        demo:timing     "26.947176272293852"^^xsd:double .
+
+ns1:TCLocationBLACKWL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "54.53"^^xsd:double ;
+        wgs84:lat   "52.32666667"^^xsd:double ;
+        wgs84:long  "-2.026666667"^^xsd:double .
+
+ns1:TC11  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 11" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSELYOAK2 ;
+        is:minLocation  ns1:TCLocationSELYOAK1 ;
+        demo:timing     "7.874985220253714"^^xsd:double .
+
+ns1:TC7  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 7" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationUNVRSYB1 ;
+        is:minLocation  ns1:TiplocUNVRSYB ;
+        demo:timing     "5.137791507452502"^^xsd:double .
+
+ns1:TCLocationFIVEWYS2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "44.34"^^xsd:double ;
+        wgs84:lat   "52.45666667"^^xsd:double ;
+        wgs84:long  "-1.923333333"^^xsd:double .
+
+ns1:TiplocCHLTALC  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "393417.72"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "222740.17"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "86.25"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Alstone L.C." ;
+        wgs84:lat                      "51.9"^^xsd:double ;
+        wgs84:long                     "-2.09" .
+
+ns1:TC82  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 82" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBNWDJN1 ;
+        is:minLocation  ns1:TiplocBNWDJN ;
+        demo:timing     "68.36820031799525"^^xsd:double .
+
+ns1:TC61  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 61" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCHRC1 ;
+        is:minLocation  ns1:TiplocASHCHRC ;
+        demo:timing     "50.27363393669026"^^xsd:double .
+
+ns1:TC40  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 40" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBLACKWL1 ;
+        is:minLocation  ns1:TiplocBLACKWL ;
+        demo:timing     "32.48053051272902"^^xsd:double .
+
+ns1:TCLocationASHCWGF2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "83.93"^^xsd:double ;
+        wgs84:lat   "51.93"^^xsd:double ;
+        wgs84:long  "-2.093333333"^^xsd:double .
+
+ns1:TC19  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 19" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNOROTP1 ;
+        is:minLocation  ns1:TiplocKNOROTP ;
+        demo:timing     "15.131160480110667"^^xsd:double .
+
+ns1:TCLocationASHCMOD2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.41666667"^^xsd:double ;
+        wgs84:lat   "51.99333333"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TiplocCOFTONS  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "401159.6"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "275770.58"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "50.4"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Cofton Sdgs" ;
+        wgs84:lat                      "52.37"^^xsd:double ;
+        wgs84:long                     "-1.98" .
+
+ns1:TCLocationBHAMNHS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "42.7"^^xsd:double ;
+        wgs84:lat   "52.47"^^xsd:double ;
+        wgs84:long  "-1.903333333"^^xsd:double .
+
+ns1:TCLocationSPTCHLL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "66.26"^^xsd:double , "72.01333333"^^xsd:double ;
+        wgs84:lat   "52.17666667"^^xsd:double , "52.1"^^xsd:double ;
+        wgs84:long  "-2.14"^^xsd:double , "-2.12"^^xsd:double .
+
+ns1:TiplocLONB  a                      is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "401412.74"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "277670.7"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "49.17"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Longbridge" ;
+        wgs84:lat                      "52.39"^^xsd:double ;
+        wgs84:long                     "-1.97" .
+
+ns1:TCLocationNRTF2  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "48.83"^^xsd:double ;
+        wgs84:lat   "52.39333333"^^xsd:double ;
+        wgs84:long  "-1.966666667"^^xsd:double .
+
+ns1:TC69  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 69" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocCHLTALC ;
+        is:minLocation  ns1:TCLocationCHLTNHS2 ;
+        demo:timing     "58.439884678372366"^^xsd:double .
+
+ns1:TCLocationLONB1  a  is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "49.24"^^xsd:double ;
+        wgs84:lat   "52.39"^^xsd:double ;
+        wgs84:long  "-1.973333333"^^xsd:double .
+
+ns1:TC48  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 48" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocSPTCHLL ;
+        is:minLocation  ns1:TCLocationSTKWKSJ2 ;
+        demo:timing     "39.100813232215685"^^xsd:double .
+
+ns1:TCLocationBNWDJN2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "92.43666667"^^xsd:double ;
+        wgs84:lat   "51.86"^^xsd:double ;
+        wgs84:long  "-2.216666667"^^xsd:double .
+
+ns1:TCLocationECKNGTL1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "76.36333333"^^xsd:double ;
+        wgs84:lat   "52.04"^^xsd:double ;
+        wgs84:long  "-2.106666667"^^xsd:double .
+
+ns1:TC27  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 27" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocLONB ;
+        is:minLocation  ns1:TCLocationNRTF2 ;
+        demo:timing     "21.51427221251743"^^xsd:double .
+
+ns1:TiplocBNWDJN  a                    is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "385250.85"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "218418.11"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "92.21"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Barnwood Jn" ;
+        wgs84:lat                      "51.86"^^xsd:double ;
+        wgs84:long                     "-2.21" .
+
+ns1:TC2  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 2" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBHAMNHS2 ;
+        is:minLocation  ns1:TCLocationBHAMNHS1 ;
+        demo:timing     "1.021596073498508"^^xsd:double .
+
+ns1:TCLocationSELYOAK1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "45.98"^^xsd:double ;
+        wgs84:lat   "52.43333333"^^xsd:double ;
+        wgs84:long  "-1.926666667"^^xsd:double .
+
+ns1:TCLocationUNVRSYB1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "45.14666667"^^xsd:double ;
+        wgs84:lat   "52.44666667"^^xsd:double ;
+        wgs84:long  "-1.93"^^xsd:double .
+
+ns1:TC77  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 77" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHM2 ;
+        is:minLocation  ns1:TCLocationCHLTNHM1 ;
+        demo:timing     "64.50552254662502"^^xsd:double .
+
+ns1:TC56  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 56" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationECKNGTL2 ;
+        is:minLocation  ns1:TCLocationECKNGTL1 ;
+        demo:timing     "46.43892258766485"^^xsd:double .
+
+ns1:TCLocationCHLTNHM2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "87.1"^^xsd:double ;
+        wgs84:lat   "51.89"^^xsd:double ;
+        wgs84:long  "-2.096666667"^^xsd:double .
+
+ns1:TC35  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 35" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCOFTONS2 ;
+        is:minLocation  ns1:TCLocationCOFTONS1 ;
+        demo:timing     "29.65877259241904"^^xsd:double .
+
+ns1:TCLocationKNOROTP1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.23666667"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.933333333"^^xsd:double .
+
+ns1:TC14  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 14" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBOURNVL2 ;
+        is:minLocation  ns1:TCLocationBOURNVL1 ;
+        demo:timing     "9.93260565815564"^^xsd:double .
+
+ns1:TCLocationLIFODWJ2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.85"^^xsd:double ;
+        wgs84:lat   "52.40333333"^^xsd:double ;
+        wgs84:long  "-1.946666667"^^xsd:double .
+
+ns1:TiplocCHLTNHS  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "393510.82"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "223100.01"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "86.02"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Cheltenham High Street" ;
+        wgs84:lat                      "51.9"^^xsd:double ;
+        wgs84:long                     "-2.09" .
+
+ns1:TiplocSTKWKSJ  a                   is:TiplocLocation , is:TrackCircuitLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "394599.48"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "266840.97"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "57.5"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Stoke Works Jn" ;
+        wgs84:lat                      "52.29"^^xsd:double ;
+        wgs84:long                     "-2.07" .
+
+ns1:TC64  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 64" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCWGF1 ;
+        is:minLocation  ns1:TiplocASHCWGF ;
+        demo:timing     "53.28836702387596"^^xsd:double .
+
+ns1:TC43  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 43" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBRMSGRV1 ;
+        is:minLocation  ns1:TiplocBRMSGRV ;
+        demo:timing     "34.53475428451688"^^xsd:double .
+
+ns1:TC22  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 22" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationLIFODWJ1 ;
+        is:minLocation  ns1:TiplocLIFODWJ ;
+        demo:timing     "17.594089721425085"^^xsd:double .
+
+ns1:TCLocationCHLTALC2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.35"^^xsd:double ;
+        wgs84:lat   "51.9"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TCLocationKNORCT2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "47.18666667"^^xsd:double ;
+        wgs84:lat   "52.41"^^xsd:double ;
+        wgs84:long  "-1.94"^^xsd:double .
+
+ns1:TiplocCHLTLDL  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "392457.4"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "221481.7"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "87.29"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Cheltenham Lansdown Loop" ;
+        wgs84:lat                      "51.89"^^xsd:double ;
+        wgs84:long                     "-2.1" .
+
+ns1:TC72  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 72" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocALSTONS ;
+        is:minLocation  ns1:TCLocationCHLTALC2 ;
+        demo:timing     "60.83366527325037"^^xsd:double .
+
+ns1:TCLocationASHCHRC1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "79.56333333"^^xsd:double ;
+        wgs84:lat   "51.99"^^xsd:double ;
+        wgs84:long  "-2.1"^^xsd:double .
+
+ns1:TC51  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 51" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocSPTCHLL ;
+        is:minLocation  ns1:TCLocationSPTCHLL2 ;
+        demo:timing     "41.55263010009776"^^xsd:double .
+
+ns1:TCLocationBOURNVL2
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "46.96666667"^^xsd:double ;
+        wgs84:lat   "52.41333333"^^xsd:double ;
+        wgs84:long  "-1.933333333"^^xsd:double .
+
+ns1:TC30  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 30" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocLONBRS ;
+        is:minLocation  ns1:TCLocationLONB2 ;
+        demo:timing     "24.42262741486877"^^xsd:double .
+
+ns1:TC5  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 5" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationFIVEWYS2 ;
+        is:minLocation  ns1:TCLocationFIVEWYS1 ;
+        demo:timing     "3.603866438131177"^^xsd:double .
+
+ns1:TC80  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 80" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTLDL2 ;
+        is:minLocation  ns1:TCLocationCHLTLDL1 ;
+        demo:timing     "66.47566201576191"^^xsd:double .
+
+ns1:TCLocationSTKWKSJ1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "60.42"^^xsd:double ;
+        wgs84:lat   "52.25"^^xsd:double ;
+        wgs84:long  "-2.093333333"^^xsd:double .
+
+ns1:TC59  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 59" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationASHCMOD2 ;
+        is:minLocation  ns1:TCLocationASHCMOD1 ;
+        demo:timing     "49.19029621593713"^^xsd:double .
+
+ns1:TC38  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 38" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationBGRN2 ;
+        is:minLocation  ns1:TCLocationBGRN1 ;
+        demo:timing     "31.1688961610646"^^xsd:double .
+
+ns1:TC17  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 17" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationKNORCT2 ;
+        is:minLocation  ns1:TCLocationKNORCT1 ;
+        demo:timing     "13.2145550339797"^^xsd:double .
+
+ns1:TCLocationALSTONS1
+        a           is:TrackCircuitLocation ;
+        is:elr      ns1:LineRefBAG1 ;
+        is:mileage  "86.50666667"^^xsd:double ;
+        wgs84:lat   "51.89666667"^^xsd:double ;
+        wgs84:long  "-2.09"^^xsd:double .
+
+ns1:TiplocKNOROTP  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "403819.29"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "279439.52"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG1 , ns1:LineRefBAG2 ;
+        is:mileage                     "47.23"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "KINGS NORTON OT PLANT DEPT" ;
+        wgs84:lat                      "52.41"^^xsd:double ;
+        wgs84:long                     "-1.94" .
+
+ns1:TC67  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 67" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationCHLTNHS1 ;
+        is:minLocation  ns1:TiplocCHLTNHS ;
+        demo:timing     "55.96612827408277"^^xsd:double .
+
+ns1:TC46  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 46" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationSTKWKSJ1 ;
+        is:minLocation  ns1:TiplocSTKWKSJ ;
+        demo:timing     "37.315648061627385"^^xsd:double .
+
+ns1:TC25  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 25" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationNRTF1 ;
+        is:minLocation  ns1:TiplocNRTF ;
+        demo:timing     "19.773699575162105"^^xsd:double .
+
+ns1:TC75  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 75" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocCHLTNHM ;
+        is:minLocation  ns1:TCLocationALSTONS2 ;
+        demo:timing     "62.91690042476304"^^xsd:double .
+
+ns1:TC54  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 54" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocECKNGTL ;
+        is:minLocation  ns1:TCLocationSPTCHLL2 ;
+        demo:timing     "44.40141267176216"^^xsd:double .
+
+ns1:TC33  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 33" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocCOFTONS ;
+        is:minLocation  ns1:TCLocationLONBRS2 ;
+        demo:timing     "27.851129817488136"^^xsd:double .
+
+ns1:TiplocECKNGTL  a                   is:TrackCircuitLocation , is:TiplocLocation ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/easting>
+                "392333.38"^^xsd:double ;
+        <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/northing>
+                "240726.1"^^xsd:double ;
+        is:elr                         ns1:LineRefBAG2 , ns1:LineRefBAG1 ;
+        is:mileage                     "74.89"^^xsd:double ;
+        <http://purl.org/ub/upper/id>  "Eckington Loop" ;
+        wgs84:lat                      "52.06"^^xsd:double ;
+        wgs84:long                     "-2.11" .
+
+ns1:TC12  a             is:TrackCircuit ;
+        rdfs:label      "Track Circuit 12" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TiplocBOURNVL ;
+        is:minLocation  ns1:TCLocationSELYOAK2 ;
+        demo:timing     "8.813191970881775"^^xsd:double .
+
+ns1:TC8  a              is:TrackCircuit ;
+        rdfs:label      "Track Circuit 8" ;
+        is:elr          ns1:LineRefBAG1 ;
+        is:maxLocation  ns1:TCLocationUNVRSYB2 ;
+        is:minLocation  ns1:TCLocationUNVRSYB1 ;
+        demo:timing     "5.788672552680306"^^xsd:double .

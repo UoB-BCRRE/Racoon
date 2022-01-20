@@ -1,0 +1,68 @@
+select * where {?service a tt:ServiceInstance . ?service tt:serviceNode ?n . ?n tt:nodeOrder ?no . 
+BIND ((?no - 1) as ?nq)
+?service tt:serviceNode ?m . ?m tt:nodeOrder ?nq
+ }
+ #
+
+
+ select * where {?service a tt:ScheduledService . ?service tt:serviceNode ?n . ?n tt:nodeOrder ?no . 
+BIND ((?no - 1) as ?nq)
+?service tt:serviceNode ?m . ?m tt:nodeOrder ?nq . 
+?n u:location ?loc1 .
+?m u:location ?loc2 .
+
+?loc1 u:next* ?midI .
+NOT EXISTS { [] :relatedTo ?loc1 }
+
+# grab next edge
+?midI :next ?midJ .
+
+# get to the end of the path.
+?midJ :next* ?loc2 .
+NOT EXISTS { ?loc2 :next [] }
+ } order by ?start ?end
+
+
+
+ select * where {
+?service a tt:ScheduledService ;
+           tt:serviceNode ?n .
+?n tt:nodeOrder ?no . 
+
+BIND ((?no - 1) as ?nq) .
+   
+?service tt:serviceNode ?m .
+?m tt:nodeOrder ?nq . 
+?n u:location ?loc1 .
+?m u:location ?loc2 .
+
+?loc1 u:next* ?midI .
+NOT EXISTS { [] :relatedTo ?loc1 }
+
+# grab next edge
+?midI :next ?midJ .
+
+# get to the end of the path.
+?midJ :next* ?loc2 .
+NOT EXISTS { ?loc2 :next [] }
+ } order by ?start ?end
+
+
+
+  select * where {
+?service a tt:ScheduledService ;
+           tt:serviceNode ?n .
+?n tt:nodeOrder ?no . 
+
+BIND ((?no - 1) as ?nq) .
+   
+?service tt:serviceNode ?m .
+?m tt:nodeOrder ?nq . 
+?n u:location ?loc1 .
+?m u:location ?loc2 .
+
+?loc1 u:next ?midI .
+?midI u:next ?midJ .
+?midJ u:next ?loc2 .
+
+ } order by ?loc1 ?loc2

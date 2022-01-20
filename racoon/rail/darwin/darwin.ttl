@@ -1,0 +1,52 @@
+# baseURI: http://purl.org/rail/darwin
+# imports: http://thalesgroup.com/RTTI/PushPortStatus/root_1/
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3/
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v4/
+# imports: http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3/
+# imports: http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/
+# imports: http://www.thalesgroup.com/rtti/PushPort/Schedules/v3/
+# imports: http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/
+# imports: http://www.thalesgroup.com/rtti/PushPort/v16/
+
+@prefix : <http://purl.org/rail/darwin/> .
+@prefix ct: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/> .
+@prefix ct2: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/> .
+@prefix ct3: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3/> .
+@prefix ct4: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v4/> .
+@prefix for: <http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pp16: <http://www.thalesgroup.com/rtti/PushPort/v16/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sch2: <http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/> .
+@prefix sch3: <http://www.thalesgroup.com/rtti/PushPort/Schedules/v3/> .
+@prefix status: <http://thalesgroup.com/RTTI/PushPortStatus/root_1/> .
+@prefix tor: <http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/> .
+@prefix v3: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/rail/darwin>
+  a owl:Ontology ;
+  owl:imports status: ;
+  owl:imports ct: ;
+  owl:imports ct2: ;
+  owl:imports ct3: ;
+  owl:imports ct4: ;
+  owl:imports for: ;
+  owl:imports sch2: ;
+  owl:imports sch3: ;
+  owl:imports tor: ;
+  owl:imports pp16: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:Journey
+  a owl:Class ;
+  rdfs:label "Journey" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:simpleTTPlatNum
+  a owl:DatatypeProperty ;
+  rdfs:label "simple platform number" ;
+.

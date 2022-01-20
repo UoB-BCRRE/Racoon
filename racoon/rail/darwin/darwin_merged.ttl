@@ -1,0 +1,2288 @@
+# baseURI: http://purl.org/rail/darwin
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3
+# imports: http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3/
+# imports: http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3
+# imports: http://www.thalesgroup.com/rtti/PushPort/Schedules/v2
+# imports: http://www.thalesgroup.com/rtti/PushPort/Schedules/v3
+
+@prefix : <http://purl.org/rail/darwin/> .
+@prefix ct: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/> .
+@prefix ct2: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/> .
+@prefix ct3: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3/> .
+@prefix ct4: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v4/> .
+@prefix for: <http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pp16: <http://www.thalesgroup.com/rtti/PushPort/v16/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sch2: <http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/> .
+@prefix sch3: <http://www.thalesgroup.com/rtti/PushPort/Schedules/v3/> .
+@prefix status: <http://thalesgroup.com/RTTI/PushPortStatus/root_1/> .
+@prefix tor: <http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/> .
+@prefix v3: <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/rail/darwin>
+  a owl:Ontology ;
+  owl:imports <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1> ;
+  owl:imports <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2> ;
+  owl:imports ct2: ;
+  owl:imports <http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v3> ;
+  owl:imports ct3: ;
+  owl:imports <http://www.thalesgroup.com/rtti/PushPort/Forecasts/v3> ;
+  owl:imports <http://www.thalesgroup.com/rtti/PushPort/Schedules/v2> ;
+  owl:imports <http://www.thalesgroup.com/rtti/PushPort/Schedules/v3> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:Journey
+  a owl:Class ;
+  rdfs:label "Journey" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:simpleTTPlatNum
+  a owl:DatatypeProperty ;
+  rdfs:label "simple platform number" ;
+.
+status:ErrorCodeType
+  a rdfs:Datatype ;
+  rdfs:comment "Error Code Type" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 1 ;
+          ]
+          [
+            xsd:maxLength 32 ;
+          ]
+        ) ;
+    ] ;
+.
+status:ErrorMsgType
+  a rdfs:Datatype ;
+  rdfs:comment "Error Message Type" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:maxLength 128 ;
+          ]
+        ) ;
+    ] ;
+.
+status:PPConnect
+  a owl:Class ;
+  rdfs:comment "Signal end of the setup phase and switch to use the requested PP data schema" ;
+.
+status:PPReqVersion
+  a owl:Class ;
+  rdfs:comment "Request the schema versions required by the client" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty status:ttrefversion ;
+      owl:someValuesFrom [
+          a rdfs:Datatype ;
+          owl:onDatatype xsd:string ;
+          owl:withRestrictions (
+              [
+                xsd:minLength "1" ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty status:ttversion ;
+      owl:someValuesFrom [
+          a rdfs:Datatype ;
+          owl:onDatatype xsd:string ;
+          owl:withRestrictions (
+              [
+                xsd:minLength "1" ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty status:version ;
+      owl:someValuesFrom [
+          a rdfs:Datatype ;
+          owl:onDatatype xsd:string ;
+          owl:withRestrictions (
+              [
+                xsd:minLength "1" ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+.
+status:PPStatus
+  a owl:Class ;
+  rdfs:comment "Setup phase status/heartbeat response" ;
+  rdfs:subClassOf status:StatusType ;
+.
+status:StatusType
+  a owl:Class ;
+  rdfs:comment "Status Code Type" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty status:code ;
+      owl:someValuesFrom status:ErrorCodeType ;
+    ] ;
+.
+status:code
+  a owl:DatatypeProperty ;
+  rdfs:comment "Status Code Type" ;
+  rdfs:domain status:StatusType ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:intersectionOf (
+          status:ErrorCodeType
+          status:ErrorMsgType
+        ) ;
+    ] ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+status:ttrefversion
+  a owl:DatatypeProperty ;
+  rdfs:comment "The namespace of the Push Port Timetable Reference data schema supported by the client." ;
+  rdfs:domain status:PPReqVersion ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:maxLength 1 ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+status:ttversion
+  a owl:DatatypeProperty ;
+  rdfs:comment "The namespace of the Push Port Timetable schema supported by the client." ;
+  rdfs:domain status:PPReqVersion ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:maxLength 1 ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+status:version
+  a owl:DatatypeProperty ;
+  rdfs:comment "The namespace of the Push Port data schema supported by the client." ;
+  rdfs:domain status:PPReqVersion ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:maxLength 1 ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+ct:ActivityType
+  a rdfs:Datatype ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 2 ;
+          ]
+          [
+            xsd:maxLength 12 ;
+          ]
+          [
+            xsd:pattern "([A-Z0-9\\- ][A-Z0-9\\- ]){1,6}" ;
+          ]
+        ) ;
+    ] ;
+.
+ct:CIFTrainCategoryType
+  a rdfs:Datatype ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 0 ;
+          ]
+          [
+            xsd:maxLength 2 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:CIFTrainStatusType
+  a rdfs:Datatype ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 1 ;
+          ]
+          [
+            xsd:pattern "[BFPST12345]" ;
+          ]
+        ) ;
+    ] ;
+.
+ct:CircularTimes
+  a owl:Class ;
+  rdfs:comment "A scheduled time used to distinguish a location on circular routes. Note that all scheduled time attributes are marked as optional, but at least one must always be supplied. Only one value is required, and typically this should be the wtd value. However, for locations that have no wtd, or for clients that deal exclusively with public times, another value that is valid for the location may be supplied." ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty ct:pta ;
+      owl:someValuesFrom ct:WTimeType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty ct:ptd ;
+      owl:someValuesFrom ct:WTimeType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty ct:wta ;
+      owl:someValuesFrom ct:WTimeType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty ct:wtd ;
+      owl:someValuesFrom ct:WTimeType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty ct:wtp ;
+      owl:someValuesFrom ct:WTimeType ;
+    ] ;
+.
+ct:CrsType
+  a rdfs:Datatype ;
+  rdfs:comment "CRS Code Type" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 3 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:DCISRequestID
+  a rdfs:Datatype ;
+  rdfs:comment "A DCIS client request identifier" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 1 ;
+          ]
+          [
+            xsd:maxLength 16 ;
+          ]
+          [
+            xsd:pattern "[-_A-Za-z0-9]{1,16}" ;
+          ]
+        ) ;
+    ] ;
+.
+ct:DelayValueType
+  a rdfs:Datatype ;
+  owl:equivalentClass xsd:short ;
+.
+ct:DisruptionReasonType
+  a owl:Class ;
+  rdfs:comment "Type used to represent a cancellation or late running reason" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:ReasonCodeType ;
+      owl:onProperty ct:hasReasonCodeType ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:TiplocType ;
+      owl:onProperty ct:tiploc ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty ct:near ;
+    ] ;
+.
+ct:PlatformType
+  a rdfs:Datatype ;
+  rdfs:comment "Defines a platform number" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 1 ;
+          ]
+          [
+            xsd:maxLength 3 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:RIDType
+  a rdfs:Datatype ;
+  rdfs:comment "RTTI Train ID Type" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:maxLength 16 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:RTTIDateTimeType
+  a rdfs:Datatype ;
+  rdfs:comment "RTTI DateTime Type (basic XML date/time)" ;
+  owl:equivalentClass xsd:dateTime ;
+.
+ct:RTTIDateType
+  a rdfs:Datatype ;
+  rdfs:comment "RTTI Date Type (basic XML date)" ;
+  owl:equivalentClass xsd:dateTime ;
+.
+ct:RTTITimeType
+  a rdfs:Datatype ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:pattern "([0-1][0-9]|2[0-3]):[0-5][0-9]" ;
+          ]
+        ) ;
+    ] ;
+.
+ct:ReasonCodeType
+  a rdfs:Datatype ;
+  rdfs:comment "A Darwin Reason Code" ;
+  owl:equivalentClass xsd:short ;
+.
+ct:SnapshotIDType
+  a rdfs:Datatype ;
+  rdfs:comment "Defines the ID for a snapshot file to be recovered via FTP" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:maxLength 40 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:SourceTypeInst
+  a rdfs:Datatype ;
+  rdfs:comment "RTTI CIS code, provided if forecast or actual source type is CIS" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 4 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:SuffixType
+  a rdfs:Datatype ;
+  rdfs:comment "Denotes the suffix for a TIPLOC that identifies the instance on a circular route" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 1 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TDAreaIDType
+  a rdfs:Datatype ;
+  rdfs:comment "A TD area identifier." ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 2 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TDBerthIDType
+  a rdfs:Datatype ;
+  rdfs:comment "A TD berth identifier." ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 4 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TOCType
+  a rdfs:Datatype ;
+  rdfs:comment "ATOC Code Type" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 2 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TimetableFilenameType
+  a rdfs:Datatype ;
+  rdfs:comment "The name of a timetable file that can be downloaded via FTP." ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 1 ;
+          ]
+          [
+            xsd:maxLength 128 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TimetableIDType
+  a rdfs:Datatype ;
+  rdfs:comment "Unique Timetable identifier" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 14 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TiplocType
+  a rdfs:Datatype ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:minLength 1 ;
+          ]
+          [
+            xsd:maxLength 7 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TrainIdType
+  a rdfs:Datatype ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 4 ;
+          ]
+          [
+            xsd:pattern "[0-9][A-Z][0-9][0-9]" ;
+          ]
+        ) ;
+    ] ;
+.
+ct:TrainLengthType
+  a rdfs:Datatype ;
+  rdfs:comment "Defines the length of a train" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:unsignedShort ;
+      owl:withRestrictions (
+          [
+            xsd:minInclusive "99"^^xsd:unsignedShort ;
+          ]
+        ) ;
+    ] ;
+.
+ct:UIDType
+  a rdfs:Datatype ;
+  rdfs:comment "Train UID Type" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:length 6 ;
+          ]
+        ) ;
+    ] ;
+.
+ct:WTimeType
+  a rdfs:Datatype ;
+  rdfs:comment "Working scheduled time as HH:MM[:SS]" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:onDatatype xsd:string ;
+      owl:withRestrictions (
+          [
+            xsd:pattern "([0-1][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?" ;
+          ]
+        ) ;
+    ] ;
+.
+ct:hasReasonCodeType
+  a owl:DatatypeProperty ;
+  rdfs:domain ct:DisruptionReasonType ;
+  rdfs:range ct:ReasonCodeType ;
+.
+ct:near
+  a owl:DatatypeProperty ;
+  rdfs:comment "If true, the tiploc attribute should be interpreted as \"near\", e.g. \"signalling failure near Cheadle Hulme\"" ;
+  rdfs:domain ct:DisruptionReasonType ;
+  rdfs:range xsd:boolean ;
+.
+ct:pta
+  a owl:DatatypeProperty ;
+  rdfs:comment "Public time of arrival." ;
+  rdfs:domain ct:CircularTimes ;
+  rdfs:range ct:RTTITimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+ct:ptd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Public time of departure." ;
+  rdfs:domain ct:CircularTimes ;
+  rdfs:range ct:RTTITimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+ct:tiploc
+  a owl:DatatypeProperty ;
+  rdfs:comment "Optional TIPLOC where the reason refers to, e.g. \"signalling failure at Cheadle Hulme\"." ;
+  rdfs:domain ct:DisruptionReasonType ;
+  rdfs:range ct:TiplocType ;
+.
+ct:wta
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working time of arrival." ;
+  rdfs:domain ct:CircularTimes ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+ct:wtd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working time of departure" ;
+  rdfs:domain ct:CircularTimes ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+ct:wtp
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working time of pass." ;
+  rdfs:domain ct:CircularTimes ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+ct2:RSIDType
+  a rdfs:Datatype ;
+.
+ct3:RSIDType
+  a rdfs:Datatype ;
+.
+ct4:ToiletAvailabilityType
+  a owl:Class ;
+  rdfs:comment "The availability of a toilet in coach formation data. If no availability is supplied, it should be assumed to have the value \"Unknown\"." ;
+.
+ct4:ToiletStatus
+  a rdfs:Datatype ;
+  rdfs:comment "The service status of a toilet in coach formation data." ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:oneOf [
+          a rdf:List ;
+          rdf:first "InService" ;
+          rdf:rest [
+              a rdf:List ;
+              rdf:first "NotInService" ;
+              rdf:rest [
+                  a rdf:List ;
+                  rdf:first "Unknown" ;
+                  rdf:rest () ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+ct4:ToiletType
+  a rdfs:Datatype ;
+  rdfs:comment "An indication of the availability of a toilet in a coach in a train formation. E.g. \"Unknown\", \"None\" , \"Standard\" or \"Accessible\". Note that other values may be supplied in the future without a schema change" ;
+  owl:equivalentClass xsd:string ;
+.
+ct4:status
+  a owl:DatatypeProperty ;
+  rdfs:comment "The service status of this toilet. E.g. \"Unknown\", \"InService\" or \"NotInService\"" ;
+  rdfs:domain ct4:ToiletAvailabilityType ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:intersectionOf (
+          ct4:ToiletStatus
+          ct4:ToiletType
+        ) ;
+    ] ;
+.
+for:LateReason
+  a owl:ObjectProperty ;
+  rdfs:comment "Late running reason for this service. The reason applies to all locations of this service." ;
+  rdfs:domain for:TS ;
+  rdfs:range ct:DisruptionReasonType ;
+.
+for:Location
+  a owl:ObjectProperty ;
+  rdfs:comment "Update of forecast data for an individual location in the service's schedule" ;
+  rdfs:domain for:TS ;
+  rdfs:range for:TSLocation ;
+.
+for:PlatformData
+  a owl:Class ;
+  rdfs:comment "Platform number with associated flags" ;
+.
+for:TS
+  a owl:Class ;
+  rdfs:comment "Train Status. Update to the \"real time\" forecast data for a service." ;
+.
+for:TSLocation
+  a owl:Class ;
+  rdfs:comment "Forecast data for an individual location in the service's schedule" ;
+.
+for:TSTimeData
+  a owl:Class ;
+  rdfs:comment "Type describing time-based forecast attributes for a TS arrival/departure/pass" ;
+.
+for:arr
+  a owl:ObjectProperty ;
+  rdfs:comment "Forecast data for the arrival at this location" ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range for:TSTimeData ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+for:at
+  a owl:DatatypeProperty ;
+  rdfs:comment "Actual Time" ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range ct:RTTITimeType ;
+.
+for:atClass
+  a owl:DatatypeProperty ;
+  rdfs:comment "The class of the actual time." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range xsd:string ;
+.
+for:atRemoved
+  a owl:DatatypeProperty ;
+  rdfs:comment "If true, indicates that an actual time (\"at\") value has just been removed and replaced by an estimated time (\"et\"). Note that this attribute will only be set to \"true\" once, when the actual time is removed, and will not be set in any snapshot." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range xsd:boolean ;
+.
+for:cisPlatsup
+  a owl:DatatypeProperty ;
+  rdfs:comment "Whether a CIS, or Darwin Workstation, has set platform suppression at this location." ;
+  rdfs:domain for:PlatformData ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+for:conf
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if the platform number is confirmed." ;
+  rdfs:domain for:PlatformData ;
+  rdfs:range xsd:boolean ;
+.
+for:delayed
+  a owl:DatatypeProperty ;
+  rdfs:comment "Indicates that this estimated time is a forecast of \"unknown delay\". Displayed  as \"Delayed\" in LDB. Note that this value indicates that this forecast is \"unknown delay\", whereas it is the \"etUnknown\" attribute that indicates where the manual unknown delay forecast has been set." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range xsd:boolean ;
+.
+for:dep
+  a owl:ObjectProperty ;
+  rdfs:comment "Forecast data for the departure at this location" ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range for:TSTimeData ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+for:detachFront
+  a owl:DatatypeProperty ;
+  rdfs:comment "Indicates from which end of the train stock will be detached. The value is set to “true” if stock will be detached from the front of the train at this location. It will be set at each location where stock will be detached from the front. Darwin will not validate that a stock detachment activity code applies at this location." ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range xsd:boolean ;
+.
+for:et
+  a owl:DatatypeProperty ;
+  rdfs:comment "Estimated Time. For locations that are public stops, this will be based on the \"public schedule\". For operational stops and passing locations, it will be based on the \"working schedule\". It is only published where there is a corresponding \"activity\" for the service" ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range ct:RTTITimeType ;
+.
+for:etUnknown
+  a owl:DatatypeProperty ;
+  rdfs:comment "Indicates that an unknown delay forecast has been set for the estimated time at this location. Note that this value indicates where a manual unknown delay forecast has been set, whereas it is the \"delayed\" attribute that indicates that the actual forecast is \"unknown delay\"." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range xsd:boolean ;
+.
+for:etmin
+  a owl:DatatypeProperty ;
+  rdfs:comment "The manually applied lower limit that has been applied to the estimated time at this location. The estimated time will not be set lower than this value, but may be set higher." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range ct:RTTITimeType ;
+.
+for:hasCircularTimes
+  a owl:ObjectProperty ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range ct:CircularTimes ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+for:hasPlatformData
+  a owl:DatatypeProperty ;
+  rdfs:domain for:PlatformData ;
+  rdfs:range ct:PlatformType ;
+.
+for:hasPlatformType
+  a owl:DatatypeProperty ;
+  rdfs:range ct:PlatformType ;
+  rdfs:subPropertyOf for:hasPlatformData ;
+.
+for:isReverseFormation
+  a owl:DatatypeProperty ;
+  rdfs:comment "Indicates whether a train that divides is working with portions in reverse to their normal formation. The value applies to the whole train. Darwin will not validate that a divide association actually exists for this service." ;
+  rdfs:domain for:TS ;
+  rdfs:range xsd:boolean ;
+.
+for:length
+  a owl:DatatypeProperty ;
+  rdfs:comment "The length of the service at this location on departure (or arrival at destination). The default value of zero indicates that the length is unknown." ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range ct:TrainLengthType ;
+.
+for:pass
+  a owl:ObjectProperty ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range for:TSTimeData ;
+.
+for:plat
+  a owl:ObjectProperty ;
+  rdfs:comment "Current platform number" ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range for:PlatformData ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+for:platnum
+  a owl:DatatypeProperty ;
+  rdfs:label "platform  number" ;
+.
+for:platsrc
+  a owl:DatatypeProperty ;
+  rdfs:comment "The source of the platfom number. P = Planned, A = Automatic, M = Manual." ;
+  rdfs:domain for:PlatformData ;
+  rdfs:range [
+      a rdfs:Datatype ;
+      owl:oneOf [
+          a rdf:List ;
+          rdf:first "A" ;
+          rdf:rest [
+              a rdf:List ;
+              rdf:first "M" ;
+              rdf:rest [
+                  a rdf:List ;
+                  rdf:first "P" ;
+                  rdf:rest () ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+for:platsup
+  a owl:DatatypeProperty ;
+  rdfs:comment "Platform number is suppressed and should not be displayed." ;
+  rdfs:domain for:PlatformData ;
+  rdfs:range xsd:boolean ;
+.
+for:rid
+  a owl:DatatypeProperty ;
+  rdfs:comment "RTTI unique Train Identifier" ;
+  rdfs:domain for:TS ;
+  rdfs:range ct:RIDType ;
+.
+for:src
+  a owl:DatatypeProperty ;
+  rdfs:comment "The source of the forecast or actual time" ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range xsd:string ;
+.
+for:srcInst
+  a owl:DatatypeProperty ;
+  rdfs:comment "The RTTI CIS code of the CIS instance if the src is a CIS." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range ct:SourceTypeInst ;
+.
+for:ssd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Scheduled Start Date" ;
+  rdfs:domain for:TS ;
+  rdfs:range ct:RTTIDateType ;
+.
+for:suppr
+  a owl:DatatypeProperty ;
+  rdfs:comment "The service is suppressed at this location" ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range xsd:boolean ;
+.
+for:tpl
+  a owl:DatatypeProperty ;
+  rdfs:comment "TIPLOC" ;
+  rdfs:domain for:TSLocation ;
+  rdfs:range ct:TiplocType ;
+.
+for:uid
+  a owl:DatatypeProperty ;
+  rdfs:comment "Train UID" ;
+  rdfs:domain for:TS ;
+  rdfs:range ct:UIDType ;
+.
+for:wet
+  a owl:DatatypeProperty ;
+  rdfs:comment "The estimated time based on the \"working schedule\". This will only be set for public stops when (i) it also differs from the estimated time based on the \"public schedule\", or (ii) where there is an operational \"activity\" but no public \"activity\"." ;
+  rdfs:domain for:TSTimeData ;
+  rdfs:range ct:RTTITimeType ;
+.
+sch2:AssocService
+  a owl:Class ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:RIDType ;
+      owl:onProperty sch2:rid ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onProperty sch2:hasCircularTimes ;
+      owl:someValuesFrom ct:CircularTimes ;
+    ] ;
+.
+sch2:Association
+  a owl:Class ;
+  rdfs:comment "Type describing an association between schedules" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:TiplocType ;
+      owl:onProperty sch2:tiploc ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:AssocService ;
+      owl:onProperty sch2:assoc ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:AssocService ;
+      owl:onProperty sch2:main ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:CategoryType ;
+      owl:onProperty sch2:category ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:isCancelled ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:isDeleted ;
+    ] ;
+.
+sch2:CallPtAttributes
+  a owl:Class ;
+  rdfs:comment "Group of attributes common to Calling Points" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:RTTITimeType ;
+      owl:onProperty sch2:pta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:RTTITimeType ;
+      owl:onProperty sch2:ptd ;
+    ] ;
+.
+sch2:CategoryType
+  a rdfs:Datatype ;
+  rdfs:comment "Association Category Type: JJ=Join, VV=Split, LK=Linked, NP=Next-Working" ;
+  owl:equivalentClass [
+      a rdfs:Datatype ;
+      owl:oneOf [
+          a rdf:List ;
+          rdf:first "JJ" ;
+          rdf:rest [
+              a rdf:List ;
+              rdf:first "LK" ;
+              rdf:rest [
+                  a rdf:List ;
+                  rdf:first "NP" ;
+                  rdf:rest [
+                      a rdf:List ;
+                      rdf:first "VV" ;
+                      rdf:rest () ;
+                    ] ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.
+sch2:DT
+  a owl:Class ;
+  rdfs:comment "Defines a Passenger Destination Calling point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:DelayValueType ;
+      owl:onProperty sch2:rdelay ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch2:wtd ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:CallPtAttributes ;
+      owl:onProperty sch2:hasCallPtAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wta ;
+    ] ;
+.
+sch2:DeactivatedSchedule
+  a owl:Class ;
+  rdfs:comment "Notification that a Train Schedule is now deactivated in Darwin." ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:RIDType ;
+      owl:onProperty sch2:rid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+sch2:IP
+  a owl:Class ;
+  rdfs:comment "Defines aPassenger Intermediate Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:DelayValueType ;
+      owl:onProperty sch2:rdelay ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:CallPtAttributes ;
+      owl:onProperty sch2:hasCallPtAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wtd ;
+    ] ;
+.
+sch2:OPDT
+  a owl:Class ;
+  rdfs:comment "Defines an Operational Destination Calling point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:DelayValueType ;
+      owl:onProperty sch2:rdelay ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch2:wtd ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wta ;
+    ] ;
+.
+sch2:OPIP
+  a owl:Class ;
+  rdfs:comment "Defines an Operational Intermediate Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:DelayValueType ;
+      owl:onProperty sch2:rdelay ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wtd ;
+    ] ;
+.
+sch2:OPOR
+  a owl:Class ;
+  rdfs:comment "Defines an Operational Origin Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch2:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wtd ;
+    ] ;
+.
+sch2:OR
+  a owl:Class ;
+  rdfs:comment "Defines a Passenger Origin Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:TiplocType ;
+      owl:onProperty sch2:fd ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch2:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:CallPtAttributes ;
+      owl:onProperty sch2:hasCallPtAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wtd ;
+    ] ;
+.
+sch2:PP
+  a owl:Class ;
+  rdfs:comment "Defines an Intermediate Passing Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:DelayValueType ;
+      owl:onProperty sch2:rdelay ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch2:SchedLocAttributes ;
+      owl:onProperty sch2:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch2:wtp ;
+    ] ;
+.
+sch2:SchedLocAttributes
+  a owl:Class ;
+  rdfs:comment "Group of attributes common to all schedule locations" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:ActivityType ;
+      owl:onProperty sch2:act ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:ActivityType ;
+      owl:onProperty sch2:planAct ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:TiplocType ;
+      owl:onProperty sch2:tpl ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:can ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:isCharter ;
+    ] ;
+.
+sch2:Schedule
+  a owl:Class ;
+  rdfs:comment "Train Schedule" ;
+  rdfs:subClassOf [
+      a owl:Class ;
+      owl:intersectionOf (
+          [
+            a owl:Class ;
+            owl:unionOf (
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:DT ;
+                  owl:onProperty sch2:dt ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:IP ;
+                  owl:onProperty sch2:ip ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:OPDT ;
+                  owl:onProperty sch2:opdt ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:OPIP ;
+                  owl:onProperty sch2:opip ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:OPOR ;
+                  owl:onProperty sch2:opor ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:OR ;
+                  owl:onProperty sch2:or ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch2:PP ;
+                  owl:onProperty sch2:pp ;
+                ]
+              ) ;
+          ]
+          [
+            a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass ct:DisruptionReasonType ;
+            owl:onProperty sch2:cancelReason ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:CIFTrainCategoryType ;
+      owl:onProperty sch2:trainCat ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:CIFTrainStatusType ;
+      owl:onProperty sch2:status ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:deleted ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:isActive ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch2:isPassengerSvc ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:RIDType ;
+      owl:onProperty sch2:rid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:RTTIDateType ;
+      owl:onProperty sch2:ssd ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:TOCType ;
+      owl:onProperty sch2:toc ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:TrainIdType ;
+      owl:onProperty sch2:trainId ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:UIDType ;
+      owl:onProperty sch2:uid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct2:RSIDType ;
+      owl:onProperty sch2:rsid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+sch2:act
+  a owl:DatatypeProperty ;
+  rdfs:comment "Current Activity Codes" ;
+  rdfs:domain sch2:SchedLocAttributes ;
+  rdfs:range ct:ActivityType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:assoc
+  a owl:ObjectProperty ;
+  rdfs:comment "The starting, terminating, subsequent working or link-from service" ;
+  rdfs:domain sch2:Association ;
+  rdfs:range sch2:AssocService ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:can
+  a owl:DatatypeProperty ;
+  rdfs:comment "Cancelled" ;
+  rdfs:domain sch2:SchedLocAttributes ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:cancelReason
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:DisruptionReasonType ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:category
+  a owl:DatatypeProperty ;
+  rdfs:comment "Association category" ;
+  rdfs:domain sch2:Association ;
+  rdfs:range sch2:CategoryType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:deleted
+  a owl:DatatypeProperty ;
+  rdfs:comment "Service has been deleted and should not be used/displayed." ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch2:dt
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:DT ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:fd
+  a owl:DatatypeProperty ;
+  rdfs:comment "TIPLOC of False Destination to be used at this location" ;
+  rdfs:domain sch2:IP ;
+  rdfs:domain sch2:OR ;
+  rdfs:range ct:TiplocType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:hasCallPtAttributes
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:DT ;
+  rdfs:domain sch2:IP ;
+  rdfs:domain sch2:OPDT ;
+  rdfs:domain sch2:OPIP ;
+  rdfs:domain sch2:OPOR ;
+  rdfs:domain sch2:OR ;
+  rdfs:domain sch2:PP ;
+  rdfs:range sch2:CallPtAttributes ;
+.
+sch2:hasCircularTimes
+  a owl:ObjectProperty ;
+  rdfs:comment "One or more scheduled times to identify the instance of the location in the train schedule where the association occurs." ;
+  rdfs:domain sch2:AssocService ;
+  rdfs:range ct:CircularTimes ;
+.
+sch2:hasSchedLocAttributes
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:DT ;
+  rdfs:domain sch2:IP ;
+  rdfs:domain sch2:OPDT ;
+  rdfs:domain sch2:OPIP ;
+  rdfs:domain sch2:OPOR ;
+  rdfs:domain sch2:OR ;
+  rdfs:domain sch2:PP ;
+  rdfs:range sch2:SchedLocAttributes ;
+.
+sch2:ip
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:IP ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:isActive
+  a owl:DatatypeProperty ;
+  rdfs:comment "Indicates if this service is active in Darwin. Note that schedules should be assumed to be inactive until a message is received to indicate otherwise." ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch2:isCancelled
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if this association is cancelled, i.e. the association exists but will no longer happen." ;
+  rdfs:domain sch2:Association ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:isCharter
+  a owl:DatatypeProperty ;
+  rdfs:comment "ndicates if this service is a charter service" ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch2:isDeleted
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if this association is deleted, i.e. the association no longer exists" ;
+  rdfs:domain sch2:Association ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:isPassengerSvc
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if Darwin classifies the train category as a passenger service." ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch2:main
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Association ;
+  rdfs:range sch2:AssocService ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:opdt
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:OPDT ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:opip
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:OPIP ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:opor
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:OPOR ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:or
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:OR ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:planAct
+  a owl:DatatypeProperty ;
+  rdfs:comment "Planned Activity Codes (if different to current activities)" ;
+  rdfs:domain sch2:SchedLocAttributes ;
+  rdfs:range ct:ActivityType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:pp
+  a owl:ObjectProperty ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range sch2:PP ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch2:pta
+  a owl:DatatypeProperty ;
+  rdfs:comment "Public Scheduled Time of Arrival" ;
+  rdfs:domain sch2:CallPtAttributes ;
+  rdfs:range ct:RTTITimeType ;
+.
+sch2:ptd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Public Scheduled Time of Departure" ;
+  rdfs:domain sch2:CallPtAttributes ;
+  rdfs:range ct:RTTITimeType ;
+.
+sch2:rdelay
+  a owl:DatatypeProperty ;
+  rdfs:comment "A delay value that is implied by a change to the service's route. This value has been added to the forecast lateness of the service at the previous schedule location when calculating the expected lateness of arrival at this location." ;
+  rdfs:domain sch2:DT ;
+  rdfs:domain sch2:IP ;
+  rdfs:domain sch2:OPIP ;
+  rdfs:domain sch2:OPOR ;
+  rdfs:domain sch2:OR ;
+  rdfs:domain sch2:PP ;
+  rdfs:range ct:DelayValueType ;
+.
+sch2:rid
+  a owl:DatatypeProperty ;
+  rdfs:comment "RTTI Train ID. Note that since this is an RID, the service must already exist within Darwin." ;
+  rdfs:domain sch2:AssocService ;
+  rdfs:domain sch2:DeactivatedSchedule ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:RIDType ;
+.
+sch2:rsid
+  a owl:DatatypeProperty ;
+  rdfs:comment "Retail Service Identifier. Note that this may be either a full 8-character \"portion identifier\", or a base 6-character identifier, according to the available information provided to Darwin." ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct2:RSIDType ;
+.
+sch2:ssd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Scheduled Start Date" ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:RTTIDateType ;
+.
+sch2:status
+  a owl:DatatypeProperty ;
+  rdfs:comment "Type of service, i.e. Train/Bus/Ship." ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:CIFTrainStatusType ;
+.
+sch2:tiploc
+  a owl:DatatypeProperty ;
+  rdfs:comment "The TIPLOC of the location where the association occurs." ;
+  rdfs:domain sch2:Association ;
+  rdfs:range ct:TiplocType ;
+.
+sch2:toc
+  a owl:DatatypeProperty ;
+  rdfs:comment "ATOC Code" ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:TOCType ;
+.
+sch2:tpl
+  a owl:DatatypeProperty ;
+  rdfs:comment "TIPLOC" ;
+  rdfs:domain sch2:SchedLocAttributes ;
+  rdfs:range ct:TiplocType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:trainCat
+  a owl:DatatypeProperty ;
+  rdfs:comment "Category of service." ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:CIFTrainCategoryType ;
+.
+sch2:trainId
+  a owl:DatatypeProperty ;
+  rdfs:comment "Train ID (Headcode)" ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:TrainIdType ;
+.
+sch2:uid
+  a owl:DatatypeProperty ;
+  rdfs:comment "Train UID" ;
+  rdfs:domain sch2:Schedule ;
+  rdfs:range ct:UIDType ;
+.
+sch2:wta
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working Scheduled Time of Arrival" ;
+  rdfs:domain sch2:DT ;
+  rdfs:domain sch2:IP ;
+  rdfs:domain sch2:OPIP ;
+  rdfs:domain sch2:OPOR ;
+  rdfs:domain sch2:OR ;
+  rdfs:domain sch2:PP ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:wtd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working Scheduled Time of Departure" ;
+  rdfs:domain sch2:DT ;
+  rdfs:domain sch2:IP ;
+  rdfs:domain sch2:OPIP ;
+  rdfs:domain sch2:OPOR ;
+  rdfs:domain sch2:OR ;
+  rdfs:domain sch2:PP ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch2:wtp
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working Scheduled Time of Passing" ;
+  rdfs:domain sch2:PP ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:Association
+  a owl:Class ;
+  rdfs:comment "Type describing an association between schedules" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:isCancelled ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:isDeleted ;
+    ] ;
+.
+sch3:CallPtAttributes
+  a owl:Class ;
+  rdfs:comment "Group of attributes common to Calling Points" ;
+.
+sch3:DT
+  a owl:Class ;
+  rdfs:comment "Defines a Passenger Destination Calling point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch3:wtd ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:CallPtAttributes ;
+      owl:onProperty sch3:hasCallPtAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wta ;
+    ] ;
+.
+sch3:IP
+  a owl:Class ;
+  rdfs:comment "Defines aPassenger Intermediate Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:CallPtAttributes ;
+      owl:onProperty sch3:hasCallPtAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wtd ;
+    ] ;
+.
+sch3:OPDT
+  a owl:Class ;
+  rdfs:comment "Defines an Operational Destination Calling point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch3:wtd ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wta ;
+    ] ;
+.
+sch3:OPIP
+  a owl:Class ;
+  rdfs:comment "Defines an Operational Intermediate Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wtd ;
+    ] ;
+.
+sch3:OPOR
+  a owl:Class ;
+  rdfs:comment "Defines an Operational Origin Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch3:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wtd ;
+    ] ;
+.
+sch3:OR
+  a owl:Class ;
+  rdfs:comment "Defines a Passenger Origin Calling Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom ct:WTimeType ;
+      owl:onProperty sch3:wta ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:CallPtAttributes ;
+      owl:onProperty sch3:hasCallPtAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wtd ;
+    ] ;
+.
+sch3:PP
+  a owl:Class ;
+  rdfs:comment "Defines an Intermediate Passing Point" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom sch3:SchedLocAttributes ;
+      owl:onProperty sch3:hasSchedLocAttributes ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange ct:WTimeType ;
+      owl:onProperty sch3:wtp ;
+    ] ;
+.
+sch3:SchedLocAttributes
+  a owl:Class ;
+  rdfs:comment "Group of attributes common to all schedule locations" ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:can ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:isCharter ;
+    ] ;
+.
+sch3:Schedule
+  a owl:Class ;
+  rdfs:comment "Train Schedule" ;
+  rdfs:subClassOf [
+      a owl:Class ;
+      owl:intersectionOf (
+          [
+            a owl:Class ;
+            owl:unionOf (
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:DT ;
+                  owl:onProperty sch3:dt ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:IP ;
+                  owl:onProperty sch3:ip ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:OPDT ;
+                  owl:onProperty sch3:opdt ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:OPIP ;
+                  owl:onProperty sch3:opip ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:OPOR ;
+                  owl:onProperty sch3:opor ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:OR ;
+                  owl:onProperty sch3:or ;
+                ]
+                [
+                  a owl:Restriction ;
+                  owl:allValuesFrom sch3:PP ;
+                  owl:onProperty sch3:pp ;
+                ]
+              ) ;
+          ]
+          [
+            a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass ct:DisruptionReasonType ;
+            owl:onProperty sch3:cancelReason ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:deleted ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:isActive ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom xsd:boolean ;
+      owl:onProperty sch3:isPassengerSvc ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:RIDType ;
+      owl:onProperty sch3:rid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:RTTIDateType ;
+      owl:onProperty sch3:ssd ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:TOCType ;
+      owl:onProperty sch3:toc ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:TrainIdType ;
+      owl:onProperty sch3:trainId ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct:UIDType ;
+      owl:onProperty sch3:uid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:onDataRange ct3:RSIDType ;
+      owl:onProperty sch3:rsid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+sch3:act
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:assoc
+  a owl:ObjectProperty ;
+  rdfs:comment "The starting, terminating, subsequent working or link-from service" ;
+  rdfs:domain sch3:Association ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:avgLoading
+  a owl:DatatypeProperty ;
+.
+sch3:can
+  a owl:DatatypeProperty ;
+  rdfs:comment "Cancelled" ;
+  rdfs:domain sch3:SchedLocAttributes ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:cancelReason
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct:DisruptionReasonType ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:category
+  a owl:DatatypeProperty ;
+  rdfs:comment "Association category" ;
+  rdfs:domain sch3:Association ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:deleted
+  a owl:DatatypeProperty ;
+  rdfs:comment "Service has been deleted and should not be used/displayed." ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch3:dt
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:DT ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:fd
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:fid
+  a owl:DatatypeProperty ;
+.
+sch3:hasCallPtAttributes
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:DT ;
+  rdfs:domain sch3:IP ;
+  rdfs:domain sch3:OPDT ;
+  rdfs:domain sch3:OPIP ;
+  rdfs:domain sch3:OPOR ;
+  rdfs:domain sch3:OR ;
+  rdfs:domain sch3:PP ;
+  rdfs:range sch3:CallPtAttributes ;
+.
+sch3:hasCircularTimes
+  a owl:ObjectProperty ;
+  rdfs:comment "One or more scheduled times to identify the instance of the location in the train schedule where the association occurs." ;
+  rdfs:range ct:CircularTimes ;
+.
+sch3:hasSchedLocAttributes
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:DT ;
+  rdfs:domain sch3:IP ;
+  rdfs:domain sch3:OPDT ;
+  rdfs:domain sch3:OPIP ;
+  rdfs:domain sch3:OPOR ;
+  rdfs:domain sch3:OR ;
+  rdfs:domain sch3:PP ;
+  rdfs:range sch3:SchedLocAttributes ;
+.
+sch3:ip
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:IP ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:isActive
+  a owl:DatatypeProperty ;
+  rdfs:comment "Indicates if this service is active in Darwin. Note that schedules should be assumed to be inactive until a message is received to indicate otherwise." ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch3:isCancelled
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if this association is cancelled, i.e. the association exists but will no longer happen." ;
+  rdfs:domain sch3:Association ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:isCharter
+  a owl:DatatypeProperty ;
+  rdfs:comment "ndicates if this service is a charter service" ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch3:isDeleted
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if this association is deleted, i.e. the association no longer exists" ;
+  rdfs:domain sch3:Association ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:isPassengerSvc
+  a owl:DatatypeProperty ;
+  rdfs:comment "True if Darwin classifies the train category as a passenger service." ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range xsd:boolean ;
+.
+sch3:main
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Association ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:opdt
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:OPDT ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:opip
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:OPIP ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:opor
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:OPOR ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:or
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:OR ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:planAct
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:pp
+  a owl:ObjectProperty ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range sch3:PP ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+.
+sch3:pta
+  a owl:DatatypeProperty ;
+.
+sch3:ptd
+  a owl:DatatypeProperty ;
+.
+sch3:rdelay
+  a owl:DatatypeProperty ;
+.
+sch3:rid
+  a owl:DatatypeProperty ;
+  rdfs:comment "RTTI Train ID. Note that since this is an RID, the service must already exist within Darwin." ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct:RIDType ;
+.
+sch3:rsid
+  a owl:DatatypeProperty ;
+  rdfs:comment "Retail Service Identifier. Note that this may be either a full 8-character \"portion identifier\", or a base 6-character identifier, according to the available information provided to Darwin." ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct3:RSIDType ;
+.
+sch3:ssd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Scheduled Start Date" ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct:RTTIDateType ;
+.
+sch3:status
+  a owl:DatatypeProperty ;
+.
+sch3:tiploc
+  a owl:DatatypeProperty ;
+.
+sch3:toc
+  a owl:DatatypeProperty ;
+  rdfs:comment "ATOC Code" ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct:TOCType ;
+.
+sch3:tpl
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:trainCat
+  a owl:DatatypeProperty ;
+.
+sch3:trainId
+  a owl:DatatypeProperty ;
+  rdfs:comment "Train ID (Headcode)" ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct:TrainIdType ;
+.
+sch3:uid
+  a owl:DatatypeProperty ;
+  rdfs:comment "Train UID" ;
+  rdfs:domain sch3:Schedule ;
+  rdfs:range ct:UIDType ;
+.
+sch3:wta
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working Scheduled Time of Arrival" ;
+  rdfs:domain sch3:DT ;
+  rdfs:domain sch3:IP ;
+  rdfs:domain sch3:OPIP ;
+  rdfs:domain sch3:OPOR ;
+  rdfs:domain sch3:OR ;
+  rdfs:domain sch3:PP ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:wtd
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working Scheduled Time of Departure" ;
+  rdfs:domain sch3:DT ;
+  rdfs:domain sch3:IP ;
+  rdfs:domain sch3:OPIP ;
+  rdfs:domain sch3:OPOR ;
+  rdfs:domain sch3:OR ;
+  rdfs:domain sch3:PP ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+sch3:wtp
+  a owl:DatatypeProperty ;
+  rdfs:comment "Working Scheduled Time of Passing" ;
+  rdfs:domain sch3:PP ;
+  rdfs:range ct:WTimeType ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+.
+tor:TrainOrder
+  a owl:Class ;
+  rdfs:comment "Defines the expected Train order at a platform" ;
+.
+tor:TrainOrderData
+  a owl:Class ;
+  rdfs:comment "Defines the sequence of trains making up the train order" ;
+.
+tor:TrainOrderItem
+  a owl:Class ;
+  rdfs:comment "Describes the identifier of a train in the train order" ;
+.
+tor:clear
+  a owl:ObjectProperty ;
+  rdfs:comment "Clear the current train order" ;
+.
+tor:clearTrainOrder
+  a owl:Class ;
+  rdfs:subClassOf tor:TrainOrder ;
+.
+tor:crs
+  a owl:DatatypeProperty ;
+  rdfs:comment "The CRS code of the station where the train order applies" ;
+  rdfs:domain tor:TrainOrder ;
+  rdfs:range ct:CrsType ;
+.
+tor:first
+  a owl:ObjectProperty ;
+  rdfs:comment "The first train in the train order." ;
+  rdfs:domain tor:TrainOrderData ;
+  rdfs:range tor:TrainOrderItem ;
+.
+tor:hasCircularTimes
+  a owl:ObjectProperty ;
+  rdfs:comment "One or more scheduled times to identify the instance of the location in the train schedule for which the train order is set." ;
+  rdfs:domain tor:TrainOrderItem ;
+  rdfs:range ct:CircularTimes ;
+.
+tor:platform
+  a owl:DatatypeProperty ;
+  rdfs:comment "The platform number where the train order applies" ;
+  rdfs:domain tor:TrainOrder ;
+  rdfs:range ct:PlatformType ;
+.
+tor:rid
+  a owl:DatatypeProperty ;
+  rdfs:comment "For trains in the train order where the train is the Darwin timetable, it will be identified by its RID" ;
+  rdfs:domain tor:TrainOrderItem ;
+  rdfs:range ct:RIDType ;
+.
+tor:ridTrainOrderItem
+  a owl:Class ;
+  rdfs:comment "For trains in the train order where the train is the Darwin timetable, it will be identified by its RID" ;
+  rdfs:subClassOf tor:TrainOrderItem ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty tor:hasCircularTimes ;
+      owl:someValuesFrom ct:CircularTimes ;
+    ] ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty tor:rid ;
+      owl:someValuesFrom ct:RIDType ;
+    ] ;
+.
+tor:second
+  a owl:ObjectProperty ;
+  rdfs:comment "The second train in the train order." ;
+  rdfs:domain tor:TrainOrderData ;
+  rdfs:range tor:TrainOrderItem ;
+.
+tor:set
+  a owl:ObjectProperty ;
+  rdfs:domain tor:setTrainOrder ;
+  rdfs:range tor:TrainOrderData ;
+.
+tor:setTrainOrder
+  a owl:Class ;
+  rdfs:subClassOf tor:TrainOrder ;
+.
+tor:third
+  a owl:ObjectProperty ;
+  rdfs:comment "The third train in the train order." ;
+  rdfs:domain tor:TrainOrderData ;
+  rdfs:range tor:TrainOrderItem ;
+.
+tor:tiploc
+  a owl:DatatypeProperty ;
+  rdfs:comment "The tiploc where the train order applies" ;
+  rdfs:domain tor:TrainOrder ;
+  rdfs:range ct:TiplocType ;
+.
+tor:trainID
+  a owl:DatatypeProperty ;
+  rdfs:comment "Where a train in the train order is not in the Darwin timetable, a Train ID (headcode) will be supplied" ;
+  rdfs:domain tor:TrainOrderItem ;
+  rdfs:range ct:TrainIdType ;
+.
+tor:trainIDTrainOrderItem
+  a owl:Class ;
+  rdfs:comment "Where a train in the train order is not in the Darwin timetable, a Train ID (headcode) will be supplied" ;
+  rdfs:subClassOf tor:TrainOrderItem ;
+  owl:equivalentClass [
+      a owl:Restriction ;
+      owl:onProperty tor:trainID ;
+      owl:someValuesFrom ct:TrainIdType ;
+    ] ;
+.
+pp16:DataResponse
+  a owl:Class ;
+.
+pp16:Pport
+  a owl:Class ;
+  rdfs:comment "Push Ports Schema" ;
+.
+pp16:TS
+  a owl:ObjectProperty ;
+  rdfs:comment "Train Status" ;
+  rdfs:domain pp16:DataResponse ;
+  rdfs:range for:TS ;
+.
+pp16:has_uR
+  a owl:ObjectProperty ;
+  rdfs:domain pp16:Pport ;
+  rdfs:range pp16:uR ;
+.
+pp16:requestID
+  a owl:DatatypeProperty ;
+  rdfs:comment "The DCISRequestID value provided by the originator of this update. Used in conjunction with the requestSource attribute to ensure uniqueness" ;
+  rdfs:domain pp16:uR ;
+  rdfs:range ct:DCISRequestID ;
+.
+pp16:requestSource
+  a owl:DatatypeProperty ;
+  rdfs:comment "The source instance that generated this update, usually a CIS instance." ;
+  rdfs:domain pp16:uR ;
+  rdfs:range ct:SourceTypeInst ;
+.
+pp16:schedule
+  a owl:ObjectProperty ;
+  rdfs:domain pp16:DataResponse ;
+  rdfs:range sch3:Schedule ;
+.
+pp16:ts
+  a owl:DatatypeProperty ;
+  rdfs:comment "Local Timestamp" ;
+  rdfs:domain pp16:Pport ;
+  rdfs:range ct:RTTIDateTimeType ;
+.
+pp16:uR
+  a owl:Class ;
+  rdfs:comment "Update Response" ;
+  rdfs:subClassOf pp16:Pport ;
+.
+pp16:updateOrigin
+  a owl:DatatypeProperty ;
+  rdfs:comment "A string describing the type of system that originated this update, e.g. \"CIS\" or \"Darwin\"." ;
+  rdfs:domain pp16:uR ;
+  rdfs:range xsd:string ;
+.
+pp16:version
+  a owl:DatatypeProperty ;
+  rdfs:domain pp16:Pport ;
+  rdfs:range xsd:string ;
+.
+xsd:date
+  a rdfs:Datatype ;
+.
+owl:topDataProperty
+  rdfs:comment "The namespace of the Push Port data schema supported by the client." ;
+.

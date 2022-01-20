@@ -1,0 +1,1045 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/"
+     xml:base="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/"
+     xmlns:ct="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/"
+     xmlns:ct2="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2">
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1"/>
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/RSIDType -->
+
+    <rdfs:Datatype rdf:about="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/RSIDType"/>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CategoryType -->
+
+    <rdfs:Datatype rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CategoryType">
+        <rdfs:comment>Association Category Type: JJ=Join, VV=Split, LK=Linked, NP=Next-Working</rdfs:comment>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>JJ</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>LK</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>NP</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>VV</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/assoc -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/assoc">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService"/>
+        <rdfs:comment>The starting, terminating, subsequent working or link-from service</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/cancelReason -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/cancelReason">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DisruptionReasonType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/dt -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/dt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCallPtAttributes -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCallPtAttributes">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPDT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCircularTimes -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCircularTimes">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CircularTimes"/>
+        <rdfs:comment>One or more scheduled times to identify the instance of the location in the train schedule where the association occurs.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPDT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ip -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ip">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/main -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/main">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opdt -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opdt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPDT"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opip -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opip">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opor -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/or -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/or">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/pp -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/pp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/act -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/act">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/ActivityType"/>
+        <rdfs:comment>Current Activity Codes</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/can -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/can">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Cancelled</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/category -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/category">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CategoryType"/>
+        <rdfs:comment>Association category</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/deleted -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/deleted">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Service has been deleted and should not be used/displayed.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/fd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/fd">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+        <rdfs:comment>TIPLOC of False Destination to be used at this location</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isActive -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isActive">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates if this service is active in Darwin. Note that schedules should be assumed to be inactive until a message is received to indicate otherwise.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isCancelled -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isCancelled">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>True if this association is cancelled, i.e. the association exists but will no longer happen.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isCharter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isCharter">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>ndicates if this service is a charter service</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isDeleted -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isDeleted">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>True if this association is deleted, i.e. the association no longer exists</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isPassengerSvc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isPassengerSvc">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>True if Darwin classifies the train category as a passenger service.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/planAct -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/planAct">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/ActivityType"/>
+        <rdfs:comment>Planned Activity Codes (if different to current activities)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/pta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/pta">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTITimeType"/>
+        <rdfs:comment>Public Scheduled Time of Arrival</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ptd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ptd">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTITimeType"/>
+        <rdfs:comment>Public Scheduled Time of Departure</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DelayValueType"/>
+        <rdfs:comment>A delay value that is implied by a change to the service&apos;s route. This value has been added to the forecast lateness of the service at the previous schedule location when calculating the expected lateness of arrival at this location.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rid">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DeactivatedSchedule"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RIDType"/>
+        <rdfs:comment>RTTI Train ID. Note that since this is an RID, the service must already exist within Darwin.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rsid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rsid">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/RSIDType"/>
+        <rdfs:comment>Retail Service Identifier. Note that this may be either a full 8-character &quot;portion identifier&quot;, or a base 6-character identifier, according to the available information provided to Darwin.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ssd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ssd">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTIDateType"/>
+        <rdfs:comment>Scheduled Start Date</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/status -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/status">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CIFTrainStatusType"/>
+        <rdfs:comment>Type of service, i.e. Train/Bus/Ship.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/tiploc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/tiploc">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+        <rdfs:comment>The TIPLOC of the location where the association occurs.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/toc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/toc">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TOCType"/>
+        <rdfs:comment>ATOC Code</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/tpl -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/tpl">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+        <rdfs:comment>TIPLOC</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/trainCat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/trainCat">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CIFTrainCategoryType"/>
+        <rdfs:comment>Category of service.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/trainId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/trainId">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TrainIdType"/>
+        <rdfs:comment>Train ID (Headcode)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/uid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/uid">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/UIDType"/>
+        <rdfs:comment>Train UID</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+        <rdfs:comment>Working Scheduled Time of Arrival</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+        <rdfs:comment>Working Scheduled Time of Departure</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtp">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+        <rdfs:comment>Working Scheduled Time of Passing</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCircularTimes"/>
+                <owl:someValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CircularTimes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rid"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RIDType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Association">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/assoc"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/main"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/AssocService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/category"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CategoryType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isCancelled"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isDeleted"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/tiploc"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Type describing an association between schedules</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/pta"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTITimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ptd"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTITimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Group of attributes common to Calling Points</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCallPtAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DelayValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines a Passenger Destination Calling point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DeactivatedSchedule -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DeactivatedSchedule">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RIDType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Notification that a Train Schedule is now deactivated in Darwin.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCallPtAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DelayValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines aPassenger Intermediate Calling Point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPDT -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPDT">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DelayValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines an Operational Destination Calling point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DelayValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines an Operational Intermediate Calling Point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines an Operational Origin Calling Point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasCallPtAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/CallPtAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/fd"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wta"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtd"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines a Passenger Origin Calling Point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/hasSchedLocAttributes"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rdelay"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DelayValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/wtp"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/WTimeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Defines an Intermediate Passing Point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/SchedLocAttributes">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/act"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/ActivityType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/can"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isCharter"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/planAct"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/ActivityType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/tpl"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Group of attributes common to all schedule locations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/Schedule">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/dt"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/DT"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ip"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/IP"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opdt"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPDT"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opip"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPIP"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/opor"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OPOR"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/or"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/OR"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/pp"/>
+                                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/PP"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/cancelReason"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/DisruptionReasonType"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/deleted"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isActive"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/isPassengerSvc"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/status"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CIFTrainStatusType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/trainCat"/>
+                <owl:allValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CIFTrainCategoryType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RIDType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/rsid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/RSIDType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/ssd"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RTTIDateType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/toc"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TOCType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/trainId"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TrainIdType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/Schedules/v2/uid"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/UIDType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Train Schedule</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

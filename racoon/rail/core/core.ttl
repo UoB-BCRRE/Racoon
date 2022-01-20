@@ -1,0 +1,3842 @@
+# baseURI: http://purl.org/rail/core/
+# imports: http://purl.org/ub/upper/
+
+@prefix : <http://purl.org/rail/core/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt#> .
+@prefix rcn: <http://purl.org/rail/core/vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix wgspos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  a owl:Ontology ;
+  owl:imports u: ;
+.
+:ATPProtect
+  a owl:Class ;
+  :designComment "Disjoint with other TrainProtect subclasses, as a 'ATPProtect' capability cannot be a 'TrainStopProtect' capability inherently. An entity may be capable of adhering to both of these capabilities, but they are still disjoint" ;
+  rdfs:comment "Automatic Train Protection characteristic"@en ;
+  rdfs:label "ATPProtect"@en ;
+  rdfs:subClassOf :TrainProtectStandard ;
+.
+:AbsoluteChainage
+  a owl:Class ;
+  rdfs:comment "A chainage with no known reference point"@en ;
+  rdfs:label "Absolute chainage"@en ;
+  rdfs:subClassOf :TrackRelatedPosition ;
+.
+:AmberSignalAspect
+  a owl:Class ;
+  rdfs:comment "A signal aspect is a possible possible signal state"@en ;
+  rdfs:label "Amber Signal Aspect"@en ;
+  rdfs:label "Amber signal aspect"@en ;
+  rdfs:subClassOf :SignalAspect ;
+.
+:AxleCounter
+  a owl:Class ;
+  :railMLCloseMatch "rail:trainDetector axleCounting=true" ;
+  rdfs:comment "Device which counts axles of passing train for train protection"@en ;
+  rdfs:label "Axle counter"@en ;
+  rdfs:subClassOf :TrainDetector ;
+.
+:AxleWeight
+  a owl:Class ;
+  rdfs:comment "The loading of an axle"@en ;
+  rdfs:label "Axle weight"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:Balise
+  a owl:Class ;
+  :railMLExactMatch "rail:balise" ;
+  rdfs:comment "Rail-based beacon for signalling and comms"@en ;
+  rdfs:label "Balise"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:BaliseGroup
+  a owl:Class ;
+  :RailML """RailML:eBaliseGroup
+
+Max cardinality of 8 removed from RailML Schema to simplify ontology""" ;
+  :railMLExactMatch "rail:eSignalGroup" ;
+  doc:optionalConstraintAnnotation "co:element min 1 Balise" ;
+  rdfs:comment "Group of signals"@en ;
+  rdfs:label "Balise Group"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf <http://purl.org/ub/co/Collection> ;
+.
+:BlockingSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal function=blocking" ;
+  rdfs:comment "A signal for blocking trains around stations"@en ;
+  rdfs:label "Blocking signal"@en ;
+  rdfs:subClassOf :SignalWithLocationFunction ;
+.
+:Bogie
+  a owl:Class ;
+  rdfs:label "Bogie"@en ;
+  rdfs:subClassOf :RollingStockComponent ;
+.
+:Border
+  a owl:Class ;
+  :railMLExactMatch "rail:border" ;
+  rdfs:comment "Border between countries or authorities"@en ;
+  rdfs:label "Border"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:BrakingCharacteristic
+  a owl:Class ;
+  :railMLExactMatch "rail:braking" ;
+  rdfs:comment "The performance and characteristics of a thing"@en ;
+  rdfs:label "Braking characteristic"@en ;
+  rdfs:subClassOf :RSCharacteristic ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:BranchLine
+  a owl:Class ;
+  :railMLExactMatch "rail:lineDescr=\"branch\"" ;
+  rdfs:comment "Type for branch line railways"@en ;
+  rdfs:label "Branch line"@en ;
+  rdfs:subClassOf :RailwayLine ;
+.
+:Bridge
+  a owl:Class ;
+  :railMLExactMatch "rail:bridge" ;
+  doc:optionalConstraintAnnotation "vocab:meterLoad some u:ContinuousMeasurement" ;
+  rdfs:comment "Physical bridge"@en ;
+  rdfs:label "Bridge"@en ;
+  rdfs:subClassOf :CivilThing ;
+.
+:BufferStop
+  a owl:Class ;
+  :railMLExactMatch "rail:bufferStop" ;
+  rdfs:comment "Device placed at end of rails"@en ;
+  rdfs:label "Buffer Stop"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:Building
+  a owl:Class ;
+  rdfs:comment "Any physical building"@en ;
+  rdfs:label "Building"@en ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+:ChainageMeasurement
+  a owl:Class ;
+  rdfs:comment "Measurement of Railway Chainage"@en ;
+  rdfs:label "Axle weight"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:ChainageZero
+  a owl:Class ;
+  rdfs:comment "Represents a change of chainage system from one reference point to another"@en ;
+  rdfs:label "Chainage Zero Point"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:CharacteristicChange
+  a owl:Class ;
+  doc:partofODP :characteristicChangeODP ;
+  rdfs:comment "Represents a chnage in a railway track's capability. Initial and changed capability are 'optional'"@en ;
+  rdfs:label "Capability change"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:CharacteristicChangeSignal
+  a owl:Class ;
+  rdfs:comment "A device that communicates some change in characteristic for the railway, and may be linked to the network's capabilities"@en ;
+  rdfs:label "Characteristic change signal"@en ;
+  rdfs:subClassOf :Signal ;
+.
+:CivilThing
+  a owl:Class ;
+  rdfs:comment "Any civil engineering equipment or concept"@en ;
+  rdfs:label "Civil Thing"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:CombinedSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal type=" ;
+  rdfs:comment "Signal type from RailML 2.2"@en ;
+  rdfs:label "Combined signal"@en ;
+  rdfs:subClassOf :SignalWithRole ;
+.
+:CommunicationsDevice
+  a owl:Class ;
+  rdfs:comment "Any communications device"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "Communications device"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+.
+:ComputerInterlocking
+  a owl:Class ;
+  rdfs:comment "SSI or computer-based interlocking for signalling"@en ;
+  rdfs:label "Computer Interlocking"@en ;
+  rdfs:subClassOf :Interlocking ;
+.
+:ConnectingTrack
+  a owl:Class ;
+  :railMLCloseMatch "is:track attributes" ;
+  rdfs:comment "Types of track useful in the infrastructure model for routing"@en ;
+  rdfs:label "Connecting track"@en ;
+  rdfs:subClassOf :Track ;
+.
+:Contract
+  a owl:Class ;
+  rdfs:comment "Legal or other contract"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "Contract"@en ;
+  rdfs:subClassOf u:InformationThing ;
+.
+:ControlConcept
+  a owl:Class ;
+  rdfs:comment "Any railway control-related concepts"@en ;
+  rdfs:label "Railway Control Concept"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:Crossing
+  a owl:Class ;
+  rdfs:comment "Passive S&C Crossing Element"@en ;
+  rdfs:label "Crossing (Track Infrastructure)"@en ;
+  rdfs:subClassOf :Junction ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:Customer
+  a owl:Class ;
+  rdfs:comment "Any customer"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "Customer"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:Cutting
+  a owl:Class ;
+  rdfs:comment "Railway cutting (to place track through raised land)"@en ;
+  rdfs:label "Cutting"@en ;
+  rdfs:subClassOf :CivilThing ;
+.
+:DMU
+  a owl:Class ;
+  rdfs:comment "Diesel Multiple Unit - a MU that operates on diesel fuel"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "DMU"@en ;
+  rdfs:subClassOf :RailwayMultipleUnit ;
+.
+:DataSource
+  a owl:Class ;
+  rdfs:comment "Class to represent data sources as objects on the railway (rather than as ontology input)."@en ;
+  rdfs:label "Data Source"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:DeciChains
+  a :RailwayUnit ;
+  dc:title "Deci Chains" ;
+  rdfs:comment "Railway Chainage represented in decimal format"@en ;
+  rdfs:label "Deci chains"@en ;
+.
+:DieselTractionCharacteristic
+  a owl:Class ;
+  rdfs:comment "Traction characteristic of diesel-fueld train"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "Diesel traction characteristic"@en ;
+  rdfs:subClassOf :TractionCharacteristic ;
+.
+:Direction
+  a owl:Class ;
+  rdfs:comment "Any direction"@en ;
+  rdfs:label "Direction"@en ;
+  rdfs:subClassOf :EnumeratedCharacteristic ;
+.
+:DirectionCapability
+  a owl:Class ;
+  rdfs:comment "The capability of a thing to move in a direction"@en ;
+  rdfs:label "Direction"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:DistantSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal type=" ;
+  rdfs:comment "Signal type from RailML 2.2"@en ;
+  rdfs:label "Distant signal"@en ;
+  rdfs:subClassOf :SignalWithRole ;
+.
+:DoubleAmberSignalAspect
+  a owl:Class ;
+  rdfs:comment "Signal aspect"@en ;
+  rdfs:label "Double Amber Signal Aspect"@en ;
+  rdfs:subClassOf :SignalAspect ;
+.
+:DownDirection
+  a :Direction ;
+  rdfs:comment "Direction used on railways to denote a heading towards an origin point (in the UK, this usually means 'heading towards London')"@en ;
+  rdfs:label "Down direction"@en ;
+  owl:differentFrom :UpDirection ;
+.
+:DownDirectionCapability
+  a :DirectionCapability ;
+  rdfs:comment "Down direction capability"@en ;
+  rdfs:label "Down direction"@en ;
+.
+:ELR
+  a owl:Class ;
+  rdfs:comment "The internal code used by Network Rail engineers to refer to particular railway lines"@en ;
+  rdfs:label "ELRLine"@en ;
+  rdfs:subClassOf :RailwayLine ;
+.
+:ELRAbstraction
+  a :RouteAbstraction ;
+  rdfs:comment "A route abstraction layer used to represent entities aet an 'Engineers Line Reference' Level"@en ;
+  rdfs:label "ELRAbstraction"@en ;
+.
+:ELRArc
+  a owl:Class ;
+  rdfs:comment "A track arc at the ELR (Engineer's Line Reference) level of generalisation"@en ;
+  rdfs:label "ELR Level Arc"@en ;
+  rdfs:subClassOf :RouteArc ;
+.
+:ELRNode
+  a owl:Class ;
+  rdfs:comment "A track node at the ELR (Engineer's Line Reference) level of generalisation"@en ;
+  rdfs:label "ELR Node"@en ;
+  rdfs:subClassOf :RouteNode ;
+.
+:EMU
+  a owl:Class ;
+  rdfs:comment "An electrically-propelled multiple unit"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "EMU"@en ;
+  rdfs:subClassOf :RailwayMultipleUnit ;
+.
+:ETCSCharacteristicSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:tSIgnalETCS" ;
+  rdfs:comment "A signal that is ETCS-compliant"@en ;
+  rdfs:label "ETCSCharacteristic signal"@en ;
+  rdfs:subClassOf :CharacteristicChangeSignal ;
+.
+:ETCSL0Standard
+  a owl:Class ;
+  rdfs:comment "ETCS level 0 train control standard"@en ;
+  rdfs:label "ETCS Level 1 Standard"@en ;
+  rdfs:subClassOf :ETCSStandard ;
+.
+:ETCSL1Standard
+  a owl:Class ;
+  rdfs:comment "ETCS level 1 train control standard"@en ;
+  rdfs:label "ETCS Level 2 Standard"@en ;
+  rdfs:subClassOf :ETCSStandard ;
+.
+:ETCSL2Standard
+  a owl:Class ;
+  rdfs:comment "ECS level 2 train control standard"@en ;
+  rdfs:label "ETCSL2Standard"@en ;
+  rdfs:subClassOf :ETCSStandard ;
+.
+:ETCSL3Standard
+  a owl:Class ;
+  rdfs:comment "ETCS level 3 train control standard"@en ;
+  rdfs:label "ETCSL3Standard"@en ;
+  rdfs:subClassOf :ETCSStandard ;
+.
+:ETCSSignallingChange
+  a owl:Class ;
+  rdfs:comment "Indicates a change in ETCS Signalling System"@en ;
+  rdfs:label "ETCSSignalling change"@en ;
+  rdfs:subClassOf :SignallingChange ;
+.
+:ETCSStandard
+  a owl:Class ;
+  rdfs:comment "Any ETCS train control standard"@en ;
+  rdfs:label "ETCSStandard"@en ;
+  rdfs:subClassOf :SignallingStandard ;
+  rdfs:subClassOf :TrainControlStandard ;
+.
+:ElectricalTractionCharacteristic
+  a owl:Class ;
+  rdfs:comment "Traction characteristic of electrically-powered train"@en ;
+  rdfs:label " "@en ;
+  rdfs:label "Electrical traction characteristic"@en ;
+  rdfs:subClassOf :TractionCharacteristic ;
+.
+:Electrification
+  a owl:Class ;
+  :railMLExactMatch "rail:electrification" ;
+  rdfs:comment "Method of electrification"@en ;
+  rdfs:label "Track electrification"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:ElectrificationChange
+  a owl:Class ;
+  :railMLExactMatch "rail:electrificationChange" ;
+  doc:optionalConstraintAnnotation "isolatedSection min 0" ;
+  rdfs:comment "Change in electrification method"@en ;
+  rdfs:label "Electrification change"@en ;
+  rdfs:subClassOf :CharacteristicChange ;
+.
+:EnumeratedCharacteristic
+  a owl:Class ;
+  rdfs:comment "Any characteristic which is one of a number of set values"@en ;
+  rdfs:label "Enumerated characteristic"@en ;
+  rdfs:seeAlso qudt:Enumeration ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:ExitSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal function=exit" ;
+  rdfs:comment "Station 'exit' signal"@en ;
+  rdfs:label "Exit signal"@en ;
+  rdfs:subClassOf :SignalWithLocationFunction ;
+.
+:ExternalInterface
+  a owl:Class ;
+  rdfs:comment "Any external system interface"@en ;
+  rdfs:label "External Interface"@en ;
+  rdfs:label "External interface"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:FeatureSignal
+  a owl:Class ;
+  rdfs:comment "Class of signals that are aligned with some feature"@en ;
+  rdfs:label "Feature signal"@en ;
+  rdfs:subClassOf :Signal ;
+.
+:FixedSpeedSign
+  a owl:Class ;
+  :railMLExactMatch "rail:speed switchable=false" ;
+  rdfs:comment "A speed sign which is a fixed (panel) sign"@en ;
+  rdfs:label "Fixed speed sign"@en ;
+  rdfs:subClassOf :SpeedSign ;
+.
+:FourAspectSignal
+  a owl:Class ;
+  rdfs:comment "Any signal concept that is capable of operating in a four-aspect system"@en ;
+  rdfs:label "Four Aspect Signalhead"@en ;
+  rdfs:subClassOf :SignalWithAspect ;
+  owl:disjointWith :ThreeAspectSignal ;
+.
+:FreightService
+  a owl:Class ;
+  rdfs:comment "A train service that carries freight"@en ;
+  rdfs:label "Freight Service"@en ;
+  rdfs:label "Freight service"@en ;
+  rdfs:subClassOf :Service ;
+.
+:FreightTrain
+  a owl:Class ;
+  rdfs:comment "A train that carries freigh"@en ;
+  rdfs:label "Freight Train"@en ;
+  rdfs:label "Freight train"@en ;
+  rdfs:subClassOf :RailwayTrain ;
+.
+:GeodesicLocation
+  a owl:Class ;
+  rdfs:comment "Class of all locations which contain topographic information"@en ;
+  rdfs:label "Topographic Location"@en ;
+  rdfs:label "Topographic location"@en ;
+  rdfs:subClassOf :Location ;
+.
+:GradientChange
+  a owl:Class ;
+  :railMLExactMatch "rail:gradientChange" ;
+  rdfs:comment "A change in gradient characteristic"@en ;
+  rdfs:label "Speed change"@en ;
+  rdfs:subClassOf :CharacteristicChange ;
+.
+:Graph
+  a owl:Class ;
+  rdfs:label "Graph" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:GreenSignalAspect
+  a owl:Class ;
+  rdfs:comment "Signal aspect"@en ;
+  rdfs:label "Green Signal Aspect"@en ;
+  rdfs:subClassOf :SignalAspect ;
+.
+:HomeSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal function=home" ;
+  rdfs:comment "Signal type used at stations"@en ;
+  rdfs:label "Home signal"@en ;
+  rdfs:subClassOf :SignalWithLocationFunction ;
+.
+:IDCode
+  a owl:Class ;
+  rdfs:comment "The representation of a particular identity code"@en ;
+  rdfs:label "IDCode"@en ;
+  rdfs:subClassOf :IdentityConcept ;
+.
+:IDOrganisation
+  a owl:Class ;
+  rdfs:comment "The identity of a particular organisation"@en ;
+  rdfs:label "IDOrganisation"@en ;
+  rdfs:label "The identity of an organisation"@en ;
+  rdfs:subClassOf :IdentityConcept ;
+.
+:IDPerson
+  a owl:Class ;
+  rdfs:comment "The identity of a particular person"@en ;
+  rdfs:label "IDPerson"@en ;
+  rdfs:label "The identity of a person"@en ;
+  rdfs:subClassOf :IdentityConcept ;
+.
+:IdentityConcept
+  a owl:Class ;
+  rdfs:comment "The concept of Identity. In the event that an entity cannot be identified implicitly, this concept allows for the provision of an 'identity' object to associate with"@en ;
+  rdfs:label "Identity concept"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:InfraControlElement
+  a owl:Class ;
+  :railMLExactMatch "rail:eOcsElements" ;
+  rdfs:comment "Container for Infrastructure-based control elements"@en ;
+  rdfs:label "Infra control element"@en ;
+  rdfs:subClassOf :ControlConcept ;
+.
+:InfrastructureConcept
+  a owl:Class ;
+  rdfs:comment "Any infrastructure concept"@en ;
+  rdfs:label "Infrastructure concept"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:Interlocking
+  a owl:Class ;
+  rdfs:comment "Any railway signalling interlocking"@en ;
+  rdfs:label "Interlocking"@en ;
+  rdfs:subClassOf :InfraControlElement ;
+  rdfs:subClassOf :InfrastructureConcept ;
+.
+:IntermediateSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal function=intermediate" ;
+  rdfs:comment "Signal placed "@en ;
+  rdfs:label "Intermediate signal"@en ;
+  rdfs:subClassOf :SignalWithLocationFunction ;
+.
+:Junction
+  a owl:Class ;
+  rdfs:comment "Junction"@en ;
+  rdfs:label "Interlocking"@en ;
+  rdfs:label "Railway Junction"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:LORLine
+  a owl:Class ;
+  rdfs:comment "LORLine"@en ;
+  rdfs:label "Line of Route"@en ;
+  rdfs:subClassOf :RailwayLine ;
+.
+:Lease
+  a owl:Class ;
+  rdfs:comment "Any lease"@en ;
+  rdfs:label "Lease"@en ;
+  rdfs:subClassOf u:InformationThing ;
+.
+:LevelCrossing
+  a owl:Class ;
+  :railMLExactMatch "rail:levelcrossing" ;
+  rdfs:label "Level Crossing"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:LineDetailArc
+  a owl:Class ;
+  rdfs:comment "Track Arc at 'Line Detail' level of detail"@en ;
+  rdfs:label "Line Detail arc"@en ;
+  rdfs:subClassOf :RouteArc ;
+.
+:LineDetailNode
+  a owl:Class ;
+  rdfs:comment "Track Node at 'Line Detail' level of detail"@en ;
+  rdfs:label "Line Detail Node"@en ;
+  rdfs:subClassOf :RouteNode ;
+.
+:LineLevelArc
+  a owl:Class ;
+  rdfs:comment "Track Arc at 'Line Level' level of detail"@en ;
+  rdfs:label "Line Level Arc"@en ;
+  rdfs:subClassOf :RouteArc ;
+.
+:LineLevelNode
+  a owl:Class ;
+  rdfs:comment "Track Node at 'Line Level' level of detail"@en ;
+  rdfs:label "Line Level Node"@en ;
+  rdfs:subClassOf :RouteNode ;
+.
+:LinearPosition
+  a owl:Class ;
+  rdfs:comment "A linear relative position for some component"@en ;
+  rdfs:label "Linear position"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:LoWAbstraction
+  a :RouteAbstraction ;
+  a owl:NamedIndividual ;
+  rdfs:comment "Lo WAbstraction"@en ;
+  rdfs:label "Line of Way Abstraction"@en ;
+.
+:LoadingGauge
+  a owl:Class ;
+  rdfs:comment "Loading gauge"@en ;
+  rdfs:label "Loading Gauge"@en ;
+  rdfs:label "Loading gauge"@en ;
+  rdfs:subClassOf :RailwayCharacteristic ;
+.
+:LocalRoute
+  a owl:Class ;
+  :railMLCloseMatch "rail:route" ;
+  rdfs:comment "Route between track elements, like a signaller may use"@en ;
+  rdfs:label "Local route"@en ;
+  rdfs:subClassOf :Route ;
+  rdfs:subClassOf <http://purl.org/ub/co/List> ;
+.
+:LocatedThing
+  a owl:Class ;
+  rdfs:comment "Subclass of all the things that have a location"@en ;
+  rdfs:label "Located Thing"@en ;
+  rdfs:subClassOf :PhysicalThing ;
+.
+:Location
+  a owl:Class ;
+  rdfs:comment "Location in Rails vocabulary"@en ;
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:MainLine
+  a owl:Class ;
+  :railMLExactMatch "rail:lineDescr=\"main\"" ;
+  rdfs:comment "Type for railway 'Main line'"@en ;
+  rdfs:label "Main line"@en ;
+  rdfs:subClassOf :RailwayLine ;
+.
+:MainSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal type=" ;
+  rdfs:comment "Signal type from RailML 2.2"@en ;
+  rdfs:label "Main signal"@en ;
+  rdfs:subClassOf :SignalWithRole ;
+.
+:MainTrack
+  a owl:Class ;
+  rdfs:comment "Main track"@en ;
+  rdfs:label "Main track"@en ;
+  rdfs:subClassOf :Track ;
+.
+:MaintenanceSystem
+  a owl:Class ;
+  rdfs:comment "Maintenance system"@en ;
+  rdfs:label "Maintenance System"@en ;
+  rdfs:subClassOf :RailwaySystem ;
+.
+:MandatoryBrakingSpeedChange
+  a owl:Class ;
+  :railMLExactMatch "rail:speedChange mandatoryBraking=true" ;
+  rdfs:comment "Mandatory braking speed change"@en ;
+  rdfs:label "Mandatory braking speed change"@en ;
+  rdfs:subClassOf :SpeedChange ;
+.
+:MandatoryStopSpeedChange
+  a owl:Class ;
+  :railMLExactMatch "rail:speedChange mandatoryStop=true" ;
+  rdfs:comment "Mandatory stop speed change"@en ;
+  rdfs:label "Mandatory stop speed change"@en ;
+  rdfs:subClassOf :SpeedChange ;
+.
+:MassMeasurement
+  a owl:Class ;
+  rdfs:comment "Mass measurement"@en ;
+  rdfs:label "Weight measurement"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:MechanicalInterlocking
+  a owl:Class ;
+  rdfs:comment "A railway interlocking that is purely mechanical, such as a lever frame"@en ;
+  rdfs:label "Mechanical Interlocking"@en ;
+  rdfs:subClassOf :Interlocking ;
+.
+:MeterloadMeasurement
+  a owl:Class ;
+  rdfs:comment "Meterload measurement"@en ;
+  rdfs:label "Meterload measurement"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:MovementAuthoritySignal
+  a owl:Class ;
+  rdfs:comment "Denotes a signal that is related to communicating movement authority (so, for example, a red/amber/green three aspect signal)"@en ;
+  rdfs:label "Movement Authority Signal"@en ;
+  rdfs:label "Movement authority signal"@en ;
+  rdfs:subClassOf :Signal ;
+.
+:MultipleUnitTrainSet
+  a owl:Class ;
+  rdfs:comment "Train Set Operated in Multiple-Unit Configuration"@en ;
+  rdfs:label "Multiple Unit Train Set"@en ;
+  rdfs:subClassOf :RollingStockTrainSet ;
+.
+:NUTS2
+  a owl:Class ;
+  rdfs:comment "Nomenclature of Territorial Units for Statistics"@en ;
+  rdfs:label "NUTS2"@en ;
+  rdfs:subClassOf u:Location ;
+.
+:NetworkArc
+  a owl:Class ;
+  rdfs:comment "Network arc"@en ;
+  rdfs:label "Network Level Arc"@en ;
+  rdfs:subClassOf :RouteArc ;
+.
+:NoDirectionCapability
+  a :DirectionCapability ;
+  rdfs:comment "No direction capability"@en ;
+  rdfs:label "No direction"@en ;
+.
+:OCP
+  a owl:Class ;
+  :railMLExactMatch "is:ocp" ;
+  :railMLWikiURL "http://wiki.railml.org/index.php?title=IS:ocp" ;
+  rdfs:comment "An entity representing a control point for part of the network"@en ;
+  rdfs:label "Operational Control Point"@en ;
+  rdfs:subClassOf :ControlConcept ;
+.
+:OpenEnd
+  a owl:Class ;
+  :railMLExactMatch "rail:openEnd" ;
+  rdfs:comment "Device to represent an 'open end' of a piece of track"@en ;
+  rdfs:label "Open end"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:OrientedElement
+  a owl:Class ;
+  rdfs:comment "Directional Element (from RailML)"@en ;
+  rdfs:label "Generic Oriented Element"@en ;
+  rdfs:label "Oriented element"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+.
+:PassengerInformationSystem
+  a owl:Class ;
+  rdfs:comment "Passenger information system"@en ;
+  rdfs:label "Passenger Information System"@en ;
+  rdfs:subClassOf :RailwaySystem ;
+.
+:PassengerService
+  a owl:Class ;
+  rdfs:comment "Passenger service"@en ;
+  rdfs:label "Passenger Service"@en ;
+  rdfs:label "Passenger service"@en ;
+  rdfs:subClassOf :Service ;
+.
+:PassengerTrain
+  a owl:Class ;
+  rdfs:comment "Passenger train"@en ;
+  rdfs:label "Passenger Train"@en ;
+  rdfs:label "Passenger train"@en ;
+  rdfs:subClassOf :RailwayTrain ;
+.
+:PhysicalThing
+  a owl:Class ;
+  :RailML """Equivalent to RailML tElementWithIDAndName. Element ID is less necessary here given element URIs can serve as IDs, but still necessary for system compatibility.
+Simplification of RailML tGenericID; represents Asset or other rail-specific ID.""" ;
+  :railMLCloseMatch "tElementWithIDAndName" ;
+  :railMLCloseMatch "tGenericID" ;
+  rdfs:comment "RailML Element Identity concept"@en ;
+  rdfs:label "Physical Thing"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Platform
+  a owl:Class ;
+  :railMLCloseMatch "rail:platformEdge" ;
+  rdfs:comment "A railway platform"@en ;
+  rdfs:label "Platform"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+.
+:PointA
+  a owl:NamedIndividual ;
+  a wgspos:Point ;
+  rdfs:comment "Point a"@en ;
+  rdfs:label "Point a"@en ;
+.
+:Points
+  a owl:Class ;
+  rdfs:comment "Set of railway points, encompassing machinery and infrastructure"@en ;
+  rdfs:label "Set of Points"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:PointsMachine
+  a owl:Class ;
+  rdfs:comment "Machinery responsible for operating a set of points"@en ;
+  rdfs:label "Points Machine"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:PosTest
+  a :Location ;
+  a owl:NamedIndividual ;
+  rdfs:comment "Pos test"@en ;
+  rdfs:label "Pos test"@en ;
+.
+:Position
+  a owl:Class ;
+  :designComment "setting 'length exactly 1 Measurement' is hard on the reasoner, so will test performance" ;
+  rdfs:comment "Position"@en ;
+  rdfs:label "Position"@en ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:PowerTransmission
+  a owl:Class ;
+  :railMLExactMatch "rail:powerTransmission" ;
+  rdfs:comment "Power transmission"@en ;
+  rdfs:label "Power Transmission"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:PushPullTrainSet
+  a owl:Class ;
+  rdfs:comment "Train Set in Push-Pull Operation"@en ;
+  rdfs:label "Push Pull Train Set"@en ;
+  rdfs:subClassOf :RollingStockTrainSet ;
+.
+:ROSCO
+  a owl:Class ;
+  rdfs:comment "A UK-specific role for a railway rolling stock leasing company"@en ;
+  rdfs:label "ROSCO"@en ;
+  rdfs:label "Rolling Stock Operator"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:RSCharacteristic
+  a owl:Class ;
+  rdfs:comment "Any rolling stock characteristic"@en ;
+  rdfs:label "Rolling Stock Characteristic"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:RailML
+  a owl:AnnotationProperty ;
+  rdfs:comment "Rail ML"@en ;
+  rdfs:label "Rail ML"@en ;
+  rdfs:subPropertyOf rdfs:comment ;
+.
+:RailML22
+  a prov:Entity ;
+  rdfs:comment "Rail ML22"@en ;
+  rdfs:label "Rail ML22"@en ;
+.
+:RailMLMappingActivity
+  a prov:Activity ;
+  rdfs:comment "Rail MLMapping activity"@en ;
+  rdfs:label "Rail MLMapping activity"@en ;
+.
+:RailStandard
+  a owl:Class ;
+  rdfs:comment "Rail standard"@en ;
+  rdfs:label "Rail standard"@en ;
+  rdfs:subClassOf :StandardsCapability ;
+.
+:RailwayAssetConcept
+  a owl:Class ;
+  rdfs:comment "Any tangible railway asset"@en ;
+  rdfs:label "Railway Asset Concept"@en ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:RailwayBusinessEvent
+  a owl:Class ;
+  rdfs:comment "Railway business event"@en ;
+  rdfs:label "Railway Business Evenet"@en ;
+  rdfs:label "Railway business event"@en ;
+  rdfs:subClassOf :RailwaySpecificEvent ;
+.
+:RailwayCarriage
+  a owl:Class ;
+  rdfs:label "Railway Carriage"@en ;
+  rdfs:subClassOf :RailwayVehicle ;
+.
+:RailwayCharacteristic
+  a owl:Class ;
+  rdfs:comment "Railway characteristic"@en ;
+  rdfs:label "Railway Characteristic"@en ;
+  rdfs:label "Railway characteristic"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:RailwayConditionMonitoringSystem
+  a owl:Class ;
+  rdfs:comment "Railway condition monitoring system"@en ;
+  rdfs:label "Railway Condition Monitoring System"@en ;
+  rdfs:subClassOf :RailwaySystem ;
+.
+:RailwayContract
+  a owl:Class ;
+  rdfs:comment "Railway contract"@en ;
+  rdfs:label "Railway Contract"@en ;
+.
+:RailwayDomainConcept
+  a owl:Class ;
+  rdfs:comment "Any concept that is domain-specific to the railway"@en ;
+  rdfs:label "Railway Domain Concept"@en ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:RailwayFunction
+  a owl:Class ;
+  rdfs:comment "Railway function"@en ;
+  rdfs:label "Railway capability"@en ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:RailwayLine
+  a owl:Class ;
+  :railMLExactMatch "rail:tLine" ;
+  rdfs:comment "Class of entities defining high level 'railway lines' in the UK, and their (static) routes."@en ;
+  rdfs:label "Railway Line"@en ;
+  rdfs:subClassOf :RouteGraphConcept ;
+.
+:RailwayLocomotive
+  a owl:Class ;
+  rdfs:label "Railway Locomotive"@en ;
+  rdfs:subClassOf :RailwayVehicle ;
+.
+:RailwayMaintainer
+  a owl:Class ;
+  rdfs:comment "Staff responsible for maintaining the railway"@en ;
+  rdfs:label "Railway Maintainer"@en ;
+  rdfs:subClassOf :RailwayStaff ;
+.
+:RailwayMileage
+  a owl:Class ;
+  rdfs:comment "Railway mileage"@en ;
+  rdfs:label "Railway mileage"@en ;
+  rdfs:subClassOf u:Location ;
+.
+:RailwayMileageRef
+  a owl:Class ;
+  rdfs:comment "Railway mileage ref"@en ;
+  rdfs:label "Railway mileage ref"@en ;
+  rdfs:subClassOf u:Location ;
+.
+:RailwayMultipleUnit
+  a owl:Class ;
+  rdfs:comment "Vehicle Designed for Self-propulsion, operated in sets"@en ;
+  rdfs:label "Multiple Unit"@en ;
+  rdfs:subClassOf :RailwayVehicle ;
+.
+:RailwayOperationalIncident
+  a owl:Class ;
+  rdfs:comment "Railway operational incident"@en ;
+  rdfs:label "Railway Operational Incident"@en ;
+  rdfs:label "Railway operational incident"@en ;
+  rdfs:subClassOf :RailwaySpecificEvent ;
+.
+:RailwaySignaller
+  a owl:Class ;
+  rdfs:comment "Staff responsible for signalling across the railway"@en ;
+  rdfs:label "Railway Signaller"@en ;
+  rdfs:subClassOf :RailwayStaff ;
+.
+:RailwaySpecificEvent
+  a owl:Class ;
+  rdfs:comment "An event specific to the railway industry"@en ;
+  rdfs:label "Railway-specific Event"@en ;
+  rdfs:subClassOf u:Event ;
+.
+:RailwayStaff
+  a owl:Class ;
+  rdfs:comment "Someone who works for the railway"@en ;
+  rdfs:label "Staff member"@en ;
+  rdfs:subClassOf u:Person ;
+  rdfs:subClassOf u:Role ;
+.
+:RailwaySystem
+  a owl:Class ;
+  rdfs:label "Railway information system"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:RailwayTicket
+  a owl:Class ;
+  rdfs:comment "Railway ticket"@en ;
+  rdfs:label "Railway ticket"@en ;
+  rdfs:label "Ticket"@en ;
+  rdfs:subClassOf u:InformationThing ;
+.
+:RailwayTrain
+  a owl:Class ;
+  rdfs:comment "Vehicle or formation of vehicles that provide a service"@en ;
+  rdfs:label "Train"@en ;
+  rdfs:subClassOf :RollingStockConcept ;
+.
+:RailwayUnit
+  a owl:Class ;
+  rdfs:comment "Railway unit"@en ;
+  rdfs:label "Railway unit"@en ;
+  rdfs:subClassOf u:Unit ;
+.
+:RailwayVehicle
+  a owl:Class ;
+  rdfs:label "Railway vehicle"@en ;
+  rdfs:subClassOf :RollingStockConcept ;
+.
+:RedSignalAspect
+  a owl:Class ;
+  rdfs:label "Red Signal Aspect"@en ;
+  rdfs:subClassOf :SignalAspect ;
+.
+:Region
+  a owl:Class ;
+  rdfs:label "Region" ;
+  rdfs:subClassOf :RailwayLine ;
+.
+:Regulator
+  a owl:Class ;
+  rdfs:comment "An organisation that regulates the railway"@en ;
+  rdfs:label "Regulator"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:RelativeTrackPosition
+  a owl:Class ;
+  rdfs:comment "A vocab:LinearPosition that implicates the subject of the position reference as the component's location"@en ;
+  rdfs:label "Linear position"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:RelayInterlocking
+  a owl:Class ;
+  rdfs:comment "Any electro-mechanical (relay-based) railway interlocking element"@en ;
+  rdfs:label "Relay Interlocking"@en ;
+  rdfs:subClassOf :Interlocking ;
+.
+:RepeaterSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal type=" ;
+  rdfs:comment "Signal type from RailML 2.2"@en ;
+  rdfs:label "Repeater signal"@en ;
+  rdfs:subClassOf :SignalWithRole ;
+.
+:RollingStockComponent
+  a owl:Class ;
+  rdfs:label "Rolling Stock Component"@en ;
+  rdfs:subClassOf :RollingStockConcept ;
+.
+:RollingStockConcept
+  a owl:Class ;
+  rdfs:label "Rolling stock concept"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:RollingStockTrainSet
+  a owl:Class ;
+  rdfs:label "Train Set"@en ;
+  rdfs:subClassOf :RollingStockConcept ;
+.
+:Route
+  a owl:Class ;
+  :railMLExactMatch "rail:eInfraAttrGroup" ;
+  rdfs:comment "Container for graph of particular route. Characteristics asserted on a Route instance will be inherited by specialisations of"@en ;
+  rdfs:label "Route"@en ;
+  rdfs:subClassOf :RouteGraphConcept ;
+.
+:RouteAbstraction
+  a owl:Class ;
+  doc:partofODP :trackInheritanceODP ;
+  rdfs:comment "Class of types of route abstraction (different levels of granulaity with which a train network can be viewed)"@en ;
+  rdfs:label "Route Abstraction"@en ;
+  rdfs:label "Route abstraction"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+:RouteArc
+  a owl:Class ;
+  :railMLCloseMatch "rail:track" ;
+  rdfs:comment "Represents an arc on some form between two nodes. Can be multiply inherited from vocab:Track to further describe physical properties"@en ;
+  rdfs:label "Route Arc"@en ;
+  rdfs:label "Route arc"@en ;
+  rdfs:subClassOf :RouteGraphConcept ;
+  owl:disjointWith :RouteNode ;
+.
+:RouteBoundary
+  a owl:Class ;
+  rdfs:comment "Route boundary"@en ;
+  rdfs:label "Route boundary"@en ;
+  rdfs:subClassOf :RouteTerminus ;
+  rdfs:subClassOf owl:Thing ;
+.
+:RouteConcept
+  a owl:Class ;
+  doc:partofODP :characteristicChangeODP ;
+  rdfs:comment "Route concept"@en ;
+  rdfs:label "Route concept"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:RouteGraphConcept
+  a owl:Class ;
+  doc:partofODP :trackInheritanceODP ;
+  rdfs:comment "Entities to represent railway network Graph" ;
+  rdfs:comment "Route graph concept"@en ;
+  rdfs:label "Route Graph"@en ;
+  rdfs:label "Route graph"@en ;
+  rdfs:subClassOf :RouteConcept ;
+.
+:RouteNode
+  a owl:Class ;
+  :railMLCloseMatch "rail:connection" ;
+  rdfs:comment "A node on a railway topology map"@en ;
+  rdfs:label "Route Node"@en ;
+  rdfs:subClassOf :RouteGraphConcept ;
+.
+:RouteTerminus
+  a owl:Class ;
+  rdfs:comment "Any node which forms a railway terminus"@en ;
+  rdfs:label "Route Terminus"@en ;
+  rdfs:subClassOf :RouteNode ;
+.
+:RuleCodeElement
+  a owl:Class ;
+  :railMLExactMatch "rail:tRuleCodeElement" ;
+  rdfs:comment "Element with an associated rule code"@en ;
+  rdfs:label "Rule code element"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:SILCharacteristic
+  a owl:Class ;
+  rdfs:label "Safety Integrity Level Characteristic"@en ;
+  rdfs:subClassOf :SafetyCharacteristic ;
+.
+:SSIInterlocking
+  a owl:Class ;
+  rdfs:comment "Any electronic (solid-state) railway interlocking element"@en ;
+  rdfs:label "Solid State Interlocking"@en ;
+  rdfs:subClassOf :Interlocking ;
+.
+:SafetyCharacteristic
+  a owl:Class ;
+  rdfs:label "Safety Characteristic"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:SafetySystem
+  a owl:Class ;
+  rdfs:comment "Safety system"@en ;
+  rdfs:label "Safety System"@en ;
+  rdfs:subClassOf :RailwaySystem ;
+.
+:SecondaryTrack
+  a owl:Class ;
+  rdfs:comment "Secondary track"@en ;
+  rdfs:label "Secondary track"@en ;
+  rdfs:subClassOf :Track ;
+.
+:Service
+  a owl:Class ;
+  rdfs:comment "Service"@en ;
+  rdfs:label "Service"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:ServiceCharacteristic
+  a owl:Class ;
+  :railMLExactMatch "rail:propService" ;
+  rdfs:comment "Class of characteristics that provide a particular service (air, passenger, freight, etc)"@en ;
+  rdfs:label "Service characteristic"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:ServiceConcept
+  a owl:Class ;
+  rdfs:comment "High level element to represent concepts of railway (passenger/freight) service"@en ;
+  rdfs:label "Service concept"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:ShuntingSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal type=" ;
+  rdfs:comment "Signal type from RailML 2.2"@en ;
+  rdfs:label "Shunting signal"@en ;
+  rdfs:subClassOf :SignalWithRole ;
+.
+:SideOfTrackPosition
+  a owl:Class ;
+  :railMLExactMatch "rail:tSide" ;
+  rdfs:comment "Side of track position"@en ;
+  rdfs:label "Side of track position"@en ;
+  rdfs:subClassOf :TrackRelatedPosition ;
+.
+:SidingTrack
+  a owl:Class ;
+  rdfs:comment "Siding track"@en ;
+  rdfs:label "Siding track"@en ;
+  rdfs:subClassOf :Track ;
+.
+:Signal
+  a owl:Class ;
+  rdfs:comment "Denotes physical (and functional) railway signal heads"@en ;
+  rdfs:label "Railway Signal"@en ;
+  rdfs:label "Signal"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:SignalAspect
+  a owl:Class ;
+  rdfs:comment "Any railway signal state (aspect)"@en ;
+  rdfs:label "Signal aspect"@en ;
+  rdfs:subClassOf :RailwayDomainConcept ;
+.
+:SignalBox
+  a owl:Class ;
+  rdfs:comment "Railway signal control centre or signal box"@en ;
+  rdfs:label "Signal Box"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:SignalGroup
+  a owl:Class ;
+  :railMLExactMatch "rail:eSignalGroup" ;
+  doc:optionalConstraintAnnotation "co:element min 0 Signal" ;
+  rdfs:comment "Group of signals"@en ;
+  rdfs:label "Signal group"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf <http://purl.org/ub/co/Collection> ;
+.
+:SignalWithAspect
+  a owl:Class ;
+  rdfs:comment "Signal with aspect"@en ;
+  rdfs:label "Signal with aspect"@en ;
+  rdfs:subClassOf :MovementAuthoritySignal ;
+.
+:SignalWithLocationFunction
+  a owl:Class ;
+  :railMLCloseMatch "rail:signal function=" ;
+  rdfs:comment "Class containing signal types with distinct functions"@en ;
+  rdfs:label "Signal with function"@en ;
+  rdfs:subClassOf :MovementAuthoritySignal ;
+.
+:SignalWithRole
+  a owl:Class ;
+  rdfs:comment "Class container for all types of signal with a distinct functional role"@en ;
+  rdfs:label "Signal with role"@en ;
+  rdfs:subClassOf :MovementAuthoritySignal ;
+.
+:SignallingChange
+  a owl:Class ;
+  rdfs:comment "Indicates a change in signalling system"@en ;
+  rdfs:label "Signalling change"@en ;
+  rdfs:subClassOf :CharacteristicChange ;
+.
+:SignallingStandard
+  a owl:Class ;
+  rdfs:comment "Signalling standard"@en ;
+  rdfs:label "Signalling standard"@en ;
+  rdfs:subClassOf :RailStandard ;
+.
+:Slope
+  a owl:Class ;
+  :railMLExactMatch "rail:tGradientProfile" ;
+  rdfs:comment "Measurement representing the slope/gradient of a piece of track (or other thing)"@en ;
+  rdfs:label "Slope"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:SpacialMeasurement
+  a owl:Class ;
+  rdfs:comment "Spacial measurement"@en ;
+  rdfs:label "Spacial measurement"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:SpeedCapability
+  a owl:Class ;
+  rdfs:comment "Speed capability"@en ;
+  rdfs:label "Speed capability"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:SpeedChange
+  a owl:Class ;
+  :railMLExactMatch "rail:speedChange" ;
+  rdfs:comment "Speed change"@en ;
+  rdfs:label "Speed change"@en ;
+  rdfs:subClassOf :CharacteristicChange ;
+.
+:SpeedProfile
+  a owl:Class ;
+  :railMLExactMatch "rail:aSpeed" ;
+  :railMLExactMatch "rail:speed" ;
+  :railMLExactMatch "rail:speeds" ;
+  rdfs:comment "Represents the speed profile of a train"@en ;
+  rdfs:label "Speed Profile"@en ;
+  rdfs:subClassOf :SpeedCapability ;
+.
+:SpeedRange
+  a owl:Class ;
+  rdfs:comment "Speed range"@en ;
+  rdfs:label "Speed range"@en ;
+  rdfs:subClassOf :SpeedCapability ;
+.
+:SpeedSign
+  a owl:Class ;
+  :railMLExactMatch "rail:speed" ;
+  :railMLExactMatch "rail:tSignalSpeed" ;
+  rdfs:comment "Physical sign representing a change of speed on the railway network"@en ;
+  rdfs:label "Speed sign"@en ;
+  rdfs:subClassOf :CharacteristicChangeSignal ;
+.
+:StandardsCapability
+  a owl:Class ;
+  rdfs:label "Standards Capability"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:Station
+  a owl:Class ;
+  rdfs:comment "The physical concept of a railway station"@en ;
+  rdfs:label "Railway Station"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:StationStop
+  a owl:Class ;
+  rdfs:comment "Any place or concept at which a service may stop"@en ;
+  rdfs:label "Stop"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:StationTrack
+  a owl:Class ;
+  rdfs:comment "Station track"@en ;
+  rdfs:label "Station track"@en ;
+  rdfs:subClassOf :Track ;
+.
+:Status
+  a owl:Class ;
+  :railMLExactMatch "rail:tState" ;
+  rdfs:comment "Represents the state of an element"@en ;
+  rdfs:label "Status"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+:StopPost
+  a owl:Class ;
+  :railMLExactMatch "rail:tStopPost" ;
+  rdfs:comment "Stop Post"@en ;
+  rdfs:label "Stop post"@en ;
+  rdfs:subClassOf :RuleCodeElement ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:Subcontractor
+  a owl:Class ;
+  rdfs:comment "Subcontractor"@en ;
+  rdfs:label "Subcontractor"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:Switch
+  a owl:Class ;
+  :railMLExactMatch "rail:switch" ;
+  rdfs:comment "Concept for physical switch"@en ;
+  rdfs:label "Switch (Track Infrastructure)"@en ;
+  rdfs:label "Switch"@en ;
+  rdfs:subClassOf :Junction ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:SwitchPosition
+  a owl:Class ;
+  :railMLCloseMatch "rail:tCourse" ;
+  rdfs:comment "Enumerated possible position of railway switch"@en ;
+  rdfs:label "Switch position"@en ;
+  rdfs:subClassOf :Position ;
+.
+:SwitchableSignal
+  a owl:Class ;
+  :railMLExactMatch "rail:signal switchable=true" ;
+  rdfs:comment "Switchable signal"@en ;
+  rdfs:label "Switchable signal"@en ;
+  rdfs:subClassOf :Signal ;
+.
+:SwitchableSpeedSign
+  a owl:Class ;
+  :railMLExactMatch "rail:speed switchable=true" ;
+  rdfs:comment "A speed sign which is switchable in some way"@en ;
+  rdfs:label "Switchable speed sign"@en ;
+  rdfs:subClassOf :SpeedSign ;
+.
+:Thing_1
+  a owl:Thing ;
+  rdfs:comment "Thing 1"@en ;
+  rdfs:label "Thing 1"@en ;
+.
+:ThreeAspectSignal
+  a owl:Class ;
+  rdfs:comment "Any signal concept that is capable of operating in a three-aspect system"@en ;
+  rdfs:label "Three Aspect Signalhead"@en ;
+  rdfs:subClassOf :SignalWithAspect ;
+.
+:TiltCharacteristic
+  a owl:Class ;
+  :railMLExactMatch "rail:tTilting" ;
+  :railMLExactMatch "rail:tilting" ;
+  rdfs:comment "Tilt characteristic"@en ;
+  rdfs:label "Tilt characteristic"@en ;
+  rdfs:subClassOf :RSCharacteristic ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:Track
+  a owl:Class ;
+  rdfs:comment "A physical piece of railway track, bounded in some way"@en ;
+  rdfs:label "Track"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:TrackAbstraction
+  a :RouteAbstraction ;
+  a owl:NamedIndividual ;
+  rdfs:comment "Track abstraction"@en ;
+  rdfs:label "Track abstraction"@en ;
+.
+:TrackAssociatedElement
+  a owl:Class ;
+  rdfs:comment "Track associated element"@en ;
+  rdfs:label "Track associated element"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+.
+:TrackAxleWeight
+  a owl:Class ;
+  :railMLExactMatch "is:axleWeight" ;
+  rdfs:comment "Class of capabilities of a track to withstand a range of axle weights"@en ;
+  rdfs:label "Track Axle Weight"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackCharacteristic
+  a owl:Class ;
+  rdfs:comment "Any characteristic that a piece of railway track may possess"@en ;
+  rdfs:label "Track Characteristic"@en ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:TrackCircuit
+  a owl:Class ;
+  rdfs:comment "A Track circuit is a train detector; when a train passes over it, it detects the vehicle"@en ;
+  rdfs:label "Track circuit"@en ;
+  rdfs:subClassOf :TrainDetector ;
+.
+:TrackComms
+  a owl:Class ;
+  rdfs:comment "Track comms"@en ;
+  rdfs:label "Track comms"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackCondition
+  a owl:Class ;
+  :railMLExactMatch "rail:trackCondition" ;
+  rdfs:comment "Class of possible track conditions (as defined in RailML 2.2)"@en ;
+  rdfs:label "Track condition"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackElement
+  a owl:Class ;
+  rdfs:comment "Track element"@en ;
+  rdfs:label "Track element"@en ;
+  rdfs:subClassOf :Track ;
+.
+:TrackGauge
+  a owl:Class ;
+  rdfs:comment "Track gauge"@en ;
+  rdfs:label "Track gauge"@en ;
+  rdfs:subClassOf :RailwayCharacteristic ;
+.
+:TrackGaugeCapability
+  a owl:Class ;
+  :railMLCloseMatch "rail:gauge" ;
+  rdfs:comment "Describes the capability of a track to support a particular gauge train"@en ;
+  rdfs:label "Track Gauge Capability"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackGradient
+  a owl:Class ;
+  rdfs:comment "Track gradient"@en ;
+  rdfs:label "Track gradient"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackOperationMode
+  a owl:Class ;
+  :railMLExactMatch "is:operationMode" ;
+  rdfs:comment "Track operation mode"@en ;
+  rdfs:label "Track Operation MOde"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackPlacedElement
+  a owl:Class ;
+  doc:partofODP :TrackPositionModellingODP ;
+  rdfs:comment "Any element that is placed on a railway track"@en ;
+  rdfs:label "Placed element"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:TrackPositionModellingODP
+  a doc:ODP ;
+  dc:description "Mechanism for modelling track position of a placed infrastructure element" ;
+  rdfs:comment "Track position modelling ODP"@en ;
+  rdfs:label "Track position modelling ODP"@en ;
+.
+:TrackPriority
+  a owl:Class ;
+  rdfs:label "Track Priority" ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:TrackRadius
+  a owl:Class ;
+  :railMLExactMatch "rail:tRadiusM" ;
+  rdfs:comment "Represents the radius of a piece of track"@en ;
+  rdfs:label "Track radius"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrackRadiusChange
+  a owl:Class ;
+  :railMLExactMatch "rail:radiusChange" ;
+  rdfs:comment "Track radius change"@en ;
+  rdfs:label "Track radius change"@en ;
+.
+:TrackRelatedPosition
+  a owl:Class ;
+  doc:optionalConstraintAnnotation "u:location min 0 RouteConcept" ;
+  rdfs:comment "A Track Position is position of a piece of a piece of equipment on a particular piece of track"@en ;
+  rdfs:label "Track position"@en ;
+  rdfs:subClassOf :Position ;
+.
+:TrackSection
+  a owl:Class ;
+  rdfs:comment "Represents a track section with arbitrary start and end points"@en ;
+  rdfs:label "Track Section"@en ;
+  rdfs:subClassOf :Track ;
+.
+:TrackServiceProvider
+  a owl:Class ;
+  :railMLExactMatch "rail:serviceStation" ;
+  rdfs:comment "A piece of infrastructure that provides some service (car wash, re-fueling, etc)"@en ;
+  rdfs:label "Track service provider"@en ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:TrackSide
+  a owl:Class ;
+  :railMLExactMatch "rail:tSide" ;
+  rdfs:comment "Represents the possible sides of a track that an element may be placed (left/right, or above/below)"@en ;
+  rdfs:label "Track side"@en ;
+  rdfs:subClassOf :Position ;
+.
+:TrackSignallingMethod
+  a owl:Class ;
+  rdfs:comment "Track signalling method"@en ;
+  rdfs:label "Track signalling method"@en ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TractionCharacteristic
+  a owl:Class ;
+  rdfs:comment "Traction characteristic"@en ;
+  rdfs:label "Traction Characteristic"@en ;
+  rdfs:label "Traction characteristic"@en ;
+  rdfs:subClassOf :RSCharacteristic ;
+.
+:TractionPackage
+  a owl:Class ;
+  rdfs:label "Traction Package"@en ;
+  rdfs:subClassOf :RollingStockComponent ;
+.
+:TrainConductor
+  a owl:Class ;
+  rdfs:comment "On-board train conductor staff"@en ;
+  rdfs:label "Train Conductor"@en ;
+  rdfs:subClassOf :RailwayStaff ;
+.
+:TrainControlCapability
+  a owl:Class ;
+  rdfs:label "Train Control Capability"@en ;
+  rdfs:subClassOf :RSCharacteristic ;
+.
+:TrainControlStandard
+  a owl:Class ;
+  rdfs:comment "Train control standard"@en ;
+  rdfs:label "Train control standard"@en ;
+  rdfs:subClassOf :RailStandard ;
+.
+:TrainDetector
+  a owl:Class ;
+  :railMLExactMatch "rail:trainDetector" ;
+  rdfs:comment "Any device which detects a train on a track"@en ;
+  rdfs:label "Train detector"@en ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:TrainDriver
+  a owl:Class ;
+  rdfs:comment "Any staff that drive a train of any kind"@en ;
+  rdfs:label "Train Driver"@en ;
+  rdfs:subClassOf :RailwayStaff ;
+.
+:TrainFormation
+  a owl:Class ;
+  rdfs:comment "Object to represent a train formation to undertake a train service"@en ;
+  rdfs:label "Train formation"@en ;
+  rdfs:subClassOf :ServiceConcept ;
+.
+:TrainOperatingCompany
+  a owl:Class ;
+  rdfs:comment "Company that operates a train service"@en ;
+  rdfs:label "Train Operating Company"@en ;
+  rdfs:label "Train operating company"@en ;
+  rdfs:subClassOf u:Role ;
+.
+:TrainProtectCapability
+  a owl:Class ;
+  :railMLExactMatch "rail:trainProtection" ;
+  rdfs:label "Train Protection Capability"@en ;
+  rdfs:subClassOf :RSCharacteristic ;
+  rdfs:subClassOf :TrackCharacteristic ;
+.
+:TrainProtectStandard
+  a owl:Class ;
+  rdfs:comment "Train protect standard"@en ;
+  rdfs:label "Train protect standard"@en ;
+  rdfs:subClassOf :RailStandard ;
+.
+:TrainProtectionInfrastructureElement
+  a owl:Class ;
+  :railMLExactMatch "rail:trainProtectionElements" ;
+  rdfs:comment "Container for train protection elements based on infrastructure"@en ;
+  rdfs:label "Train protection infrastructure element"@en ;
+  rdfs:subClassOf :InfraControlElement ;
+  rdfs:subClassOf :InfrastructureConcept ;
+.
+:TrainStopProtect
+  a owl:Class ;
+  rdfs:comment "Train stop protect"@en ;
+  rdfs:label "Train stop protect"@en ;
+  rdfs:subClassOf :TrainProtectStandard ;
+.
+:Tunnel
+  a owl:Class ;
+  :railMLExactMatch "rail:tunnel" ;
+  rdfs:comment "Tunnel"@en ;
+  rdfs:label "Tunnel Function"@en ;
+  rdfs:label "Tunnel"@en ;
+  rdfs:subClassOf :CivilThing ;
+.
+:UnknownDirectionCapability
+  a :DirectionCapability ;
+  rdfs:comment "Unknown direction capability"@en ;
+  rdfs:label "Unknown direction capability"@en ;
+.
+:UpDirection
+  a :Direction ;
+  rdfs:comment "Railway direction meaning oriented towards a major destination. In the UK, this is usually London"@en ;
+  rdfs:label "Up direction"@en ;
+.
+:UpDirectionCapability
+  a :DirectionCapability ;
+  rdfs:comment "Up direction capability"@en ;
+  rdfs:label "Up direction"@en ;
+.
+:ViewConcept
+  a owl:Class ;
+  rdfs:comment "Class to encompass view or presentation information for concepts"@en ;
+  rdfs:label "View Concept"@en ;
+  rdfs:subClassOf u:DependentThing ;
+.
+:ViewGraphPosition
+  a owl:Class ;
+  rdfs:comment "Element to represent the presentation position of a concept under some standard presentation scheme"@en ;
+  rdfs:label "View Graph Position"@en ;
+  rdfs:subClassOf :ViewConcept ;
+.
+:WGS84Location
+  a owl:Class ;
+  rdfs:comment "A location that is expressed to the WGS84 datum, with a latitude, longitude, and optional altitude"@en ;
+  rdfs:comment "Class for all valid WGS84 locations"@en ;
+  rdfs:label "WGS84Location"@en ;
+  rdfs:subClassOf u:Location ;
+.
+:WGS84Measurement
+  a owl:Class ;
+  rdfs:comment "WGS84Measurement"@en ;
+  rdfs:label "WGS84 Measurement"@en ;
+  rdfs:label "WGS84Measurement"@en ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:WILD
+  a owl:Class ;
+  rdfs:comment "ANy equipment to detect wheel impact faults"@en ;
+  rdfs:label "Wheel Impact Load Detector"@en ;
+  rdfs:subClassOf :InfrastructureConcept ;
+  rdfs:subClassOf :TrackAssociatedElement ;
+.
+:WeatherEvent
+  a owl:Class ;
+  rdfs:comment "Weather event"@en ;
+  rdfs:label "Weather Event"@en ;
+  rdfs:label "Weather event"@en ;
+  rdfs:subClassOf u:Event ;
+.
+:adjoiningArc
+  a owl:ObjectProperty ;
+  rdfs:comment "Indicates an adjoining piece of track"@en ;
+  rdfs:domain :RouteArc ;
+  rdfs:label "adjoining"@en ;
+  rdfs:range :RouteArc ;
+  owl:propertyChainAxiom (
+      :node
+      :arc
+    ) ;
+.
+:alt
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "Altitude property"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Altitude"@en ;
+  rdfs:label "alt"@en ;
+  rdfs:range :SpacialMeasurement ;
+  rdfs:subPropertyOf :topographic ;
+.
+:appliesTo
+  a owl:ObjectProperty ;
+  rdfs:comment "The association of a particular characteristic or capability with a concrete entity"@en ;
+  rdfs:domain u:DependentThing ;
+  rdfs:label "applies to"@en ;
+  rdfs:range u:IndependentThing ;
+.
+:arc
+  a owl:AsymmetricProperty ;
+  a owl:IrreflexiveProperty ;
+  a owl:ObjectProperty ;
+  rdfs:comment "arc"@en ;
+  rdfs:comment "used to represent relationships between nodes on a graph. Asymmetric (if a node hasArc arc, then the arc never hasArc node) and Irreflexive (no node ever hasArc itself)" ;
+  rdfs:domain :RouteNode ;
+  rdfs:label "arc"@en ;
+  rdfs:range :RouteArc ;
+  rdfs:subPropertyOf :graphConnection ;
+  owl:inverseOf :node ;
+.
+:area
+  a owl:ObjectProperty ;
+  :railMLExactMatch "is:area" ;
+  :railMLWikiURL "ttp://wiki.railml.org/index.php?title=IS:area" ;
+  rdfs:comment "area"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Area"@en ;
+  rdfs:range u:Area ;
+.
+:axleWeight
+  a owl:ObjectProperty ;
+  rdfs:comment "A <axleWeight> sets the maximum load per axle in tons for a track element."@en ;
+  rdfs:domain :Track ;
+  rdfs:label "axle weight"@en ;
+  rdfs:range :AxleWeight ;
+  prov:wasDerivedFrom :RailML22 ;
+.
+:capabilityChangeProperty
+  a owl:DatatypeProperty ;
+  rdfs:comment "Superproperty of all capability change datatype properties"@en ;
+  rdfs:domain :CharacteristicChange ;
+  rdfs:label "capability change property"@en ;
+.
+:changedCharacteristic
+  a owl:ObjectProperty ;
+  doc:partofODP :characteristicChangeODP ;
+  rdfs:comment "changed characteristic"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "changed characteristic"@en ;
+  rdfs:range u:Characteristic ;
+.
+:characteristicChange
+  a owl:ObjectProperty ;
+  doc:partofODP :characteristicChangeODP ;
+  rdfs:comment "relation to show the change in characteristic along a route"@en ;
+  rdfs:domain :RouteConcept ;
+  rdfs:label "Charactierstic Change"@en ;
+  rdfs:range :CharacteristicChange ;
+.
+:characteristicChangeODP
+  a doc:ODP ;
+  rdfs:comment "Pattern to facilitate capability changes along a track. A graph node associates itself with a :CharacteristicChange concept, which has an initial and changed characteristic"@en ;
+  rdfs:label "capability change ODP"@en ;
+.
+:closed_to_traffic
+  a :TrackPriority ;
+  rdfs:label "closed to traffic" ;
+.
+:code
+  a owl:AnnotationProperty ;
+  rdfs:comment "Vendor-specific code for a particular asset - not necessarily unique"@en ;
+  rdfs:label "code"@en ;
+  rdfs:range xsd:string ;
+.
+:codeIdentifier
+  a owl:ObjectProperty ;
+  rdfs:comment "An identification code for a station or other asset"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Station code"@en ;
+  rdfs:range :IDCode ;
+.
+:crossingAngle
+  a owl:ObjectProperty ;
+  :railMLExactMatch "angle" ;
+  rdfs:comment "The angle at which a track element intersects a road/path"@en ;
+  rdfs:domain :InfrastructureConcept ;
+  rdfs:label "crossing angle"@en ;
+  rdfs:range [
+      a owl:Class ;
+      owl:intersectionOf (
+          u:Measurement
+          [
+            a owl:Restriction ;
+            owl:onProperty u:unit ;
+            owl:someValuesFrom qudt:AngleUnit ;
+          ]
+        ) ;
+    ] ;
+.
+:designComment
+  a owl:AnnotationProperty ;
+  rdfs:comment "An annotation concerning design issues around the concept"@en ;
+  rdfs:label "design comment"@en ;
+.
+:diagramX
+  a owl:AnnotationProperty ;
+  rdfs:comment "diagram x"@en ;
+  rdfs:label "diagram x"@en ;
+  rdfs:range xsd:string ;
+.
+:diagramY
+  a owl:AnnotationProperty ;
+  rdfs:comment "diagram y"@en ;
+  rdfs:label "diagram x"@en ;
+  rdfs:range xsd:string ;
+.
+:endNode
+  a owl:AsymmetricProperty ;
+  a owl:FunctionalProperty ;
+  a owl:IrreflexiveProperty ;
+  a owl:ObjectProperty ;
+  rdfs:comment "End Node of a component (start/end don't matter)"@en ;
+  rdfs:domain :RouteArc ;
+  rdfs:label "node"@en ;
+  rdfs:range :RouteNode ;
+  rdfs:subPropertyOf :node ;
+.
+:endTrackPosition
+  a owl:ObjectProperty ;
+  doc:partofODP :TrackPositionModellingODP ;
+  rdfs:comment "end track position"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "track position"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf :position ;
+.
+:endingArc
+  a owl:ObjectProperty ;
+  rdfs:label "ending arc"@en ;
+  rdfs:subPropertyOf :arc ;
+.
+:enum
+  a owl:ObjectProperty ;
+  rdfs:comment "Superproperty for all types that are fundamentally enums"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "enum"@en ;
+  rdfs:range :EnumeratedCharacteristic ;
+.
+:generalises
+  a owl:ObjectProperty ;
+  rdfs:comment "generalises"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "generalises"@en ;
+  rdfs:range owl:Thing ;
+.
+:graphConnection
+  a owl:ObjectProperty ;
+  rdfs:comment "Represents a generic connection between two graph entities not immediately connected by other means"@en ;
+  rdfs:domain :RouteConcept ;
+  rdfs:label "graph connection"@en ;
+  rdfs:range :RouteConcept ;
+.
+:hasGraph
+  a owl:ObjectProperty ;
+  rdfs:comment "Can be used to link a concept to a graph that the concepts relates to" ;
+  rdfs:label "has graph" ;
+.
+:id
+  a owl:DatatypeProperty ;
+  rdfs:comment "id"@en ;
+  rdfs:domain :PhysicalThing ;
+  rdfs:label "id"@en ;
+  rdfs:range rdf:PlainLiteral ;
+.
+:inRegion
+  a owl:ObjectProperty ;
+  rdfs:label "in region" ;
+.
+:inheritableCharacteristic
+  a owl:ObjectProperty ;
+  rdfs:comment "inheritable characteristic"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "inheritable characteristic"@en ;
+  rdfs:range owl:Thing ;
+.
+:inheritedCharacteristic
+  a owl:ObjectProperty ;
+  rdfs:comment "inherited characteristic"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "inherited characteristic"@en ;
+  rdfs:range owl:Thing ;
+  owl:propertyChainAxiom (
+      :specialises
+      :inheritableCharacteristic
+    ) ;
+.
+:initialCharacteristic
+  a owl:ObjectProperty ;
+  doc:partofODP :characteristicChangeODP ;
+  rdfs:comment "initial characteristic"@en ;
+  rdfs:domain :CharacteristicChange ;
+  rdfs:label "initial capability"@en ;
+  rdfs:range u:Characteristic ;
+.
+:interlocking
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:comment "interlocking"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "interlocking"@en ;
+  rdfs:range :Interlocking ;
+.
+:isMemberOfOrg
+  a owl:ObjectProperty ;
+  rdfs:comment "is member of org"@en ;
+  rdfs:domain :IDPerson ;
+  rdfs:label "is member of org"@en ;
+  rdfs:range :IDOrganisation ;
+  owl:inverseOf :memberPerson ;
+.
+:isRouteConcept
+  a owl:ObjectProperty ;
+  rdfs:comment "Allows network graph to tie in with infrastructure entities (stations, junctions, etc)" ;
+  rdfs:comment "is route concept"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "is route concept"@en ;
+  rdfs:range :RouteGraphConcept ;
+.
+:isolatedSection
+  a owl:DatatypeProperty ;
+  rdfs:comment "Boolean to represent whether an electrification change requires an isolated section of track"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "isolated section"@en ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf :capabilityChangeProperty ;
+.
+:lat
+  a owl:ObjectProperty ;
+  rdfs:comment "lat"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "lat"@en ;
+  rdfs:range :SpacialMeasurement ;
+  rdfs:subPropertyOf :topographic ;
+.
+:length
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  :designComment "Encapsulate complex expression for length into the range of this object property to allow easy expression of lengths. Thus, if someone represents a measurement as anything other than a length the ontology will be inconsistent" ;
+  :railMLCloseMatch "rail:tLengthM" ;
+  rdfs:comment "length"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "length"@en ;
+  rdfs:range [
+      a owl:Class ;
+      owl:intersectionOf (
+          u:ContinuousMeasurement
+          [
+            a owl:Restriction ;
+            owl:onProperty u:unit ;
+            owl:someValuesFrom qudt:LengthUnit ;
+          ]
+        ) ;
+    ] ;
+.
+:line
+  a owl:ObjectProperty ;
+  rdfs:comment "line"@en ;
+  rdfs:domain :RouteConcept ;
+  rdfs:label "line"@en ;
+  rdfs:range :RailwayLine ;
+.
+:locatedOn
+  a owl:ObjectProperty ;
+  rdfs:comment "located on"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "located on"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf u:relativeToLocation ;
+.
+:lon
+  a owl:ObjectProperty ;
+  rdfs:comment "lon"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "lon"@en ;
+  rdfs:range :SpacialMeasurement ;
+  rdfs:subPropertyOf :topographic ;
+.
+:mainDirection
+  a owl:ObjectProperty ;
+  :railMLExactMatch "rail:tExtendedDirection" ;
+  rdfs:comment "main direction"@en ;
+  rdfs:domain :RouteConcept ;
+  rdfs:label "main direction"@en ;
+  rdfs:range :Direction ;
+.
+:maintainer
+  a owl:ObjectProperty ;
+  rdfs:comment "maintainer"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "maintainer"@en ;
+  rdfs:range :IdentityConcept ;
+.
+:mandatoryBraking
+  a owl:DatatypeProperty ;
+  rdfs:comment "mandatory braking"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "mandatory braking"@en ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf :capabilityChangeProperty ;
+.
+:mandatoryStop
+  a owl:DatatypeProperty ;
+  rdfs:comment "mandatory stop"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "mandatory braking"@en ;
+  rdfs:range xsd:boolean ;
+  rdfs:subPropertyOf :capabilityChangeProperty ;
+.
+:manufacturer
+  a owl:ObjectProperty ;
+  rdfs:comment "manufacturer"@en ;
+  rdfs:domain :PhysicalThing ;
+  rdfs:label "manufacturer"@en ;
+  rdfs:range :IdentityConcept ;
+.
+:maxTiltAngle
+  a owl:ObjectProperty ;
+  :railMLExactMatch "maxTiltingAngle" ;
+  rdfs:comment "The angle at which an element can tilt"@en ;
+  rdfs:domain :InfrastructureConcept ;
+  rdfs:label "crossing angle"@en ;
+  rdfs:range [
+      a owl:Class ;
+      owl:intersectionOf (
+          u:Measurement
+          [
+            a owl:Restriction ;
+            owl:onProperty u:unit ;
+            owl:someValuesFrom qudt:AngleUnit ;
+          ]
+        ) ;
+    ] ;
+.
+:memberPerson
+  a owl:ObjectProperty ;
+  rdfs:comment "member person"@en ;
+  rdfs:domain :IDOrganisation ;
+  rdfs:label "member person"@en ;
+  rdfs:range :IDPerson ;
+.
+:meterLoad
+  a owl:ObjectProperty ;
+  rdfs:comment "meter load"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "meter load"@en ;
+  rdfs:range u:Measurement ;
+.
+:modelDataSource
+  a owl:ObjectProperty ;
+  rdfs:comment "model data source"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "model data source"@en ;
+  rdfs:range :DataSource ;
+.
+:name
+  a owl:DatatypeProperty ;
+  rdfs:comment "name"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "name"@en ;
+  rdfs:range rdf:PlainLiteral ;
+.
+:node
+  a owl:AsymmetricProperty ;
+  a owl:IrreflexiveProperty ;
+  a owl:ObjectProperty ;
+  rdfs:comment "node"@en ;
+  rdfs:domain :RouteArc ;
+  rdfs:label "node"@en ;
+  rdfs:range :RouteNode ;
+  rdfs:subPropertyOf :graphConnection ;
+  owl:inverseOf :arc ;
+.
+:normalPosition
+  a owl:ObjectProperty ;
+  rdfs:comment "normal position"@en ;
+  rdfs:domain :Junction ;
+  rdfs:label "normal position"@en ;
+  rdfs:range :SwitchPosition ;
+.
+:nutsCode
+  a owl:DatatypeProperty ;
+  rdfs:comment "nuts code"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "nuts code"@en ;
+  rdfs:range xsd:string ;
+.
+:open_sidings
+  a :TrackPriority ;
+  rdfs:label "open sidings" ;
+.
+:orientation
+  a owl:ObjectProperty ;
+  rdfs:comment "orientation"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "orientation"@en ;
+  rdfs:range owl:Thing ;
+.
+:partOfELR
+  a owl:ObjectProperty ;
+  rdfs:domain :ELR ;
+  rdfs:label "part of elr" ;
+  rdfs:range :ELR ;
+.
+:position
+  a owl:ObjectProperty ;
+  rdfs:comment "Property to convey the position of an entity, such as along a track"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "position"@en ;
+  rdfs:range u:Measurement ;
+.
+:positionReference
+  a owl:ObjectProperty ;
+  rdfs:comment "position reference"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "position reference"@en ;
+  rdfs:range owl:Thing ;
+.
+:potential_future_track
+  a :TrackPriority ;
+  rdfs:label "potential future track" ;
+.
+:privitately_owned
+  a :TrackPriority ;
+  rdfs:label "privitately owned" ;
+.
+:propulsionSystem
+  a owl:ObjectProperty ;
+  rdfs:comment "propulsion system"@en ;
+  rdfs:label "propulsion system"@en ;
+.
+:radius
+  a owl:ObjectProperty ;
+  rdfs:comment "The radius of a thing"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "radius"@en ;
+  rdfs:range u:Measurement ;
+  rdfs:subPropertyOf u:measurement ;
+.
+:railMLCloseMatch
+  a owl:AnnotationProperty ;
+  rdfs:comment "rail MLClose match"@en ;
+  rdfs:label "rail MLClose match"@en ;
+  rdfs:range xsd:string ;
+.
+:railMLExactMatch
+  a owl:AnnotationProperty ;
+  rdfs:comment "rail MLExact match"@en ;
+  rdfs:label "rail MLExact match"@en ;
+  rdfs:range xsd:string ;
+.
+:railMLID
+  a owl:DatatypeProperty ;
+  rdfs:comment "rail MLID"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "ID from RailML "@en ;
+  rdfs:range xsd:string ;
+.
+:railMLWikiURL
+  a owl:AnnotationProperty ;
+  rdfs:comment "rail MLWiki URL"@en ;
+  rdfs:label "rail MLExact match"@en ;
+  rdfs:range xsd:string ;
+.
+:referenceElement
+  a owl:ObjectProperty ;
+  rdfs:comment "reference element"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "reference element"@en ;
+  rdfs:range owl:Thing ;
+.
+:relatedFeature
+  a owl:ObjectProperty ;
+  rdfs:comment "Related Feature to a particular element"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "related feature"@en ;
+  rdfs:range u:IndependentThing ;
+.
+:relativePosition
+  a owl:ObjectProperty ;
+  rdfs:comment "relative position"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Track Position"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf :position ;
+.
+:routeConcept
+  a owl:ObjectProperty ;
+  rdfs:comment "Relationship between a physical thing, and the network (route) concept it is tied to"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "route concept"@en ;
+  rdfs:range :RouteConcept ;
+.
+:routeConceptOf
+  a owl:ObjectProperty ;
+  rdfs:comment "Link between a physical (infrastructure or other) concept, and its representation on a route itself"@en ;
+  rdfs:domain :RouteConcept ;
+  rdfs:label "route concept of"@en ;
+  rdfs:range owl:Thing ;
+  owl:inverseOf :routeConcept ;
+.
+:routeList
+  a owl:ObjectProperty ;
+  rdfs:comment "route list"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "route list"@en ;
+  rdfs:range owl:Thing ;
+.
+:running_lines
+  a :TrackPriority ;
+  rdfs:label "running lines" ;
+.
+:running_lines_no_data
+  a :TrackPriority ;
+  rdfs:label "running lines no data" ;
+.
+:segment
+  a owl:AsymmetricProperty ;
+  a owl:ObjectProperty ;
+  rdfs:comment "segment"@en ;
+  rdfs:domain :RouteNode ;
+  rdfs:label "segment"@en ;
+  rdfs:range :RouteArc ;
+.
+:sightDistance
+  a owl:ObjectProperty ;
+  rdfs:comment "sight distance"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "sight distance"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf :length ;
+.
+:specialises
+  a owl:ObjectProperty ;
+  rdfs:comment "specialises"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "specialises"@en ;
+  rdfs:range owl:Thing ;
+  owl:inverseOf :generalises ;
+.
+:startNode
+  a owl:AsymmetricProperty ;
+  a owl:FunctionalProperty ;
+  a owl:IrreflexiveProperty ;
+  a owl:ObjectProperty ;
+  rdfs:comment "Start Node of a component (start/end don't matter)"@en ;
+  rdfs:domain :RouteArc ;
+  rdfs:label "node"@en ;
+  rdfs:range :RouteNode ;
+  rdfs:subPropertyOf :node ;
+.
+:startTrackPosition
+  a owl:ObjectProperty ;
+  doc:partofODP :TrackPositionModellingODP ;
+  rdfs:comment "start track position"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "track position"@en ;
+  rdfs:range owl:Thing ;
+  rdfs:subPropertyOf :position ;
+.
+:startingArc
+  a owl:ObjectProperty ;
+  rdfs:label "starting arc"@en ;
+  rdfs:subPropertyOf :arc ;
+.
+:status
+  a owl:ObjectProperty ;
+  rdfs:comment "status"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "status"@en ;
+  rdfs:range :Status ;
+.
+:tiplocCode
+  a owl:DatatypeProperty ;
+  rdfs:comment "tiploc code"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "tiploc code"@en ;
+  rdfs:range xsd:string ;
+.
+:topographic
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "topographic"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "topographic"@en ;
+  rdfs:range :SpacialMeasurement ;
+.
+:track
+  a owl:ObjectProperty ;
+  rdfs:comment "track"@en ;
+  rdfs:domain :Track ;
+  rdfs:label "track"@en ;
+  rdfs:range :RouteArc ;
+.
+:trackAbstractionLevel
+  a owl:ObjectProperty ;
+  doc:partofODP :trackInheritanceODP ;
+  rdfs:comment "track abstraction level"@en ;
+  rdfs:domain :RouteConcept ;
+  rdfs:label "abstraction"@en ;
+  rdfs:range :RouteAbstraction ;
+  owl:inverseOf :trackAbstractionLevelOf ;
+.
+:trackAbstractionLevelOf
+  a owl:ObjectProperty ;
+  doc:partofODP :trackInheritanceODP ;
+  rdfs:comment "track abstraction level of"@en ;
+  rdfs:domain :RouteAbstraction ;
+  rdfs:label "track abstraction level of"@en ;
+  rdfs:range :RouteConcept ;
+  owl:inverseOf :trackAbstractionLevel ;
+.
+:trackDirection
+  a owl:ObjectProperty ;
+  :railMLExactMatch "rail:tDelimitedDirection" ;
+  doc:partofODP :TrackPositionModellingODP ;
+  rdfs:comment "track direction"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "direction"@en ;
+  rdfs:label "track direction"@en ;
+  rdfs:range :Direction ;
+  rdfs:subPropertyOf :enum ;
+.
+:trackInheritanceODP
+  a doc:ODP ;
+  rdfs:comment "The pattern with which levels of track inherit characteristics from other levels of track"@en ;
+  rdfs:label "Track Inheritance Design Pattern"@en ;
+.
+:trcode
+  a owl:DatatypeProperty ;
+  rdfs:label "TRCODE" ;
+.
+:uses
+  a owl:ObjectProperty ;
+  rdfs:comment "uses"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "uses"@en ;
+  rdfs:range owl:Thing ;
+.
+:usesTrainSet
+  a owl:ObjectProperty ;
+  rdfs:comment "Relate Service/operations to physical train sets to carry out train movements"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "Uses Train Set"@en ;
+  rdfs:label "uses train set"@en ;
+  rdfs:range :RollingStockTrainSet ;
+.
+:vehicle
+  a owl:ObjectProperty ;
+  rdfs:comment "A train consists of multiple carriages" ;
+  rdfs:comment "vehicle"@en ;
+  rdfs:domain :RollingStockTrainSet ;
+  rdfs:label "vehicle"@en ;
+.
+<http://purl.org/rail/railsys_extensions>
+  a owl:NamedIndividual ;
+  rdfs:comment "railsys extensions"@en ;
+  rdfs:label "railsys extensions"@en ;
+.
+u:Unit
+  a owl:Class ;
+  dc:description "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  Q = nU." ;
+  :designComment "All subclasses of Unit should be disjoint" ;
+  rdfs:comment "Unit"@en ;
+  rdfs:label "Unit"@en ;
+  rdfs:subClassOf owl:Thing ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_measure> ;
+.
+u:WGS84Location
+  a owl:Class ;
+  rdfs:comment "WGS84Location"@en ;
+  rdfs:label "WGS84Location"@en ;
+  rdfs:subClassOf u:Location ;
+.
+u:measurementValue
+  :designComment "Although there is little semantic distinction between anything having a value and a measurement having a value, we define a seperate datatype property here for ease of use. It also allows us to restrict the datatype to what we want!" ;
+.
+qudt:AbsorbedDoseRateUnit
+  a owl:Class ;
+  rdfs:comment "Absorbed dose rate unit"@en ;
+  rdfs:label "Absorbed Dose Rate Unit"@en ;
+  rdfs:subClassOf qudt:RadiologyUnit ;
+.
+qudt:AbsorbedDoseUnit
+  a owl:Class ;
+  rdfs:comment "Absorbed dose unit"@en ;
+  rdfs:label "Absorbed Dose Unit"@en ;
+  rdfs:subClassOf qudt:RadiologyUnit ;
+.
+qudt:AccelerationUnit
+  a owl:Class ;
+  rdfs:comment "Acceleration unit"@en ;
+  rdfs:label "Acceleration Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:ActivityUnit
+  a owl:Class ;
+  rdfs:comment "Activity unit"@en ;
+  rdfs:label "Activity Unit"@en ;
+  rdfs:subClassOf qudt:RadiologyUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_radioactivity> ;
+.
+qudt:AmountOfSubstanceTemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Amount of substance temperature unit"@en ;
+  rdfs:label "Amount of substance temperature unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:AmountOfSubstanceUnit
+  a owl:Class ;
+  rdfs:comment "Amount of substance unit"@en ;
+  rdfs:label "Amount Of Substance Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_amount_of_substance> ;
+.
+qudt:AngleUnit
+  a owl:Class ;
+  dc:description "All units relating to specificaiton of angles. " ;
+  rdfs:comment "Angle unit"@en ;
+  rdfs:label "Angle unit"@en ;
+  rdfs:subClassOf qudt:DimensionlessUnit ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_angle> ;
+.
+qudt:AngularAccelerationUnit
+  a owl:Class ;
+  rdfs:comment "Angular acceleration unit"@en ;
+  rdfs:label "Angular Acceleration Unit"@en ;
+  rdfs:subClassOf qudt:AccelerationUnit ;
+.
+qudt:AngularMassUnit
+  a owl:Class ;
+  qudt:description "The units of angular mass have dimensions of mass * area. They are used to measure the moment of inertia." ;
+  rdfs:comment "Angular mass unit"@en ;
+  rdfs:label "Angular Mass Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:AngularMomentumUnit
+  a owl:Class ;
+  rdfs:comment "Angular momentum unit"@en ;
+  rdfs:label "Angular Momentum Unit"@en ;
+  rdfs:subClassOf qudt:MomentumUnit ;
+.
+qudt:AngularVelocityUnit
+  a owl:Class ;
+  rdfs:comment "Angular velocity unit"@en ;
+  rdfs:label "Angular Velocity Unit"@en ;
+  rdfs:subClassOf qudt:VelocityUnit ;
+.
+qudt:AreaAngleUnit
+  a owl:Class ;
+  rdfs:comment "Area angle unit"@en ;
+  rdfs:label "Area Angle Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:AreaTemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Area temperature unit"@en ;
+  rdfs:label "Area Temperature Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:AreaThermalExpansionUnit
+  a owl:Class ;
+  qudt:description """When the temperature of a substance changes, the energy that is stored in the intermolecular bonds between atoms changes. When the stored energy increases, so does the length of the molecular bonds. As a result, solids typically expand in response to heating and contract on cooling; this dimensional response to temperature change is expressed by its coefficient of thermal expansion.
+
+Different coefficients of thermal expansion can be defined for a substance depending on whether the expansion is measured by:
+
+    * linear thermal expansion
+    * area thermal expansion
+    * volumetric thermal expansion
+
+These characteristics are closely related. The volumetric thermal expansion coefficient can be defined for both liquids and solids. The linear thermal expansion can only be defined for solids, and is common in engineering applications.
+
+Some substances expand when cooled, such as freezing water, so they have negative thermal expansion coefficients.
+
+For exactly isotropic materials, the area thermal expansion coefficient is very closely approximated as twice the linear coefficient.""" ;
+  rdfs:comment "Area thermal expansion unit"@en ;
+  rdfs:label "Area Thermal Expansion Unit"@en ;
+  rdfs:subClassOf qudt:ThermalExpansionUnit ;
+.
+qudt:AreaTimeTemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Area time temperature unit"@en ;
+  rdfs:label "Area Time Temperature Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:AreaUnit
+  a owl:Class ;
+  rdfs:comment "Area unit"@en ;
+  rdfs:label "Area Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_area> ;
+.
+qudt:AtomicChargeUnit
+  a owl:Class ;
+  qudt:description "The electric charge of an ion, equal to the number of electrons the atom has gained or lost in its ionization multiplied by the charge on one electron.  This class contains the following instance(s): \"atomic number\"." ;
+  rdfs:comment "Atomic charge unit"@en ;
+  rdfs:label "Atomic Charge Unit"@en ;
+  rdfs:subClassOf qudt:AtomicPhysicsUnit ;
+.
+qudt:AtomicMassUnit
+  a owl:Class ;
+  rdfs:comment "Atomic mass unit"@en ;
+  rdfs:label "Atomic Mass Unit"@en ;
+  rdfs:subClassOf qudt:AtomicPhysicsUnit ;
+.
+qudt:AtomicPhysicsUnit
+  a owl:Class ;
+  rdfs:comment "Atomic physics unit"@en ;
+  rdfs:label "Atomic Physics Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UAP" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UAP" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:BaseUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  a [
+      a owl:Restriction ;
+      owl:hasValue "UB" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  a [
+      a owl:Restriction ;
+      owl:hasValue "UB" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  dc:description "A Base Unit is a unit adopted by convention for a base quantity." ;
+  rdfs:comment "Base unit"@en ;
+  rdfs:label "Base Unit"@en ;
+  rdfs:subClassOf u:Unit ;
+.
+qudt:BendingMomentOrTorqueUnit
+  a owl:Class ;
+  rdfs:comment "Bending moment or torque unit"@en ;
+  rdfs:label "Bending Moment Or Torque Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_torque> ;
+.
+qudt:BinaryPrefixUnit
+  a owl:Class ;
+  rdfs:comment "Binary prefix unit"@en ;
+  rdfs:label "Binary Prefix Unit"@en ;
+  rdfs:subClassOf qudt:PrefixUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Binary_prefix> ;
+.
+qudt:BiomedicalUnit
+  a owl:Class ;
+  rdfs:comment "Biomedical unit"@en ;
+  rdfs:label "Biomedical Unit"@en ;
+  rdfs:subClassOf qudt:ScienceAndEngineeringUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UBM" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UBM" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:CapacitanceUnit
+  a owl:Class ;
+  qudt:description """Capacitance is a measure of the amount of electric charge stored (or separated) for a given electric potential.
+
+This class contains the following instance(s): \"Abfarad\", \"Farad\", \"MicroFarad\", \"NanoFarad\", \"PicoFarad\", \"Statfarad\".""" ;
+  rdfs:comment "Capacitance unit"@en ;
+  rdfs:label "Capacitance Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_electrical_capacitance> ;
+.
+qudt:CatalyticActivityUnit
+  a owl:Class ;
+  rdfs:comment "Catalytic activity unit"@en ;
+  rdfs:label "Catalytic Activity Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_catalytic_activity> ;
+.
+qudt:ChemistryUnit
+  a owl:Class ;
+  rdfs:comment "Chemistry unit"@en ;
+  rdfs:label "Chemistry Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UCHM" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UCHM" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:CoefficientOfHeatTransferUnit
+  a owl:Class ;
+  rdfs:comment "Coefficient of heat transfer unit"@en ;
+  rdfs:label "Coefficient Of Heat Transfer Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:CommunicationsUnit
+  a owl:Class ;
+  rdfs:comment "Communications unit"@en ;
+  rdfs:label "Communications Unit"@en ;
+  rdfs:subClassOf qudt:ScienceAndEngineeringUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UCMN" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UCMN" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:ComputingUnit
+  a owl:Class ;
+  rdfs:comment "Computing unit"@en ;
+  rdfs:label "Computing Unit"@en ;
+  rdfs:subClassOf qudt:ScienceAndEngineeringUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UCPG" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UCPG" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  skos:closeMatch <http://dbpedia.org/resource/Category:Units_of_information> ;
+.
+qudt:ConcentrationUnit
+  a owl:Class ;
+  rdfs:comment "Concentration unit"@en ;
+  rdfs:label "Concentration Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:ConductanceUnit
+  a owl:Class ;
+  qudt:description """Electrical conductance is the inverse of electrical resistance. It measures the ease with which electricity flows along a path through an electrical element.
+
+This class contains the following instance(s): \"Abmho\", \"Mho\", \"Siemens\", \"Statmho\".""" ;
+  rdfs:comment "Conductance unit"@en ;
+  rdfs:label "Conductance Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_electrical_conductance> ;
+.
+qudt:CountingUnit
+  a owl:Class ;
+  dc:description "All units about counts. Examples are Atomic Number, Number, Number per Year, Percent and Sample per Second." ;
+  rdfs:comment "Counting unit"@en ;
+  rdfs:label "Counting Unit"@en ;
+  rdfs:subClassOf qudt:DimensionlessUnit ;
+  rdfs:subClassOf qudt:ResourceUnit ;
+  skos:closeMatch <http://dbpedia.org/resource/Category:Units_of_amount> ;
+.
+qudt:CurrencyUnit
+  a owl:Class ;
+  rdfs:comment "Currency unit"@en ;
+  rdfs:label "Currency Unit"@en ;
+  rdfs:subClassOf qudt:FinancialUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UFC" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UFC" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:CurrentPerAngleUnit
+  a owl:Class ;
+  rdfs:comment "Current per angle unit"@en ;
+  rdfs:label "Current Per Angle Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:CurvatureUnit
+  a owl:Class ;
+  qudt:description """The canonicall example of extrinsic curvature is that of a circle, which has curvature equal to the inverse of its radius everywhere. Smaller circles bend more sharply, and hence have higher curvature. The curvature of a smooth curve is defined as the curvature of its osculating circle at each point. The osculating circle of a sufficiently smooth plane curve at a given point on the curve is the circle whose center lies on the inner normal line and whose curvature is the same as that of the given curve at that point. This circle is tangent to the curve at the given point.
+
+That is, given a point P on a smooth curve C, the curvature of C at P is defined to be 1/R where R is the radius of the osculating circle of C at P. The magnitude of curvature at points on physical curves can be measured in diopters (also spelled dioptre) — this is the convention in optics. [Wikipedia]""" ;
+  rdfs:comment "Curvature unit"@en ;
+  rdfs:label "Curvature Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:DataRateUnit
+  a owl:Class ;
+  rdfs:comment "Data rate unit"@en ;
+  rdfs:label "Data Rate Unit"@en ;
+  rdfs:subClassOf qudt:ComputingUnit ;
+  rdfs:subClassOf qudt:ResourceUnit ;
+.
+qudt:DecimalPrefixUnit
+  a owl:Class ;
+  rdfs:comment "Decimal prefix unit"@en ;
+  rdfs:label "Decimal Prefix Unit"@en ;
+  rdfs:subClassOf qudt:PrefixUnit ;
+  rdfs:subClassOf qudt:SIUnit ;
+.
+qudt:DerivedUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  a [
+      a owl:Restriction ;
+      owl:hasValue "UD" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  a [
+      a owl:Restriction ;
+      owl:hasValue "UD" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  dc:description "A DerivedUnit is a type specification for units that are derived from other units." ;
+  rdfs:comment "Derived unit"@en ;
+  rdfs:label "Derived Unit"@en ;
+  rdfs:subClassOf u:Unit ;
+.
+qudt:DimensionlessUnit
+  a owl:Class ;
+  dc:description "A Dimensionless Unit is a quantity for which all the exponents of the factors corresponding to the base quantities in its quantity dimension are zero." ;
+  rdfs:comment "Dimensionless unit"@en ;
+  rdfs:label "Dimensionless Unit"@en ;
+  rdfs:subClassOf u:Unit ;
+.
+qudt:DoseEquivalentUnit
+  a owl:Class ;
+  rdfs:comment "Dose equivalent unit"@en ;
+  rdfs:label "Dose Equivalent Unit"@en ;
+  rdfs:subClassOf qudt:RadiologyUnit ;
+.
+qudt:DynamicViscosityUnit
+  a owl:Class ;
+  rdfs:comment "Dynamic viscosity unit"@en ;
+  rdfs:label "Dynamic Viscosity Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_dynamic_viscosity> ;
+.
+qudt:ElectricChargeAreaDensityUnit
+  a owl:Class ;
+  rdfs:comment "Electric charge area density unit"@en ;
+  rdfs:label "Electric Charge Area Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricChargeDensityUnit ;
+.
+qudt:ElectricChargeDensityUnit
+  a owl:Class ;
+  qudt:description "The linear, surface, or volume charge density is the amount of electric charge in a line, surface, or volume. It is measured in coulombs per metre (C/m), square metre (C/m^2), or cubic metre (C/m^3), respectively. Since there are positive as well as negative charges, the charge density can take on negative values. [Wikipedia]" ;
+  rdfs:comment "Electric charge density unit"@en ;
+  rdfs:label "Electric Charge Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:ElectricChargeLineDensityUnit
+  a owl:Class ;
+  qudt:description "The linear charge density is the amount of electric charge in a line. It is measured in coulombs per metre (C/m). Since there are positive as well as negative charges, the charge density can take on negative values. [Wikipedia]" ;
+  rdfs:comment "Electric charge line density unit"@en ;
+  rdfs:label "Electric Charge Line Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricChargeDensityUnit ;
+.
+qudt:ElectricChargePerAmountOfSubstanceUnit
+  a owl:Class ;
+  rdfs:comment "Electric charge per amount of substance unit"@en ;
+  rdfs:label "Electric Charge Per Amount Of Substance Unit"@en ;
+  rdfs:subClassOf qudt:ElectrochemistryUnit ;
+.
+qudt:ElectricChargeUnit
+  a owl:Class ;
+  qudt:description "Electric charge is a fundamental conserved property of some subatomic particles, which determines their electromagnetic interaction. Electrically charged matter is influenced by, and produces, electromagnetic fields. The interaction between a moving charge and an electromagnetic field is the source of the electromagnetic force, which is one of the four fundamental forces." ;
+  rdfs:comment "Electric charge unit"@en ;
+  rdfs:label "Electric Charge Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_electrical_charge> ;
+.
+qudt:ElectricChargeVolumeDensityUnit
+  a owl:Class ;
+  qudt:description "The volume charge density is the amount of electric charge in a volume. It is measured in coulombs per cubic metre (C/m^3).  Since there are positive as well as negative charges, the charge density can take on negative values. [Wikipedia]" ;
+  rdfs:comment "Electric charge volume density unit"@en ;
+  rdfs:label "Electric Charge Volume Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricChargeDensityUnit ;
+.
+qudt:ElectricCurrentDensityUnit
+  a owl:Class ;
+  qudt:description """Electric current density is a measure of the density of flow of a conserved charge. Usually the charge is the electric charge, in which case the associated current density is the electric current per unit area of cross section, but the term current density can also be applied to other conserved quantities. It is defined as a vector whose magnitude is the current per cross-sectional area. [Wikipedia]
+
+In SI units, the electric current density is measured in amperes per square metre. This class contains the following instance(s): \"Ampere per square meter\".""" ;
+  rdfs:comment "Electric current density unit"@en ;
+  rdfs:label "Electric Current Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:ElectricCurrentUnit
+  a owl:Class ;
+  qudt:description "Electric current is the flow (movement) of electric charge. The SI unit of electric current is the ampere, and electric current is measured using an ammeter. This class contains the following instance(s): \"Abampere\", \"Ampere\", \"Biot\", \"Statampere\"." ;
+  rdfs:comment "Electric current unit"@en ;
+  rdfs:label "Electric Current Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_electrical_current> ;
+.
+qudt:ElectricDipoleMomentUnit
+  a owl:Class ;
+  qudt:description """The electric dipole moment (or electric dipole for short) is a measure of the polarity of a system of electric charges. [Wikipedia]
+
+This class has the following instance(s): \"Coulomb meter\", \"Debye\".""" ;
+  rdfs:comment "Electric dipole moment unit"@en ;
+  rdfs:label "Electric Dipole Moment Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:ElectricFieldStrengthUnit
+  a owl:Class ;
+  qudt:description "The strength of the electric field at a given point is defined as the force that would be exerted on a positive test charge of +1 coulomb placed at that point; the direction of the field is given by the direction of that force. Electric fields contain electrical energy with energy density proportional to the square of the field intensity. The electric field is to charge as gravitational acceleration is to mass and force density is to volume." ;
+  rdfs:comment "Electric field strength unit"@en ;
+  rdfs:label "Electric Field Strength Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:ElectricFluxDensityUnit
+  a owl:Class ;
+  rdfs:comment "Electric flux density unit"@en ;
+  rdfs:label "Electric Flux Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricChargeDensityUnit ;
+.
+qudt:ElectricFluxUnit
+  a owl:Class ;
+  rdfs:comment "Electric flux unit"@en ;
+  rdfs:label "Electric Flux Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:ElectricityAndMagnetismUnit
+  a owl:Class ;
+  qudt:description "The class of units used to measure the properties of electricity and magnetism." ;
+  rdfs:comment "Electricity and magnetism unit"@en ;
+  rdfs:label "Electricity And Magnetism Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UEM" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UEM" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:ElectrochemistryUnit
+  a owl:Class ;
+  rdfs:comment "Electrochemistry unit"@en ;
+  rdfs:label "Electrochemistry Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:EnergyAndWorkPerMassAmountOfSubstance
+  a owl:Class ;
+  rdfs:comment "Energy and work per mass amount of substance"@en ;
+  rdfs:label "Energy and work per mass amount of substance" ;
+  rdfs:label "Energy and work per mass amount of substance"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:EnergyAndWorkUnit
+  a owl:Class ;
+  rdfs:comment "Energy and work unit"@en ;
+  rdfs:label "Energy And Work Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_energy> ;
+.
+qudt:EnergyDensityUnit
+  a owl:Class ;
+  qudt:description "Units that measure energy density, i.e. energy per unit volume." ;
+  rdfs:comment "Energy density unit"@en ;
+  rdfs:label "Energy Density Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:EnergyPerAreaUnit
+  a owl:Class ;
+  qudt:description "Units that quantify energy per unit area." ;
+  rdfs:comment "Energy per area unit"@en ;
+  rdfs:label "Energy Per Area Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:EnergyPerElectricChargeUnit
+  a owl:Class ;
+  qudt:description "The ratio of energy to electric charge arises repeatedly in electrodynamics. It is the dimensional equivalent to the electrostatic potential and electromotive force. In both cases, the SI unit is the volt, or newton meters per coulomb." ;
+  rdfs:comment "Energy per electric charge unit"@en ;
+  rdfs:label "Energy per Electric Charge Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:EventUnit
+  a owl:Class ;
+  rdfs:comment "Event unit"@en ;
+  rdfs:label "Event Unit"@en ;
+  rdfs:subClassOf qudt:ResourceUnit ;
+.
+qudt:ExposureUnit
+  a owl:Class ;
+  rdfs:comment "Exposure unit"@en ;
+  rdfs:label "Exposure Unit"@en ;
+  rdfs:subClassOf qudt:RadiologyUnit ;
+.
+qudt:FinancialUnit
+  a owl:Class ;
+  qudt:description "This class contains units that measure financial quantities, such as currency, transactions, rates of return, etc." ;
+  rdfs:comment "Financial unit"@en ;
+  rdfs:label "Financial Unit"@en ;
+  rdfs:subClassOf qudt:ResourceUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UF" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UF" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:ForcePerElectricChargeUnit
+  a owl:Class ;
+  rdfs:comment "Force per electric charge unit"@en ;
+  rdfs:label "Force Per Electric Charge Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:ForcePerLengthUnit
+  a owl:Class ;
+  rdfs:comment "Force per length unit"@en ;
+  rdfs:label "Force Per Length Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:ForceUnit
+  a owl:Class ;
+  rdfs:comment "Force unit"@en ;
+  rdfs:label "Force Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_force> ;
+.
+qudt:FrequencyUnit
+  a owl:Class ;
+  rdfs:comment "Frequency unit"@en ;
+  rdfs:label "Frequency Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_frequency> ;
+.
+qudt:GravitationalAttractionUnit
+  a owl:Class ;
+  rdfs:comment "Gravitational attraction unit"@en ;
+  rdfs:label "Gravitational Attraction Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:HeartRateUnit
+  a owl:Class ;
+  rdfs:comment "Heart rate unit"@en ;
+  rdfs:label "Heart Rate Unit"@en ;
+  rdfs:subClassOf qudt:BiomedicalUnit ;
+.
+qudt:HeatCapacityAndEntropyUnit
+  a owl:Class ;
+  rdfs:comment "Heat capacity and entropy unit"@en ;
+  rdfs:label "Heat Capacity And Entropy Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:HeatFlowRateUnit
+  a owl:Class ;
+  rdfs:comment "Heat flow rate unit"@en ;
+  rdfs:label "Heat Flow Rate Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:HumanUnit
+  a owl:Class ;
+  qudt:description "units for measuring human resources" ;
+  rdfs:comment "Human unit"@en ;
+  rdfs:label "Human Unit"@en ;
+  rdfs:subClassOf qudt:ResourceUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UH" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UH" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:IlluminanceUnit
+  a owl:Class ;
+  rdfs:comment "Illuminance unit"@en ;
+  rdfs:label "Illuminance Unit"@en ;
+  rdfs:subClassOf qudt:PhotometryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_illuminance> ;
+.
+qudt:InductanceUnit
+  a owl:Class ;
+  qudt:description """An electric current flowing around a circuit produces a magnetic field and hence a magnetic flux through the circuit. The ratio of the magnetic flux to the current is called the inductance, or more accurately self-inductance of the circuit. [Wikipedia]
+
+This class contains the following instance(s): \"Abhenry\", \"Henry\", \"Micro Henry\", \"Milli Henry\", \"Stathenry\".""" ;
+  rdfs:comment "Inductance unit"@en ;
+  rdfs:label "Inductance Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_electrical_inductance> ;
+.
+qudt:InformationEntropyUnit
+  a owl:Class ;
+  rdfs:comment "Information entropy unit"@en ;
+  rdfs:label "Information Entropy Unit"@en ;
+  rdfs:subClassOf qudt:ComputingUnit ;
+  rdfs:subClassOf qudt:LogarithmicUnit ;
+  rdfs:subClassOf qudt:ResourceUnit ;
+.
+qudt:InverseAmountOfSubstanceUnit
+  a owl:Class ;
+  rdfs:comment "Inverse amount of substance unit"@en ;
+  rdfs:label "Inverse Amount Of Substance Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:KinematicViscosityUnit
+  a owl:Class ;
+  rdfs:comment "Kinematic viscosity unit"@en ;
+  rdfs:label "Kinematic Viscosity Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:LengthTemperatureTimeUnit
+  a owl:Class ;
+  rdfs:comment "Length temperature time unit"@en ;
+  rdfs:label "Length Temperature Time Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:LengthTemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Length temperature unit"@en ;
+  rdfs:label "Length Temperature Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:LengthUnit
+  a owl:Class ;
+  rdfs:comment "Length unit"@en ;
+  rdfs:label "Length Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue u:Length ;
+      owl:onProperty u:quantityKind ;
+    ] ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_length> ;
+.
+qudt:LinearAccelerationUnit
+  a owl:Class ;
+  rdfs:comment "Linear acceleration unit"@en ;
+  rdfs:label "Linear Acceleration Unit"@en ;
+  rdfs:subClassOf qudt:AccelerationUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_acceleration> ;
+.
+qudt:LinearEnergyTransferUnit
+  a owl:Class ;
+  rdfs:comment "Linear energy transfer unit"@en ;
+  rdfs:label "Linear Energy Transfer Unit"@en ;
+  rdfs:subClassOf qudt:AtomicPhysicsUnit ;
+.
+qudt:LinearMomentumUnit
+  a owl:Class ;
+  rdfs:comment "Linear momentum unit"@en ;
+  rdfs:label "Linear Momentum Unit"@en ;
+  rdfs:subClassOf qudt:MomentumUnit ;
+.
+qudt:LinearThermalExpansionUnit
+  a owl:Class ;
+  qudt:description """When the temperature of a substance changes, the energy that is stored in the intermolecular bonds between atoms changes. When the stored energy increases, so does the length of the molecular bonds. As a result, solids typically expand in response to heating and contract on cooling; this dimensional response to temperature change is expressed by its coefficient of thermal expansion.
+
+Different coefficients of thermal expansion can be defined for a substance depending on whether the expansion is measured by:
+
+    * linear thermal expansion
+    * area thermal expansion
+    * volumetric thermal expansion
+
+These characteristics are closely related. The volumetric thermal expansion coefficient can be defined for both liquids and solids. The linear thermal expansion can only be defined for solids, and is common in engineering applications.
+
+Some substances expand when cooled, such as freezing water, so they have negative thermal expansion coefficients. [Wikipedia]""" ;
+  rdfs:comment "Linear thermal expansion unit"@en ;
+  rdfs:label "Linear Thermal Expansion Unit"@en ;
+  rdfs:subClassOf qudt:ThermalExpansionUnit ;
+.
+qudt:LinearVelocityUnit
+  a owl:Class ;
+  qudt:description "Linear Velocity units measure change of length per unit time. Examples include meters per second, miles per hour, knots, etc. " ;
+  rdfs:comment "Linear velocity unit"@en ;
+  rdfs:label "Linear Velocity Unit"@en ;
+  rdfs:subClassOf qudt:VelocityUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_velocity> ;
+.
+qudt:LogarithmicUnit
+  a owl:Class ;
+  qudt:description "Logarithmic units are abstract mathematical units that can be used to express any quantities (physical or mathematical) that are defined on a logarithmic scale, that is, as being proportional to the value of a logarithm function. Examples of logarithmic units include common units of information and entropy, such as the bit, and the byte, as well as units of relative signal strength magnitude such as the decibel." ;
+  rdfs:comment "Logarithmic unit"@en ;
+  rdfs:label "Logarithmic Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+.
+qudt:LuminanceUnit
+  a owl:Class ;
+  rdfs:comment "Luminance unit"@en ;
+  rdfs:label "Luminance Unit"@en ;
+  rdfs:subClassOf qudt:PhotometryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_luminance> ;
+.
+qudt:LuminousEfficacyUnit
+  a owl:Class ;
+  rdfs:comment "Luminous efficacy unit"@en ;
+  rdfs:label "Luminous Efficacy Unit"@en ;
+  rdfs:subClassOf qudt:PhotometryUnit ;
+.
+qudt:LuminousEnergyUnit
+  a owl:Class ;
+  rdfs:comment "Luminous energy unit"@en ;
+  rdfs:label "Luminous Energy Unit"@en ;
+  rdfs:subClassOf qudt:PhotometryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_luminous_energy> ;
+.
+qudt:LuminousFluxUnit
+  a owl:Class ;
+  rdfs:comment "Luminous flux unit"@en ;
+  rdfs:label "Luminous Flux Unit"@en ;
+  rdfs:subClassOf qudt:PhotometryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_luminous_flux> ;
+.
+qudt:LuminousIntensityUnit
+  a owl:Class ;
+  rdfs:comment "Luminous intensity unit"@en ;
+  rdfs:label "Luminous Intensity Unit"@en ;
+  rdfs:subClassOf qudt:PhotometryUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_luminous_intensity> ;
+.
+qudt:MagneticFieldStrengthUnit
+  a owl:Class ;
+  qudt:description """A magnetic field is a vector field that permeates space and which can exert a magnetic force on moving electric charges and on magnetic dipoles (such as permanent magnets). [Wikipedia] The strength of a magnetic field at a point in space is the magnitude of the field vector at that point.
+
+This class contains the following instance(s): \"Ampere per meter\", \"Ampere turn per inch\", \"Ampere turn per meter\", \"Oersted\".""" ;
+  rdfs:comment "Magnetic field strength unit"@en ;
+  rdfs:label "Magnetic Field Strength Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_magnetic_induction> ;
+.
+qudt:MagneticFluxDensityUnit
+  a owl:Class ;
+  rdfs:comment "Magnetic flux density unit"@en ;
+  rdfs:label "Magnetic Flux Density Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_magnetic_flux_density> ;
+.
+qudt:MagneticFluxUnit
+  a owl:Class ;
+  qudt:description """Magnetic flux is a measure of quantity of magnetism, taking into account the strength and the extent of a magnetic field. The SI unit of magnetic flux is the weber (in derived units: volt-seconds), and the unit of magnetic field is the weber per square meter, or tesla. [Wikipedia]
+
+This class contains the following instance(s): \"Maxwell\", \"Unit pole\", \"Weber\".""" ;
+  rdfs:comment "Magnetic flux unit"@en ;
+  rdfs:label "Magnetic Flux Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_magnetic_flux> ;
+.
+qudt:MagnetomotiveForceUnit
+  a owl:Class ;
+  qudt:description """Magnetomotive force is any physical cause that produces magnetic flux. In other words, it is a field of magnetism (measured in tesla) that has area (measured in square meters), so that (Tesla)(Area)= Flux. It is analogous to electromotive force or voltage in electricity. MMF usually describes electric wire coils in a way so scientists can measure or predict the actual force a wire coil can generate. [Wikipedia]
+
+This class contains the following instance(s): \"Ampere turn\", \"Gilbert\", \"Oersted centimeter\", \"Unit pole\".""" ;
+  rdfs:comment "Magnetomotive force unit"@en ;
+  rdfs:label "Magnetomotive Force Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:MassAmountOfSubstanceTemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Mass amount of substance temperature unit"@en ;
+  rdfs:label "Mass Amount Of Substance Temperature Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:MassAmountOfSubstanceUnit
+  a owl:Class ;
+  rdfs:comment "Mass amount of substance unit"@en ;
+  rdfs:label "Mass Amount Of Substance Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:MassPerAreaUnit
+  a owl:Class ;
+  rdfs:comment "Mass per area unit"@en ;
+  rdfs:label "Mass Per Area Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:MassPerLengthUnit
+  a owl:Class ;
+  rdfs:comment "Mass per length unit"@en ;
+  rdfs:label "Mass Per Length Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:MassPerTimeUnit
+  a owl:Class ;
+  rdfs:comment "Mass per time unit"@en ;
+  rdfs:label "Mass Per Time Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:MassPerVolumeUnit
+  a owl:Class ;
+  rdfs:comment "Mass per volume unit"@en ;
+  rdfs:label "Mass Per Volume Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_density> ;
+.
+qudt:MassTemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Mass temperature unit"@en ;
+  rdfs:label "Mass Temperature Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:MassUnit
+  a owl:Class ;
+  rdfs:comment "Mass unit"@en ;
+  rdfs:label "Mass Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_mass> ;
+.
+qudt:MechanicsUnit
+  a owl:Class ;
+  rdfs:comment "Mechanics unit"@en ;
+  rdfs:label "Mechanics Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UMH" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UMH" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:MicrobialFormationUnit
+  a owl:Class ;
+  rdfs:comment "Microbial formation unit"@en ;
+  rdfs:label "Microbial Formation Unit"@en ;
+  rdfs:subClassOf qudt:BiomedicalUnit ;
+.
+qudt:MolalConcentrationUnit
+  a owl:Class ;
+  rdfs:comment "Molal concentration unit"@en ;
+  rdfs:label "Molal Concentration Unit"@en ;
+  rdfs:subClassOf qudt:ConcentrationUnit ;
+.
+qudt:MolarConcentrationUnit
+  a owl:Class ;
+  rdfs:comment "Molar concentration unit"@en ;
+  rdfs:label "Molar Concentration Unit"@en ;
+  rdfs:subClassOf qudt:ConcentrationUnit ;
+.
+qudt:MolarEnergyUnit
+  a owl:Class ;
+  rdfs:comment "Molar energy unit"@en ;
+  rdfs:label "Molar Energy Unit"@en ;
+  rdfs:subClassOf qudt:ChemistryUnit ;
+.
+qudt:MolarHeatCapacityUnit
+  a owl:Class ;
+  rdfs:comment "Molar heat capacity unit"@en ;
+  rdfs:label "Molar Heat Capacity Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:MomentumUnit
+  a owl:Class ;
+  rdfs:comment "Momentum unit"@en ;
+  rdfs:label "Momentum Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:NonSIUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  qudt:description "A Non-SI unit. Typically an imperial measure." ;
+  rdfs:comment "Non SIUnit"@en ;
+  rdfs:label "Non SI Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  owl:disjointWith qudt:SIUnit ;
+.
+qudt:NotUsedWithSIUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  qudt:description "A type specification for all units that are not used in the SI standard." ;
+  rdfs:comment "Not used with SIUnit"@en ;
+  rdfs:label "Not Used With SI Unit"@en ;
+  rdfs:subClassOf qudt:NonSIUnit ;
+  owl:disjointWith qudt:UsedWithSIUnit ;
+.
+qudt:OpticsUnit
+  a owl:Class ;
+  rdfs:comment "Optics unit"@en ;
+  rdfs:label "Light Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:PermeabilityUnit
+  a owl:Class ;
+  rdfs:comment "Permeability unit"@en ;
+  rdfs:label "Permeability Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:PermittivityUnit
+  a owl:Class ;
+  rdfs:comment "Permittivity unit"@en ;
+  rdfs:label "Permittivity Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:PhotometryUnit
+  a owl:Class ;
+  rdfs:comment "Photometry unit"@en ;
+  rdfs:label "Photometry Unit"@en ;
+  rdfs:subClassOf qudt:OpticsUnit ;
+.
+qudt:PhysicalUnit
+  a owl:Class ;
+  rdfs:comment "Physical unit"@en ;
+  rdfs:label "Physical Unit"@en ;
+  rdfs:subClassOf qudt:ScienceAndEngineeringUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UPHS" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UPHS" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:PlaneAngleUnit
+  a owl:Class ;
+  rdfs:comment "Plane angle unit"@en ;
+  rdfs:label "Plane Angle Unit"@en ;
+  rdfs:subClassOf qudt:AngleUnit ;
+.
+qudt:PowerPerAreaUnit
+  a owl:Class ;
+  rdfs:comment "Power per area unit"@en ;
+  rdfs:label "Power Per Area Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:PowerPerElectricChargeUnit
+  a owl:Class ;
+  qudt:description "The ratio of power to electric charge is proportional to the rate of change of electric potential." ;
+  rdfs:comment "Power per electric charge unit"@en ;
+  rdfs:label "Energy per Electric Charge Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+.
+qudt:PowerUnit
+  a owl:Class ;
+  rdfs:comment "Power unit"@en ;
+  rdfs:label "Power Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_power> ;
+.
+qudt:PrefixUnit
+  a owl:Class ;
+  dc:description "Prefixes are either binary or decimal." ;
+  rdfs:comment "Prefix unit"@en ;
+  rdfs:label "Prefix Unit"@en ;
+  rdfs:subClassOf qudt:DimensionlessUnit ;
+.
+qudt:PressureOrStressRateUnit
+  a owl:Class ;
+  rdfs:comment "Pressure or stress rate unit"@en ;
+  rdfs:label "Pressure or stress rate"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:PressureOrStressUnit
+  a owl:Class ;
+  rdfs:comment "Pressure or stress unit"@en ;
+  rdfs:label "Pressure Or Stress Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_pressure> ;
+.
+qudt:RF-PowerUnit
+  a owl:Class ;
+  rdfs:comment "RF-Power unit"@en ;
+  rdfs:label "RF-Power Unit"@en ;
+  rdfs:subClassOf qudt:CommunicationsUnit ;
+.
+qudt:RadianceUnit
+  a owl:Class ;
+  rdfs:comment "Radiance unit"@en ;
+  rdfs:label "Radiance Unit"@en ;
+  rdfs:subClassOf qudt:RadiometryUnit ;
+.
+qudt:RadiantIntensityUnit
+  a owl:Class ;
+  rdfs:comment "Radiant intensity unit"@en ;
+  rdfs:label "Radiant Intensity Unit"@en ;
+  rdfs:subClassOf qudt:RadiometryUnit ;
+.
+qudt:RadiologyUnit
+  a owl:Class ;
+  rdfs:comment "Radiology unit"@en ;
+  rdfs:label "Radiology Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UROY" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UROY" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_radiation_dose> ;
+.
+qudt:RadiometryUnit
+  a owl:Class ;
+  rdfs:comment "Radiometry unit"@en ;
+  rdfs:label "Radiometry Unit"@en ;
+  rdfs:subClassOf qudt:OpticsUnit ;
+.
+qudt:RateOfReturnUnit
+  a owl:Class ;
+  rdfs:comment "Rate of return unit"@en ;
+  rdfs:label "Rate Of Return Unit"@en ;
+  rdfs:subClassOf qudt:FinancialUnit ;
+.
+qudt:ResistanceUnit
+  a owl:Class ;
+  qudt:description """Electrical resistance is a ratio of the degree to which an object opposes an electric current through it, measured in ohms. Its reciprocal quantity is electrical conductance measured in siemens.
+
+This class contains the following instance(s): \"Abohm\", \"Ohm\", \"Statohm\".""" ;
+  rdfs:comment "Resistance unit"@en ;
+  rdfs:label "Resistance Unit"@en ;
+  rdfs:subClassOf qudt:ElectricityAndMagnetismUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_electrical_resistance> ;
+.
+qudt:ResourceUnit
+  a owl:Class ;
+  dc:description "A Resource Unit is a unit for measuring the amount of various types of resources." ;
+  rdfs:comment "Resource unit"@en ;
+  rdfs:label "Resource Unit"@en ;
+  rdfs:subClassOf u:Unit ;
+.
+qudt:RespiratoryRateUnit
+  a owl:Class ;
+  rdfs:comment "Respiratory rate unit"@en ;
+  rdfs:label "Respiratory Rate Unit"@en ;
+  rdfs:subClassOf qudt:BiomedicalUnit ;
+.
+qudt:SIBaseUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  a [
+      a owl:Restriction ;
+      owl:hasValue "USI" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  a [
+      a owl:Restriction ;
+      owl:hasValue "USI" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  qudt:description "All SI units are derived from the SI Base units" ;
+  rdfs:comment "SIBase unit"@en ;
+  rdfs:label "SI Base Unit"@en ;
+  rdfs:subClassOf qudt:BaseUnit ;
+  rdfs:subClassOf qudt:SIUnit ;
+  owl:disjointWith qudt:SIDerivedUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:SI_base_units> ;
+.
+qudt:SIDerivedUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  rdfs:comment "SIDerived unit"@en ;
+  rdfs:label "SI Derived Unit"@en ;
+  rdfs:subClassOf qudt:DerivedUnit ;
+  rdfs:subClassOf qudt:SIUnit ;
+  owl:disjointWith qudt:SIBaseUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:SI_derived_units> ;
+.
+qudt:SIUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  qudt:description "An SI unit" ;
+  rdfs:comment "SIUnit"@en ;
+  rdfs:label "SI Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:SI_units> ;
+.
+qudt:ScienceAndEngineeringUnit
+  a owl:Class ;
+  rdfs:comment "Science and engineering unit"@en ;
+  rdfs:label "Science And Engineering Unit"@en ;
+  rdfs:subClassOf u:Unit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "USE" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "USE" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:SerumOrPlasmaLevelUnit
+  a owl:Class ;
+  rdfs:comment "Serum or plasma level unit"@en ;
+  rdfs:label "Serum Or Plasma Level Unit"@en ;
+  rdfs:subClassOf qudt:BiomedicalUnit ;
+.
+qudt:SignalDetectionThresholdUnit
+  a owl:Class ;
+  qudt:description "Signal relative to an underlying signal" ;
+  rdfs:comment "Signal detection threshold unit"@en ;
+  rdfs:label "Signal Detection Threshold Unit"@en ;
+  rdfs:subClassOf qudt:CommunicationsUnit ;
+.
+qudt:SolidAngleUnit
+  a owl:Class ;
+  qudt:description "The solid angle subtended by a surface S is defined as the surface area of a unit sphere covered by the surface S's projection onto the sphere. A solid angle is related to the surface of a sphere in the same way an ordinary angle is related to the circumference of a circle. Since the total surface area of the unit sphere is 4*pi, the measure of solid angle will always be between 0 and 4*pi." ;
+  rdfs:comment "Solid angle unit"@en ;
+  rdfs:label "Solid Angle Unit"@en ;
+  rdfs:subClassOf qudt:AngleUnit ;
+.
+qudt:SpaceAndTimeUnit
+  a owl:Class ;
+  rdfs:comment "Space and time unit"@en ;
+  rdfs:label "Space And Time Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UST" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UST" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+.
+qudt:SpecificEnergyUnit
+  a owl:Class ;
+  qudt:description "Units which quantify specific energy, i.e. energy per unit mass." ;
+  rdfs:comment "Specific energy unit"@en ;
+  rdfs:label "Specific Energy Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:SpecificHeatCapacityUnit
+  a owl:Class ;
+  rdfs:comment "Specific heat capacity unit"@en ;
+  rdfs:label "Specific Heat Capacity Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:SpecificHeatPressureUnit
+  a owl:Class ;
+  qudt:description "This class contains units of measure for specific heat capacity at a constant pressure." ;
+  rdfs:comment "Specific heat pressure unit"@en ;
+  rdfs:label "Specific Heat Pressure Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:SpecificHeatVolumeUnit
+  a owl:Class ;
+  qudt:description "This class contains units of measure for specific heat capacity at a constant volume." ;
+  rdfs:comment "Specific heat volume unit"@en ;
+  rdfs:label "Specific Heat Volume Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:TemperaturePerTimeUnit
+  a owl:Class ;
+  rdfs:comment "Temperature per time unit"@en ;
+  rdfs:label "Temperature per time unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:TemperatureUnit
+  a owl:Class ;
+  rdfs:comment "Temperature unit"@en ;
+  rdfs:label "Temperature Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_temperature> ;
+.
+qudt:ThermalConductivityUnit
+  a owl:Class ;
+  rdfs:comment "Thermal conductivity unit"@en ;
+  rdfs:label "Thermal Conductivity Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalDiffusivityUnit
+  a owl:Class ;
+  rdfs:comment "Thermal diffusivity unit"@en ;
+  rdfs:label "Thermal Diffusivity Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalEnergyLengthUnit
+  a owl:Class ;
+  rdfs:comment "Thermal energy length unit"@en ;
+  rdfs:label "Thermal Energy Length Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalEnergyUnit
+  a owl:Class ;
+  rdfs:comment "Thermal energy unit"@en ;
+  rdfs:label "Thermal Energy Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalExpansionUnit
+  a owl:Class ;
+  qudt:description """When the temperature of a substance changes, the energy that is stored in the intermolecular bonds between atoms changes. When the stored energy increases, so does the length of the molecular bonds. As a result, solids typically expand in response to heating and contract on cooling; this dimensional response to temperature change is expressed by its coefficient of thermal expansion.
+
+Different coefficients of thermal expansion can be defined for a substance depending on whether the expansion is measured by:
+
+    * linear thermal expansion
+    * area thermal expansion
+    * volumetric thermal expansion
+
+These characteristics are closely related. The volumetric thermal expansion coefficient can be defined for both liquids and solids. The linear thermal expansion can only be defined for solids, and is common in engineering applications.
+
+Some substances expand when cooled, such as freezing water, so they have negative thermal expansion coefficients. [Wikipedia]""" ;
+  rdfs:comment "Thermal expansion unit"@en ;
+  rdfs:label "Thermal Expansion Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalInsulanceUnit
+  a owl:Class ;
+  rdfs:comment "Thermal insulance unit"@en ;
+  rdfs:label "Thermal Insulance Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalResistanceUnit
+  a owl:Class ;
+  rdfs:comment "Thermal resistance unit"@en ;
+  rdfs:label "Thermal Resistance Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermalResistivityUnit
+  a owl:Class ;
+  rdfs:comment "Thermal resistivity unit"@en ;
+  rdfs:label "Thermal Resistivity Unit"@en ;
+  rdfs:subClassOf qudt:ThermodynamicsUnit ;
+.
+qudt:ThermodynamicsUnit
+  a owl:Class ;
+  qudt:description "Thermodynamics units are units that provide reference scales for quantifying the conversion of energy into work, as well as heat and its relation to macroscopic variables such as temperature and pressure." ;
+  rdfs:comment "Thermodynamics unit"@en ;
+  rdfs:label "Thermodynamics Unit"@en ;
+  rdfs:subClassOf qudt:PhysicalUnit ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UTD" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:hasValue "UTD" ;
+      owl:onProperty qudt:typePrefix ;
+    ] ;
+  skos:closeMatch <http://dbpedia.org/resource/Category:Thermodynamics> ;
+.
+qudt:ThrustToMassRatioUnit
+  a owl:Class ;
+  rdfs:comment "Thrust to mass ratio unit"@en ;
+  rdfs:label "Thrust To Mass Ratio Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:TimeAreaUnit
+  a owl:Class ;
+  rdfs:comment "Time area unit"@en ;
+  rdfs:label "Time Area Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:TimeSquaredUnit
+  a owl:Class ;
+  rdfs:comment "Time squared unit"@en ;
+  rdfs:label "Time Squared Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:TimeUnit
+  a owl:Class ;
+  qudt:description "Units that measure time." ;
+  rdfs:comment "Time unit"@en ;
+  rdfs:label "Time Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_time> ;
+.
+qudt:TurbidityUnit
+  a owl:Class ;
+  qudt:description "Turbidity is the cloudiness or haziness of a fluid caused by individual particles (suspended solids) that are generally invisible to the naked eye, similar to smoke in air." ;
+  rdfs:comment "Turbidity unit"@en ;
+  rdfs:label "Turbidity Unit"@en ;
+  rdfs:subClassOf qudt:BiomedicalUnit ;
+.
+qudt:UsedWithSIUnit
+  a owl:Class ;
+  a owl:DeprecatedClass ;
+  qudt:description "A type specification for all units that are used in the SI standard." ;
+  rdfs:comment "Used with SIUnit"@en ;
+  rdfs:label "Used With SI Unit"@en ;
+  rdfs:subClassOf qudt:NonSIUnit ;
+  owl:disjointWith qudt:NotUsedWithSIUnit ;
+.
+qudt:VelocityUnit
+  a owl:Class ;
+  rdfs:comment "Velocity unit"@en ;
+  rdfs:label "Velocity Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:VideoFrameRateUnit
+  a owl:Class ;
+  rdfs:comment "Video frame rate unit"@en ;
+  rdfs:label "Video Frame Rate Unit"@en ;
+  rdfs:subClassOf qudt:ComputingUnit ;
+.
+qudt:VolumePerMassUnit
+  a owl:Class ;
+  rdfs:comment "Volume per mass unit"@en ;
+  rdfs:label "Volume per mass unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:VolumePerTimeSquaredUnit
+  a owl:Class ;
+  rdfs:comment "Volume per time squared unit"@en ;
+  rdfs:label "Volume per Time Squared Unit"@en ;
+  rdfs:subClassOf qudt:MechanicsUnit ;
+.
+qudt:VolumePerTimeUnit
+  a owl:Class ;
+  qudt:description "A \"Space And Time\" Unit with the following instance(s): \"Cubic foot per minute\", \"Cubic foot per second\", \"Cubic inch per minute\", \"Cubic meter per second\", \"Cubic yard per minute\", \"Gallon per day\", \"Gallon per minute\"." ;
+  rdfs:comment "Volume per time unit"@en ;
+  rdfs:label "Volume Per Time Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+.
+qudt:VolumeThermalExpansionUnit
+  a owl:Class ;
+  qudt:description """When the temperature of a substance changes, the energy that is stored in the intermolecular bonds between atoms changes. When the stored energy increases, so does the length of the molecular bonds. As a result, solids typically expand in response to heating and contract on cooling; this dimensional response to temperature change is expressed by its coefficient of thermal expansion.
+
+Different coefficients of thermal expansion can be defined for a substance depending on whether the expansion is measured by:
+
+    * linear thermal expansion
+    * area thermal expansion
+    * volumetric thermal expansion
+
+These characteristics are closely related. The volumetric thermal expansion coefficient can be defined for both liquids and solids. The linear thermal expansion can only be defined for solids, and is common in engineering applications.
+
+Some substances expand when cooled, such as freezing water, so they have negative thermal expansion coefficients. 
+
+For exactly isotropic materials, the volumetric thermal expansion coefficient is very closely approximated as three times the linear coefficient. [Wikipedia]""" ;
+  rdfs:comment "Volume thermal expansion unit"@en ;
+  rdfs:label "Volume Thermal Expansion Unit"@en ;
+  rdfs:subClassOf qudt:ThermalExpansionUnit ;
+.
+qudt:VolumeUnit
+  a owl:Class ;
+  rdfs:comment "Volume unit"@en ;
+  rdfs:label "Volume Unit"@en ;
+  rdfs:subClassOf qudt:SpaceAndTimeUnit ;
+  skos:exactMatch <http://dbpedia.org/resource/Category:Units_of_volume> ;
+.
+qudt:description
+  a owl:DatatypeProperty ;
+  rdfs:comment "description"@en ;
+  rdfs:label "description"@en ;
+.
+qudt:typePrefix
+  a owl:DatatypeProperty ;
+  rdfs:comment "type prefix"@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "type prefix"@en ;
+  rdfs:range xsd:string ;
+.
+rdfs:comment
+  a owl:AnnotationProperty ;
+  rdfs:comment "comment"@en ;
+  rdfs:label "comment"@en ;
+.
+rdfs:label
+  a owl:AnnotationProperty ;
+  rdfs:comment "label"@en ;
+  rdfs:label "label"@en ;
+.
+owl:Thing
+  a owl:Class ;
+  rdfs:comment "Thing"@en ;
+  rdfs:label "Thing"@en ;
+.
+owl:topObjectProperty
+  a owl:ObjectProperty ;
+  rdfs:comment "top object property"@en ;
+  rdfs:label "top object property"@en ;
+.
+skos:altLabel
+  :railMLExactMatch "is:additionalName" ;
+.
+skos:closeMatch
+  a owl:AnnotationProperty ;
+  rdfs:comment "close match"@en ;
+  rdfs:label "close match"@en ;
+.
+skos:exactMatch
+  a owl:AnnotationProperty ;
+  rdfs:comment "exact match"@en ;
+  rdfs:label "exact match"@en ;
+.
+prov:value
+  a owl:AnnotationProperty ;
+  rdfs:comment "value"@en ;
+  rdfs:label "PROV-O value"@en ;
+.
+prov:wasDerivedFrom
+  a owl:AnnotationProperty ;
+  rdfs:comment "was derived from"@en ;
+  rdfs:label "was derived from"@en ;
+.
+[
+  a owl:AllDisjointClasses ;
+  owl:members (
+      :Bridge
+      :Cutting
+      :Tunnel
+    ) ;
+].
+[
+  a owl:AllDisjointClasses ;
+  owl:members (
+      :ComputerInterlocking
+      :MechanicalInterlocking
+      :RelayInterlocking
+      :SSIInterlocking
+    ) ;
+].
+[
+  a owl:AllDisjointClasses ;
+  owl:members (
+      :ETCSL0Standard
+      :ETCSL1Standard
+      :ETCSL2Standard
+      :ETCSL3Standard
+    ) ;
+].
+[
+  a owl:AllDisjointClasses ;
+  owl:members (
+      :TrackComms
+      :Electrification
+      :TrackGauge
+      :TrackGradient
+      :TrackSignallingMethod
+    ) ;
+].

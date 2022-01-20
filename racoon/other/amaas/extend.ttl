@@ -1,0 +1,39 @@
+# baseURI: http://amaas-siemens.com/resource/extend
+# imports: http://amaas-siemens.com/resource/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://amaas-siemens.com/resource/extend#> .
+@prefix amaas: <http://amaas-siemens.com/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://amaas-siemens.com/resource/SomeAsset>
+  rdf:type amaas:RailwayAsset ;
+  amaas:dependsOn <http://amaas-siemens.com/resource/TM14BLoWNodes10> ;
+  rdfs:label "Some asset"^^xsd:string ;
+.
+<http://amaas-siemens.com/resource/TM14BPoints15>
+  amaas:monitoredBy :TestAM ;
+.
+<http://amaas-siemens.com/resource/extend>
+  rdf:type owl:Ontology ;
+  rdfs:comment "Test ontology for AMaaS System"@en ;
+  owl:imports <http://amaas-siemens.com/resource/> ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  owl:versionInfo "0.1"^^xsd:string ;
+.
+:HealthyStateObservation_1
+  rdf:type amaas:HealthyStateObservation ;
+  rdfs:label "Healthy state observation 1"^^xsd:string ;
+.
+:TestAM
+  rdf:type amaas:EAssetMonitor ;
+  amaas:observedEvent :HealthyStateObservation_1 ;
+  rdfs:label "Test AM"^^xsd:string ;
+.

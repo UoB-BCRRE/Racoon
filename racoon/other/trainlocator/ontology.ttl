@@ -1,0 +1,153 @@
+# baseURI: http://purl.org/ub/demo/ontology/
+# imports: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://purl.org/ub/demo/ontology/> .
+@prefix core: <http://purl.org/rail/core/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt#> .
+@prefix rail: <http://purl.org/rail/ont/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res: <http://purl.org/rail/core/res/> .
+@prefix rs: <http://purl.org/rail/rs/> .
+@prefix rule: <tag:stardog:api:rule:> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix tzont: <http://www.w3.org/2006/timezone#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix ucv: <http://purl.org/ub/upper/cv/> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix upper: <http://purl.org/ub/upper/> .
+@prefix vocab: <http://purl.org/rail/core/> .
+@prefix wgspos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vocab:RailwayMileage
+  :preferredOver vocab:TrackCircuitLocation ;
+.
+vocab:TrackCircuitLocation
+  :preferredOver is:CrsLocation ;
+.
+is:mileage
+  owl:propertyChainAxiom (
+      is:tiploc
+      is:mileage
+    ) ;
+.
+is:tcPos
+  rdfs:range is:TrackCircuitLocation ;
+.
+:
+  rdf:type owl:Ontology ;
+  owl:imports p3d: ;
+  owl:imports vocab: ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:OperationalStation
+  rdf:type owl:Class ;
+  rdfs:label "Operational station"^^xsd:string ;
+  rdfs:subClassOf vocab:Station ;
+  owl:equivalentClass vocab:Station ;
+.
+:RedThing
+  rdf:type owl:Class ;
+  rdfs:label "Red thing"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Server
+  rdf:type owl:Class ;
+  rdfs:label "Server"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Session
+  rdf:type owl:Class ;
+  rdfs:label "Session"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Session_1
+  rdf:type :Session ;
+  :ip "192.180.13.1"^^xsd:string ;
+  :mData "true"^^xsd:boolean ;
+  :tcData "false"^^xsd:boolean ;
+  rdfs:label "Session 1"^^xsd:string ;
+.
+:colour
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "colour"^^xsd:string ;
+.
+:ip
+  rdf:type rdf:Property ;
+  rdfs:label "ip"^^xsd:string ;
+.
+:mData
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Session ;
+  rdfs:label "Mileage Datasource"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+:maxProgress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "max progress"^^xsd:string ;
+.
+:preferredOver
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "preferred location"^^xsd:string ;
+  rdfs:range owl:Class ;
+.
+:progress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "progress"^^xsd:string ;
+.
+:tcData
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Session ;
+  rdfs:label "tc data"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+wgspos:lat
+  owl:propertyChainAxiom (
+      is:tiploc
+      wgspos:lat
+    ) ;
+.
+wgspos:long
+  owl:propertyChainAxiom (
+      is:tiploc
+      wgspos:long
+    ) ;
+.
+[
+  rdf:type <tag:stardog:api:rule:SPARQLRule> ;
+  <tag:stardog:api:rule:content> """
+    PREFIX :<http://purl.org/rail/resource/>
+    PREFIX tt:<http://purl.org/rail/tt/>
+    PREFIX u:<http://purl.org/ub/upper/>
+    PREFIX is:<http://purl.org/rail/is/>
+    PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+IF {
+  ?node a tt:ServiceNode .
+  ?nodeloc is:mileage ?mileage .
+  ?tc a is:TrackCircuit .
+
+  ?tc is:minLocation ?minLoc .
+  ?minLoc is:mileage ?min .
+  ?tc is:maxLocation ?maxLoc .
+  ?maxLoc is:mileage ?max .
+  FILTER(?mileage < ?max && ?mileage > ?min)
+
+} THEN {
+  ?node is:tcPos ?tc .
+  }""" ;
+].

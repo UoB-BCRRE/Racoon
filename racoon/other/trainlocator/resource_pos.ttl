@@ -1,0 +1,178 @@
+# baseURI: http://purl.org/ub/demo/resource/
+# imports: http://purl.org/ub/demo/bags/
+# imports: http://purl.org/ub/demo/ontology/
+
+@prefix : <http://purl.org/ub/demo/resource/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix ontology: <http://purl.org/ub/demo/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix resource: <http://purl.org/rail/resource/> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vocab:RailwayMileage
+  u:relativeToLocation :London ;
+.
+is:mileage
+  rdfs:domain u:Location ;
+.
+resource:TCLocationSELYOAK
+  owl:sameAs resource:TiplocLocationSLYOAK ;
+.
+resource:TTService
+  rdf:type tt:ScheduledService ;
+  tt:serviceNode resource:TTService1000Node195 ;
+  tt:serviceNode resource:TTService1000Node196 ;
+  tt:serviceNode resource:TTService1000Node197 ;
+  tt:serviceNode resource:TTService1000Node198 ;
+  tt:serviceNode resource:TTService1000Node199 ;
+  tt:serviceNode resource:TTService1000Node200 ;
+  tt:serviceNode resource:TTService1000Node201 ;
+  tt:serviceNode resource:TTService1000Node202 ;
+  tt:serviceNode resource:TTService1000Node203 ;
+.
+resource:TiplocLocationSLYOAK
+  rdf:type is:TiplocLocation ;
+  rdfs:label "Tiploc location SLYOAK"^^xsd:string ;
+.
+tt:TTService1
+  tt:consist :TrainConsist1 ;
+  tt:serviceNode :ServiceNode ;
+.
+tt:TTService2
+  tt:serviceNode :Mileage1 ;
+.
+:
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/ub/demo/bags/> ;
+  owl:imports ontology: ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:BEMTrackCircuit1
+  rdf:type is:TrackCircuit ;
+  is:tcPos :BEMTrackCircuit1Pos ;
+  rdfs:label "BEMTrack circuit1"^^xsd:string ;
+.
+:BEMTrackCircuit1Pos
+  rdf:type is:TrackCircuit ;
+  rdf:type is:TrackCircuitLocation ;
+  is:elr :ELR1 ;
+  is:maxLocation :RMBound2 ;
+  is:minLocation :RMBound1 ;
+  rdfs:label "BEMTrack circuit1Pos"^^xsd:string ;
+.
+:BEMTrackCircuit2
+  rdf:type is:TrackCircuit ;
+  is:elr :ELR1 ;
+  is:tcPos :BEMTrackCircuit2Pos ;
+  rdfs:label "BEMTrack circuit2"^^xsd:string ;
+.
+:BEMTrackCircuit2Pos
+  rdf:type is:TrackCircuitLocation ;
+  is:elr :ELR1 ;
+  is:maxLocation :RMBound3 ;
+  is:minLocation :RMBound2 ;
+  rdfs:label "BEMTrack circuit2Pos"^^xsd:string ;
+.
+:BEMTrackCircuit3
+  rdf:type is:TrackCircuit ;
+  is:elr :ELR1 ;
+  is:tcPos :BEMTrackCircuit3Pos ;
+  rdfs:label "BEMTrack circuit3"^^xsd:string ;
+.
+:BEMTrackCircuit3Pos
+  rdf:type is:TrackCircuitLocation ;
+  is:elr :ELR1 ;
+  is:maxLocation :RMBound4 ;
+  is:minLocation :RMBound3 ;
+  rdfs:label "BEMTrack circuit3Pos"^^xsd:string ;
+.
+:Class390001
+  rdf:type tt:TrainConsist ;
+  rdfs:label "Class390001"^^xsd:string ;
+.
+:ELR1
+  rdf:type vocab:ELR ;
+  rdfs:label "ELR1"^^xsd:string ;
+.
+:London
+  rdf:type vocab:RailwayMileageRef ;
+  rdfs:label "London"^^xsd:string ;
+.
+:Mileage1
+  rdf:type tt:ServiceNode ;
+  is:mileage "38"^^xsd:decimal ;
+  rdfs:label "Mileage1"^^xsd:string ;
+.
+:Node1
+  rdf:type tt:ServiceNode ;
+  u:location :Node1Loc ;
+  rdfs:label "Node1"^^xsd:string ;
+.
+:Node1Loc
+  rdf:type vocab:RailwayMileage ;
+  is:elr :ELR1 ;
+  is:mileage "120"^^xsd:decimal ;
+.
+:RMBound1
+  rdf:type vocab:RailwayMileage ;
+  is:mileage "100"^^xsd:decimal ;
+  u:relativeToLocation :London ;
+  rdfs:label "RMBound1"^^xsd:string ;
+.
+:RMBound2
+  rdf:type vocab:RailwayMileage ;
+  is:mileage "140"^^xsd:decimal ;
+  u:relativeToLocation :London ;
+  rdfs:label "RMBound2"^^xsd:string ;
+.
+:RMBound3
+  rdf:type vocab:RailwayMileage ;
+  is:mileage "180"^^xsd:decimal ;
+  u:relativeToLocation :London ;
+  rdfs:label "RMBound3"^^xsd:string ;
+.
+:RMBound4
+  rdf:type vocab:RailwayMileage ;
+  is:mileage "220"^^xsd:decimal ;
+  u:relativeToLocation :London ;
+  rdfs:label "RMBound4"^^xsd:string ;
+.
+:Red
+  rdf:type owl:Thing ;
+  rdfs:label "Red"^^xsd:string ;
+.
+:RedThing_1
+  rdf:type ontology:RedThing ;
+  rdfs:label "Red thing 1"^^xsd:string ;
+.
+:ServiceA
+  rdf:type tt:PassengerServiceInstance ;
+  rdfs:label "Service a"^^xsd:string ;
+.
+:ServiceB
+  rdf:type tt:PassengerServiceInstance ;
+  rdfs:label "Service b"^^xsd:string ;
+.
+:ServiceC
+  rdf:type tt:PassengerServiceInstance ;
+  rdfs:label "Service c"^^xsd:string ;
+.
+:ServiceNode
+  rdf:type tt:ServiceNode ;
+  is:tcPos resource:TC10 ;
+  rdfs:label "Service node"^^xsd:string ;
+.
+:TrainConsist1
+  rdf:type tt:TrainConsist ;
+  rdfs:label "Train consist1"^^xsd:string ;
+.
+:TrainLocator
+  rdf:type ontology:Server ;
+  rdfs:label "Train locator"^^xsd:string ;
+.

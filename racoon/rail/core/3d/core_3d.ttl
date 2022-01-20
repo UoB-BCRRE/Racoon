@@ -1,0 +1,28 @@
+# baseURI: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+# imports: http://purl.org/rail/is/
+# imports: http://purl.org/rail/rs/
+# imports: http://purl.org/rail/tt/
+# imports: http://purl.org/ub/upper/3d/
+
+@prefix : <http://purl.org/rail/3d/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/ub/upper/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  owl:imports is: ;
+  owl:imports <http://purl.org/rail/rs/> ;
+  owl:imports tt: ;
+  owl:imports p3d: ;
+.

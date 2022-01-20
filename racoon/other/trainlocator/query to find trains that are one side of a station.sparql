@@ -1,0 +1,17 @@
+SELECT ?service ?nodeloc ?time WHERE {
+  BIND(<http://purl.org/rail/resource/SellyOakSLYStation> as ?station) .
+  ?station is:tiploc ?tiploc .
+  ?tiploc is:mileage ?tmiles .
+
+  ?tc a is:TrackCircuit ;
+   is:minLocation ?tiploc ;
+    demo:timing ?sTime .
+
+  ?service a tt:ServiceInstance ;
+    tt:serviceNode ?node.
+  ?node is:tcPos ?nodeloc .
+  ?nodeloc  demo:timing ?tTime ;
+   is:minLocation [is:mileage ?mileage] .
+  FILTER (?mileage <= ?tmiles) .
+  BIND ((sTime - ?tTime) AS ?time)
+}

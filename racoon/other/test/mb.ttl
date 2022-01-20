@@ -1,0 +1,76 @@
+@prefix :      <http://purl.org/rail/test/minsbetween#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rule:  <tag:stardog:api:rule:> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:loc1   a           :Thing_1 ;
+        rdfs:label  "loc1"^^xsd:string ;
+        :val        "Good Val"^^xsd:string .
+
+[] a rule:SPARQLRule ;
+   rule:content """
+     PREFIX : <http://purl.org/rail/test/minsbetween#>
+IF  {
+    ?station :someProperty ?thing .
+    ?thing a ?class .
+    ?class :priority ?p .
+?maxclass  :priority ?maxp.
+ OPTIONAL { ?emp rdf:type f:emp.
+            ?emp f:Sal ?sal.
+            FILTER ( ?sal > ?maxsal)
+          }.
+ FILTER (!bound (?sal))
+} THEN {
+    ?station :prefProp ?thing
+}""" .
+
+:StationB  a        :Station ;
+        rdfs:label  "Station b"^^xsd:string ;
+        :mins       10 .
+
+:priority  a        owl:DatatypeProperty ;
+        rdfs:label  "priority"^^xsd:string ;
+        rdfs:range  xsd:integer .
+
+:Thing_2_1  a       :Thing_2 ;
+        rdfs:label  "Thing 2 1"^^xsd:string ;
+        :val        "Better Val"^^xsd:string .
+
+:someProperty  a    owl:ObjectProperty ;
+        rdfs:label  "some property"^^xsd:string .
+
+:val    a           rdf:Property ;
+        rdfs:label  "val"^^xsd:string .
+
+:StationC  a        :Station ;
+        rdfs:label  "Station c"^^xsd:string ;
+        :mins       3 .
+
+:Thing_1  a         owl:Class ;
+        rdfs:label  "Thing 1"^^xsd:string ;
+        :priority   5 .
+
+:Station  a         owl:Class ;
+        rdfs:label  "Station"^^xsd:string .
+
+:StationA  a           :Station ;
+        rdfs:label     "Station a"^^xsd:string ;
+        :mins          5 ;
+        :someProperty  :Thing_2_1 , :loc1 .
+
+<http://purl.org/rail/test/minsbetween>
+        a                owl:Ontology ;
+        owl:versionInfo  "Created with TopBraid Composer"^^xsd:string .
+
+:mins   a           owl:DatatypeProperty ;
+        rdfs:label  "mins"^^xsd:string ;
+        rdfs:range  xsd:integer .
+
+:StationD  a        :Station ;
+        rdfs:label  "Station d"^^xsd:string .
+
+:Thing_2  a         owl:Class ;
+        rdfs:label  "Thing 2"^^xsd:string ;
+        :priority   10 .

@@ -1,0 +1,335 @@
+# baseURI: http://purl.org/rail/resource/
+# imports: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://purl.org/rail/resource/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rs: <http://purl.org/rail/rs/> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports p3d: ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports vocab: ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:Class390001
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390001"^^xsd:string ;
+.
+:Class390002
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390002"^^xsd:string ;
+.
+:Class390003
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390003"^^xsd:string ;
+.
+:Class390004
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390004"^^xsd:string ;
+.
+:Class390005
+  rdf:type rs:Class390Set ;
+  dc:title "Virgin City of Wolverhampton"^^xsd:string ;
+  rs:carriages 11 ;
+  rdfs:label "Class390005"^^xsd:string ;
+.
+:Class390006
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390006"^^xsd:string ;
+.
+:Class390007
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390007"^^xsd:string ;
+.
+:Class390008
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390008"^^xsd:string ;
+.
+:Class390009
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390009"^^xsd:string ;
+.
+:Class390010
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390010"^^xsd:string ;
+.
+:Class390011
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390011"^^xsd:string ;
+.
+:Class390012
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390012"^^xsd:string ;
+.
+:Class390013
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390013"^^xsd:string ;
+.
+:Class390014
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390014"^^xsd:string ;
+.
+:Class390015
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390015"^^xsd:string ;
+.
+:Class390016
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390016"^^xsd:string ;
+.
+:Class390017
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390017"^^xsd:string ;
+.
+:Class390018
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390018"^^xsd:string ;
+.
+:Class390019
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390019"^^xsd:string ;
+.
+:Class390020
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390020"^^xsd:string ;
+.
+:Class390021
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390021"^^xsd:string ;
+.
+:Class390022
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390022"^^xsd:string ;
+.
+:Class390023
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390023"^^xsd:string ;
+.
+:Class390024
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390024"^^xsd:string ;
+.
+:Class390025
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390025"^^xsd:string ;
+.
+:Class390026
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390026"^^xsd:string ;
+.
+:Class390027
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390027"^^xsd:string ;
+.
+:Class390028
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390028"^^xsd:string ;
+.
+:Class390029
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390029"^^xsd:string ;
+.
+:Class390030
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390030"^^xsd:string ;
+.
+:Class390031
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390031"^^xsd:string ;
+.
+:Class390032
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390032"^^xsd:string ;
+.
+:Class390033
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390033"^^xsd:string ;
+.
+:Class390034
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390034"^^xsd:string ;
+.
+:Class390035
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390035"^^xsd:string ;
+.
+:Class390036
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390036"^^xsd:string ;
+.
+:Class390037
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390037"^^xsd:string ;
+.
+:Class390038
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390038"^^xsd:string ;
+.
+:Class390039
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390039"^^xsd:string ;
+.
+:Class390040
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390040"^^xsd:string ;
+.
+:Class390041
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390041"^^xsd:string ;
+.
+:Class390042
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390042"^^xsd:string ;
+.
+:Class390043
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390043"^^xsd:string ;
+.
+:Class390044
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390044"^^xsd:string ;
+.
+:Class390045
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390045"^^xsd:string ;
+.
+:Class390046
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390046"^^xsd:string ;
+.
+:Class390047
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390047"^^xsd:string ;
+.
+:Class390048
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390048"^^xsd:string ;
+.
+:Class390049
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390049"^^xsd:string ;
+.
+:Class390050
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390050"^^xsd:string ;
+.
+:Class390051
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390051"^^xsd:string ;
+.
+:Class390052
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390052"^^xsd:string ;
+.
+:Class390053
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390053"^^xsd:string ;
+.
+:Class390055
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390055"^^xsd:string ;
+.
+:Class390056
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390056"^^xsd:string ;
+.
+:Class390057
+  rdf:type rs:Class390Set ;
+  rdfs:label "Class390057"^^xsd:string ;
+.
+:Class390Type
+  rdf:type owl:Class ;
+  dc:description ""^^xsd:string ;
+  rdfs:label ""^^xsd:string ;
+  rdfs:subClassOf rs:TypedVehicle ;
+.
+rs:vehicleLetter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "vehicle letter"^^xsd:string ;
+.
+rs:vehicleType
+  rdf:type rdf:Property ;
+  rdfs:label "vehicle type"^^xsd:string ;
+.
+u:capability
+  owl:propertyChainAxiom (
+      rs:comprisesVehicle
+      u:capability
+    ) ;
+.
+[
+  rdf:type owl:AllDifferent ;
+  owl:members (
+      :Class390001
+      :Class390002
+      :Class390003
+      :Class390004
+      :Class390005
+      :Class390006
+      :Class390007
+      :Class390008
+      :Class390009
+      :Class390010
+      :Class390011
+      :Class390012
+      :Class390013
+      :Class390014
+      :Class390015
+      :Class390016
+      :Class390017
+      :Class390018
+      :Class390019
+      :Class390020
+      :Class390021
+      :Class390022
+      :Class390023
+      :Class390024
+      :Class390025
+      :Class390026
+      :Class390027
+      :Class390028
+      :Class390029
+      :Class390030
+      :Class390031
+      :Class390032
+      :Class390033
+      :Class390034
+      :Class390035
+      :Class390036
+      :Class390037
+      :Class390038
+      :Class390039
+      :Class390040
+      :Class390041
+      :Class390042
+      :Class390043
+      :Class390044
+      :Class390045
+      :Class390046
+      :Class390047
+      :Class390048
+      :Class390049
+      :Class390050
+      :Class390051
+      :Class390052
+      :Class390053
+      :Class390055
+      :Class390056
+      :Class390057
+    ) ;
+].

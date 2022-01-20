@@ -1,0 +1,828 @@
+# baseURI: http://amaas-siemens.com/ontology/
+# imports: http://amaas-siemens.com/ontology/cv/
+# imports: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+# imports: http://purl.org/rail/is/
+# imports: http://purl.org/rail/tt/
+
+@prefix : <http://amaas-siemens.com/ontology/> .
+@prefix core: <http://purl.org/rail/4d/> .
+@prefix cv: <http://amaas-siemens.com/ontology/cv/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix tt: <http://purl.org/rail/tt/> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  spin:imports <http://topbraid.org/spin/rdfsplus> ;
+  rdfs:label "Amaas TBox"
+  rdfs:comment "FuTRO AMaaS T-box Ontology"@en ;
+  owl:imports cv: ;
+  owl:imports p3d: ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports vocab: ;
+  owl:imports <http://purl.org/rail/is/> ;
+  owl:imports tt: ;
+  owl:versionInfo "1.0.1"^^xsd:string ;
+.
+:AMaaSRedisStore
+  rdf:type :RedisStore ;
+  rdfs:label "AMaa SRedis store"^^xsd:string ;
+.
+:AcknowledgedCondition
+  rdf:type owl:Class ;
+  rdfs:label "Acknowledged condition"^^xsd:string ;
+  rdfs:subClassOf :Condition ;
+.
+:AcknowledgedObservation
+  rdf:type owl:Class ;
+  rdfs:label "Acknowledged observation"^^xsd:string ;
+  rdfs:subClassOf u:Observation ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:Observation
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :calculatedCondition ;
+            owl:someValuesFrom :AcknowledgedCondition ;
+          ]
+        ) ;
+    ] ;
+.
+:AssetMonitor
+  rdf:type owl:Class ;
+  rdfs:comment "Anything which acts in a capability as an asset monitor"^^xsd:string ;
+  rdfs:comment "Can either monitor something directly, or comprise a number of lower level monitors"^^xsd:string ;
+  rdfs:label "Asset Monitor"@en ;
+  rdfs:label "Asset Monitor"^^xsd:string ;
+  rdfs:subClassOf :AssetMonitoringConcept ;
+.
+:AssetMonitoringConcept
+  rdf:type owl:Class ;
+  rdfs:comment "Any concept to do with asset monitoring is subclassed from here"^^xsd:string ;
+  rdfs:label "Asset monitoring concept"^^xsd:string ;
+  rdfs:subClassOf vocab:RailwayDomainConcept ;
+.
+:BadCondition
+  rdf:type :FailedCondition ;
+  rdfs:label "Bad condition"^^xsd:string ;
+.
+:CelsiusMeasurement
+  rdf:type owl:Class ;
+  rdfs:comment "A measurement which is necessarily in celsius"^^xsd:string ;
+  rdfs:label "Celsius measurement"^^xsd:string ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue <http://qudt.org/vocab/unit#DegreeCelsius> ;
+      owl:onProperty u:unit ;
+    ] ;
+.
+:ColdCondition
+  rdf:type :FailedCondition ;
+  rdfs:label "Cold condition"^^xsd:string ;
+.
+:Condition
+  rdf:type owl:Class ;
+  rdfs:comment "Represents the possible condition of a thing"^^xsd:string ;
+  rdfs:label "Condition"^^xsd:string ;
+  rdfs:subClassOf :State ;
+.
+:ConditionObservation
+  rdf:type owl:Class ;
+  rdfs:label "Condition observation"^^xsd:string ;
+  rdfs:subClassOf u:Observation ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:Observation
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :observedCondition ;
+            owl:someValuesFrom :Condition ;
+          ]
+        ) ;
+    ] ;
+.
+:ConfigType
+  rdf:type owl:Class ;
+  rdfs:comment "Represents a Configuration for an Asset"^^xsd:string ;
+  rdfs:label "Config type"^^xsd:string ;
+  rdfs:subClassOf :MonitoringCapability ;
+.
+:ConstrainedSensor
+  rdf:type owl:Class ;
+  rdfs:comment "A sensor with a defined measurement type (i.e. can only output one type of measurement)"^^xsd:string ;
+  rdfs:label "Constrained sensor"^^xsd:string ;
+  rdfs:subClassOf :Sensor ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Sensor
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:measurementType ;
+            owl:someValuesFrom owl:Thing ;
+          ]
+        ) ;
+    ] ;
+.
+:CurrentSensor
+  rdf:type owl:Class ;
+  rdfs:label "Current sensor"^^xsd:string ;
+  rdfs:subClassOf :Sensor ;
+.
+:DetectionBouncedFaultCondition
+  rdf:type :FailedCondition ;
+  rdfs:label "Detection bounced fault condition"^^xsd:string ;
+.
+:Direction
+  rdf:type owl:Class ;
+  rdfs:label "Direction"^^xsd:string ;
+  rdfs:subClassOf :Enum ;
+.
+:EAssetMonitor
+  rdf:type owl:Class ;
+  rdfs:label "EAsset monitor"^^xsd:string ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:EI2MBox
+  rdf:type owl:Class ;
+  rdfs:label "EAsset monitor"^^xsd:string ;
+  rdfs:subClassOf :EAssetMonitor ;
+.
+:EPointEndMonitor
+  rdf:type owl:Class ;
+  rdfs:label "EPoint end monitor"^^xsd:string ;
+  rdfs:subClassOf :EVirtualMonitor ;
+.
+:EPointsMovement
+  rdf:type owl:Class ;
+  rdfs:comment "A Points Movement Analysis (for one swing)"^^xsd:string ;
+  rdfs:comment "Should possess: a number of sensors, a direction, some analysis, and a way of finding the raw data."^^xsd:string ;
+  rdfs:subClassOf :MonitorEvent ;
+.
+:ERailwayAsset
+  rdf:type owl:Class ;
+  rdfs:label "Railway asset"^^xsd:string ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:ETrackCircuitMonitor
+  rdf:type owl:Class ;
+  rdfs:label "ETrack circuit monitor"^^xsd:string ;
+  rdfs:subClassOf :EAssetMonitor ;
+.
+:EVirtualMonitor
+  rdf:type owl:Class ;
+  rdfs:comment "A virtual entity to provision assets being monitored through aggregators"@en ;
+  rdfs:label "Virtual monitor"^^xsd:string ;
+  rdfs:subClassOf :EAssetMonitor ;
+  owl:disjointWith :EI2MBox ;
+.
+:EWILD
+  rdf:type owl:Class ;
+  rdfs:comment "Wheel Impact Load Detector"^^xsd:string ;
+  rdfs:label "Wheel Impact Load Detector"^^xsd:string ;
+  rdfs:subClassOf :EAssetMonitor ;
+.
+:EWILDEvent
+  rdf:type owl:Class ;
+  rdfs:comment "Should have: a startTime, a number of wheelImpact measurements, an associated monitor"^^xsd:string ;
+  rdfs:label "Wheel Impact Load Detector Event"^^xsd:string ;
+  rdfs:subClassOf :MonitorEvent ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:measurement ;
+      owl:someValuesFrom [
+          rdf:type owl:Class ;
+          owl:intersectionOf (
+              :IndexedMeasurement
+              :WheelImpactMeasurement
+            ) ;
+        ] ;
+    ] ;
+.
+:Enum
+  rdf:type owl:Class ;
+  rdfs:label "Enum"^^xsd:string ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:ExternalStoreObject
+  rdf:type owl:Class ;
+  rdfs:label "External store object"^^xsd:string ;
+  rdfs:subClassOf u:DataConcept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :key ;
+      owl:someValuesFrom rdf:PlainLiteral ;
+    ] ;
+.
+:FailedCondition
+  rdf:type owl:Class ;
+  rdfs:label "Failed condition"^^xsd:string ;
+  rdfs:subClassOf :Condition ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue 2 ;
+      owl:onProperty :healthPriority ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Failed"^^xsd:string ;
+      owl:onProperty :viewClass ;
+    ] ;
+.
+:FailedStateObservation
+  rdf:type owl:Class ;
+  rdfs:label "Failed state observation"^^xsd:string ;
+  rdfs:subClassOf u:Observation ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Failed"^^xsd:string ;
+      owl:onProperty :viewClass ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :ConditionObservation
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :observedCondition ;
+            owl:someValuesFrom :FailedCondition ;
+          ]
+        ) ;
+    ] ;
+.
+:Fault
+  rdf:type owl:Class ;
+  rdfs:comment "Generic fault state"^^xsd:string ;
+  rdfs:label "Fault concept"^^xsd:string ;
+  rdfs:subClassOf :State ;
+.
+:FaultyState
+  rdf:type :State ;
+  rdfs:label "Faulty state"^^xsd:string ;
+.
+:FullyWorkingCondition
+  rdf:type :HealthyCondition ;
+  rdfs:label "Fully working condition"^^xsd:string ;
+.
+:GoodCondition
+  rdf:type :HealthyCondition ;
+  rdfs:label "Good condition"^^xsd:string ;
+.
+:HealthyCondition
+  rdf:type owl:Class ;
+  rdfs:label "Healthy condition"^^xsd:string ;
+  rdfs:subClassOf :Condition ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue 1 ;
+      owl:onProperty :healthPriority ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Healthy"^^xsd:string ;
+      owl:onProperty :viewClass ;
+    ] ;
+.
+:HealthyState
+  rdf:type :State ;
+  rdfs:label "Healthy state"^^xsd:string ;
+.
+:HealthyStateObservation
+  rdf:type owl:Class ;
+  rdfs:label "Healthy state observation"^^xsd:string ;
+  rdfs:subClassOf u:Observation ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue "Healthy"^^xsd:string ;
+      owl:onProperty :viewClass ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :ConditionObservation
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :observedCondition ;
+            owl:someValuesFrom :HealthyCondition ;
+          ]
+        ) ;
+    ] ;
+.
+:HighWILD
+  rdf:type :FailedCondition ;
+  rdfs:label "WILDFault"^^xsd:string ;
+.
+:HotCondition
+  rdf:type :FailedCondition ;
+  rdfs:label "Hot condition"^^xsd:string ;
+.
+:I2MBox
+  rdf:type owl:Class ;
+  rdfs:comment "Class of Siemens I2M points monitoring equipment"^^xsd:string ;
+  rdfs:label "I2MBox"^^xsd:string ;
+  rdfs:subClassOf :AssetMonitor ;
+.
+:IDStore
+  rdf:type owl:Class ;
+  rdfs:label "IDStore"^^xsd:string ;
+  rdfs:subClassOf vocab:IdentityConcept ;
+.
+:IndexedMeasurement
+  rdf:type owl:Class ;
+  rdfs:label "Indexed measurement"^^xsd:string ;
+  rdfs:subClassOf u:Measurement ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:ContinuousMeasurement
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:index ;
+            owl:someValuesFrom xsd:integer ;
+          ]
+        ) ;
+    ] ;
+.
+:LHS
+  rdf:type :WILDSide ;
+  rdfs:label "LHS"^^xsd:string ;
+.
+:MonitorEvent
+  rdf:type owl:Class ;
+  rdfs:subClassOf u:IndependentThing ;
+.
+:MonitoringCapability
+  rdf:type owl:Class ;
+  rdfs:label "Monitoring capability"^^xsd:string ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:MovementAnalysisKey
+  rdf:type owl:Class ;
+  rdfs:label "Movement analysis key"^^xsd:string ;
+  rdfs:subClassOf :externalStoreObject ;
+.
+:MovementRecordObject
+  rdf:type owl:Class ;
+  rdfs:comment "An observation about a points movement"^^xsd:string ;
+  rdfs:label "Movement record object"^^xsd:string ;
+  rdfs:subClassOf u:Observation ;
+.
+:NormalDirection
+  rdf:type :Direction ;
+  rdfs:label "Normal direction"^^xsd:string ;
+.
+:OfflineCondition
+  rdf:type :Condition ;
+  rdfs:label "Offline condition"^^xsd:string ;
+.
+:OnlineCondition
+  rdf:type :Condition ;
+  rdfs:label "Online condition"^^xsd:string ;
+.
+:RHS
+  rdf:type :WILDSide ;
+  rdfs:label "RHS"^^xsd:string ;
+.
+:RailwayAsset
+  rdf:type owl:Class ;
+  rdfs:label "Railway asset"^^xsd:string ;
+  rdfs:subClassOf vocab:RailwayDomainConcept ;
+.
+:Redis
+  rdf:type :StoreType ;
+  rdfs:label "Redis"^^xsd:string ;
+.
+:RedisStore
+  rdf:type owl:Class ;
+  rdfs:label "Redis store"^^xsd:string ;
+  rdfs:subClassOf :IDStore ;
+.
+:ReverseDirection
+  rdf:type :Direction ;
+  rdfs:label "Reverse direction"^^xsd:string ;
+.
+:SensingCapability
+  rdf:type owl:Class ;
+  rdfs:label "Sensing capability"^^xsd:string ;
+  rdfs:subClassOf u:Characteristic ;
+.
+:Sensor
+  rdf:type owl:Class ;
+  rdfs:subClassOf u:DomainSpecificThing ;
+.
+:State
+  rdf:type owl:Class ;
+  rdfs:label "Condition concept"^^xsd:string ;
+  rdfs:subClassOf u:DependentThing ;
+.
+:StoreType
+  rdf:type owl:Class ;
+  rdfs:label "Store type"^^xsd:string ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:TCMonitor1
+  rdf:type :ETrackCircuitMonitor ;
+  rdfs:label "TCMonitor1"^^xsd:string ;
+.
+:TemperatureCelsiusSensor
+  rdf:type owl:Class ;
+  rdfs:label "Temperature celsius sensor"^^xsd:string ;
+  rdfs:subClassOf :Sensor ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :TemperatureSensor
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :observation ;
+            owl:someValuesFrom :CelsiusMeasurement ;
+          ]
+        ) ;
+    ] ;
+.
+:TemperatureSensingCapability
+  rdf:type owl:Class ;
+  rdfs:label "Temperature sensing capability"^^xsd:string ;
+  rdfs:subClassOf :SensingCapability ;
+.
+:TemperatureSensor
+  rdf:type owl:Class ;
+  rdfs:label "Temperature sensor"^^xsd:string ;
+  rdfs:subClassOf :Sensor ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Sensor
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:measurementType ;
+            owl:someValuesFrom [
+                rdf:type owl:Class ;
+                owl:intersectionOf (
+                    u:Unit
+                    [
+                      rdf:type owl:Restriction ;
+                      owl:onProperty u:quantityKind ;
+                      owl:someValuesFrom owl:Thing ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+.
+:UnknownDirection
+  rdf:type :Direction ;
+  rdfs:label "Unknown direction"^^xsd:string ;
+.
+:VirtualMonitor
+  rdf:type owl:Class ;
+  rdfs:comment "A virtual entity to provision assets being monitored through aggregators"@en ;
+  rdfs:label "Virtual monitor"^^xsd:string ;
+  rdfs:subClassOf :AssetMonitor ;
+  owl:disjointWith :I2MBox ;
+.
+:VirtualMonitor_1
+  rdf:type :VirtualMonitor ;
+  rdfs:label "Virtual monitor 1"^^xsd:string ;
+.
+:VirtualMonitor_2
+  rdf:type :VirtualMonitor ;
+  rdfs:label "Virtual monitor 2"^^xsd:string ;
+.
+:WILDSide
+  rdf:type owl:Class ;
+  rdfs:label "WILDSide"^^xsd:string ;
+  rdfs:subClassOf :Enum ;
+.
+:WheelImpactMeasurement
+  rdf:type owl:Class ;
+  rdfs:comment ":observedEvent some :EWILDEvent"^^xsd:string ;
+  rdfs:label "Wheel impact measurement"^^xsd:string ;
+  rdfs:subClassOf u:ContinuousMeasurement ;
+.
+:WheelImpactMeasurementInKN
+  rdf:type owl:Class ;
+  rdfs:label "Wheel impact measurement in KN"^^xsd:string ;
+  rdfs:subClassOf :WheelImpactMeasurement ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue <http://qudt.org/vocab/unit#KiloNewton> ;
+      owl:onProperty u:unit ;
+    ] ;
+.
+:WheelImpactSensor
+  rdf:type owl:Class ;
+  rdfs:subClassOf :Sensor ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :Sensor
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:measurementType ;
+            owl:someValuesFrom [
+                rdf:type owl:Class ;
+                owl:intersectionOf (
+                    u:Unit
+                    [
+                      rdf:type owl:Restriction ;
+                      owl:onProperty u:quantityKind ;
+                      owl:someValuesFrom owl:Thing ;
+                    ]
+                  ) ;
+              ] ;
+          ]
+        ) ;
+    ] ;
+.
+:associatedObservation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An indirect observation of an entity (through another monitoring method etc) {@en} - this is how assets are linked to their observations through assetmonitors"^^xsd:string ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "associated observation"^^xsd:string ;
+  rdfs:range u:Observation ;
+  owl:propertyChainAxiom (
+      :monitoredBy
+      :observedEvent
+    ) ;
+.
+:calculatedCondition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Condition of a piece of equipment, asserted or inferred by anything. Used by EPointsMovement"@en ;
+  rdfs:domain :ERailwayAsset ;
+  rdfs:label "calculatedCondition"^^xsd:string ;
+  rdfs:range :State ;
+.
+:compositeMonitoredBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain vocab:RailwayAssetConcept ;
+  rdfs:label "composite monitored by"^^xsd:string ;
+  rdfs:range :EAssetMonitor ;
+.
+:compositeMonitors
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Represents the relation between a monitoring device and the individual to be monitored, through composition"@en ;
+  rdfs:domain :EAssetMonitor ;
+  rdfs:label "aggregate monitors"^^xsd:string ;
+  rdfs:range vocab:RailwayAssetConcept ;
+  rdfs:subPropertyOf u:endurantProperty ;
+  owl:inverseOf :compositeMonitoredBy ;
+  owl:propertyChainAxiom (
+      u:functionallyComprises
+      :monitors
+    ) ;
+.
+:configType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "configType"^^xsd:string ;
+  rdfs:domain :I2MBox ;
+  rdfs:label "config type"^^xsd:string ;
+  rdfs:range :ConfigType ;
+.
+:dependsOn
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:comment "Conveys a status reliance on the object (i.e. if the object is faulty, the subject must be faulty)"^^xsd:string ;
+  rdfs:label "depends on"^^xsd:string ;
+.
+:direction
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "direction"^^xsd:string ;
+  rdfs:range :Direction ;
+.
+:endTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf <http://www.w3.org/2006/time#inXSDDateTime> ;
+.
+:externalStoreObject
+  rdf:type owl:Class ;
+  rdfs:comment "Object to store references to keys in external stores (e.g. Redis)"^^xsd:string ;
+  rdfs:label "external ID"^^xsd:string ;
+  rdfs:subClassOf vocab:IdentityConcept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :key ;
+      owl:someValuesFrom rdf:PlainLiteral ;
+    ] ;
+.
+:fault
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:Thing ;
+  rdfs:domain u:EndurantThing ;
+  rdfs:label "fault"^^xsd:string ;
+  rdfs:range :Fault ;
+  rdfs:subPropertyOf u:endurantProperty ;
+.
+:healthPriority
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "health priority"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+:iPv4
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "IPv4 Address"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+:key
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "key"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+:monitoredBy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ERailwayAsset ;
+  rdfs:label "monitored by"^^xsd:string ;
+  rdfs:range :EAssetMonitor ;
+  rdfs:subPropertyOf u:endurantProperty ;
+  owl:inverseOf :monitors ;
+.
+:monitors
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Directly monitors an asset (timeslice)"^^xsd:string ;
+  rdfs:domain :EAssetMonitor ;
+  rdfs:label "monitors"^^xsd:string ;
+  rdfs:range :ERailwayAsset ;
+  rdfs:subPropertyOf u:endurantProperty ;
+  owl:inverseOf :monitoredBy ;
+.
+:movementRecordObject
+  rdf:type owl:ObjectProperty ;
+  vocab:designComment "'movementRecordObject' should be refactored to something more generic asap - JT 15/06/14"@en ;
+  rdfs:comment "the movement record associated with a particular asset or monitor"@en ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "movement record object"^^xsd:string ;
+  rdfs:range :MovementRecordObject ;
+.
+:observation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "observation"^^xsd:string ;
+  rdfs:range u:Measurement ;
+  owl:inverseOf :observationOf ;
+.
+:observationOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "observation of"^^xsd:string ;
+.
+:observedCondition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Condition of a piece of equipment"@en ;
+  rdfs:domain :EAssetMonitor ;
+  rdfs:label "condition"^^xsd:string ;
+  rdfs:range :State ;
+.
+:observedEvent
+  rdf:type owl:ObjectProperty ;
+  doc:example "'EAssetMonitorX' observedEvent 'EventX' (hasSensor 'Y' hasFault 'X')"^^xsd:string ;
+  rdfs:domain :AssetMonitor ;
+  rdfs:range u:Observation ;
+  owl:inverseOf :observedEventOf ;
+.
+:observedEventOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain u:Observation ;
+  rdfs:label "Pattern for observation of things like Movement IDs in AMaaS ontology - allows movement IDs to relate themselves to their respective asset monitors"^^xsd:string ;
+  rdfs:range :AssetMonitor ;
+.
+:physicallyAttached
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:range u:IndependentThing ;
+  rdfs:subPropertyOf u:endurantProperty ;
+.
+:redisID
+  rdf:type owl:Class ;
+  rdfs:label "redis ID"^^xsd:string ;
+  rdfs:subClassOf :externalStoreObject ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:hasValue :Redis ;
+      owl:onProperty :storeType ;
+    ] ;
+.
+:sensor
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "sensor"^^xsd:string ;
+  rdfs:range :Sensor ;
+.
+:startTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:subPropertyOf <http://www.w3.org/2006/time#inXSDDateTime> ;
+.
+:storeType
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "store type"^^xsd:string ;
+  rdfs:range :IDStore ;
+.
+:timeXSD
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:dateTime ;
+.
+:viewClass
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "view class"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+:wildSide
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain u:IndependentThing ;
+  rdfs:label "wild side"^^xsd:string ;
+  rdfs:range :WILDSide ;
+.
+<http://amaas-siemens.com/resource/CelsiusMeasurement_1>
+  :observationOf <http://amaas-siemens.com/resource/TemperatureSensor_1> ;
+.
+<http://amaas-siemens.com/resource/TM14BLoWNodes11>
+  :dependsOn <http://amaas-siemens.com/resource/TM14BPoints1> ;
+.
+<http://amaas-siemens.com/resource/TM14BLoWNodes12>
+  :dependsOn <http://amaas-siemens.com/resource/TM14BPoints2> ;
+.
+<http://amaas-siemens.com/resource/TM14BLoWNodes7>
+  :dependsOn <http://amaas-siemens.com/resource/TM14BPoints16> ;
+.
+<http://amaas-siemens.com/resource/TM14BLoWNodes8>
+  :dependsOn <http://amaas-siemens.com/resource/TM14BPoints0> ;
+.
+vocab:RailwayAssetConcept
+  rdfs:subClassOf :RailwayAsset ;
+.
+vocab:RailwayDomainConcept
+  rdfs:subClassOf u:ContinuantThing ;
+.
+vocab:capability
+  owl:propertyChainAxiom (
+      vocab:capability
+      vocab:capability
+    ) ;
+.
+u:measurementType
+  rdfs:comment "Use punning to link a class of measurement type to the subject of this property (e.g. temperature)"^^xsd:string ;
+  rdfs:label "Measurement Type"@en ;
+.
+<http://www.w3.org/ns/prov#Activity>
+  rdf:type owl:Class ;
+  rdfs:label "Activity"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#Agent>
+  rdf:type owl:Class ;
+  rdfs:label "Agent"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#Dictionary>
+  rdf:type owl:Class ;
+  rdfs:label "Dictionary"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#Entity>
+  rdf:type owl:Class ;
+  rdfs:label "Entity"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#Influence>
+  rdf:type owl:Class ;
+  rdfs:label "Influence"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#InstantaneousEvent>
+  rdf:type owl:Class ;
+  rdfs:label "Instantaneous event"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#Location>
+  rdf:type owl:Class ;
+  rdfs:label "Location"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+<http://www.w3.org/ns/prov#Role>
+  rdf:type owl:Class ;
+  rdfs:label "Role"^^xsd:string ;
+  rdfs:subClassOf u:ProvenanceConcept ;
+.
+[
+  rdf:type owl:AllDifferent ;
+  owl:members (
+      :NormalDirection
+      :ReverseDirection
+      :UnknownDirection
+    ) ;
+].

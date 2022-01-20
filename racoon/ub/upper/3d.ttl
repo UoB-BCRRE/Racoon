@@ -1,0 +1,77 @@
+# baseURI: http://purl.org/ub/upper/3d/
+# imports: http://purl.org/ub/upper/
+
+@prefix : <http://purl.org/ub/upper/3d/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports u: ;
+  rdfs:label "The variant of the upper ontology to use with the 3D Paradigm"@en ;
+.
+:TemporallyPlacedEndurant
+  rdf:type owl:Class ;
+  doc:partofODP :ThreeDODP ;
+  rdfs:comment "The class of obejcts with information in the 3D Paradigm"^^xsd:string ;
+  rdfs:label "Temporally-placed Endurrant"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :from ;
+            owl:someValuesFrom :TimeInstant ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty :to ;
+            owl:someValuesFrom :TimeInstant ;
+          ]
+        ) ;
+    ] ;
+.
+:ThreeDODP
+  rdf:type doc:ODP ;
+  rdfs:comment "Ternary-relations based 3D Time Representation ODP"^^xsd:string ;
+  rdfs:label "3D Temporal Representation ODP"^^xsd:string ;
+.
+:TimeInstant
+  rdf:type owl:Class ;
+  rdfs:comment "The class of described time instants"@en ;
+  rdfs:label "Time Instant"^^xsd:string ;
+  rdfs:subClassOf u:DataConcept ;
+.
+:XSDTimeInstant
+  rdf:type owl:Class ;
+  rdfs:label "XSD Time Instant"^^xsd:string ;
+  rdfs:subClassOf :TimeInstant ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:Measurement
+          [
+            rdf:type owl:Restriction ;
+            owl:onProperty u:measurementValue ;
+            owl:someValuesFrom xsd:dateTime ;
+          ]
+        ) ;
+    ] ;
+.
+:from
+  rdf:type owl:ObjectProperty ;
+  doc:partofODP :ThreeDODP ;
+  rdfs:domain owl:Thing ;
+  rdfs:range :TimeInstant ;
+.
+:to
+  rdf:type owl:ObjectProperty ;
+  doc:partofODP :ThreeDODP ;
+  rdfs:domain owl:Thing ;
+  rdfs:range :TimeInstant ;
+.

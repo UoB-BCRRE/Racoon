@@ -1,0 +1,87 @@
+:USP_Intervention   rdf:type    iv:RailIntervention;
+                    rdfs:label  "Under-sleeper pads intervention";
+                    rdfs:comment "Results may vary with USP stiffness"
+                    iv:quantitativeBenefit  "Reduced ground-borne noise and vibration, possible reduction of M&R needs, improved ride quality and comfort";
+                    iv:quantitativeDisbenefit "Possible increase in air-borne noise with resilient USPs";
+                    iv:qualitativeFactor    :USP_stiffness;
+                    iv:input :USP;
+                    iv:input :noise_data;
+                    iv:input :ride_quality;
+                    iv:output :USP_capital_cost;
+                    iv:output :change_to_mr;
+                    iv:output :change_to_ride_quality;
+                    iv:output :change_to_noise_and_vibration;
+                    iv:output :financial_NPVs;
+                    iv:output :change_in_ground_borne_noise;
+                    iv:output :change_in_air_borne_noise
+                    .
+
+# Input
+
+:USP    rdf:type iv:Entity;
+        rdfs:label "under-sleeper pads";
+        iv:interventionCost :USP_cost;
+        iv:hasCharacteristic :USP_stiffness;
+        .
+
+
+:USP_stiffness  rdf:type iv:Characteristic;
+                rdfs:label "USP stiffness";
+                # Imaginary value - only for demonstration purpose
+                iv:hasValue "123"^^xsd:float.
+
+
+:USP_cost   rdf:type iv:UnitCostData;
+            iv:perUnitCost "15"^^xsd:float;
+            # Imaginary value - only for demonstration purpose
+            iv:amount "400"^^xsd:integer;
+            iv:totalUnitCost "6000"^^xsd:float;
+            iv:currency unit:PoundSterling.
+
+
+
+:noise_data rdf:type iv:NoiseData;
+            rdfs:label "Noise data";
+            # Imaginary value - only for demonstration purpose
+            iv:airborneAmbientNoiseLevel "123"^^unit:DeciB
+            iv:groundborneAmbientNoiseLevel "123"^^unit:DeciB.
+
+:ride_quality   rdf:type iv:RideQuality;
+                rdfs:label "ride quality";
+                # Imaginary value - only for demonstration purpose
+                iv:hasValue "2"^^xsd:float.
+
+# ------------------------------------------------------------------------
+# Ouput
+:USP_capital_cost   rdf:type iv:CalculatedCosts;
+                    iv:hasValue "-6000"^^xsd:float;
+                    iv:currency unit:PoundSterling.
+
+:change_to_mr rdf:type iv:CalculatedOperatorBenefits;
+        iv:hasValue "35882445.08"^^xsd:float;
+        iv:currency unit:PoundSterling.
+
+:change_to_ride_quality rdf:type iv:CalculatedUserBenefits;
+                        iv:hasValue "102822855.55"^^xsd:float;
+                        iv:currency unit:PoundSterling.
+
+:change_to_noise_and_vibration  rdf:type iv:CalculatedNonUserBenefits;
+                                iv:hasValue "127210000"^^xsd:float;
+                                iv:currency unit:PoundSterling.
+:financial_NPVs rdf:type iv:ResultOfFinancialCostBenefitAnalysis;
+                iv:hasValue "29882445"^^xsd:float;
+                iv:currency unit:PoundSterling.
+
+:social_NPVs    rdf:type iv:ResultsOfSocialCostBenefitAnalysis;
+                iv:hasValue "194945301"^^xsd:float;
+                iv:currency unit:PoundSterling.
+
+:change_in_ground_borne_noise   rdf:type iv:CalculatedNonUserBenefits;
+                                iv:hasValue "127210000"^^xsd:float;
+                                iv:currency unit:PoundSterling.
+
+:change_in_air_borne_noise  rdf:type iv:CalculatedNonUserBenefits;
+                            iv:hasValue "-64970000"^^xsd:float;
+                            iv:currency unit:PoundSterling.
+
+# ------------------------------------------------------------------------

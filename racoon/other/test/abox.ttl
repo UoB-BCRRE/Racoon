@@ -1,0 +1,36 @@
+# baseURI: http://railway.bham.ac.uk/resource/
+# imports: http://purl.org/rail/core/vocab/
+# imports: http://purl.org/ub/upper/
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix : <http://railway.bham.ac.uk/resource/> .
+@prefix core: <http://purl.org/rail/core/vocab/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix upper: <http://purl.org/ub/upper/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  spin:imports <http://topbraid.org/spin/rdfsplus> ;
+  spin:imports <http://topbraid.org/spin/spinowl> ;
+  owl:imports core: ;
+  owl:imports upper: ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:ADemoTrainStation
+  rdf:type core:FunctionalRailwayThing ;
+  rdfs:label "ADemo train station"^^xsd:string ;
+.
+:ReadingTrainStation
+  rdf:type core:InfraStation ;
+  rdf:type upper:FunctionalThing ;
+  rdfs:label "Reading train station"^^xsd:string ;
+.
+:SpacioTemporalThing_1
+  rdf:type upper:EndurantThing ;
+.

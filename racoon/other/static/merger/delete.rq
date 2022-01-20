@@ -1,0 +1,15 @@
+DELETE {?service ?badPred ?badObj . ?node ?badNPred ?badNObj} WHERE  {
+  	?service a tt:ScheduledService .
+  	?service ?badPred ?badObj .
+  	?service tt:serviceNode ?node .
+  	?node ?badNPred ?badNObj .
+  
+  	MINUS {
+		?service a tt:PassengerService .
+		?service tt:runningDay time:Monday .
+		?service tt:serviceNode ?node .
+		?node tt:ttOrder ?time .
+		?node u:location :TiplocCOVNTRY .
+		FILTER(?time > "12:00:00Z"^^xsd:time && ?time < "12:30:00Z"^^xsd:time)
+	}
+}

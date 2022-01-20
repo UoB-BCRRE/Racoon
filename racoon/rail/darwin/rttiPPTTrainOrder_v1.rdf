@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/"
+     xml:base="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/"
+     xmlns:ct="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1">
+        <owl:imports rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/clear -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/clear">
+        <rdfs:comment>Clear the current train order</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/first -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/first">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderData"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:comment>The first train in the train order.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/hasCircularTimes -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/hasCircularTimes">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CircularTimes"/>
+        <rdfs:comment>One or more scheduled times to identify the instance of the location in the train schedule for which the train order is set.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/second -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/second">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderData"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:comment>The second train in the train order.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/set -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/set">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/setTrainOrder"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/third -->
+
+    <owl:ObjectProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/third">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderData"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:comment>The third train in the train order.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/crs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/crs">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CrsType"/>
+        <rdfs:comment>The CRS code of the station where the train order applies</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/platform -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/platform">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/PlatformType"/>
+        <rdfs:comment>The platform number where the train order applies</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/rid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/rid">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RIDType"/>
+        <rdfs:comment>For trains in the train order where the train is the Darwin timetable, it will be identified by its RID</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/tiploc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/tiploc">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TiplocType"/>
+        <rdfs:comment>The tiploc where the train order applies</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/trainID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/trainID">
+        <rdfs:domain rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:range rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TrainIdType"/>
+        <rdfs:comment>Where a train in the train order is not in the Darwin timetable, a Train ID (headcode) will be supplied</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder">
+        <rdfs:comment>Defines the expected Train order at a platform</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderData -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderData">
+        <rdfs:comment>Defines the sequence of trains making up the train order</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem">
+        <rdfs:comment>Describes the identifier of a train in the train order</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/clearTrainOrder -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/clearTrainOrder">
+        <rdfs:subClassOf rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/ridTrainOrderItem -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/ridTrainOrderItem">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/hasCircularTimes"/>
+                <owl:someValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/CircularTimes"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/rid"/>
+                <owl:someValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/RIDType"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:comment>For trains in the train order where the train is the Darwin timetable, it will be identified by its RID</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/setTrainOrder -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/setTrainOrder">
+        <rdfs:subClassOf rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/trainIDTrainOrderItem -->
+
+    <owl:Class rdf:about="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/trainIDTrainOrderItem">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/trainID"/>
+                <owl:someValuesFrom rdf:resource="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v1/TrainIdType"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.thalesgroup.com/rtti/PushPort/TrainOrder/v1/TrainOrderItem"/>
+        <rdfs:comment>Where a train in the train order is not in the Darwin timetable, a Train ID (headcode) will be supplied</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

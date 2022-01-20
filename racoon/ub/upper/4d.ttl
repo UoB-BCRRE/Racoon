@@ -1,0 +1,95 @@
+# baseURI: http://purl.org/ub/upper/4d/
+# imports: http://purl.org/ub/upper/
+
+@prefix : <http://purl.org/ub/upper/4d/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix upper: <http://purl.org/ub/upper/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports upper: ;
+  rdfs:label "The variant of the upper ontology to use with the 4D Paradigm"@en ;
+.
+:ContinuantThing
+  rdf:type owl:Class ;
+  doc:alsoKnownAs "BFO: SPAN Entity"@en ;
+  doc:alsoKnownAs "ISO15926-2: PossibleThing"@en ;
+  doc:partofODP upper:FourDFluentsODP ;
+  rdfs:label "Continuant Thing"@en ;
+  rdfs:label "Continuant Thing"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+  prov:wasAttributedTo upper:JonTutcher ;
+  prov:wasDerivedFrom upper:ISO15926 ;
+  prov:wasGeneratedBy upper:UpperOntologyCreationActivity ;
+.
+:EndurantThing
+  rdf:type owl:Class ;
+  doc:alsoKnownAs "BFO: SNAP Entity"@en ;
+  doc:alsoKnownAs "ISO15926-2: PossibleThing"@en ;
+  doc:partofODP upper:FourDFluentsODP ;
+  rdfs:comment "The spacio-temporal (endurant) extent of a physical thing. e.g. :StationX a :PhysicalThing, :TimeT a :TimeInterval, :StationX@TimeT a :EndurantThing"@en ;
+  rdfs:label "Actual Spacio-Temporal Thing"@en ;
+  rdfs:label "Endurant Thing"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom <http://www.w3.org/2006/time#TemporalEntity> ;
+      owl:onProperty upper:timeInterval ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty upper:timeInterval ;
+      owl:someValuesFrom <http://www.w3.org/2006/time#TemporalEntity> ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty upper:timeSliceOf ;
+      owl:someValuesFrom upper:ContinuantThing ;
+    ] ;
+  prov:wasAttributedTo upper:JonTutcher ;
+  prov:wasDerivedFrom upper:ISO15926 ;
+  prov:wasGeneratedBy upper:UpperOntologyCreationActivity ;
+.
+:endurantProperty
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Any property which is between two endurant entities"@en ;
+  rdfs:label "endurant property"^^xsd:string ;
+.
+:timeSlice
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Relationship between abstract idea of object (PhysicalThing) and spacio-temporal instantiation of thing (SpacioTemporalThing). e.g. TrainStationX :timeSlice :TrainStationX@TimeT"@en ;
+  rdfs:label "Time Slice"@en ;
+  rdfs:label "Timeslice"^^xsd:string ;
+  owl:inverseOf :timeSliceOf ;
+  prov:wasAttributedTo upper:JonTutcher ;
+  prov:wasDerivedFrom upper:ISO15926 ;
+  prov:wasGeneratedBy upper:UpperOntologyCreationActivity ;
+.
+:timeSliceOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Time Slice Of"@en ;
+  rdfs:label "Timeslice of"^^xsd:string ;
+  prov:wasAttributedTo upper:JonTutcher ;
+  prov:wasDerivedFrom upper:ISO15926 ;
+  prov:wasGeneratedBy upper:UpperOntologyCreationActivity ;
+.
+upper:ContinuantThing
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty upper:timeSlice ;
+      owl:someValuesFrom :EndurantThing ;
+    ] ;
+.
+upper:endurantProperty
+  rdfs:domain :EndurantThing ;
+  rdfs:range :EndurantThing ;
+.
+upper:timeSliceOf
+  rdfs:domain :EndurantThing ;
+  rdfs:range :ContinuantThing ;
+.

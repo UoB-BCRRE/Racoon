@@ -1,0 +1,3825 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/ml"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/ml">
+    <Prefix name="" IRI="http://www.semanticweb.org/ml#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="ml" IRI="http://www.semanticweb.org/ml#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal>Jingfu Wei</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#AdaBoost"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AdaBoost_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AdaBoost_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Automatic_Relevance_Determination"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Averaging_Methods"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BIRCH"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bagging_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bagging_Methods"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bagging_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bayesian_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bayesian_Ridge_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bernoulli_Naive_Bayes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boosting_Methods"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Clustering"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Clustering_Using_REpresentatives"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DBSCAN"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Decision_Trees_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Decision_Trees_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Decision_Tress"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dimension_Reduction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Discriminant_Analysis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Elastic_Net"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ensemble_Methods"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Epsilon-Support_Vector_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Expectation-maximisation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Extra_Trees_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Extra_Tress_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Extremely_Randomized_Trees"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Feature_Selection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Forests_of_Randomized_Trees"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Functions"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gaussian_Mixture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gaussian_Naive_Bayes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gaussian_Process_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gaussian_Process_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gaussian_Processes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Generative_Models"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GenericUnivariateSelect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gradient_Boosting_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gradient_Boosting_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gradient_Tree_Boosting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Graph-based_Methods"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hidden_Markov"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hierarchical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Huber_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Isometric_Mapping"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Isotonic_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#K-Means"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kernel_Approximation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kernel_Ridge_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#L1-based_Features_Selection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LARS_Lasso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Label_Propagation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Label_Spreading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lasso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Latent_Dirichlet_Analysis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Least_Angle_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Linear_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Linear_Discriminant_Analysis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Linear_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Linear_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Linear_Support_Vector_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Linear_Support_Vector_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Locally_Linear_Embedding"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Logistic_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Low-density_Separation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Low_Variance_Features_Removeal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mean-shift"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mini_Batch_K-Means"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Multi-task_Elastic_Net"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Multi-task_Lasso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Multinomial_Naive_Bayes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nearest_Centroid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nearest_Neighbors"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nearest_Neighbors_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Neural_Network_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Neural_Network_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Neural_Networks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-Linear_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-Linear_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nu-Support_Vector_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nu-Support_Vector_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OPTICS"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Orthogonal_Matching_Pursuit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Passive_Aggressive_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Passive_Aggressivie_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Perceptron"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Polynomial_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Principal_Component_Analysis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Properties"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Quadratic_Discriminant_Analysis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RANSAC"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Radius_Neighbors_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Radius_Neighbors_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Random_Forest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Random_Forest_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Random_Forest_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Recursive_Feature_Elimination"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Recursive_Feature_Elimination_with_Cross-Validation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ridge_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Robustness_Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SelectFdr"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SelectFpr"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SelectFromModel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SelectFwe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SelectKBest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SelectPercentile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Semi-Supervised_Leanring"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Singular_Value_Decomposition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spectral_Embedding"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stochastic_Gradient_Descent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stochastic_Gradient_Descent_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Supervised_Learning"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Supervised_Nearest_Neighbors"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Supervised_Nearest_Neighbors_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Supervised_Neural_Network"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Support_Vector_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Support_Vector_Machines"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Test_Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theil-Sen_Estimator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Training_Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tree-based_Feature_Seletion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Type"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Unsupervised_Learning"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Unsupervised_Nearest_Neighbors"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Unsupervised_Neural_Network"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Variance_Threshold"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Voting_Claasifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#k-Nearest_Neighbors_Classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#k-Nearest_Neighbors_Regressor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#canBeUsedToTrain"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAccuracy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasData"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDataType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isTrainedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#needsToDo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#predicts"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#requires"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#canTrainSupervisedModels"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasClasses"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCoefficient"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasFeatures"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasIntercept"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSamples"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasScore"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTemplate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isEnabled"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isExplainable"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isLabelled"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isLinear"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isProbabilistic"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isSupervised"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isTopicModeling"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#knownCategories"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#knowsNumbersOfCategories"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#needsDimensionReduction"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#needsToPredictQuantity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#supportsMulticlass"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#supportsMultilabel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SGD_Classifier_001"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#accuracy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#classification"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#clustering"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#dimension_reduction"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#high_level"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#image_data"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#k_means"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#lda_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#linear_regressor_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#low_level"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#medium_level"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#multilabel_SVC"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#naive_bayes_classifier"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#numeric_data"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#regression"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#speed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#speed_and_accuracy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#supervised_learning"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#text_data"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#training_set_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#training_set_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#training_set_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#unsupervised_learning"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#AdaBoost_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AdaBoost"/>
+            <Class IRI="#Non-Linear_Classifier"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#AdaBoost_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AdaBoost"/>
+            <Class IRI="#Non-Linear_Regressor"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Bagging_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Bagging_Methods"/>
+            <Class IRI="#Classifier"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Bagging_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Bagging_Methods"/>
+            <Class IRI="#Regressor"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Supervised_Learning"/>
+            <ObjectHasValue>
+                <ObjectProperty IRI="#hasFunction"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Decision_Trees_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Decision_Tress"/>
+            <Class IRI="#Non-Linear_Classifier"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Decision_Trees_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Decision_Tress"/>
+            <Class IRI="#Non-Linear_Regressor"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Extra_Trees_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Extremely_Randomized_Trees"/>
+            <Class IRI="#Non-Linear_Classifier"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Extra_Tress_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Extremely_Randomized_Trees"/>
+            <Class IRI="#Non-Linear_Regressor"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Gaussian_Process_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Gaussian_Processes"/>
+            <Class IRI="#Non-Linear_Classifier"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Gaussian_Process_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Gaussian_Processes"/>
+            <Class IRI="#Non-Linear_Regressor"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Gradient_Boosting_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Gradient_Tree_Boosting"/>
+            <Class IRI="#Non-Linear_Classifier"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Gradient_Boosting_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Gradient_Tree_Boosting"/>
+            <Class IRI="#Non-Linear_Regressor"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Linear_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Classifier"/>
+            <DataHasValue>
+                <DataProperty IRI="#isLinear"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Linear_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Regressor"/>
+            <DataHasValue>
+                <DataProperty IRI="#isLinear"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Nearest_Neighbors_Regression"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Regressor"/>
+            <Class IRI="#Supervised_Nearest_Neighbors"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Neural_Network_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Classifier"/>
+            <Class IRI="#Supervised_Neural_Network"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Neural_Network_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Regressor"/>
+            <Class IRI="#Supervised_Neural_Network"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Non-Linear_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Classifier"/>
+            <DataHasValue>
+                <DataProperty IRI="#isLinear"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Non-Linear_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Regressor"/>
+            <DataHasValue>
+                <DataProperty IRI="#isLinear"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Random_Forest_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Classifier"/>
+            <Class IRI="#Random_Forest"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Random_Forest_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Regressor"/>
+            <Class IRI="#Random_Forest"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Supervised_Learning"/>
+            <ObjectHasValue>
+                <ObjectProperty IRI="#hasFunction"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Linear_Classifier"/>
+            <Class IRI="#Stochastic_Gradient_Descent"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Stochastic_Gradient_Descent_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Linear_Regressor"/>
+            <Class IRI="#Stochastic_Gradient_Descent"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Supervised_Nearest_Neighbors"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Nearest_Neighbors"/>
+            <Class IRI="#Supervised_Learning"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Supervised_Nearest_Neighbors_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Classifier"/>
+            <Class IRI="#Supervised_Nearest_Neighbors"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Supervised_Neural_Network"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Neural_Networks"/>
+            <Class IRI="#Supervised_Learning"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Linear_Classifier"/>
+            <Class IRI="#Support_Vector_Machines"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Non-Linear_Regressor"/>
+            <Class IRI="#Support_Vector_Machines"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Unsupervised_Nearest_Neighbors"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Nearest_Neighbors"/>
+            <Class IRI="#Unsupervised_Learning"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Unsupervised_Neural_Network"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Neural_Networks"/>
+            <Class IRI="#Unsupervised_Learning"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AdaBoost"/>
+        <Class IRI="#Boosting_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdaBoost_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdaBoost_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdaBoost_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdaBoost_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdaBoost_Regressor"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Automatic_Relevance_Determination"/>
+        <Class IRI="#Bayesian_Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Averaging_Methods"/>
+        <Class IRI="#Ensemble_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BIRCH"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bagging_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bagging_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bagging_Methods"/>
+        <Class IRI="#Averaging_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bayesian_Regression"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bayesian_Regression"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bayesian_Regression"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bayesian_Regression"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bayesian_Ridge_Regression"/>
+        <Class IRI="#Bayesian_Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bernoulli_Naive_Bayes"/>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boosting_Methods"/>
+        <Class IRI="#Ensemble_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classifier"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#isEnabled"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Clustering"/>
+        <Class IRI="#Unsupervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Clustering_Using_REpresentatives"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DBSCAN"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMulticlass"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Trees_Regressor"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decision_Tress"/>
+        <Class IRI="#Supervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dimension_Reduction"/>
+        <Class IRI="#Unsupervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Discriminant_Analysis"/>
+        <Class IRI="#Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Discriminant_Analysis"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Discriminant_Analysis"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Discriminant_Analysis"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMulticlass"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Elastic_Net"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ensemble_Methods"/>
+        <Class IRI="#Supervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Epsilon-Support_Vector_Regressor"/>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Expectation-maximisation"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Extra_Trees_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Extra_Trees_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Extremely_Randomized_Trees"/>
+        <Class IRI="#Forests_of_Randomized_Trees"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feature_Selection"/>
+        <Class IRI="#Supervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Forests_of_Randomized_Trees"/>
+        <Class IRI="#Averaging_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gaussian_Mixture"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gaussian_Naive_Bayes"/>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gaussian_Processes"/>
+        <Class IRI="#Supervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Generative_Models"/>
+        <Class IRI="#Semi-Supervised_Leanring"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GenericUnivariateSelect"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gradient_Tree_Boosting"/>
+        <Class IRI="#Boosting_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gradient_Tree_Boosting"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gradient_Tree_Boosting"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Graph-based_Methods"/>
+        <Class IRI="#Semi-Supervised_Leanring"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hidden_Markov"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hierarchical"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Huber_Regression"/>
+        <Class IRI="#Robustness_Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Isometric_Mapping"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Isotonic_Regression"/>
+        <Class IRI="#Non-Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K-Means"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kernel_Approximation"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kernel_Ridge_Regression"/>
+        <Class IRI="#Non-Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L1-based_Features_Selection"/>
+        <Class IRI="#SelectFromModel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LARS_Lasso"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Label_Propagation"/>
+        <Class IRI="#Semi-Supervised_Leanring"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Label_Spreading"/>
+        <Class IRI="#Semi-Supervised_Leanring"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lasso"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Latent_Dirichlet_Analysis"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Least_Angle_Regression"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Discriminant_Analysis"/>
+        <Class IRI="#Discriminant_Analysis"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Discriminant_Analysis"/>
+        <Class IRI="#Linear_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Discriminant_Analysis"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Regression"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Regression"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Regression"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Regression"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Support_Vector_Classifier"/>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Linear_Support_Vector_Regressor"/>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Locally_Linear_Embedding"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Logistic_Regression"/>
+        <Class IRI="#Linear_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Logistic_Regression"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Logistic_Regression"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Logistic_Regression"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Logistic_Regression"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMulticlass"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Logistic_Regression"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#hasCode"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Low-density_Separation"/>
+        <Class IRI="#Semi-Supervised_Leanring"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Low_Variance_Features_Removeal"/>
+        <Class IRI="#Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mean-shift"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mini_Batch_K-Means"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Multi-task_Elastic_Net"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Multi-task_Lasso"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Multinomial_Naive_Bayes"/>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+        <Class IRI="#Linear_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nearest_Centroid"/>
+        <Class IRI="#Supervised_Nearest_Neighbors_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neural_Network_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neural_Network_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neural_Network_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neural_Network_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nu-Support_Vector_Classifier"/>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nu-Support_Vector_Regressor"/>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OPTICS"/>
+        <Class IRI="#Clustering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Orthogonal_Matching_Pursuit"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Passive_Aggressive_Classifier"/>
+        <Class IRI="#Linear_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Passive_Aggressivie_Regressor"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Perceptron"/>
+        <Class IRI="#Linear_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Perceptron"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Perceptron"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Perceptron"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Polynomial_Regression"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Principal_Component_Analysis"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Quadratic_Discriminant_Analysis"/>
+        <Class IRI="#Discriminant_Analysis"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Quadratic_Discriminant_Analysis"/>
+        <Class IRI="#Non-Linear_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RANSAC"/>
+        <Class IRI="#Robustness_Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Radius_Neighbors_Classifier"/>
+        <Class IRI="#Supervised_Nearest_Neighbors_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Radius_Neighbors_Regressor"/>
+        <Class IRI="#Nearest_Neighbors_Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Random_Forest"/>
+        <Class IRI="#Forests_of_Randomized_Trees"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Random_Forest_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Random_Forest_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Random_Forest_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMulticlass"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Random_Forest_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Random_Forest_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#high_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Recursive_Feature_Elimination"/>
+        <Class IRI="#Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Recursive_Feature_Elimination_with_Cross-Validation"/>
+        <Class IRI="#Recursive_Feature_Elimination"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ridge_Regression"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Robustness_Regression"/>
+        <Class IRI="#Linear_Regressor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Robustness_Regression"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SelectFdr"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SelectFpr"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SelectFromModel"/>
+        <Class IRI="#Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SelectFwe"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SelectKBest"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SelectPercentile"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Singular_Value_Decomposition"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spectral_Embedding"/>
+        <Class IRI="#Dimension_Reduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stochastic_Gradient_Descent"/>
+        <Class IRI="#Supervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stochastic_Gradient_Descent"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stochastic_Gradient_Descent"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMulticlass"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Supervised_Learning"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Supervised_Learning"/>
+        <DataHasValue>
+            <DataProperty IRI="#isSupervised"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Classifier"/>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines"/>
+        <Class IRI="#Supervised_Learning"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#low_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMulticlass"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+        <DataHasValue>
+            <DataProperty IRI="#supportsMultilabel"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasAccuracy"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+            <NamedIndividual IRI="#medium_level"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Support_Vector_Machines_Regressor"/>
+        <DataHasValue>
+            <DataProperty IRI="#isLinear"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Test_Dataset"/>
+        <Class IRI="#Dataset"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theil-Sen_Estimator"/>
+        <Class IRI="#Robustness_Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <Class IRI="#Dataset"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDataType"/>
+            <Class IRI="#Type"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#requires"/>
+            <Class IRI="#Properties"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#isExplainable"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#isLabelled"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#isProbabilistic"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#isTopicModeling"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#needsDimensionReduction"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Training_Dataset"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#needsToPredictQuantity"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tree-based_Feature_Seletion"/>
+        <Class IRI="#SelectFromModel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Type"/>
+        <Class IRI="#Dataset"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Univariate_Feature_Selection"/>
+        <Class IRI="#Feature_Selection"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Unsupervised_Learning"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Unsupervised_Learning"/>
+        <DataHasValue>
+            <DataProperty IRI="#isSupervised"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+        </DataHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Variance_Threshold"/>
+        <Class IRI="#Low_Variance_Features_Removeal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Voting_Claasifier"/>
+        <Class IRI="#Boosting_Methods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#k-Nearest_Neighbors_Classifier"/>
+        <Class IRI="#Supervised_Nearest_Neighbors_Classifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#k-Nearest_Neighbors_Regressor"/>
+        <Class IRI="#Nearest_Neighbors_Regression"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#AdaBoost"/>
+        <Class IRI="#Gradient_Tree_Boosting"/>
+        <Class IRI="#Voting_Claasifier"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#AdaBoost_Classifier"/>
+        <Class IRI="#AdaBoost_Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Averaging_Methods"/>
+        <Class IRI="#Boosting_Methods"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Bagging_Classifier"/>
+        <Class IRI="#Bagging_Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Bagging_Methods"/>
+        <Class IRI="#Forests_of_Randomized_Trees"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Classifier"/>
+        <Class IRI="#Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Epsilon-Support_Vector_Regressor"/>
+        <Class IRI="#Linear_Support_Vector_Regressor"/>
+        <Class IRI="#Nu-Support_Vector_Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Extra_Trees_Classifier"/>
+        <Class IRI="#Extra_Tress_Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#GenericUnivariateSelect"/>
+        <Class IRI="#SelectFdr"/>
+        <Class IRI="#SelectFpr"/>
+        <Class IRI="#SelectFwe"/>
+        <Class IRI="#SelectKBest"/>
+        <Class IRI="#SelectPercentile"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Gradient_Boosting_Classifier"/>
+        <Class IRI="#Gradient_Boosting_Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#L1-based_Features_Selection"/>
+        <Class IRI="#Tree-based_Feature_Seletion"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Latent_Dirichlet_Analysis"/>
+        <Class IRI="#Principal_Component_Analysis"/>
+        <Class IRI="#Singular_Value_Decomposition"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Linear_Discriminant_Analysis"/>
+        <Class IRI="#Logistic_Regression"/>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+        <Class IRI="#Passive_Aggressive_Classifier"/>
+        <Class IRI="#Perceptron"/>
+        <Class IRI="#Quadratic_Discriminant_Analysis"/>
+        <Class IRI="#Random_Forest_Classifier"/>
+        <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+        <Class IRI="#Supervised_Nearest_Neighbors_Classifier"/>
+        <Class IRI="#Support_Vector_Machines_Classifier"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Linear_Support_Vector_Classifier"/>
+        <Class IRI="#Nu-Support_Vector_Classifier"/>
+        <Class IRI="#Support_Vector_Classifier"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Low_Variance_Features_Removeal"/>
+        <Class IRI="#Recursive_Feature_Elimination"/>
+        <Class IRI="#SelectFromModel"/>
+        <Class IRI="#Univariate_Feature_Selection"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Random_Forest_Classifier"/>
+        <Class IRI="#Random_Forest_Regressor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Supervised_Neural_Network"/>
+        <Class IRI="#Unsupervised_Neural_Network"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+        <NamedIndividual IRI="#SGD_Classifier_001"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Properties"/>
+        <NamedIndividual IRI="#accuracy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Functions"/>
+        <NamedIndividual IRI="#classification"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Functions"/>
+        <NamedIndividual IRI="#clustering"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Functions"/>
+        <NamedIndividual IRI="#dimension_reduction"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Type"/>
+        <NamedIndividual IRI="#image_data"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#K-Means"/>
+        <NamedIndividual IRI="#k_means"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Latent_Dirichlet_Analysis"/>
+        <NamedIndividual IRI="#lda_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Linear_Regression"/>
+        <NamedIndividual IRI="#linear_regressor_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Logistic_Regression"/>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Linear_Support_Vector_Classifier"/>
+        <NamedIndividual IRI="#multilabel_SVC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Naive_Bayes_Classifier"/>
+        <NamedIndividual IRI="#naive_bayes_classifier"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Type"/>
+        <NamedIndividual IRI="#numeric_data"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Functions"/>
+        <NamedIndividual IRI="#regression"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Properties"/>
+        <NamedIndividual IRI="#speed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Properties"/>
+        <NamedIndividual IRI="#speed_and_accuracy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Supervised_Learning"/>
+        <NamedIndividual IRI="#supervised_learning"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Type"/>
+        <NamedIndividual IRI="#text_data"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Training_Dataset"/>
+        <NamedIndividual IRI="#training_set_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Training_Dataset"/>
+        <NamedIndividual IRI="#training_set_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Training_Dataset"/>
+        <NamedIndividual IRI="#training_set_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Unsupervised_Learning"/>
+        <NamedIndividual IRI="#unsupervised_learning"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#high_level"/>
+        <NamedIndividual IRI="#low_level"/>
+        <NamedIndividual IRI="#medium_level"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasFunction"/>
+        <NamedIndividual IRI="#linear_regressor_1"/>
+        <NamedIndividual IRI="#regression"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDataType"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <NamedIndividual IRI="#text_data"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requires"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <NamedIndividual IRI="#speed"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasDataType"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <NamedIndividual IRI="#numeric_data"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requires"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <NamedIndividual IRI="#speed"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#requires"/>
+        <NamedIndividual IRI="#training_set_3"/>
+        <NamedIndividual IRI="#speed"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isLinear"/>
+        <NamedIndividual IRI="#linear_regressor_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSupervised"/>
+        <NamedIndividual IRI="#linear_regressor_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasClasses"/>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCode"/>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+        <Literal>logreg</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasCoefficient"/>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">-30.62</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasFeatures"/>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasIntercept"/>
+        <NamedIndividual IRI="#logistic_regressor_0905181203"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">77.74</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasTemplate"/>
+        <NamedIndividual IRI="#multilabel_SVC"/>
+        <Literal>from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.svm import LinearSVC
+from base_machine_learning_models.machine_learning_model import BaseMachineLearningModel
+import os
+
+
+class MultiLabelSVM(BaseMachineLearningModel):
+	def __init__(self) -&gt; None:
+		classifier = Pipeline([
+			(&apos;vectorizer&apos;, CountVectorizer()),
+			(&apos;tfidf&apos;, TfidfTransformer()),
+			(&apos;clf&apos;, OneVsRestClassifier(LinearSVC()))])
+		super().__init__(classifier)
+
+	def fit(self, X, y):
+		super().fit(X, y)
+
+	def predict(self, X):
+		return super().predict(X)
+
+	def save_model(self, path=os.getcwd() + &apos;/pretrained_models/&apos;, file_name=&apos;multilabel_svm&apos;):
+		super().save_model(path, file_name)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSupervised"/>
+        <NamedIndividual IRI="#multilabel_SVC"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#supportsMultilabel"/>
+        <NamedIndividual IRI="#multilabel_SVC"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSamples"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">90000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isExplainable"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isLabelled"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isProbabilistic"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isTopicModeling"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#needsDimensionReduction"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#needsToPredictQuantity"/>
+        <NamedIndividual IRI="#training_set_1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isLabelled"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isProbabilistic"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isTopicModeling"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#needsDimensionReduction"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#needsToPredictQuantity"/>
+        <NamedIndividual IRI="#training_set_2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSamples"/>
+        <NamedIndividual IRI="#training_set_3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">500000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isLabelled"/>
+        <NamedIndividual IRI="#training_set_3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#needsDimensionReduction"/>
+        <NamedIndividual IRI="#training_set_3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#needsToPredictQuantity"/>
+        <NamedIndividual IRI="#training_set_3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#predicts"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasAccuracy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasTrainingTimeLevel"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#needsToDo"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#requires"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDataType"/>
+        <Class IRI="#Dataset"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#requires"/>
+        <Class IRI="#Dataset"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDataType"/>
+        <Class IRI="#Type"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#requires"/>
+        <Class IRI="#Properties"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasSamples"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasScore"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasTemplate"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#isProbabilistic"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#isTopicModeling"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#knownCategories"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#canTrainSupervisedModels"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasClasses"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasCode"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasCoefficient"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasFeatures"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasIntercept"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#isExplainable"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#isLabelled"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#isLinear"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#isSupervised"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#needsDimensionReduction"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#needsToPredictQuantity"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#supportsMulticlass"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#canTrainSupervisedModels"/>
+        <Class IRI="#Training_Dataset"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasClasses"/>
+        <Class IRI="#Classifier"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasFeatures"/>
+        <Class IRI="#Classifier"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#isExplainable"/>
+        <Class IRI="#Dataset"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#isProbabilistic"/>
+        <Class IRI="#Training_Dataset"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#isTopicModeling"/>
+        <Class IRI="#Training_Dataset"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#knownCategories"/>
+        <Class IRI="#Dataset"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#needsDimensionReduction"/>
+        <Class IRI="#Training_Dataset"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#supportsMulticlass"/>
+        <Class IRI="#Classifier"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#canTrainSupervisedModels"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasClasses"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCode"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCoefficient"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasFeatures"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasIntercept"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSamples"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasScore"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasTemplate"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isExplainable"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isLabelled"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isLinear"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isProbabilistic"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isSupervised"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isTopicModeling"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#knownCategories"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#knowsNumbersOfCategories"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#needsDimensionReduction"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#needsToPredictQuantity"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#supportsMulticlass"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#supportsMultilabel"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Principal Component Analysis</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Principal_Component_Analysis"/>
+                <Variable IRI="#pca"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Dimension_Reduction"/>
+                <Variable IRI="#data"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isTopicModeling"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#pca"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Singular Value Decomposition</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Singular_Value_Decomposition"/>
+                <Variable IRI="#svd"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Dimension_Reduction"/>
+                <Variable IRI="#data"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isProbabilistic"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isTopicModeling"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#svd"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Elastic Net</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Elastic_Net"/>
+                <Variable IRI="#en"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#en"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Gaussian Mixture</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#clustering"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#knownCategories"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Gaussian_Mixture"/>
+                <Variable IRI="#gm"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#gm"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Isometric Mapping</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Isometric_Mapping"/>
+                <Variable IRI="#isomap"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#isomap"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>K Means</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#clustering"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#knownCategories"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#K-Means"/>
+                <Variable IRI="#kmeans"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#kmeans"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Kernel Approximation</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Kernel_Approximation"/>
+                <Variable IRI="#ka"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#ka"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Lasso</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Lasso"/>
+                <Variable IRI="#lasso"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#lasso"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>LDA</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Latent_Dirichlet_Analysis"/>
+                <Variable IRI="#lda"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isProbabilistic"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isTopicModeling"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#lda"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Linear Regression</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#speed"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Linear_Regressor"/>
+                <Variable IRI="#lr"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#lr"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>linear_SVC</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#speed"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isExplainable"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Linear_Support_Vector_Classifier"/>
+                <Variable IRI="#linear_SVC"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#linear_SVC"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>LLE</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Locally_Linear_Embedding"/>
+                <Variable IRI="#lle"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#lle"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Mean Shift</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#clustering"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#knownCategories"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Mean-shift"/>
+                <Variable IRI="#ms"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#ms"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Mini Batch K Means</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#clustering"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#knownCategories"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Mini_Batch_K-Means"/>
+                <Variable IRI="#minikmeans"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#minikmeans"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Naive Bayes</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Naive_Bayes_Classifier"/>
+                <Variable IRI="#nbc"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isExplainable"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#speed"/>
+            </ObjectPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasDataType"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#text_data"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#nbc"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Neural Network Classifier</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasDataType"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#image_data"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Neural_Network_Classifier"/>
+                <Variable IRI="#nnc"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#nnc"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Neural Network Regressor</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#accuracy"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Neural_Network_Regressor"/>
+                <Variable IRI="#nnr"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#nnr"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>PCA</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Principal_Component_Analysis"/>
+                <Variable IRI="#pca"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#pca"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Ramdom Forest Classifier</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#accuracy"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Random_Forest_Classifier"/>
+                <Variable IRI="#rfc"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#rfc"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Ridge Regression</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Ridge_Regression"/>
+                <Variable IRI="#rr"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#rr"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Spectral Embedding</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Spectral_Embedding"/>
+                <Variable IRI="#se"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#se"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>SGD Classifier 1</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#speed"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+                <Variable IRI="#sgd"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sgd"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>SGD Classifier 2</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#greaterThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#speed_and_accuracy"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Stochastic_Gradient_Descent_Classifier"/>
+                <Variable IRI="#sgd"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sgd"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>SVR</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ClassAtom>
+                <Class IRI="#Support_Vector_Machines_Regressor"/>
+                <Variable IRI="#svr"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#svr"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>count</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Training_Dataset"/>
+                <Variable IRI="#a"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <BuiltInAtom IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#count">
+                <Variable IRI="#a"/>
+            </BuiltInAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Unsupervised</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Training_Dataset"/>
+                <Variable IRI="#data"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isLabelled"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="#canTrainSupervisedModels"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Supervised</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Training_Dataset"/>
+                <Variable IRI="#data"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isLabelled"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="#canTrainSupervisedModels"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Dimension Reduction</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Training_Dataset"/>
+                <Variable IRI="#data"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#dimension_reduction"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>KNeighbors</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasDataType"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#numeric_data"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSamples"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#sample"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isExplainable"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#k-Nearest_Neighbors_Classifier"/>
+                <Variable IRI="#knn"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#requires"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#speed"/>
+            </ObjectPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#lessThan">
+                <Variable IRI="#sample"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+            </BuiltInAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#canBeUsedToTrain"/>
+                <Variable IRI="#data"/>
+                <Variable IRI="#knn"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Clustering</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#canTrainSupervisedModels"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsDimensionReduction"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#clustering"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Classification</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsToPredictQuantity"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#canTrainSupervisedModels"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#classification"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Regression</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#needsToPredictQuantity"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#canTrainSupervisedModels"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#needsToDo"/>
+                <Variable IRI="#data"/>
+                <NamedIndividual IRI="#regression"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Labelled DB Query</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isLabelled"/>
+                <Variable IRI="#data"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <BuiltInAtom IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select">
+                <Variable IRI="#data"/>
+            </BuiltInAtom>
+        </Head>
+    </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bagging_Classifier</IRI>
+        <Literal xml:lang="en">In ensemble algorithms, bagging methods form a class of algorithms which build several instances of a black-box estimator on random subsets of the original training set and then aggregate their individual predictions to form a final prediction. These methods are used as a way to reduce the variance of a base estimator (e.g., a decision tree), by introducing randomization into its construction procedure and then making an ensemble out of it.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Clustering</IRI>
+        <Literal xml:lang="en">A clustering problem is where you want to discover the inherent groupings in the data, such as grouping customers by purchasing behavior.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Decision_Trees_Classifier</IRI>
+        <Literal xml:lang="en">Decision tree builds classification or regression models in the form of a tree structure. It breaks down a data set into smaller and smaller subsets while at the same time an associated decision tree is incrementally developed. The final result is a tree with decision nodes and leaf nodes. A decision node has two or more branches and a leaf node represents a classification or decision. The topmost decision node in a tree which corresponds to the best predictor called root node. Decision trees can handle both categorical and numerical data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ensemble_Methods</IRI>
+        <Literal>An ensemble method is a technique that combines the predictions from multiple machine learning algorithms together to make more accurate predictions than any individual model.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Extra_Trees_Classifier</IRI>
+        <Literal>ET is a bit worse when there is a high number of noisy features</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Extra_Trees_Classifier</IRI>
+        <Literal>The training time is faster than Random Forests and Tree Begging</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Functions</IRI>
+        <Literal>The job type carried out by a machine learning method</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gaussian_Process_Classifier</IRI>
+        <Literal xml:lang="en">The prediction interpolates the observations (at least for regular kernels).
+
+The prediction is probabilistic (Gaussian) so that one can compute empirical confidence intervals and decide based on those if one should refit (online fitting, adaptive fitting) the prediction in some region of interest.
+
+Versatile: different kernels can be specified. Common kernels are provided, but it is also possible to specify custom kernels.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Logistic_Regression</IRI>
+        <Literal xml:lang="en">It is a statistical method for analysing a data set in which there are one or more independent variables that determine an outcome. The outcome is measured with a dichotomous variable (in which there are only two possible outcomes). The goal of logistic regression is to find the best fitting model to describe the relationship between the dichotomous characteristic of interest (dependent variable = response or outcome variable) and a set of independent (predictor or explanatory) variables.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Naive_Bayes_Classifier</IRI>
+        <Literal xml:lang="en">It is a classification technique based on Bayes’ Theorem with an assumption of independence among predictors. In simple terms, a Naive Bayes classifier assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature. Even if these features depend on each other or upon the existence of the other features, all of these properties independently contribute to the probability. Naive Bayes model is easy to build and particularly useful for very large data sets. Along with simplicity, Naive Bayes is known to outperform even highly sophisticated classification methods.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Neural_Networks</IRI>
+        <Literal xml:lang="en">A neural network consists of units (neurons), arranged in layers, which convert an input vector into some output. Each unit takes an input, applies a (often nonlinear) function to it and then passes the output on to the next layer. Generally the networks are defined to be feed-forward: a unit feeds its output to all the units on the next layer, but there is no feedback to the previous layer. Weightings are applied to the signals passing from one unit to another, and it is these weightings which are tuned in the training phase to adapt a neural network to the particular problem at hand.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Perceptron</IRI>
+        <Literal xml:lang="en">The perceptron is an algorithm for supervised learning of binary classifiers (functions that can decide whether an input, represented by a vector of numbers, belongs to some specific class or not).[1] It is a type of linear classifier, i.e. a classification algorithm that makes its predictions based on a linear predictor function combining a set of weights with the feature vector. The algorithm allows for online learning, in that it processes elements in the training set one at a time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Properties</IRI>
+        <Literal>The concept of properties that the machine leanring has</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Random_Forest</IRI>
+        <Literal xml:lang="en">Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random decision forests correct for decision trees’ habit of over fitting to their training set.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Semi-Supervised_Leanring</IRI>
+        <Literal xml:lang="en">Problems where you have a large amount of input data (X) and only some of the data is labeled (Y) are called semi-supervised learning problems.
+
+Some data is labeled but most of it is unlabeled and a mixture of supervised and unsupervised techniques can be used.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stochastic_Gradient_Descent_Regressor</IRI>
+        <Literal>SGDRegressor is well suited for regression problems with a large number of training samples (&gt; 10,000)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Supervised_Learning</IRI>
+        <Literal xml:lang="en">Supervised learning is where you have input variables (x) and an output variable (Y) and you use an algorithm to learn the mapping function from the input to the output.
+
+All data is labeled and the algorithms learn to predict the output from the input data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Support_Vector_Machines_Classifier</IRI>
+        <Literal xml:lang="en">Support vector machines (SVMs, also support vector networks[1]) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis. Given a set of training examples, each marked as belonging to one or the other of two categories, an SVM training algorithm builds a model that assigns new examples to one category or the other, making it a non-probabilistic binary linear classifier (although methods such as Platt scaling exist to use SVM in a probabilistic classification setting).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Training_Dataset</IRI>
+        <Literal>Training data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Unsupervised_Learning</IRI>
+        <Literal xml:lang="en">Unsupervised learning is where you only have input data (X) and no corresponding output variables.
+
+All data is unlabeled and the algorithms learn to inherent structure from the input data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasScore</IRI>
+        <Literal>The score of a candidate machine learning algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#high_level</IRI>
+        <Literal>Conceptulise the degree of something such as accuracy and training time. E.g., has high accuracy = hasAccuracy some :high_level</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#k-Nearest_Neighbors_Classifier</IRI>
+        <Literal xml:lang="en">The k-nearest-neighbors algorithm is a classification algorithm, and it is supervised: it takes a bunch of labelled points and uses them to learn how to label other points. To label a new point, it looks at the labelled points closest to that new point (those are its nearest neighbors), and has those neighbors vote, so whichever label the most of the neighbors have is the label for the new point (the “k” is the number of neighbors it checks).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#low_level</IRI>
+        <Literal>rdfs:comment &quot;Conceptulise the degree of something such as accuracy and training time. E.g., has high accuracy = hasAccuracy some :high_level&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#medium_level</IRI>
+        <Literal>rdfs:comment &quot;Conceptulise the degree of something such as accuracy and training time. E.g., has high accuracy = hasAccuracy some :high_level&quot;</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,670 @@
+# baseURI: http://www.jtutcher.co.uk/test/fourdtest
+# imports: http://purl.org/ub/fourd/
+# imports: http://spinrdf.org/spin
+# imports: http://www.w3.org/ns/prov#
+
+@prefix :        <http://www.jtutcher.co.uk/test/fourdtest#> .
+@prefix fourd:   <http://purl.org/ub/fourd/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp:      <http://spinrdf.org/sp#> .
+@prefix spin:    <http://spinrdf.org/spin#> .
+@prefix spl:     <http://spinrdf.org/spl#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+fourd:SpacioTemporalThing
+      spin:rule
+              [ rdf:type sp:Construct ;
+                sp:templates ([ sp:object
+                                    [ sp:varName "targetObject"^^xsd:string
+                                    ] ;
+                            sp:predicate
+                                    [ sp:varName "targetProp"^^xsd:string
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "SourceTimeSlice"^^xsd:string
+                                    ]
+                          ]) ;
+                sp:where ([ rdf:type sp:Bind ;
+                            sp:expression spin:_this ;
+                            sp:variable
+                                    [ sp:varName "SourceTimeSlice"^^xsd:string
+                                    ]
+                          ] [ sp:object fourd:SpacioTemporalThing ;
+                            sp:predicate rdf:type ;
+                            sp:subject
+                                    [ sp:varName "SourceTimeSlice"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "TI1"^^xsd:string
+                                    ] ;
+                            sp:predicate fourd:time ;
+                            sp:subject
+                                    [ sp:varName "SourceTimeSlice"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:TriplePath ;
+                            sp:object
+                                    [ sp:varName "TI1StartVal"^^xsd:string
+                                    ] ;
+                            sp:path [ rdf:type sp:SeqPath ;
+                                      sp:path1 time:hasBeginning ;
+                                      sp:path2 time:inXSDDateTime
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "TI1"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:TriplePath ;
+                            sp:object
+                                    [ sp:varName "TI1EndInstant"^^xsd:string
+                                    ] ;
+                            sp:path [ rdf:type sp:SeqPath ;
+                                      sp:path1 time:hasEnd ;
+                                      sp:path2 time:inXSDDateTime
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "TI1"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:TriplePath ;
+                            sp:object
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ] ;
+                            sp:path [ rdf:type sp:SeqPath ;
+                                      sp:path1 fourd:timesliceOf ;
+                                      sp:path2 fourd:timeslice
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "TS1"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherTI"^^xsd:string
+                                    ] ;
+                            sp:predicate fourd:time ;
+                            sp:subject
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:TriplePath ;
+                            sp:object
+                                    [ sp:varName "OtherStartVal"^^xsd:string
+                                    ] ;
+                            sp:path [ rdf:type sp:SeqPath ;
+                                      sp:path1 time:hasBeginning ;
+                                      sp:path2 time:inXSDDateTime
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "OtherTI"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:TriplePath ;
+                            sp:object
+                                    [ sp:varName "OtherEndVal"^^xsd:string
+                                    ] ;
+                            sp:path [ rdf:type sp:SeqPath ;
+                                      sp:path1 time:hasEnd ;
+                                      sp:path2 time:inXSDDateTime
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "OtherTI"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "SliceLabel"^^xsd:string
+                                    ] ;
+                            sp:predicate rdfs:label ;
+                            sp:subject
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "targetObject"^^xsd:string
+                                    ] ;
+                            sp:predicate
+                                    [ sp:varName "targetProp"^^xsd:string
+                                    ] ;
+                            sp:subject
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:Filter ;
+                            sp:expression
+                                    [ rdf:type sp:notExists ;
+                                      sp:elements ([ sp:object :NonInheritedProperty ;
+                                                  sp:predicate rdf:type ;
+                                                  sp:subject
+                                                          [ sp:varName "targetProp"^^xsd:string
+                                                          ]
+                                                ])
+                                    ]
+                          ])
+              ] .
+
+fourd:TestProperty
+      rdf:type owl:DatatypeProperty ;
+      rdfs:label "Test property"^^xsd:string ;
+      rdfs:range xsd:string .
+
+fourd:nonInheritedProperty
+      rdf:type :NonInheritedProperty , owl:ObjectProperty ;
+      rdfs:label "Non inherited property"^^xsd:string .
+
+fourd:owlProp
+      rdf:type :NonInheritedProperty , owl:ObjectProperty ;
+      rdfs:label "owl prop"^^xsd:string .
+
+fourd:time
+      rdf:type :NonInheritedProperty .
+
+fourd:timeslice
+      rdf:type :NonInheritedProperty .
+
+fourd:timesliceOf
+      rdf:type :NonInheritedProperty .
+
+<http://www.jtutcher.co.uk/test/fourdtest>
+      rdf:type owl:Ontology ;
+      spin:imports <http://topbraid.org/spin/owlrl-all> , <http://topbraid.org/spin/rdfsplus> ;
+      owl:imports fourd: , <http://spinrdf.org/spin> , prov: ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+:April14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-04-01T00:00:00.000Z"^^xsd:dateTime .
+
+:Aug14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-08-01T00:00:00.000Z"^^xsd:dateTime .
+
+:BeyondInterval
+      rdf:type time:ProperInterval ;
+      time:hasBeginning :Sept14 ;
+      time:hasEnd :Nov14 .
+
+:ContainedInterval
+      rdf:type time:ProperInterval ;
+      time:hasBeginning :May14 ;
+      time:hasEnd :Jun14 .
+
+:ContainedInterval2
+      rdf:type time:ProperInterval ;
+      time:hasBeginning :May14 ;
+      time:hasEnd :Aug14 .
+
+:Jul14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-07-01T00:00:00.000Z"^^xsd:dateTime .
+
+:Jun14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-06-01T00:00:00.000Z"^^xsd:dateTime .
+
+:ListOfNonInheritedProperties
+      rdf:type :MetadataThing ;
+      rdf:predicate fourd:time , fourd:timeslice , fourd:timesliceOf , rdf:type , rdfs:domain , rdfs:label ;
+      rdfs:label "List of non inherited properties"^^xsd:string .
+
+:May14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-05-01T00:00:00.000Z"^^xsd:dateTime .
+
+:MetaThing
+      rdf:type owl:Class ;
+      rdfs:label "Meta thing"^^xsd:string .
+
+:NonInheritedProperty
+      rdf:type owl:Class ;
+      rdfs:label "Non inherited property"^^xsd:string ;
+      rdfs:subClassOf :MetaThing , owl:ObjectProperty .
+
+:Nov14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-11-01T00:00:00.000Z"^^xsd:dateTime .
+
+:Oct14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-10-01T00:00:00.000Z"^^xsd:dateTime .
+
+:OverArchingInterval
+      rdf:type time:ProperInterval ;
+      time:hasBeginning :April14 ;
+      time:hasEnd :Oct14 .
+
+:Sept14
+      rdf:type time:Instant ;
+      time:inXSDDateTime "2014-09-01T00:00:00.000Z"^^xsd:dateTime .
+
+:SomeThing
+      rdf:type owl:Thing .
+
+:TestFunction
+      rdf:type spin:Function ;
+      rdfs:subClassOf spin:Functions .
+
+<http://www.jtutcher.co.uk/test/fourdtest#Thing@BeyondInterval>
+      rdf:type fourd:SpacioTemporalThing ;
+      rdfs:label "BeyondInterval"^^xsd:string ;
+      fourd:time :BeyondInterval ;
+      fourd:timesliceOf :SomeThing .
+
+<http://www.jtutcher.co.uk/test/fourdtest#Thing@ContainedInterval>
+      rdf:type fourd:SpacioTemporalThing ;
+      rdfs:comment "Test Property"@en ;
+      rdfs:label "ContainedInterval"^^xsd:string ;
+      fourd:time :ContainedInterval ;
+      fourd:timesliceOf :SomeThing .
+
+<http://www.jtutcher.co.uk/test/fourdtest#Thing@ContainedInterval2>
+      rdf:type fourd:SpacioTemporalThing ;
+      rdfs:label "ContainedInterval2"^^xsd:string ;
+      fourd:time :ContainedInterval2 ;
+      fourd:timesliceOf :SomeThing .
+
+<http://www.jtutcher.co.uk/test/fourdtest#Thing@OverArchingInterval>
+      rdf:type fourd:SpacioTemporalThing ;
+      rdfs:comment "Something to be Inherited"@en ;
+      rdfs:label "OverArchingInterval"^^xsd:string ;
+      fourd:TestProperty "Some Test Property Value"^^xsd:string ;
+      fourd:time :OverArchingInterval ;
+      fourd:timesliceOf :SomeThing .
+
+:TimeSlicePropertyFiller
+      rdf:type spin:Function ;
+      rdfs:label "Time slice property filler"^^xsd:string ;
+      rdfs:subClassOf spin:Functions ;
+      spin:body
+              [ rdf:type sp:Select ;
+                sp:distinct "true"^^xsd:boolean ;
+                sp:resultVariables ([ sp:varName "SliceLabel"^^xsd:string
+                          ]) ;
+                sp:where ([ sp:object
+                                    [ sp:varName "TI1"^^xsd:string
+                                    ] ;
+                            sp:predicate fourd:time ;
+                            sp:subject spin:_arg1
+                          ] [ sp:object
+                                    [ sp:varName "TI1StartInstant"^^xsd:string
+                                    ] ;
+                            sp:predicate time:hasBeginning ;
+                            sp:subject
+                                    [ sp:varName "TI1"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "TI1StartVal"^^xsd:string
+                                    ] ;
+                            sp:predicate time:inXSDDateTime ;
+                            sp:subject
+                                    [ sp:varName "TI1StartInstant"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "TI1EndInstant"^^xsd:string
+                                    ] ;
+                            sp:predicate time:hasEnd ;
+                            sp:subject
+                                    [ sp:varName "TI1"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "TI1EndVal"^^xsd:string
+                                    ] ;
+                            sp:predicate time:inXSDDateTime ;
+                            sp:subject
+                                    [ sp:varName "TI1EndInstant"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "Endurant"^^xsd:string
+                                    ] ;
+                            sp:predicate fourd:timesliceOf ;
+                            sp:subject
+                                    [ sp:varName "TS1"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ] ;
+                            sp:predicate fourd:timeslice ;
+                            sp:subject
+                                    [ sp:varName "Endurant"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherTI"^^xsd:string
+                                    ] ;
+                            sp:predicate fourd:time ;
+                            sp:subject
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherStartInstant"^^xsd:string
+                                    ] ;
+                            sp:predicate time:hasBeginning ;
+                            sp:subject
+                                    [ sp:varName "OtherTI"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherEndInstant"^^xsd:string
+                                    ] ;
+                            sp:predicate time:hasEnd ;
+                            sp:subject
+                                    [ sp:varName "OtherTI"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherStartVal"^^xsd:string
+                                    ] ;
+                            sp:predicate time:inXSDDateTime ;
+                            sp:subject
+                                    [ sp:varName "OtherStartInstant"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "OtherEndVal"^^xsd:string
+                                    ] ;
+                            sp:predicate time:inXSDDateTime ;
+                            sp:subject
+                                    [ sp:varName "OtherEndInstant"^^xsd:string
+                                    ]
+                          ] [ sp:object
+                                    [ sp:varName "SliceLabel"^^xsd:string
+                                    ] ;
+                            sp:predicate rdfs:label ;
+                            sp:subject
+                                    [ sp:varName "OtherSlice"^^xsd:string
+                                    ]
+                          ] [ rdf:type sp:Filter ;
+                            sp:expression
+                                    [ rdf:type sp:le ;
+                                      sp:arg1 [ sp:varName "TI1StartVal"^^xsd:string
+                                              ] ;
+                                      sp:arg2 [ sp:varName "OtherStartVal"^^xsd:string
+                                              ]
+                                    ]
+                          ] [ rdf:type sp:Filter ;
+                            sp:expression
+                                    [ rdf:type sp:ge ;
+                                      sp:arg1 [ sp:varName "TI1EndVal"^^xsd:string
+                                              ] ;
+                                      sp:arg2 [ sp:varName "OtherEndVal"^^xsd:string
+                                              ]
+                                    ]
+                          ])
+              ] ;
+      spin:constraint
+              [ rdf:type spl:Argument ;
+                rdfs:comment "Fills out properties of a timeslice from other timeslices that exist at the same moment in time"^^xsd:string ;
+                spl:optional "0"^^xsd:boolean ;
+                spl:predicate sp:arg1
+              ] .
+
+rdf:first
+      rdf:type :NonInheritedProperty .
+
+rdf:object
+      rdf:type :NonInheritedProperty .
+
+rdf:predicate
+      rdf:type :NonInheritedProperty .
+
+rdf:rest
+      rdf:type :NonInheritedProperty .
+
+rdf:subject
+      rdf:type :NonInheritedProperty .
+
+rdf:type
+      rdf:type :NonInheritedProperty .
+
+rdf:value
+      rdf:type :NonInheritedProperty .
+
+rdfs:comment
+      rdf:type :NonInheritedProperty .
+
+rdfs:isDefinedBy
+      rdf:type :NonInheritedProperty .
+
+rdfs:label
+      rdf:type :NonInheritedProperty .
+
+rdfs:seeAlso
+      rdf:type :NonInheritedProperty .
+
+prov:actedOnBehalfOf
+      rdf:type :NonInheritedProperty .
+
+prov:activity
+      rdf:type :NonInheritedProperty .
+
+prov:agent
+      rdf:type :NonInheritedProperty .
+
+prov:alternateOf
+      rdf:type :NonInheritedProperty .
+
+prov:aq
+      rdf:type :NonInheritedProperty .
+
+prov:asInBundle
+      rdf:type :NonInheritedProperty .
+
+prov:atLocation
+      rdf:type :NonInheritedProperty .
+
+prov:atTime
+      rdf:type :NonInheritedProperty .
+
+prov:category
+      rdf:type :NonInheritedProperty .
+
+prov:component
+      rdf:type :NonInheritedProperty .
+
+prov:constraints
+      rdf:type :NonInheritedProperty .
+
+prov:definition
+      rdf:type :NonInheritedProperty .
+
+prov:derivedByInsertionFrom
+      rdf:type :NonInheritedProperty .
+
+prov:derivedByRemovalFrom
+      rdf:type :NonInheritedProperty .
+
+prov:describesService
+      rdf:type :NonInheritedProperty .
+
+prov:dictionary
+      rdf:type :NonInheritedProperty .
+
+prov:dm
+      rdf:type :NonInheritedProperty .
+
+prov:editorialNote
+      rdf:type :NonInheritedProperty .
+
+prov:editorsDefinition
+      rdf:type :NonInheritedProperty .
+
+prov:endedAtTime
+      rdf:type :NonInheritedProperty .
+
+prov:entity
+      rdf:type :NonInheritedProperty .
+
+prov:generated
+      rdf:type :NonInheritedProperty .
+
+prov:generatedAtTime
+      rdf:type :NonInheritedProperty .
+
+prov:hadActivity
+      rdf:type :NonInheritedProperty .
+
+prov:hadDictionaryMember
+      rdf:type :NonInheritedProperty .
+
+prov:hadGeneration
+      rdf:type :NonInheritedProperty .
+
+prov:hadMember
+      rdf:type :NonInheritedProperty .
+
+prov:hadPlan
+      rdf:type :NonInheritedProperty .
+
+prov:hadPrimarySource
+      rdf:type :NonInheritedProperty .
+
+prov:hadRole
+      rdf:type :NonInheritedProperty .
+
+prov:hadUsage
+      rdf:type :NonInheritedProperty .
+
+prov:has_anchor
+      rdf:type :NonInheritedProperty .
+
+prov:has_provenance
+      rdf:type :NonInheritedProperty .
+
+prov:has_query_service
+      rdf:type :NonInheritedProperty .
+
+prov:influenced
+      rdf:type :NonInheritedProperty .
+
+prov:influencer
+      rdf:type :NonInheritedProperty .
+
+prov:insertedKeyEntityPair
+      rdf:type :NonInheritedProperty .
+
+prov:invalidated
+      rdf:type :NonInheritedProperty .
+
+prov:invalidatedAtTime
+      rdf:type :NonInheritedProperty .
+
+prov:inverse
+      rdf:type :NonInheritedProperty .
+
+prov:mentionOf
+      rdf:type :NonInheritedProperty .
+
+prov:n
+      rdf:type :NonInheritedProperty .
+
+prov:order
+      rdf:type :NonInheritedProperty .
+
+prov:pairEntity
+      rdf:type :NonInheritedProperty .
+
+prov:pairKey
+      rdf:type :NonInheritedProperty .
+
+prov:pingback
+      rdf:type :NonInheritedProperty .
+
+prov:provenanceUriTemplate
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedAssociation
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedAttribution
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedCommunication
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedDelegation
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedDerivation
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedEnd
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedForm
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedGeneration
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedInfluence
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedInsertion
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedInvalidation
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedPrimarySource
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedQuotation
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedRemoval
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedRevision
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedStart
+      rdf:type :NonInheritedProperty .
+
+prov:qualifiedUsage
+      rdf:type :NonInheritedProperty .
+
+prov:removedKey
+      rdf:type :NonInheritedProperty .
+
+prov:sharesDefinitionWith
+      rdf:type :NonInheritedProperty .
+
+prov:specializationOf
+      rdf:type :NonInheritedProperty .
+
+prov:startedAtTime
+      rdf:type :NonInheritedProperty .
+
+prov:todo
+      rdf:type :NonInheritedProperty .
+
+prov:unqualifiedForm
+      rdf:type :NonInheritedProperty .
+
+prov:used
+      rdf:type :NonInheritedProperty .
+
+prov:value
+      rdf:type :NonInheritedProperty .
+
+prov:wasAssociatedWith
+      rdf:type :NonInheritedProperty .
+
+prov:wasAttributedTo
+      rdf:type :NonInheritedProperty .
+
+prov:wasDerivedFrom
+      rdf:type :NonInheritedProperty .
+
+prov:wasEndedBy
+      rdf:type :NonInheritedProperty .
+
+prov:wasGeneratedBy
+      rdf:type :NonInheritedProperty .
+
+prov:wasInfluencedBy
+      rdf:type :NonInheritedProperty .
+
+prov:wasInformedBy
+      rdf:type :NonInheritedProperty .
+
+prov:wasInvalidatedBy
+      rdf:type :NonInheritedProperty .
+
+prov:wasQuotedFrom
+      rdf:type :NonInheritedProperty .
+
+prov:wasRevisionOf
+      rdf:type :NonInheritedProperty .
+
+prov:wasStartedBy
+      rdf:type :NonInheritedProperty .

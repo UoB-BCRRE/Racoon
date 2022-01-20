@@ -1,0 +1,136 @@
+# baseURI: http://purl.org/ub/upper/cv/
+# imports: http://purl.org/ub/upper/
+
+@prefix : <http://purl.org/ub/upper/cv/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix ucv: <http://purl.org/ub/upper/cv/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+u:AbsoluteLocation
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:location ;
+      owl:someValuesFrom [
+          rdf:type owl:Class ;
+          owl:intersectionOf (
+              u:Measurement
+              [
+                rdf:type owl:Restriction ;
+                owl:hasValue u:Length ;
+                owl:onProperty u:unit ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+.
+u:ContinuousMeasurement
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom u:Unit ;
+      owl:onProperty u:unit ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty u:measurementValue ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass u:Unit ;
+      owl:onProperty u:unit ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+
+
+u:EndurantThing
+  rdfs:subClassOf u:OccurrentThing ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom u:OccurrentThing ;
+      owl:onProperty u:timeSliceOf ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom u:TimeConcept ;
+      owl:onProperty u:timeInterval ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty u:timeInterval ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty u:timeSliceOf ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:timeInterval ;
+      owl:someValuesFrom u:TimeConcept ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:timeSliceOf ;
+      owl:someValuesFrom u:OccurrentThing ;
+    ] ;
+.
+u:EntityDescription
+  rdfs:comment "Alternative representation of information about some ontological conept"^^xsd:string ;
+  rdfs:label "Entity Description"^^xsd:string ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://purl.org/dc/elements/1.1/description> ;
+      owl:someValuesFrom rdf:PlainLiteral ;
+    ] ;
+.
+u:PhysicalAgent
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          u:Agent
+          u:SpatialThing
+        ) ;
+    ] ;
+.
+u:Place
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom u:Location ;
+      owl:onProperty u:location ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:location ;
+      owl:someValuesFrom u:Location ;
+    ] ;
+.
+ucv:
+  rdf:type owl:Ontology ;
+  owl:imports u: ;
+.
+u:timeInterval
+  rdfs:range u:TimeConcept ;
+.
+u:timeSlice
+  rdfs:domain u:OccurrentThing ;
+  rdfs:range u:EndurantThing ;
+  owl:inverseOf u:timeSliceOf ;
+.
+u:Unit
+  rdfs:subClassOf u:DataConcept ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom u:PhysicalDimension ;
+      owl:onProperty u:quantityKind ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty u:quantityKind ;
+      owl:someValuesFrom u:PhysicalDimension ;
+    ] ;
+.

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2">
+  <owl:Ontology rdf:about=""/>
+  <rdfs:Datatype rdf:about="http://www.thalesgroup.com/rtti/PushPort/CommonTypes/v2/RSIDType">
+    <owl:equivalentClass>
+      <rdfs:Datatype>
+        <owl:withRestrictions rdf:parseType="Collection">
+          <rdf:Description>
+            <xsd:minLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >6</xsd:minLength>
+          </rdf:Description>
+          <rdf:Description>
+            <xsd:maxLength rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >8</xsd:maxLength>
+          </rdf:Description>
+        </owl:withRestrictions>
+        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </rdfs:Datatype>
+    </owl:equivalentClass>
+    <rdfs:comment>A Retail Service Identifier. Note that this may be either a full 8-character "portion identifier", or a base 6-character identifier, according to the available information provided to Darwin.</rdfs:comment>
+  </rdfs:Datatype>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

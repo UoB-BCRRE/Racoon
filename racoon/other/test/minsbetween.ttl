@@ -1,0 +1,89 @@
+# baseURI: http://purl.org/rail/test/minsbetween
+
+@prefix : <http://purl.org/rail/test/minsbetween#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rule: <tag:stardog:api:rule:>
+
+<http://purl.org/rail/test/minsbetween>
+  rdf:type owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+
+[] a rule:SPARQLRule ;
+   rule:content """
+     PREFIX : <http://purl.org/rail/test/minsbetween#>
+IF  {
+    ?station :someProperty ?thing .
+	?thing a ?class .
+	?class :priority ?p .
+	BIND(max(?p) as ?maxp)
+} THEN {
+	?station :prefProp ?thing
+}""" .
+
+:Station
+  rdf:type owl:Class ;
+  rdfs:label "Station"^^xsd:string ;
+.
+:StationA
+  rdf:type :Station ;
+  :mins 5 ;
+  :someProperty :Thing_2_1 ;
+  :someProperty :loc1 ;
+  rdfs:label "Station a"^^xsd:string ;
+.
+:StationB
+  rdf:type :Station ;
+  :mins 10 ;
+  rdfs:label "Station b"^^xsd:string ;
+.
+:StationC
+  rdf:type :Station ;
+  :mins 3 ;
+  rdfs:label "Station c"^^xsd:string ;
+.
+:StationD
+  rdf:type :Station ;
+  rdfs:label "Station d"^^xsd:string ;
+.
+:Thing_1
+  rdf:type owl:Class ;
+  :priority 5 ;
+  rdfs:label "Thing 1"^^xsd:string ;
+.
+:Thing_2
+  rdf:type owl:Class ;
+  :priority 10 ;
+  rdfs:label "Thing 2"^^xsd:string ;
+.
+:Thing_2_1
+  rdf:type :Thing_2 ;
+  :val "Better Val"^^xsd:string ;
+  rdfs:label "Thing 2 1"^^xsd:string ;
+.
+:loc1
+  rdf:type :Thing_1 ;
+  :val "Good Val"^^xsd:string ;
+  rdfs:label "loc1"^^xsd:string ;
+.
+:mins
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "mins"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+:priority
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "priority"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+:someProperty
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "some property"^^xsd:string ;
+.
+:val
+  rdf:type rdf:Property ;
+  rdfs:label "val"^^xsd:string ;
+.

@@ -1,0 +1,160 @@
+# baseURI: http://purl.org/ub/toy/tracktest
+
+@prefix : <http://purl.org/ub/toy/tracktest#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rule: <tag:stardog:api:rule:> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/ub/toy/tracktest>
+  rdf:type owl:Ontology ;
+  spin:imports <http://topbraid.org/spin/owlrl-all> ;
+  spin:imports <http://topbraid.org/spin/rdfsplus> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+
+[] rdf:type rule:SPARQLRule ;
+  rule:content """
+    PREFIX :<urn:test:>
+      IF {
+        ?node a :Node ;
+          :linePos ?lpos .
+        ?tcp a :TrackCircuit ;
+          :minLine ?min ;
+          :maxLine ?max .
+        FILTER (?lpos > ?min && ?lpos < ?max) .
+      }
+      THEN {
+        ?node :tcPos ?tcp .
+      }""" .
+
+:LNode1
+  rdf:type :Node ;
+  :linePos "20"^^xsd:long ;
+  :timestamp "13:00:00Z"^^xsd:time ;
+  rdfs:label "LNode1"^^xsd:string ;
+.
+:LNode2
+  rdf:type :Node ;
+  :linePos "60"^^xsd:long ;
+  :timestamp "14:00:00Z"^^xsd:time ;
+  rdfs:label "LNode2"^^xsd:string ;
+.
+:LNode3
+  rdf:type :Node ;
+  :linePos "100"^^xsd:long ;
+  :timestamp "15:00:00Z"^^xsd:time ;
+  rdfs:label "LNode3"^^xsd:string ;
+.
+:LPosService
+  rdf:type :ServiceInstance ;
+  :passPoint :LNode1 ;
+  :passPoint :LNode2 ;
+  :passPoint :LNode3 ;
+  rdfs:label "LPos service"^^xsd:string ;
+.
+:Node
+  rdf:type owl:Class ;
+  rdfs:label "Node"^^xsd:string ;
+.
+:ServiceInstance
+  rdf:type owl:Class ;
+  rdfs:comment "An instance of a train service"^^xsd:string ;
+  rdfs:label "Service instance"^^xsd:string ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty :passPoint ;
+      owl:someValuesFrom :Node ;
+    ] ;
+.
+:TC1
+  rdf:type :TrackCircuit ;
+  :maxLine "40"^^xsd:long ;
+  :minLine "0"^^xsd:long ;
+  rdfs:label "TC1"^^xsd:string ;
+.
+:TC2
+  rdf:type :TrackCircuit ;
+  :maxLine "80"^^xsd:long ;
+  :minLine "40"^^xsd:long ;
+  rdfs:label "TC2"^^xsd:string ;
+.
+:TC3
+  rdf:type :TrackCircuit ;
+  :maxLine "120"^^xsd:long ;
+  :minLine "80"^^xsd:long ;
+  rdfs:label "TC3"^^xsd:string ;
+.
+:TCService
+  rdf:type :ServiceInstance ;
+  :passPoint :TCServiceNode1 ;
+  :passPoint :TCServiceNode2 ;
+  :passPoint :TCServiceNode3 ;
+  rdfs:label "Service1"^^xsd:string ;
+.
+:TCServiceNode1
+  rdf:type :Node ;
+  :tcPos :TC1 ;
+  :timestamp "10:00:00Z"^^xsd:time ;
+  rdfs:label "TCService node1"^^xsd:string ;
+.
+:TCServiceNode2
+  rdf:type :Node ;
+  :tcPos :TC2 ;
+  :timestamp "11:00:00Z"^^xsd:time ;
+  rdfs:label "TCService node2"^^xsd:string ;
+.
+:TCServiceNode3
+  rdf:type :Node ;
+  :tcPos :TC3 ;
+  :timestamp "12:00:00Z"^^xsd:time ;
+  rdfs:label "TCService node3"^^xsd:string ;
+.
+:TrackCircuit
+  rdf:type owl:Class ;
+  rdfs:comment "A track circuit (represented for location purposes)"^^xsd:string ;
+  rdfs:label "Track circuit"^^xsd:string ;
+.
+:linePos
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Node ;
+  rdfs:label "linepos"^^xsd:string ;
+  rdfs:range xsd:long ;
+  rdfs:subPropertyOf :pos ;
+.
+:maxLine
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "max line"^^xsd:string ;
+  rdfs:range xsd:long ;
+.
+:minLine
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "min line"^^xsd:string ;
+  rdfs:range xsd:long ;
+.
+:passPoint
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Ternary relation between Service and pos/time"^^xsd:string ;
+  rdfs:domain :ServiceInstance ;
+  rdfs:label "Passing Point"^^xsd:string ;
+  rdfs:range :Node ;
+.
+:pos
+  rdf:type rdf:Property ;
+  rdfs:label "pos"^^xsd:string ;
+.
+:tcPos
+  rdf:type rdf:Property ;
+  rdfs:domain :Node ;
+  rdfs:label "TCPos"^^xsd:string ;
+  rdfs:range :TrackCircuit ;
+  rdfs:subPropertyOf :pos ;
+.
+:timestamp
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Node ;
+  rdfs:label "timestamp"^^xsd:string ;
+  rdfs:range xsd:time ;
+.

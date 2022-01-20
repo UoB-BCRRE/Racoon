@@ -1,0 +1,354 @@
+# baseURI: http://purl.org/rail/iv
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://purl.org/dc/terms/
+# imports: http://purl.org/rail/is/
+# imports: http://qudt.org/2.1/vocab/unit
+# imports: http://www.w3.org/2003/01/geo/wgs84_pos
+
+@prefix : <http://purl.org/rail/iv/> .
+@prefix core: <http://purl.org/rail/core/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/rail/iv>
+  a owl:Ontology ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <http://purl.org/dc/terms/> ;
+  owl:imports is: ;
+  owl:imports <http://qudt.org/2.1/vocab/unit> ;
+  owl:imports <http://www.w3.org/2003/01/geo/wgs84_pos> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:CalculatedCost
+  a owl:Class ;
+  rdfs:comment "Total capital cost for an intervention" ;
+  rdfs:label "Calculated cost" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:CalculatedCosts
+  a owl:Class ;
+  rdfs:label "Calculated Costs" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:CalculatedNonUserBenefits
+  a owl:Class ;
+  rdfs:label "Calculated Non-User Bennefits" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:CalculatedOperatorBenefits
+  a owl:Class ;
+  rdfs:label "Calculated Operator Bennefits" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:CalculatedUserBenefits
+  a owl:Class ;
+  rdfs:label "Calculated User Bennefits" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:Characteristic
+  a owl:Class ;
+  rdfs:comment "Characteristics of an entity" ;
+  rdfs:label "Characteristic" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Demographics
+  a owl:Class ;
+  rdfs:label "Demographics" ;
+  rdfs:subClassOf :GISData ;
+.
+:EngineeringInterventions
+  a owl:Class ;
+  rdfs:label "Engineering Interventions" ;
+  rdfs:subClassOf :RealWorldOutput ;
+.
+:Entity
+  a owl:Class ;
+  rdfs:comment "Class for entities being used to proceed intervention" ;
+  rdfs:label "Entity" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:GISData
+  a owl:Class ;
+  rdfs:comment "Data from GIS software" ;
+  rdfs:label "GIS Data" ;
+  rdfs:subClassOf :ScientificInput ;
+.
+:GroundType
+  a owl:Class ;
+  rdfs:label "Ground type" ;
+  rdfs:subClassOf :Characteristic ;
+.
+:InfrastructureIntervention
+  a owl:Class ;
+  rdfs:comment "Inverventions brought by changes in infrastructure" ;
+  rdfs:label "Infrastructure Intervention" ;
+  rdfs:subClassOf :RailIntervention ;
+.
+:Input
+  a owl:Class ;
+  rdfs:comment "Input for the itnervention" ;
+  rdfs:label "Input" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:LandUse
+  a owl:Class ;
+  rdfs:label "Land Use" ;
+  rdfs:subClassOf :GISData ;
+.
+:NoiseData
+  a owl:Class ;
+  rdfs:comment "The noise data look up table. Each of the instance is representing the noise data for a given distance to the track, the speed of the train and ground type." ;
+  rdfs:label "Noise Data" ;
+  rdfs:subClassOf :ScientificInput ;
+.
+:Output
+  a owl:Class ;
+  rdfs:comment "Output as a result of intervention" ;
+  rdfs:label "Output" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:PopulationPoints
+  a owl:Class ;
+  rdfs:label "Poplation Points" ;
+  rdfs:subClassOf :RealWorldOutput ;
+.
+:RailIntervention
+  a owl:Class ;
+  rdfs:comment "Class for interventions taking place in the railway industry" ;
+  rdfs:label "Rail Intervention" ;
+  rdfs:subClassOf owl:Thing ;
+.
+:RailwayIndustryData
+  a owl:Class ;
+  rdfs:label "Railway Industry Data" ;
+  rdfs:subClassOf :RealWorldInput ;
+.
+:RealWorldInput
+  a owl:Class ;
+  rdfs:comment "Input from real world" ;
+  rdfs:label "Real world input" ;
+  rdfs:subClassOf :Input ;
+.
+:RealWorldOutput
+  a owl:Class ;
+  rdfs:label "Real world output" ;
+  rdfs:subClassOf :Output ;
+.
+:ResultOfCarbonCostBenenfitAnalysis
+  a owl:Class ;
+  rdfs:label "Results of carbon cost-benefit analysis" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:ResultOfFinancialCostBenefitAnalysis
+  a owl:Class ;
+  rdfs:label "Results of financial cost-benefit analysis" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:ResultsOfSocialCostBenefitAnalysis
+  a owl:Class ;
+  rdfs:label "Results of social cost-benefit analysis" ;
+  rdfs:subClassOf :ScietificOutput ;
+.
+:RideQuality
+  a owl:Class ;
+  rdfs:label "Ride Quality" ;
+  rdfs:subClassOf :ScientificInput ;
+.
+:ScientificInput
+  a owl:Class ;
+  rdfs:comment "Input from scientific calculations" ;
+  rdfs:label "Scientific Input" ;
+  rdfs:subClassOf :Input ;
+.
+:ScietificOutput
+  a owl:Class ;
+  rdfs:label "Scientific output" ;
+  rdfs:subClassOf :Output ;
+.
+:USP
+  a owl:Class ;
+  rdfs:label "USP (Under Sleeper Pad)" ;
+  rdfs:subClassOf :Entity ;
+.
+:USP_UBM
+  a :USP ;
+  a owl:NamedIndividual ;
+  :stiffness 27 ;
+  rdfs:comment "Under-Ballast Mat (UBM) with 27 MN/m2 (9 MN/m3 for 3 m ballast-soil interaction width)." ;
+  rdfs:label "Under-Ballast Mat (UBM)" ;
+.
+:USP_softpads120
+  a :USP ;
+  a owl:NamedIndividual ;
+  :stiffness 120 ;
+  rdfs:comment "Soft rail pads - ballasted with pad stiffness 120 MN/m" ;
+  rdfs:label "Soft rail pads" ;
+.
+:USP_usp100
+  a :USP ;
+  a owl:NamedIndividual ;
+  :stiffness 100 ;
+  rdfs:comment """Soft USP (USP2) with 100 MN/m2 (100 MN/m3 stiffness modulus for a 2.6 m long 0.25 m wide
+sleeper and 0.65 m sleeper spacing)""" ;
+  rdfs:label "Soft USP (USP2) with 100 MN/m2" ;
+.
+:USP_usp250
+  a :USP ;
+  a owl:NamedIndividual ;
+  :stiffness 250 ;
+  rdfs:comment """Stiff USP (USP1) with 250 MN/m2 (250 MN/m3 stiffness modulus for a 2.6 m long 0.25 m wide
+sleeper and 0.65 m sleeper spacing)""" ;
+  rdfs:label "Stiff USP (USP1) with 250 MN/m2" ;
+.
+:UnitCostData
+  a owl:Class ;
+  rdfs:comment "Cost to implement intervention" ;
+  rdfs:label "Unit cost data" ;
+  rdfs:subClassOf :RailwayIndustryData ;
+.
+:airborneAmbientNoiseLevel
+  a owl:DatatypeProperty ;
+  rdfs:label "air-borne ambient noise levels" ;
+.
+:calculatedFinancialNPVs
+  a owl:DatatypeProperty ;
+  rdfs:label "calculated finnancial NPVs" ;
+.
+:calculatedSocialNPVs
+  a owl:DatatypeProperty ;
+  rdfs:label "calculated social NPVs" ;
+.
+:capitalCosts
+  a owl:DatatypeProperty ;
+  rdfs:label "captital costs" ;
+.
+:changeInMaintenanceAndRenewalCosts
+  a owl:DatatypeProperty ;
+  rdfs:label "change in M&R costs" ;
+.
+:changeToAirborneNoise
+  a owl:DatatypeProperty ;
+  rdfs:label "change to air borne noise" ;
+.
+:changeToGroundborneNoise
+  a owl:DatatypeProperty ;
+  rdfs:label "change to ground borne noise" ;
+.
+:currency
+  a owl:ObjectProperty ;
+  rdfs:label "currency" ;
+.
+:distanceToLink
+  a owl:DatatypeProperty ;
+  rdfs:domain :PopulationPoints ;
+  rdfs:label "distance to link" ;
+.
+:distanceToReferenceLine
+  a owl:DatatypeProperty ;
+  rdfs:label "distance to reference line" ;
+.
+:ground_type_1
+  a :GroundType ;
+  core:id 1 ;
+  rdfs:comment "Ground type 1 has the properties of location A and is considered the median soil case for the area" ;
+  rdfs:label "ground type 1" ;
+.
+:ground_type_2
+  a :GroundType ;
+  core:id 2 ;
+  rdfs:comment "properties of the stiffest soil case" ;
+  rdfs:label "ground type 2" ;
+.
+:ground_type_3
+  a :GroundType ;
+  core:id 3 ;
+  rdfs:comment "properties of the softest soil case" ;
+  rdfs:label "ground type 3" ;
+.
+:groundborneAmbientNoiseLevel
+  a owl:DatatypeProperty ;
+  rdfs:label "ground-borne ambient noise levels" ;
+.
+:hasCharacteristic
+  a owl:ObjectProperty ;
+  rdfs:domain :Entity ;
+  rdfs:label "has characteristic" ;
+  rdfs:range :Characteristic ;
+.
+:hasGroundType
+  a owl:ObjectProperty ;
+  rdfs:label "has ground type" ;
+.
+:hasStiffness
+  a owl:ObjectProperty ;
+  rdfs:domain :USP ;
+  rdfs:label "hasStiffness" ;
+.
+:hasValue
+  a owl:DatatypeProperty ;
+  rdfs:label "has value" ;
+.
+:input
+  a owl:ObjectProperty ;
+  rdfs:label "input" ;
+.
+:interventionCost
+  a owl:ObjectProperty ;
+  rdfs:label "intervention cost" ;
+.
+:interventionFactor
+  a owl:ObjectProperty ;
+  rdfs:label "intervention factor" ;
+.
+:linkVTISM
+  a owl:ObjectProperty ;
+  rdfs:domain :PopulationPoints ;
+  rdfs:label "link to VITISM " ;
+  rdfs:range core:Track ;
+.
+:output
+  a owl:ObjectProperty ;
+  rdfs:label "output" ;
+.
+:qualitativeFactor
+  a owl:ObjectProperty ;
+  rdfs:label "quanlitative factor" ;
+.
+:quantitativeBenefit
+  a owl:DatatypeProperty ;
+  rdfs:label "quantitative benefit" ;
+.
+:quantitativeDisbenefit
+  a owl:DatatypeProperty ;
+  rdfs:label "quantitative disbenefit" ;
+.
+:referenceData
+  a owl:DatatypeProperty ;
+  rdfs:label "reference data" ;
+.
+:relatesToIntervention
+  a owl:ObjectProperty ;
+  rdfs:label "relates to intervention" ;
+.
+:stiffness
+  a owl:DatatypeProperty ;
+  rdfs:domain :USP ;
+  rdfs:label "stiffness" ;
+  rdfs:range xsd:integer ;
+.
+:totalUnitCost
+  a owl:DatatypeProperty ;
+  rdfs:label "total unit cost" ;
+.
+:unitAmount
+  a owl:DatatypeProperty ;
+  rdfs:label "unit amount" ;
+.
+:unitCost
+  a owl:DatatypeProperty ;
+  rdfs:label "per unit cost" ;
+.

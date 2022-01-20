@@ -1,0 +1,30 @@
+@prefix u:<http://purl.org/ub/upper/> .
+@prefix is:<http://purl.org/rail/is/> .
+@prefix core:<http://purl.org/rail/core/> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rule: <tag:stardog:api:rule:> .
+
+is:length_yrds_rule a <tag:stardog:api:rule:SPARQLRule> ;
+                    rdfs:label "Length rule in yards" ;
+            rule:content """
+PREFIX u:<http://purl.org/ub/upper/>
+PREFIX is:<http://purl.org/rail/is/>
+PREFIX core:<http://purl.org/rail/core/>
+prefix unit: <http://qudt.org/vocab/unit#>
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix geof: <http://www.opengis.net/def/function/geosparql/>
+prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+IF{
+    ?track a core:Track;
+           is:endYards ?end_yards;
+           is:startYards ?start_yards.
+    BIND (?end_yards - ?start_yards AS ?length_yards)
+}
+Then{
+   ?track is:lengthYards ?length_yards
+}
+"""
+.

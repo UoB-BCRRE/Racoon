@@ -1,0 +1,254 @@
+# baseURI: http://purl.org/rail/tt/
+# imports: http://purl.org/rail/3d/
+# imports: http://purl.org/rail/core/
+# imports: http://purl.org/rail/core/cv/
+# imports: http://purl.org/rail/core/vocab/
+
+@prefix : <http://purl.org/rail/tt/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix doc: <http://purl.org/ub/doc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p3d: <http://purl.org/rail/3d/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports p3d: ;
+  owl:imports <http://purl.org/rail/core/> ;
+  owl:imports <http://purl.org/rail/core/cv/> ;
+  owl:imports <http://purl.org/rail/core/vocab/> ;
+  rdfs:label "Time Tabling";
+.
+:Direction
+  rdf:type owl:Class ;
+  rdfs:label "Direction"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/ub/upper/EnumMeasurement> ;
+.
+:DownDirection
+  rdf:type :Direction ;
+  rdfs:label "Down"^^xsd:string ;
+.
+:ExpressPassengerService
+  rdf:type owl:Class ;
+  rdfs:comment "ATOC Code 'XX'"^^xsd:string ;
+  rdfs:label "Express passenger service"^^xsd:string ;
+  rdfs:subClassOf :PassengerService ;
+.
+:ExpressSleeperPassengerService
+  rdf:type owl:Class ;
+  rdfs:comment "ATOC Code 'XZ'"^^xsd:string ;
+  rdfs:label "Express sleeper passenger service"^^xsd:string ;
+  rdfs:subClassOf :PassengerService ;
+.
+:FreightService
+  rdf:type owl:Class ;
+  rdfs:label "Freight service"^^xsd:string ;
+  rdfs:subClassOf :RailwayService ;
+.
+:OrdinaryPassengerService
+  rdf:type owl:Class ;
+  rdfs:comment "ATOC Code 'OO' - ordinary passenger service"^^xsd:string ;
+  rdfs:label "Ordinary passenger service"^^xsd:string ;
+  rdfs:subClassOf :PassengerService ;
+.
+:PassengerService
+  rdf:type owl:Class ;
+  rdfs:label "Passenger service"^^xsd:string ;
+  rdfs:subClassOf :RailwayService ;
+.
+:PassengerServiceInstance
+  rdf:type owl:Class ;
+  rdfs:label "Passenger service"^^xsd:string ;
+  rdfs:subClassOf :ServiceInstance ;
+.
+:RailwayService
+  rdf:type owl:Class ;
+  rdfs:label "Railway service"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/vocab/ServiceConcept> ;
+.
+:ScheduledPassengerService
+  rdf:type owl:Class ;
+  rdfs:label "Scheduled passenger service"^^xsd:string ;
+  rdfs:subClassOf :ScheduledService ;
+.
+:ScheduledService
+  rdf:type owl:Class ;
+  rdfs:label "Scheduled service"^^xsd:string ;
+  rdfs:subClassOf :RailwayService ;
+.
+:ServiceInstance
+  rdf:type owl:Class ;
+  rdfs:label "Service instance"^^xsd:string ;
+  rdfs:subClassOf :RailwayService ;
+.
+:ServiceNode
+  rdf:type owl:Class ;
+  rdfs:comment "A timed node on a timetabled or actual railway service (station stop, calling point etc)"^^xsd:string ;
+  rdfs:label "Service node"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/vocab/ServiceConcept> ;
+.
+:TTService1
+  rdf:type :ScheduledService ;
+  rdfs:label "TTService1"^^xsd:string ;
+.
+:TTService2
+  rdf:type :ScheduledService ;
+  rdfs:label "TTService2"^^xsd:string ;
+.
+:TTService3
+  rdf:type :ScheduledService ;
+  rdfs:label "TTService3"^^xsd:string ;
+.
+:TrainConsist
+  rdf:type owl:Class ;
+  doc:partofODP :TrainConsistODP ;
+  rdfs:comment "A collection of vehicles that makes up a train. Should have a number of 'vehicle' relations, or other consist relations"^^xsd:string ;
+  rdfs:label "Train consist"^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/rail/core/vocab/ServiceConcept> ;
+.
+:TrainConsistODP
+  rdf:type doc:ODP ;
+  dc:description "Train consists are described by a number of railway vehicles linked through the 'tt:vehicle' relation. Each should link to the next via 'u:next' and 'u:previous' relations to form a list"^^xsd:string ;
+  rdfs:label "Train consist ODP"^^xsd:string ;
+.
+:UpDirection
+  rdf:type :Direction ;
+  rdfs:label "Up"^^xsd:string ;
+.
+:atocServiceCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "atoc service code"^^xsd:string ;
+.
+:bankHolidayRunning
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :RailwayService ;
+  rdfs:label "bank holiday running"^^xsd:string ;
+  rdfs:range xsd:boolean ;
+.
+:consist
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RailwayService ;
+  rdfs:label "consist"^^xsd:string ;
+  rdfs:range :TrainConsist ;
+  owl:inverseOf :consistOf ;
+.
+:consistOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Inverse relation of :consist - NOT a composition relation"^^xsd:string ;
+  rdfs:domain :TrainConsist ;
+  rdfs:label "consist of"^^xsd:string ;
+  rdfs:range :RailwayService ;
+.
+:edited
+  rdf:type rdf:Property ;
+  rdfs:label "edited"^^xsd:string ;
+  rdfs:range xsd:dateTime ;
+.
+:headCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "head code"^^xsd:string ;
+.
+:headerSyst
+  rdf:type rdf:Property ;
+  rdfs:label "header syst"^^xsd:string ;
+.
+:nrLookupName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "nr lookup name"^^xsd:string ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdfs:label ;
+.
+:objectID
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "object ID"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+:pubArrival
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "pub arrival"^^xsd:string ;
+  rdfs:range xsd:time ;
+  rdfs:subPropertyOf :ttTime ;
+.
+:pubDeparture
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "pub departure"^^xsd:string ;
+  rdfs:range xsd:time ;
+  rdfs:subPropertyOf :ttTime ;
+.
+:redLineState
+  rdf:type rdf:Property ;
+  rdfs:label "red line state"^^xsd:string ;
+.
+:refNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "ref number"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+:runningDay
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The day(s) on which a service runs"^^xsd:string ;
+  rdfs:domain :RailwayService ;
+  rdfs:label "running day"^^xsd:string ;
+  rdfs:range <http://www.w3.org/2006/time#DayOfWeek> ;
+.
+:serviceNode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RailwayService ;
+  rdfs:label "service node"^^xsd:string ;
+  rdfs:range :ServiceNode ;
+  owl:inverseOf :serviceNodeOf ;
+.
+:serviceNodeOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ServiceNode ;
+  rdfs:label "service node of"^^xsd:string ;
+  rdfs:range :RailwayService ;
+.
+:ttArrival
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "tt arrival"^^xsd:string ;
+  rdfs:range xsd:time ;
+  rdfs:subPropertyOf :ttTime ;
+.
+:ttDeparture
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "tt departure"^^xsd:string ;
+  rdfs:range xsd:time ;
+  rdfs:subPropertyOf :ttTime ;
+.
+:ttOrder
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "tt order"^^xsd:string ;
+  rdfs:range xsd:time ;
+  rdfs:subPropertyOf :ttTime ;
+.
+:ttPass
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "tt pass"^^xsd:string ;
+  rdfs:range xsd:time ;
+  rdfs:subPropertyOf :ttTime ;
+.
+:ttTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "tt time"^^xsd:string ;
+  rdfs:range xsd:time ;
+.
+:vehicle
+  rdf:type rdf:Property ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:label "vehicle"^^xsd:string ;
+  rdfs:range <http://purl.org/rail/core/vocab/RailwayVehicle> ;
+  owl:inverseOf :vehicleOf ;
+.
+:vehicleOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/rail/core/vocab/RailwayVehicle> ;
+  rdfs:label "vehicle of"^^xsd:string ;
+  rdfs:range rdfs:Resource ;
+  owl:inverseOf :vehicle ;
+.
+<http://purl.org/ub/upper/AbsoluteLocation>
+  owl:equivalentClass <http://purl.org/ub/upper/Location> ;
+.

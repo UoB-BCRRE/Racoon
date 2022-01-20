@@ -1,0 +1,318 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://purl.org/rail/resource/> .
+@prefix os: <http://data.ordnancesurvey.co.uk/ontology/spatialrelations/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix u: <http://purl.org/ub/upper/> .
+@prefix is: <http://purl.org/rail/is/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vocab: <http://purl.org/rail/core/vocab/> .
+
+
+:LineRefWBB a is:ELR ;
+	u:id "WBB" ;
+	rdfs:label "ELR Ref WBB" .
+
+:TiplocMDNHEAD is:elr :LineRefWBB ;
+	a is:TiplocLocation , is:TrackCircuitLocation ;
+	u:id "Maidenhead" ;
+	geo:lat "51.51"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488735.15"^^xsd:double ;
+	os:northing "180728.34"^^xsd:double ;
+	is:mileage "24.25"^^xsd:double .
+
+:TiplocFURZEP is:elr :LineRefWBB ;
+	a is:TiplocLocation , is:TrackCircuitLocation ;
+	u:id "Furze Platt" ;
+	geo:lat "51.53"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488303.91"^^xsd:double ;
+	os:northing "182396.55"^^xsd:double ;
+	is:mileage "25.51"^^xsd:double .
+
+:TiplocCOOKHAM is:elr :LineRefWBB ;
+	a is:TiplocLocation , is:TrackCircuitLocation ;
+	u:id "Cookham" ;
+	geo:lat "51.55"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488664.56"^^xsd:double ;
+	os:northing "185001.77"^^xsd:double ;
+	is:mileage "27.15"^^xsd:double .
+
+:LineRefMWB a is:ELR ;
+	u:id "MWB" ;
+	rdfs:label "ELR Ref MWB" .
+
+:TiplocBORNEND is:elr :LineRefMWB ;
+	a is:TiplocLocation , is:TrackCircuitLocation ;
+	u:id "Bourne End" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.7" ;
+	os:easting "489421.18"^^xsd:double ;
+	os:northing "187229.41"^^xsd:double ;
+	is:mileage "0.04"^^xsd:double .
+
+:TiplocMARLOW is:elr :LineRefMWB ;
+	a is:TiplocLocation , is:TrackCircuitLocation ;
+	u:id "Marlow" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.76" ;
+	os:easting "485599.21"^^xsd:double ;
+	os:northing "186518.73"^^xsd:double ;
+	is:mileage "2.64"^^xsd:double .
+
+:LocationMilepostWBB281208MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/28/1208-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.7" ;
+	os:easting "489461.54"^^xsd:double ;
+	os:northing "187256.92"^^xsd:double ;
+	is:mileage "28.68"^^xsd:double .
+
+:LocationMilepostMWB2880MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/2/880-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.76" ;
+	os:easting "485844.3"^^xsd:double ;
+	os:northing "186508.25"^^xsd:double ;
+	is:mileage "2.5"^^xsd:double .
+
+:LocationMilepostWBB261320MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/26/1320-MP" ;
+	geo:lat "51.55"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488490.2"^^xsd:double ;
+	os:northing "184372.5"^^xsd:double ;
+	is:mileage "26.75"^^xsd:double .
+
+:LocationMilepostMWB11320MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/1/1320-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.74" ;
+	os:easting "486960"^^xsd:double ;
+	os:northing "186575.7"^^xsd:double ;
+	is:mileage "1.75"^^xsd:double .
+
+:LocationMilepostWBB25880MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/25/880-MP" ;
+	geo:lat "51.53"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488305.01"^^xsd:double ;
+	os:northing "182378.97"^^xsd:double ;
+	is:mileage "25.5"^^xsd:double .
+
+:LocationMilepostWBB28440MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/28/440-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "489077.35"^^xsd:double ;
+	os:northing "186701.5"^^xsd:double ;
+	is:mileage "28.25"^^xsd:double .
+
+:LocationMilepostMWB1880MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/1/880-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.74" ;
+	os:easting "487271"^^xsd:double ;
+	os:northing "186860.5"^^xsd:double ;
+	is:mileage "1.5"^^xsd:double .
+
+:LocationMilepostMWB0109MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/0/109-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.7" ;
+	os:easting "489390.59"^^xsd:double ;
+	os:northing "187211.83"^^xsd:double ;
+	is:mileage "0.06"^^xsd:double .
+
+:LocationMilepostMWB20MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/2/0-MP" ;
+	geo:lat "51.56"^^xsd:double ;
+	geo:long "-0.74" ;
+	os:easting "486625.3"^^xsd:double ;
+	os:northing "186388.7"^^xsd:double ;
+	is:mileage "2"^^xsd:double .
+
+:LocationMilepostWBB24103MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/24/103-MP" ;
+	geo:lat "51.51"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "489042.2"^^xsd:double ;
+	os:northing "180818.31"^^xsd:double ;
+	is:mileage "24.05"^^xsd:double .
+
+:LocationMilepostWBB251320MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/25/1320-MP" ;
+	geo:lat "51.53"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488358.1"^^xsd:double ;
+	os:northing "182777.6"^^xsd:double ;
+	is:mileage "25.75"^^xsd:double .
+
+:LocationMilepostMWB01320MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/0/1320-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488331.8"^^xsd:double ;
+	os:northing "187368"^^xsd:double ;
+	is:mileage "0.75"^^xsd:double .
+
+:LocationMilepostMWB2440MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/2/440-MP" ;
+	geo:lat "51.56"^^xsd:double ;
+	geo:long "-0.75" ;
+	os:easting "486251.11"^^xsd:double ;
+	os:northing "186435.32"^^xsd:double ;
+	is:mileage "2.25"^^xsd:double .
+
+:LocationMilepostMWB0440MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/0/440-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "489124.75"^^xsd:double ;
+	os:northing "187291.45"^^xsd:double ;
+	is:mileage "0.25"^^xsd:double .
+
+:LocationMilepostMWB0880MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/0/880-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "488737.5"^^xsd:double ;
+	os:northing "187410.4"^^xsd:double ;
+	is:mileage "0.5"^^xsd:double .
+
+:LocationMilepostMWB1440MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/1/440-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.73" ;
+	os:easting "487558.1"^^xsd:double ;
+	os:northing "187094.1"^^xsd:double ;
+	is:mileage "1.25"^^xsd:double .
+
+:LocationMilepostWBB241320MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/24/1320-MP" ;
+	geo:lat "51.52"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488292.5"^^xsd:double ;
+	os:northing "181172.5"^^xsd:double ;
+	is:mileage "24.75"^^xsd:double .
+
+:LocationMilepostWBB26880MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/26/880-MP" ;
+	geo:lat "51.54"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488440.1"^^xsd:double ;
+	os:northing "183971.65"^^xsd:double ;
+	is:mileage "26.5"^^xsd:double .
+
+:LocationMilepostWBB27440MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/27/440-MP" ;
+	geo:lat "51.55"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488692.87"^^xsd:double ;
+	os:northing "185145.58"^^xsd:double ;
+	is:mileage "27.25"^^xsd:double .
+
+:LocationMilepostMWB10MP is:elr :LineRefMWB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "MWB/1/0-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.73" ;
+	os:easting "487927.9"^^xsd:double ;
+	os:northing "187289.79"^^xsd:double ;
+	is:mileage "1"^^xsd:double .
+
+:LocationMilepostWBB25440MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/25/440-MP" ;
+	geo:lat "51.52"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488286.35"^^xsd:double ;
+	os:northing "181977.5"^^xsd:double ;
+	is:mileage "25.25"^^xsd:double .
+
+:LocationMilepostWBB280MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/28/0-MP" ;
+	geo:lat "51.56"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "489051.1"^^xsd:double ;
+	os:northing "186301.2"^^xsd:double ;
+	is:mileage "28"^^xsd:double .
+
+:LocationMilepostWBB250MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/25/0-MP" ;
+	geo:lat "51.52"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488301.05"^^xsd:double ;
+	os:northing "181575.55"^^xsd:double ;
+	is:mileage "25"^^xsd:double .
+
+:LocationMilepostWBB271320MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/27/1320-MP" ;
+	geo:lat "51.56"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "488945.5"^^xsd:double ;
+	os:northing "185910.65"^^xsd:double ;
+	is:mileage "27.75"^^xsd:double .
+
+:LocationMilepostWBB26440MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/26/440-MP" ;
+	geo:lat "51.54"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488441.1"^^xsd:double ;
+	os:northing "183573.25"^^xsd:double ;
+	is:mileage "26.25"^^xsd:double .
+
+:LocationMilepostWBB270MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/27/0-MP" ;
+	geo:lat "51.55"^^xsd:double ;
+	geo:long "-0.72" ;
+	os:easting "488602.1"^^xsd:double ;
+	os:northing "184757.52"^^xsd:double ;
+	is:mileage "27"^^xsd:double .
+
+:LocationMilepostWBB27880MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/27/880-MP" ;
+	geo:lat "51.56"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "488831.55"^^xsd:double ;
+	os:northing "185530"^^xsd:double ;
+	is:mileage "27.5"^^xsd:double .
+
+:LocationMilepostWBB28880MP is:elr :LineRefWBB ;
+	a is:MilepostLocation, is:TrackCircuitLocation ;
+	u:id "WBB/28/880-MP" ;
+	geo:lat "51.57"^^xsd:double ;
+	geo:long "-0.71" ;
+	os:easting "489235.05"^^xsd:double ;
+	os:northing "187054.65"^^xsd:double ;
+	is:mileage "28.5"^^xsd:double .

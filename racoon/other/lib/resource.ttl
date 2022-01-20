@@ -1,0 +1,47 @@
+# baseURI: http://railway.bham.ac.uk/resource/
+
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix res:     <http://railway.bham.ac.uk/resource/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+res:  rdf:type owl:Ontology , <http://xmlns.com/foaf/0.1/PersonalProfileDocument> ;
+      <http://xmlns.com/foaf/0.1/maker>
+              <http://www.jtutcher.co.uk/resource/#JonTutcher> ;
+      <http://xmlns.com/foaf/0.1/primaryTopic>
+              <http://www.jtutcher.co.uk/resource/#JonTutcher> .
+
+<http://www.jtutcher.co.uk/resource/#JonTutcher>
+      rdf:type <http://xmlns.com/foaf/0.1/Person> ;
+      <http://xmlns.com/foaf/0.1/based_near>
+              [ rdf:type <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+                <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                        "52.453" ;
+                <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                        "-1.928"
+              ] ;
+      <http://xmlns.com/foaf/0.1/family_name>
+              "Tutcher" ;
+      <http://xmlns.com/foaf/0.1/givenname>
+              "Jonathan" ;
+      <http://xmlns.com/foaf/0.1/homepage>
+              <http://www.jtutcher.co.uk/> ;
+      <http://xmlns.com/foaf/0.1/mbox>
+              <mailto:jon@jtutcher.co.uk> ;
+      <http://xmlns.com/foaf/0.1/mbox_sha1sum>
+              "60b75e87bb11bbd934755e11723d34716e3abac9" ;
+      <http://xmlns.com/foaf/0.1/name>
+              "Jonathan Tutcher" ;
+      <http://xmlns.com/foaf/0.1/nick>
+              "Jon" ;
+      <http://xmlns.com/foaf/0.1/phone>
+              <tel:+44-0121-414-7522> ;
+      <http://xmlns.com/foaf/0.1/schoolHomepage>
+              <http://www.birmingham.ac.uk/> ;
+      <http://xmlns.com/foaf/0.1/title>
+              "Mr" ;
+      <http://xmlns.com/foaf/0.1/workInfoHomepage>
+              <http://postgrad.eee.bham.ac.uk/tutcherj/> ;
+      <http://xmlns.com/foaf/0.1/workplaceHomepage>
+              <http://www.birmingham.ac.uk/research/activity/railway/> .

@@ -1,0 +1,182 @@
+# baseURI: http://example.org/rb
+# imports: http://purl.org/dc/terms/
+# imports: http://xmlns.com/foaf/0.1/
+# prefix: rb
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rb: <http://example.org/rb#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/rb>
+  rdf:type owl:Ontology ;
+  owl:imports dcterms: ;
+  owl:imports foaf: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+rb:AnnexII
+  rdf:type owl:Class ;
+  rdfs:label "Directive 2016/798" ;
+  rdfs:subClassOf rb:NationalSafetyRules ;
+.
+rb:ControlCommandAndSignallingTSI
+  rdf:type owl:Class ;
+  rdfs:label "Control Command and Signalling TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:EnergyTSI
+  rdf:type owl:Class ;
+  rdfs:label "Energy TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:GBNationalOperationsPublications
+  rdf:type owl:Class ;
+  rdfs:comment """The National Operations Publications comprise:
+
+The Rule Book (GE/RT8000) - this is available as an app.  You can access Rule Book modules by clicking on the blue 'Rule Book' tab in the middle of the screen on the Standards Catalogue.
+The Working Manual for Rail Staff: Freight Train Operations (GO/RT3056)​ (known as the 'white pages') which is used by all staff concerned with the acceptance, planning, handling, conveyance, marshalling, and movement of freight traffic.
+​The Working Manual for Rail Staff: Handling and Carriage of Dangerous Goods (GO/RT3053) ​ (known as the 'pink pages') which is used by all staff concerned with the classification, acceptance, identification, marshalling, movement and loading of dangerous goods.""" ;
+  rdfs:label "National Operations Publications" ;
+  rdfs:subClassOf owl:Thing ;
+.
+rb:GE_RT8000
+  rdf:type owl:Class ;
+  rb:hasURI "https://www.rssb.co.uk/railway-group-standards#Default=%7B%22k%22%3A%22%22%2C%22r%22%3A%5B%7B%22n%22%3A%22rgsolDocumentStatus%22%2C%22t%22%3A%5B%22%5C%22ǂǂ4c697665%5C%22%22%5D%2C%22o%22%3A%22OR%22%2C%22k%22%3Afalse%2C%22m%22%3A%7B%22%5C%22ǂǂ4c697665%5C%22%22%3A%22Live%22%7D%7D%2C%7B%22n%22%3A%22rgsolDocumentContentType%22%2C%22t%22%3A%5B%22%5C%22ǂǂ52756c6520426f6f6b73%5C%22%22%5D%2C%22o%22%3A%22and%22%2C%22k%22%3Afalse%2C%22m%22%3Anull%7D%5D%7D"^^rdf:HTML ;
+  rdfs:comment """The Rule Book (GE/RT8000)
+
+The Rule Book is a vital safety document. It comprises a set of modules and handbooks which contain direct instructions for railway staff. It sets out the operational rules for application on the GB mainline railway, which are necessary to enable the safe and timely delivery of people and goods to their destination and to provide the framework to enable safe engineering operations.
+
+GE/RT8000 is availabel as an app.""" ;
+  rdfs:isDefinedBy rb:RSSB ;
+  rdfs:label "GE/RT8000" ;
+  rdfs:subClassOf rb:GBNationalOperationsPublications ;
+.
+rb:GO_RT3053
+  rdf:type owl:Class ;
+  rb:isAlsoKnownAs "Pink pages" ;
+  rdfs:comment "​The Working Manual for Rail Staff: Handling and Carriage of Dangerous Goods (GO/RT3053)" ;
+  rdfs:label "GO/RT3053" ;
+  rdfs:subClassOf rb:GBNationalOperationsPublications ;
+.
+rb:GO_RT3056
+  rdf:type owl:Class ;
+  rb:isAlsoKnownAs "White pages" ;
+  rdfs:comment "The Working Manual for Rail Staff: Freight Train Operations (GO/RT3056)" ;
+  rdfs:label "GO/RT3056" ;
+  rdfs:subClassOf rb:GBNationalOperationsPublications ;
+.
+rb:HeritageRailVehicleStandards
+  rdf:type owl:Class ;
+  rdfs:label "Heritage Rail Vehicle Standards" ;
+  rdfs:subClassOf rb:RailIndustryStandards ;
+.
+rb:InfrastructureTSI
+  rdf:type owl:Class ;
+  rdfs:label "Infrastructure TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:LocomotivesAndPassengerRollingStockTSI
+  rdf:type owl:Class ;
+  rdfs:label "Locomotives and Passenger Rolling Stock TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:NationalSafetyRules
+  rdf:type owl:Class ;
+  rb:hasURI "https://www.rssb.co.uk/standards-and-the-rail-industry/standards-explained/national-safety-rules"^^rdf:HTML ;
+  rdfs:comment """National Safety Rules (NSRs) are common railway safety requirements that are imposed by the government and regulator on those operating the railway.
+
+For the GB mainline railway network, Railway Group Standards (RGSs) are developed by RSSB and agreed by those representing the breadth of the industry through RSSB-managed standards committees. RGSs are imposed on those operating the railway via their licence conditions and some of them contain NSRs.""" ;
+  rdfs:label "National Safety Rules" ;
+  rdfs:subClassOf rb:SafetyRules ;
+.
+rb:NationalTechnicalRules
+  rdf:type owl:Class ;
+  rdfs:comment "National Technical Rules (NTRs) are those rules (standards) which the Interoperability Directive require each Member State to notify in the absence of a Technical Specification for Interoperability (TSI). NTRs are not permitted to supplement the TSIs on performance related issues or repeat requirements mandated by the TSIs." ;
+  rdfs:label "National Technical Rules" ;
+  rdfs:subClassOf rb:TechnicalRules ;
+.
+rb:NoiseTSI
+  rdf:type owl:Class ;
+  rdfs:label "Noise TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:OperationAndTrafficManagementTSI
+  rdf:type owl:Class ;
+  rdfs:label "Operation and Traffic Management TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:PersonsWithReduscedMobilityTSI
+  rdf:type owl:Class ;
+  rdfs:label "Persons with Reduced Mobility TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:RailIndustryStandards
+  rdf:type owl:Class ;
+  rdfs:comment "​​​​​​​​​​​​Rail Industry Standards (RISs) define functional or technical requirements to be met in circumstances where the management of the railway system does not need the use of Railway Group Standards (RGSs). RISs are railway-specific standards: they contain requirements applicable to subsystems, or they set out rules about how subsystems should be operated or managed." ;
+  rdfs:label "Rail Industry Standards" ;
+  rdfs:subClassOf owl:Thing ;
+.
+rb:RailwayRules
+  rdf:type owl:Class ;
+  rdfs:label "Railway Rules" ;
+  rdfs:subClassOf owl:Thing ;
+.
+rb:RollingStockFreightWagonsTSI
+  rdf:type owl:Class ;
+  rdfs:label "Rolling Stock - Freight Wagons TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:SafetyInRailwayTunnelsTSI
+  rdf:type owl:Class ;
+  rdfs:label "Safety in Railway Tunnels TSI" ;
+  rdfs:subClassOf rb:TechnicalSpecificationsForInteroperability ;
+.
+rb:SafetyRules
+  rdf:type owl:Class ;
+  rdfs:label "Safety Rules" ;
+  rdfs:subClassOf rb:RailwayRules ;
+.
+rb:TechnicalRules
+  rdf:type owl:Class ;
+  rdfs:label "Technical Rules" ;
+  rdfs:subClassOf rb:RailwayRules ;
+.
+rb:TechnicalSpecificationsForInteroperability
+  rdf:type owl:Class ;
+  rdfs:comment """​​​​​​​​​​​​​​​​​​​​​​​​Technical Specifications for Interoperability (TSI) define the technical and operational standards which must be met in order to satisfy the ‘essential requirements’ and to ensure the ‘interoperability’ of the European railway system. TSIs also set out expected performance levels.
+
+The essential requirements can be summarised as safety, reliability and availability, health, environmental protection, technical compatibility and accessibility.""" ;
+  rdfs:label "Technical Specifications for Interoperability" ;
+  rdfs:subClassOf owl:Thing ;
+.
+rb:hasComplianceDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:date ;
+.
+rb:hasInForceDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:date ;
+.
+rb:hasIssueDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:date ;
+  owl:equivalentProperty dcterms:issued ;
+.
+rb:hasPublishDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:date ;
+.
+rb:hasURI
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range rdf:HTML ;
+.
+rb:isAlsoKnownAs
+  rdf:type owl:DatatypeProperty ;
+.
+rb:isLive
+  rdf:type owl:DatatypeProperty ;
+  rdfs:range xsd:boolean ;
+.
