@@ -1,5 +1,12 @@
 # Racoon
-The railway core ontologies
+The railway core ontologies, developed by [The Birmingham Centre for Railway Research and Education](https://www.birmingham.ac.uk/research/railway/index.aspx])
+
+In particular the following people have contributed to their development:
+*   https://github.com/jontutcher
+*   https://github.com/Chris-MorrisUK
+*   Dr Jingfu Wei
+
+
 ## Structure
 At the top level there are three related ontologies:
 
